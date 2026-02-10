@@ -1,0 +1,2657 @@
+using UnityEngine;
+using UnityEngine.UIElements;
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
+using System;
+
+/// <summary>
+/// Manages all UI Toolkit documents and provides easy access to UI elements.
+/// This script should be attached to a GameObject with UIDocument components.
+/// </summary>
+public class UIDocumentManager : MonoBehaviour
+{
+    [Header("UI Documents")]
+    [Tooltip("Main HUD document (UI Toolkit). Leave empty when using Hybrid uGUI HUD.")]
+    public UIDocument mainHUDDocument;
+
+    [Header("Hybrid: uGUI Main HUD")]
+    [Tooltip("When set, Main HUD uses uGUI (old Canvas). To use the new UI Toolkit Gameplay HUD, leave this EMPTY and assign Main HUD Document to a UIDocument with GameplayHUD.uxml.")]
+    public MainHUDController mainHUDController;
+    
+    [Tooltip("Property panel document (shown when landing on property)")]
+    public UIDocument propertyPanelDocument;
+    
+    [Tooltip("Jail panel document (shown when in jail)")]
+    public UIDocument jailPanelDocument;
+    
+    [Tooltip("Card panel document (shown when drawing cards)")]
+    public UIDocument cardPanelDocument;
+
+    [Tooltip("Optional. For money-change toast (income/expense). When using Hybrid HUD, assign a UIDocument here so the toast can display.")]
+    public UIDocument moneyToastOverlayDocument;
+
+    [Header("Card panel - icon catalog")]
+    [Tooltip("Assign CardIconCatalog asset (create via Assets > Create > Card Icon Catalog). Used for dynamic card panel icons.")]
+    public CardIconCatalog cardIconCatalog;
+
+    [Header("Scene References")]
+    [Tooltip("TurnManager reference (auto-found if not assigned)")]
+    public TurnManager turnManager;
+    
+    // Main HUD Elements (HUDButton/HUDLabel work with both UI Toolkit and uGUI Hybrid)
+    public HUDButton RollButton { get; private set; }
+    public HUDButton EndTurnButton { get; private set; }
+    public HUDLabel CurrentPlayerText { get; private set; }
+    public HUDLabel DiceText { get; private set; }
+    public HUDLabel WalletText { get; private set; }
+    public HUDLabel BuildingSupplyText { get; private set; }
+    public HUDLabel DoublesIndicatorText { get; private set; }
+    
+    // Main HUD Action Buttons (Build/Sell/Mortgage/Redeem removed; use Manage panel)
+    public HUDButton BuildButton { get; private set; }
+    public HUDButton MenuButton { get; private set; }
+    public HUDButton SellButton { get; private set; }
+    public HUDButton MortgageButton { get; private set; }
+    public HUDButton RedeemButton { get; private set; }
+    public HUDButton ManagePropertiesButton { get; private set; }
+    public HUDButton TradeButton { get; private set; }
+    
+    // Property Panel Elements
+    public VisualElement PropertyPanel { get; private set; }
+    public Label PropertyText { get; private set; }
+    public Button BuyButton { get; private set; }
+    public Button SkipButton { get; private set; }
+    
+    // Jail Panel Elements
+    public VisualElement JailPanel { get; private set; }
+    public Label JailStatusText { get; private set; }
+    public Button PayBailButton { get; private set; }
+    public Button UseCardButton { get; private set; }
+    public Button WaitButton { get; private set; }
+    
+    // Card Panel Elements
+    public VisualElement CardPanel { get; private set; }
+    public VisualElement CardIcon { get; private set; }
+    public Label CardTitleText { get; private set; }
+    public Label CardTopicText { get; private set; }
+    public Label CardDescriptionText { get; private set; }
+    public Button CardOkButton { get; private set; }
+    public Button CardAltButton { get; private set; }
+    private System.Action cardOkHandler;
+    private System.Action cardAltHandler;
+    
+    // Player Info Elements (for displaying all players)
+    public VisualElement Player1Info { get; private set; }
+    public VisualElement Player1Avatar { get; private set; }
+    public Label Player1Name { get; private set; }
+    public Label Player1CharacterName { get; private set; }
+    public Label Player1Money { get; private set; }
+    
+    public VisualElement Player2Info { get; private set; }
+    public VisualElement Player2Avatar { get; private set; }
+    public Label Player2Name { get; private set; }
+    public Label Player2CharacterName { get; private set; }
+    public Label Player2Money { get; private set; }
+    
+    public VisualElement Player3Info { get; private set; }
+    public VisualElement Player3Avatar { get; private set; }
+    public Label Player3Name { get; private set; }
+    public Label Player3CharacterName { get; private set; }
+    public Label Player3Money { get; private set; }
+    
+    public VisualElement Player4Info { get; private set; }
+    public VisualElement Player4Avatar { get; private set; }
+    public Label Player4Name { get; private set; }
+    public Label Player4CharacterName { get; private set; }
+    public Label Player4Money { get; private set; }
+
+    private int activePlayerIndex = -1;
+    private bool activePulseOn = false;
+    private bool activePulseScheduled = false;
+    
+    // Game Over Panel Elements
+    public UIDocument gameOverPanelDocument;
+    public VisualElement GameOverPanel { get; private set; }
+    public Label WinnerNameText { get; private set; }
+    public Label WinnerStatsText { get; private set; }
+    public Button GameOverOkButton { get; private set; }
+    
+    // Trade Panel Elements
+    [Tooltip("Trade panel document (shown when trading)")]
+    public UIDocument tradePanelDocument;
+    public VisualElement TradePanel { get; private set; }
+    public Label TradeTitleText { get; private set; }
+    public Label TradeStatusText { get; private set; }
+    public DropdownField TradeTargetDropdown { get; private set; }
+    public Button TradeOfferButton { get; private set; }
+    public Button TradeShowBoardButton { get; private set; }
+    public Button TradeCancelButton { get; private set; }
+    public Button TradeAcceptButton { get; private set; }
+    public Button TradeRejectButton { get; private set; }
+    public VisualElement TradeResponseButtons { get; private set; }
+    public ScrollView Player1PropertiesList { get; private set; }
+    public ScrollView Player2PropertiesList { get; private set; }
+    public ScrollView Player1CardsList { get; private set; }
+    public ScrollView Player2CardsList { get; private set; }
+    public IntegerField Player1MoneyField { get; private set; }
+    public IntegerField Player2MoneyField { get; private set; }
+    
+    // Legacy property for backward compatibility
+    public Button TradeConfirmButton { get; private set; }
+    
+    // Bankruptcy Panel Elements
+    [Tooltip("Bankruptcy panel document (shown when player goes bankrupt)")]
+    public UIDocument bankruptcyPanelDocument;
+    public VisualElement BankruptcyPanel { get; private set; }
+    public Label BankruptcyTitleText { get; private set; }
+    public Label BankruptcyMessageText { get; private set; }
+    public Label BankruptcyDetailsText { get; private set; }
+    public Button BankruptcyOkButton { get; private set; }
+    
+    // Rent Payment Panel Elements
+    [Tooltip("Rent payment panel document (shown when player pays rent)")]
+    public UIDocument rentPaymentPanelDocument;
+    public VisualElement RentPaymentPanel { get; private set; }
+    public Label RentPaymentTitleText { get; private set; }
+    public Label RentPaymentMessageText { get; private set; }
+    public Label RentPaymentDetailsText { get; private set; }
+    public Button RentPaymentOkButton { get; private set; }
+    
+    // Tile Details Panel Elements
+    [Tooltip("Tile details panel document (shown when clicking on tiles)")]
+    public UIDocument tileDetailsPanelDocument;
+    [Header("Shared Panel Styling")]
+    [Tooltip("Optional glossy header sprite used for all panel headers")]
+    public Sprite uiHeaderGlossSprite;
+    [Tooltip("Legacy glossy header sprite (fallback for Tile Details)")]
+    public Sprite tileDetailsHeaderGlossSprite;
+    [Tooltip("Icon sprite for house (used in Tile Details panel)")]
+    public Sprite tileDetailsHouseIcon;
+    [Tooltip("Icon sprite for hotel (used in Tile Details panel)")]
+    public Sprite tileDetailsHotelIcon;
+
+    public VisualElement TileDetailsPanel { get; private set; }
+    public Label TileDetailsTitleText { get; private set; }
+    public Label TileDetailsNameText { get; private set; }
+    public Label TileDetailsTypeText { get; private set; }
+    public Label TileDetailsPriceText { get; private set; }
+    public Label TileDetailsOwnerText { get; private set; }
+    public Label TileDetailsRentText { get; private set; }
+    public Label TileDetailsBuildingsText { get; private set; }
+    public Label TileDetailsMortgageText { get; private set; }
+    public Label TileDetailsGroupText { get; private set; }
+    public ScrollView TileDetailsRentTable { get; private set; }
+    public VisualElement TileDetailsColorSwatch { get; private set; }
+    public VisualElement TileDetailsHeader { get; private set; }
+    public VisualElement TileDetailsBuildingsIcons { get; private set; }
+    public Button TileDetailsMortgageButton { get; private set; }
+    public Button TileDetailsRedeemButton { get; private set; }
+    public Button TileDetailsCloseButton { get; private set; }
+    public TileInfo CurrentTileDetails { get; private set; }
+
+    [Header("Property Manager Panel")]
+    [Tooltip("Property Manager panel document (Manage Properties - build/sell/mortgage/redeem). Assign PropertyManagerPanel.uxml.")]
+    public UIDocument propertyManagerPanelDocument;
+    public bool IsPropertyManagerPanelOpen { get; private set; }
+    private TileInfo _propertyManagerFocusTile;
+
+    // Money change toast per player (shown under each player's info panel)
+    private const int MaxPlayers = 4;
+    private VisualElement[] _moneyToastRoots = new VisualElement[MaxPlayers];
+    private Label[] _moneyToastLabels = new Label[MaxPlayers];
+    private Label[] _moneyToastReasonLabels = new Label[MaxPlayers];
+    private Coroutine[] _moneyToastRoutines = new Coroutine[MaxPlayers];
+    
+    // Player Statistics Panel Elements
+    [Tooltip("Player statistics panel document (shown when viewing player stats)")]
+    public UIDocument playerStatisticsPanelDocument;
+    public VisualElement PlayerStatisticsPanel { get; private set; }
+    public VisualElement StatisticsCharacterImage { get; private set; }
+    public Label StatisticsTitleText { get; private set; }
+    public Label StatisticsPlayerNameText { get; private set; }
+    public Label StatisticsCharacterNameText { get; private set; }
+    public Label StatisticsMoneyText { get; private set; }
+    public Label StatisticsPropertiesText { get; private set; }
+    public Label StatisticsNetWorthText { get; private set; }
+    public Label StatisticsDetailsText { get; private set; }
+    public Label CharacterBackstoryText { get; private set; }
+    public Label CharacterPerksText { get; private set; }
+    public Label CharacterCastsText { get; private set; }
+    public Button StatisticsCloseButton { get; private set; }
+    
+    void Awake()
+    {
+        // Activate Main HUD GameObject as early as possible (Awake runs before Start)
+        if (mainHUDDocument != null)
+        {
+            // Ensure all parent GameObjects are active
+            Transform parent = mainHUDDocument.transform.parent;
+            while (parent != null)
+            {
+                if (!parent.gameObject.activeSelf)
+                {
+                    parent.gameObject.SetActive(true);
+                }
+                parent = parent.parent;
+            }
+            
+            if (!mainHUDDocument.gameObject.activeSelf)
+            {
+                Debug.LogWarning($"UIDocumentManager: Main HUD GameObject is inactive in Awake! Activating immediately...");
+                mainHUDDocument.gameObject.SetActive(true);
+            }
+            if (!mainHUDDocument.enabled)
+            {
+                Debug.LogWarning($"UIDocumentManager: Main HUD UIDocument is disabled in Awake! Enabling immediately...");
+                mainHUDDocument.enabled = true;
+            }
+        }
+    }
+    
+    void Start()
+    {
+        // #region agent log
+        try {
+            File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.Start:1\",\"message\":\"Start called\",\"data\":{{\"mainHUDDocument\":{(mainHUDDocument != null ? $"\"{mainHUDDocument.gameObject.name}\"" : "null")},\"active\":{(mainHUDDocument != null ? mainHUDDocument.gameObject.activeInHierarchy.ToString().ToLower() : "null")}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H1,H3\"}}\n");
+        } catch {}
+        // #endregion
+        
+        // CRITICAL: Activate Main HUD GameObject FIRST, before anything else (double-check in Start)
+        if (mainHUDDocument != null)
+        {
+            // Ensure all parent GameObjects are active first
+            Transform parent = mainHUDDocument.transform.parent;
+            while (parent != null)
+            {
+                if (!parent.gameObject.activeSelf)
+                {
+                    Debug.LogWarning($"UIDocumentManager: Parent GameObject '{parent.name}' is inactive at Start! Activating...");
+                    parent.gameObject.SetActive(true);
+                }
+                parent = parent.parent;
+            }
+            
+            if (!mainHUDDocument.gameObject.activeSelf)
+            {
+                Debug.LogWarning($"UIDocumentManager: Main HUD GameObject is inactive at Start! Activating immediately...");
+                mainHUDDocument.gameObject.SetActive(true);
+            }
+            if (!mainHUDDocument.gameObject.activeInHierarchy)
+            {
+                Debug.LogError($"UIDocumentManager: Main HUD GameObject is not active in hierarchy at Start! A parent must be inactive.");
+            }
+            if (!mainHUDDocument.enabled)
+            {
+                Debug.LogWarning($"UIDocumentManager: Main HUD UIDocument is disabled at Start! Enabling immediately...");
+                mainHUDDocument.enabled = true;
+            }
+        }
+        
+        if (turnManager == null)
+        {
+            turnManager = FindFirstObjectByType<TurnManager>();
+        }
+
+        InitializeMainHUD();
+        InitializeMoneyToast();
+        InitializePropertyPanel();
+        InitializeJailPanel();
+        InitializeCardPanel();
+        InitializeGameOverPanel();
+        InitializeTradePanel();
+        InitializeBankruptcyPanel();
+        InitializeRentPaymentPanel();
+        InitializeTileDetailsPanel();
+        InitializePropertyManagerPanel();
+        InitializePlayerStatisticsPanel();
+        
+        // Deactivate duplicate HUD documents - DISABLED per user request
+        // DeactivateDuplicateHUDs();
+        
+        // Wait a frame for layout to calculate, then verify HUD is visible
+        StartCoroutine(VerifyHUDVisibleAfterFrame());
+        
+        // #region agent log
+        try {
+            var root = mainHUDDocument != null ? mainHUDDocument.rootVisualElement : null;
+            File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.Start:end\",\"message\":\"After initialization\",\"data\":{{\"mainHUDDoc\":{(mainHUDDocument != null ? $"\"{mainHUDDocument.gameObject.name}\"" : "null")},\"active\":{(mainHUDDocument != null ? mainHUDDocument.gameObject.activeInHierarchy.ToString().ToLower() : "null")},\"enabled\":{(mainHUDDocument != null ? mainHUDDocument.enabled.ToString().ToLower() : "null")},\"root\":{(root != null ? "\"exists\"" : "null")},\"rootDisplay\":{(root != null ? $"\"{root.style.display.value}\"" : "null")}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H1,H2,H3,H6\"}}\n");
+        } catch {}
+        // #endregion
+    }
+    
+    void Update()
+    {
+        // Continuously ensure Main HUD GameObject stays active (but only check every 10 frames to avoid performance issues)
+        if (Time.frameCount % 10 == 0)
+        {
+            EnsureMainHUDActive();
+        }
+    }
+    
+    /// <summary>
+    /// Public method to force activate the Main HUD. Can be called from Inspector or other scripts.
+    /// </summary>
+    [ContextMenu("Force Activate Main HUD")]
+    public void EnsureMainHUDActive()
+    {
+        // Hybrid: when using uGUI HUD, ensure that GameObject is active
+        if (mainHUDController != null)
+        {
+            if (!mainHUDController.gameObject.activeInHierarchy)
+            {
+                mainHUDController.gameObject.SetActive(true);
+            }
+            return;
+        }
+
+        // If mainHUDDocument is null or inactive, try to find it
+        if (mainHUDDocument == null || !mainHUDDocument.gameObject.activeInHierarchy)
+        {
+            Debug.LogWarning("UIDocumentManager: Main HUD Document is null or inactive! Searching for it...");
+            
+            var allDocs = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
+            foreach (var doc in allDocs)
+            {
+                if (doc.visualTreeAsset != null && 
+                    (doc.visualTreeAsset.name.Contains("MainHUD") || doc.visualTreeAsset.name.Contains("MainGameUi")))
+                {
+                    if (doc.gameObject.name.Contains("Main HUD") || doc.gameObject.name.Contains("MainHUD"))
+                    {
+                        mainHUDDocument = doc;
+                        Debug.Log($"UIDocumentManager: Found Main HUD Document: {doc.gameObject.name}");
+                        break;
+                    }
+                }
+            }
+        }
+        
+        if (mainHUDDocument != null)
+        {
+            // Ensure all parent GameObjects are active
+            Transform parent = mainHUDDocument.transform.parent;
+            while (parent != null)
+            {
+                if (!parent.gameObject.activeSelf)
+                {
+                    Debug.LogWarning($"UIDocumentManager: Parent GameObject '{parent.name}' is inactive! Activating...");
+                    parent.gameObject.SetActive(true);
+                }
+                parent = parent.parent;
+            }
+            
+            if (!mainHUDDocument.gameObject.activeSelf)
+            {
+                Debug.LogWarning($"UIDocumentManager: Main HUD GameObject '{mainHUDDocument.gameObject.name}' is inactive! Activating...");
+                mainHUDDocument.gameObject.SetActive(true);
+            }
+            if (!mainHUDDocument.gameObject.activeInHierarchy)
+            {
+                Debug.LogError($"UIDocumentManager: Main HUD GameObject '{mainHUDDocument.gameObject.name}' is not active in hierarchy! This means a parent is inactive.");
+            }
+            if (!mainHUDDocument.enabled)
+            {
+                Debug.LogWarning($"UIDocumentManager: Main HUD UIDocument '{mainHUDDocument.gameObject.name}' is disabled! Enabling...");
+                mainHUDDocument.enabled = true;
+            }
+            
+            // Also ensure root is visible
+            if (mainHUDDocument.rootVisualElement != null)
+            {
+                var root = mainHUDDocument.rootVisualElement;
+                if (root.style.display.value == DisplayStyle.None)
+                {
+                    root.style.display = DisplayStyle.Flex;
+                }
+                root.style.visibility = Visibility.Visible;
+            }
+        }
+        else
+        {
+            Debug.LogError("UIDocumentManager: Could not find Main HUD Document! Please assign it in the Inspector.");
+        }
+    }
+    
+    IEnumerator VerifyHUDVisibleAfterFrame()
+    {
+        yield return null; // Wait one frame for layout to calculate
+
+        if (mainHUDController != null)
+        {
+            if (!mainHUDController.gameObject.activeInHierarchy)
+                mainHUDController.gameObject.SetActive(true);
+            yield break;
+        }
+        
+        if (mainHUDDocument != null)
+        {
+            // CRITICAL: Check and ensure GameObject is still active after frame
+            if (!mainHUDDocument.gameObject.activeInHierarchy)
+            {
+                Debug.LogError($"UIDocumentManager: Main HUD GameObject became INACTIVE after frame! Reactivating...");
+                mainHUDDocument.gameObject.SetActive(true);
+            }
+            if (!mainHUDDocument.enabled)
+            {
+                Debug.LogError($"UIDocumentManager: Main HUD UIDocument became DISABLED after frame! Re-enabling...");
+                mainHUDDocument.enabled = true;
+            }
+            
+            if (mainHUDDocument.rootVisualElement != null)
+            {
+                var root = mainHUDDocument.rootVisualElement;
+                var mainHUD = root.Q<VisualElement>("MainHUD");
+                
+                // Check if element is in hierarchy and has parent
+                bool inHierarchy = root.hierarchy.parent != null;
+                var parent = root.hierarchy.parent;
+                
+                // #region agent log
+                try {
+                    File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                        $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.VerifyHUDVisibleAfterFrame\",\"message\":\"After one frame\",\"data\":{{\"active\":{mainHUDDocument.gameObject.activeInHierarchy.ToString().ToLower()},\"enabled\":{mainHUDDocument.enabled.ToString().ToLower()},\"inHierarchy\":{inHierarchy.ToString().ToLower()},\"hasParent\":{(parent != null ? "true" : "false")},\"rootWidth\":{root.resolvedStyle.width},\"rootHeight\":{root.resolvedStyle.height},\"rootDisplay\":\"{root.style.display.value}\",\"rootPosition\":\"{root.style.position.value}\"}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H3,H4\"}}\n");
+                } catch {}
+                // #endregion
+                
+                // If still NaN, try forcing explicit pixel dimensions as last resort
+                if (float.IsNaN(root.resolvedStyle.width) || float.IsNaN(root.resolvedStyle.height))
+                {
+                    int screenW = Screen.width > 0 ? Screen.width : 1920;
+                    int screenH = Screen.height > 0 ? Screen.height : 1080;
+                    root.style.width = screenW;
+                    root.style.height = screenH;
+                    
+                    // #region agent log
+                    try {
+                        File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                            $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.VerifyHUDVisibleAfterFrame\",\"message\":\"Forced explicit pixel size\",\"data\":{{\"width\":{screenW},\"height\":{screenH}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H4\"}}\n");
+                    } catch {}
+                    // #endregion
+                }
+                
+                // Force visibility one more time after layout calculation
+                root.style.display = DisplayStyle.Flex;
+                root.style.visibility = Visibility.Visible;
+                if (mainHUD != null)
+                {
+                    mainHUD.style.display = DisplayStyle.Flex;
+                    mainHUD.style.visibility = Visibility.Visible;
+                }
+                
+                root.MarkDirtyRepaint();
+            }
+        }
+    }
+    
+    void DeactivateDuplicateHUDs()
+    {
+        // DISABLED - No longer disabling duplicate HUDs per user request
+        // All UIDocuments will remain active and enabled
+        return;
+    }
+    
+    void InitializeMainHUD()
+    {
+        // Hybrid: use uGUI Main HUD when mainHUDController is assigned
+        if (mainHUDController != null)
+        {
+            var bridge = mainHUDController.GetBridge();
+            RollButton = bridge.RollButton;
+            EndTurnButton = bridge.EndTurnButton;
+            BuildButton = bridge.BuildButton;
+            SellButton = bridge.SellButton;
+            TradeButton = bridge.TradeButton;
+            MenuButton = bridge.MenuButton;
+            MortgageButton = bridge.MortgageButton;
+            RedeemButton = bridge.RedeemButton;
+            CurrentPlayerText = bridge.CurrentPlayerText;
+            DiceText = bridge.DiceText;
+            WalletText = bridge.WalletText;
+            BuildingSupplyText = bridge.BuildingSupplyText;
+            DoublesIndicatorText = bridge.DoublesIndicatorText;
+            mainHUDController.BindFeedSoundToggle();
+            mainHUDController.onPlayerProfileClicked.RemoveListener(OnPlayerProfileClicked);
+            mainHUDController.onPlayerProfileClicked.AddListener(OnPlayerProfileClicked);
+            return;
+        }
+
+        // #region agent log
+        try {
+            File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:entry\",\"message\":\"InitializeMainHUD called\",\"data\":{{\"mainHUDDoc\":{(mainHUDDocument != null ? $"\"{mainHUDDocument.gameObject.name}\"" : "null")},\"visualTreeAsset\":{(mainHUDDocument != null && mainHUDDocument.visualTreeAsset != null ? $"\"{mainHUDDocument.visualTreeAsset.name}\"" : "null")},\"active\":{(mainHUDDocument != null ? mainHUDDocument.gameObject.activeInHierarchy.ToString().ToLower() : "null")}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H5,H3\"}}\n");
+        } catch {}
+        // #endregion
+        
+        if (mainHUDDocument == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Main HUD Document not assigned (and no mainHUDController).");
+            // #region agent log
+            try {
+                File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                    $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:null\",\"message\":\"mainHUDDocument is null\",\"data\":{{}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H5\"}}\n");
+            } catch {}
+            // #endregion
+            return;
+        }
+        
+        // CRITICAL: Ensure all parent GameObjects are active first
+        Transform parent = mainHUDDocument.transform.parent;
+        while (parent != null)
+        {
+            if (!parent.gameObject.activeSelf)
+            {
+                Debug.LogError($"UIDocumentManager: Parent GameObject '{parent.name}' is inactive in InitializeMainHUD! Activating...");
+                parent.gameObject.SetActive(true);
+            }
+            parent = parent.parent;
+        }
+        
+        // CRITICAL: Ensure GameObject is active BEFORE trying to access rootVisualElement
+        if (!mainHUDDocument.gameObject.activeSelf)
+        {
+            Debug.LogError($"UIDocumentManager: Main HUD GameObject '{mainHUDDocument.gameObject.name}' is INACTIVE in InitializeMainHUD! Activating now...");
+            mainHUDDocument.gameObject.SetActive(true);
+        }
+        if (!mainHUDDocument.gameObject.activeInHierarchy)
+        {
+            Debug.LogError($"UIDocumentManager: Main HUD GameObject '{mainHUDDocument.gameObject.name}' is not active in hierarchy! A parent must be inactive.");
+        }
+        if (!mainHUDDocument.enabled)
+        {
+            Debug.LogError($"UIDocumentManager: Main HUD UIDocument '{mainHUDDocument.gameObject.name}' is DISABLED in InitializeMainHUD! Enabling now...");
+            mainHUDDocument.enabled = true;
+        }
+        
+        // Verify visual tree asset is assigned
+        if (mainHUDDocument.visualTreeAsset == null)
+        {
+            Debug.LogError($"UIDocumentManager: Main HUD UIDocument '{mainHUDDocument.gameObject.name}' has no visualTreeAsset assigned!");
+        }
+        
+        var root = mainHUDDocument.rootVisualElement;
+        
+        // #region agent log
+        try {
+            File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:root\",\"message\":\"Root element check\",\"data\":{{\"root\":{(root != null ? "\"exists\"" : "null")},\"display\":{(root != null ? $"\"{root.style.display.value}\"" : "null")},\"width\":{(root != null ? root.resolvedStyle.width.ToString() : "null")},\"height\":{(root != null ? root.resolvedStyle.height.ToString() : "null")},\"active\":{mainHUDDocument.gameObject.activeInHierarchy.ToString().ToLower()},\"enabled\":{mainHUDDocument.enabled.ToString().ToLower()}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H1,H2,H3,H4,H6\"}}\n");
+        } catch {}
+        // #endregion
+        
+        if (root == null)
+        {
+            Debug.LogError("UIDocumentManager: Main HUD rootVisualElement is null! UIDocument may not be initialized yet.");
+            // #region agent log
+            try {
+                File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                    $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:rootNull\",\"message\":\"Root is null\",\"data\":{{\"active\":{mainHUDDocument.gameObject.activeInHierarchy.ToString().ToLower()},\"enabled\":{mainHUDDocument.enabled.ToString().ToLower()}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H6\"}}\n");
+            } catch {}
+            // #endregion
+            return;
+        }
+        
+        // Immediately ensure root is visible
+        root.style.display = DisplayStyle.Flex;
+        root.style.visibility = Visibility.Visible;
+        
+        // #region agent log
+        try {
+            File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:afterSetDisplay\",\"message\":\"After setting display\",\"data\":{{\"display\":\"{root.style.display.value}\",\"visibility\":\"{root.style.visibility.value}\",\"width\":{root.resolvedStyle.width},\"height\":{root.resolvedStyle.height}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H1,H4\"}}\n");
+        } catch {}
+        // #endregion
+        
+        // Also ensure the MainHUD child element is visible
+        var mainHUDElement = root.Q<VisualElement>("MainHUD");
+        if (mainHUDElement != null)
+        {
+            mainHUDElement.style.display = DisplayStyle.Flex;
+            mainHUDElement.style.visibility = Visibility.Visible;
+            
+            // #region agent log
+            try {
+                File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                    $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:mainHUDElement\",\"message\":\"MainHUD element found and set visible\",\"data\":{{\"display\":\"{mainHUDElement.style.display.value}\",\"visibility\":\"{mainHUDElement.style.visibility.value}\"}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H8\"}}\n");
+            } catch {}
+            // #endregion
+        }
+        else
+        {
+            // #region agent log
+            try {
+                File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                    $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:mainHUDElement\",\"message\":\"MainHUD element NOT found\",\"data\":{{}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H8\"}}\n");
+            } catch {}
+            // #endregion
+        }
+        
+        RollButton = HUDButton.FromUIToolkit(root.Q<Button>("RollButton"));
+        EndTurnButton = HUDButton.FromUIToolkit(root.Q<Button>("EndTurnButton"));
+        CurrentPlayerText = HUDLabel.FromUIToolkit(root.Q<Label>("CurrentPlayerText"));
+        DiceText = HUDLabel.FromUIToolkit(root.Q<Label>("DiceText"));
+        WalletText = HUDLabel.FromUIToolkit(root.Q<Label>("WalletText"));
+        
+        // Action buttons from main UI (Manage replaces Build/Sell/Mortgage/Redeem)
+        BuildButton = null;
+        SellButton = null;
+        MortgageButton = null;
+        RedeemButton = null;
+        ManagePropertiesButton = HUDButton.FromUIToolkit(root.Q<Button>("ManagePropertiesButton"));
+        MenuButton = HUDButton.FromUIToolkit(root.Q<Button>("MenuButton"));
+        TradeButton = HUDButton.FromUIToolkit(root.Q<Button>("TradeButton"));
+        BuildingSupplyText = HUDLabel.FromUIToolkit(root.Q<Label>("BuildingSupplyText"));
+        DoublesIndicatorText = HUDLabel.FromUIToolkit(root.Q<Label>("DoublesIndicatorText"));
+        
+        // Feed sound toggle (next to Live Feed)
+        var feedSoundToggle = root.Q<Toggle>("FeedSoundToggle");
+        if (feedSoundToggle != null)
+        {
+            var soundMgr = FindFirstObjectByType<GameSoundManager>();
+            if (soundMgr != null)
+            {
+                feedSoundToggle.value = soundMgr.FeedSoundEnabled;
+                feedSoundToggle.RegisterValueChangedCallback(evt =>
+                {
+                    soundMgr.FeedSoundEnabled = evt.newValue;
+                });
+            }
+        }
+        
+        // Player info elements
+        Player1Info = root.Q<VisualElement>("Player1Info");
+        Player1Avatar = root.Q<VisualElement>("Player1Avatar");
+        Player1Name = root.Q<Label>("Player1Name");
+        Player1CharacterName = root.Q<Label>("Player1CharacterName");
+        Player1Money = root.Q<Label>("Player1Money");
+        
+        Player2Info = root.Q<VisualElement>("Player2Info");
+        Player2Avatar = root.Q<VisualElement>("Player2Avatar");
+        Player2Name = root.Q<Label>("Player2Name");
+        Player2CharacterName = root.Q<Label>("Player2CharacterName");
+        Player2Money = root.Q<Label>("Player2Money");
+        
+        Player3Info = root.Q<VisualElement>("Player3Info");
+        Player3Avatar = root.Q<VisualElement>("Player3Avatar");
+        Player3Name = root.Q<Label>("Player3Name");
+        Player3CharacterName = root.Q<Label>("Player3CharacterName");
+        Player3Money = root.Q<Label>("Player3Money");
+        
+        Player4Info = root.Q<VisualElement>("Player4Info");
+        Player4Avatar = root.Q<VisualElement>("Player4Avatar");
+        Player4Name = root.Q<Label>("Player4Name");
+        Player4CharacterName = root.Q<Label>("Player4CharacterName");
+        Player4Money = root.Q<Label>("Player4Money");
+        
+        // Click on player info row opens profile (stats + character)
+        if (Player1Info != null) Player1Info.RegisterCallback<ClickEvent>(evt => OnPlayerProfileClicked(0));
+        if (Player2Info != null) Player2Info.RegisterCallback<ClickEvent>(evt => OnPlayerProfileClicked(1));
+        if (Player3Info != null) Player3Info.RegisterCallback<ClickEvent>(evt => OnPlayerProfileClicked(2));
+        if (Player4Info != null) Player4Info.RegisterCallback<ClickEvent>(evt => OnPlayerProfileClicked(3));
+        
+        // CRITICAL for mobile: SafeAreaSpacer is full-screen. USS "pointer-events: none" is NOT supported
+        // by Unity UI Toolkit, so it was blocking all touches on the HUD. Set pickingMode to Ignore in code.
+        var safeAreaSpacer = root.Q<VisualElement>("SafeAreaSpacer");
+        if (safeAreaSpacer == null && mainHUDElement != null)
+            safeAreaSpacer = mainHUDElement.Q<VisualElement>("SafeAreaSpacer");
+        if (safeAreaSpacer != null)
+            safeAreaSpacer.pickingMode = PickingMode.Ignore;
+        
+        // Ensure interactive elements can receive pointer/touch events (UI Toolkit only; uGUI handled by Canvas)
+        var rollUitk = root.Q<UnityEngine.UIElements.Button>("RollButton");
+        if (rollUitk != null) rollUitk.pickingMode = PickingMode.Position;
+        var buildUitk = root.Q<UnityEngine.UIElements.Button>("BuildButton");
+        if (buildUitk != null) buildUitk.pickingMode = PickingMode.Position;
+        var menuUitk = root.Q<UnityEngine.UIElements.Button>("MenuButton");
+        if (menuUitk != null) menuUitk.pickingMode = PickingMode.Position;
+        var sellUitk = root.Q<UnityEngine.UIElements.Button>("SellButton");
+        if (sellUitk != null) sellUitk.pickingMode = PickingMode.Position;
+        var mortgageUitk = root.Q<UnityEngine.UIElements.Button>("MortgageButton");
+        if (mortgageUitk != null) mortgageUitk.pickingMode = PickingMode.Position;
+        var redeemUitk = root.Q<UnityEngine.UIElements.Button>("RedeemButton");
+        if (redeemUitk != null) redeemUitk.pickingMode = PickingMode.Position;
+        var tradeUitk = root.Q<UnityEngine.UIElements.Button>("TradeButton");
+        if (tradeUitk != null) tradeUitk.pickingMode = PickingMode.Position;
+        var endTurnUitk = root.Q<UnityEngine.UIElements.Button>("EndTurnButton");
+        if (endTurnUitk != null) endTurnUitk.pickingMode = PickingMode.Position;
+        
+        // Verify all elements were found
+        if (RollButton == null) Debug.LogWarning("RollButton not found in MainHUD!");
+        if (EndTurnButton == null) Debug.LogWarning("EndTurnButton not found in MainHUD!");
+        if (CurrentPlayerText == null) Debug.LogWarning("CurrentPlayerText not found in MainHUD!");
+        if (DiceText == null) Debug.LogWarning("DiceText not found in MainHUD!");
+        if (WalletText == null) Debug.LogWarning("WalletText not found in MainHUD!");
+        if (ManagePropertiesButton == null) Debug.LogWarning("ManagePropertiesButton not found in MainHUD!");
+
+        if (mainHUDDocument.panelSettings != null)
+        {
+            var ps = mainHUDDocument.panelSettings;
+            // #region agent log
+            try {
+                File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                    $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:panelSettings\",\"message\":\"PanelSettings check\",\"data\":{{\"sortingOrder\":{ps.sortingOrder},\"scaleMode\":\"{ps.scaleMode},\"referenceResolution\":\"{ps.referenceResolution.x}x{ps.referenceResolution.y}\"}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H7\"}}\n");
+            } catch {}
+            // #endregion
+            
+            // Force ScaleWithScreenSize and set reference resolution to actual screen size
+            ps.scaleMode = PanelScaleMode.ScaleWithScreenSize;
+            int refWidth = Screen.width > 0 ? Screen.width : 1920;
+            int refHeight = Screen.height > 0 ? Screen.height : 1080;
+            ps.referenceResolution = new Vector2Int(refWidth, refHeight);
+            ps.match = 0.5f;
+            
+            // #region agent log
+            try {
+                File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                    $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:panelSettingsSet\",\"message\":\"PanelSettings configured\",\"data\":{{\"scaleMode\":\"{ps.scaleMode}\",\"referenceResolution\":\"{ps.referenceResolution.x}x{ps.referenceResolution.y}\",\"screenSize\":\"{Screen.width}x{Screen.height}\",\"sortingOrder\":{ps.sortingOrder}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H7\"}}\n");
+            } catch {}
+            // #endregion
+            
+            // Ensure sort order is high enough to be visible
+            if (ps.sortingOrder < 100)
+            {
+                ps.sortingOrder = 100;
+                Debug.Log($"UIDocumentManager: Set Main HUD PanelSettings sorting order to {ps.sortingOrder}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("UIDocumentManager: Main HUD PanelSettings is null! This may cause visibility issues.");
+            // #region agent log
+            try {
+                File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                    $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:panelSettings\",\"message\":\"PanelSettings is null\",\"data\":{{}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H7\"}}\n");
+            } catch {}
+            // #endregion
+        }
+
+        // Fix root element sizing - With absolute positioning and all edges set to 0,
+        // the element should automatically fill the screen without explicit width/height
+        root.style.position = Position.Absolute;
+        root.style.left = 0;
+        root.style.top = 0;
+        root.style.right = 0;
+        root.style.bottom = 0;
+        
+        // Don't set explicit width/height - let absolute positioning handle it
+        // This avoids NaN issues when the layout hasn't calculated yet
+        
+        // #region agent log
+        try {
+            File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:setSize\",\"message\":\"Set absolute positioning\",\"data\":{{\"screenWidth\":{Screen.width},\"screenHeight\":{Screen.height},\"position\":\"absolute\",\"edges\":\"all 0\"}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H4\"}}\n");
+        } catch {}
+        // #endregion
+        
+        // Force immediate layout update
+        root.MarkDirtyRepaint();
+        
+        // Schedule a check after layout is calculated
+        root.schedule.Execute(() =>
+        {
+            // #region agent log
+            try {
+                var mainHUD = root.Q<VisualElement>("MainHUD");
+                File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                    $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:afterSizeSet\",\"message\":\"After setting size (scheduled)\",\"data\":{{\"width\":{root.resolvedStyle.width},\"height\":{root.resolvedStyle.height},\"display\":\"{root.style.display.value}\",\"mainHUD\":{(mainHUD != null ? "\"found\"" : "null")},\"mainHUDWidth\":{(mainHUD != null ? mainHUD.resolvedStyle.width.ToString() : "null")},\"mainHUDHeight\":{(mainHUD != null ? mainHUD.resolvedStyle.height.ToString() : "null")}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H4,H8\"}}\n");
+            } catch {}
+            // #endregion
+        });
+        
+        // Force a layout recalculation after PanelSettings change
+        root.schedule.Execute(() =>
+        {
+            // Ensure visibility is maintained
+            root.style.display = DisplayStyle.Flex;
+            root.style.visibility = Visibility.Visible;
+            
+            // Also ensure MainHUD child element is visible
+            var mainHUDElement = root.Q<VisualElement>("MainHUD");
+            if (mainHUDElement != null)
+            {
+                mainHUDElement.style.display = DisplayStyle.Flex;
+                mainHUDElement.style.visibility = Visibility.Visible;
+                // Re-apply SafeAreaSpacer pickingMode (critical for mobile touch)
+                var spacer = mainHUDElement.Q<VisualElement>("SafeAreaSpacer");
+                if (spacer != null) spacer.pickingMode = PickingMode.Ignore;
+            }
+            
+            // Ensure position is still set correctly
+            root.style.position = Position.Absolute;
+            root.style.left = 0;
+            root.style.top = 0;
+            root.style.right = 0;
+            root.style.bottom = 0;
+            root.MarkDirtyRepaint();
+            
+            // #region agent log
+            try {
+                File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
+                    $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.InitializeMainHUD:scheduled\",\"message\":\"Scheduled callback executed\",\"data\":{{\"display\":\"{root.style.display.value}\",\"width\":{root.resolvedStyle.width},\"height\":{root.resolvedStyle.height},\"mainHUDElement\":{(mainHUDElement != null ? "\"found\"" : "null")}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H1,H4,H8\"}}\n");
+            } catch {}
+            // #endregion
+        });
+    }
+
+    void InitializeMoneyToast()
+    {
+        if (mainHUDDocument != null && mainHUDDocument.rootVisualElement != null)
+        {
+            var root = mainHUDDocument.rootVisualElement;
+            string[] laneNames = { "Player1MoneyChangeLane", "Player2MoneyChangeLane", "Player3MoneyChangeLane", "Player4MoneyChangeLane" };
+            for (int i = 0; i < MaxPlayers && i < laneNames.Length; i++)
+            {
+                var lane = root.Q<VisualElement>(laneNames[i]);
+                if (lane == null) continue;
+                var toastRoot = new VisualElement();
+                toastRoot.name = "MoneyChangeToast_" + (i + 1);
+                toastRoot.pickingMode = PickingMode.Ignore;
+                toastRoot.style.alignItems = Align.Center;
+                toastRoot.style.justifyContent = Justify.Center;
+                toastRoot.style.paddingTop = 6;
+                toastRoot.style.paddingBottom = 6;
+                toastRoot.style.paddingLeft = 12;
+                toastRoot.style.paddingRight = 12;
+                toastRoot.style.backgroundColor = new Color(0.1f, 0.1f, 0.15f, 0.92f);
+                toastRoot.style.borderTopWidth = 1;
+                toastRoot.style.borderBottomWidth = 1;
+                toastRoot.style.borderLeftWidth = 1;
+                toastRoot.style.borderRightWidth = 1;
+                toastRoot.style.borderTopColor = new Color(0.8f, 0.7f, 0.3f, 1f);
+                toastRoot.style.borderBottomColor = new Color(0.8f, 0.7f, 0.3f, 1f);
+                toastRoot.style.borderLeftColor = new Color(0.8f, 0.7f, 0.3f, 1f);
+                toastRoot.style.borderRightColor = new Color(0.8f, 0.7f, 0.3f, 1f);
+                toastRoot.style.display = DisplayStyle.None;
+                var label = new Label();
+                label.style.fontSize = 24;
+                label.style.unityFontStyleAndWeight = FontStyle.Bold;
+                toastRoot.Add(label);
+                var reasonLabel = new Label();
+                reasonLabel.style.fontSize = 14;
+                reasonLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
+                reasonLabel.style.marginTop = 2;
+                toastRoot.Add(reasonLabel);
+                lane.Add(toastRoot);
+                _moneyToastRoots[i] = toastRoot;
+                _moneyToastLabels[i] = label;
+                _moneyToastReasonLabels[i] = reasonLabel;
+            }
+            return;
+        }
+        if (mainHUDController != null && moneyToastOverlayDocument != null && moneyToastOverlayDocument.rootVisualElement != null)
+        {
+            var root = moneyToastOverlayDocument.rootVisualElement;
+            var toastRoot = new VisualElement();
+            toastRoot.name = "MoneyChangeToast";
+            toastRoot.pickingMode = PickingMode.Ignore;
+            toastRoot.style.position = Position.Absolute;
+            toastRoot.style.left = Length.Percent(50);
+            toastRoot.style.top = 80;
+            toastRoot.style.translate = new Translate(Length.Percent(-50), 0);
+            toastRoot.style.alignItems = Align.Center;
+            toastRoot.style.justifyContent = Justify.Center;
+            toastRoot.style.minWidth = 280;
+            toastRoot.style.paddingTop = 12;
+            toastRoot.style.paddingBottom = 12;
+            toastRoot.style.paddingLeft = 24;
+            toastRoot.style.paddingRight = 24;
+            toastRoot.style.backgroundColor = new Color(0.1f, 0.1f, 0.15f, 0.92f);
+            toastRoot.style.borderTopWidth = 2;
+            toastRoot.style.borderBottomWidth = 2;
+            toastRoot.style.borderLeftWidth = 2;
+            toastRoot.style.borderRightWidth = 2;
+            toastRoot.style.borderTopColor = new Color(0.8f, 0.7f, 0.3f, 1f);
+            toastRoot.style.borderBottomColor = new Color(0.8f, 0.7f, 0.3f, 1f);
+            toastRoot.style.borderLeftColor = new Color(0.8f, 0.7f, 0.3f, 1f);
+            toastRoot.style.borderRightColor = new Color(0.8f, 0.7f, 0.3f, 1f);
+            toastRoot.style.display = DisplayStyle.None;
+            var label = new Label();
+            label.style.fontSize = 36;
+            label.style.unityFontStyleAndWeight = FontStyle.Bold;
+            toastRoot.Add(label);
+            var reasonLabel = new Label();
+            reasonLabel.style.fontSize = 22;
+            reasonLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
+            reasonLabel.style.marginTop = 4;
+            toastRoot.Add(reasonLabel);
+            root.Add(toastRoot);
+            _moneyToastRoots[0] = toastRoot;
+            _moneyToastLabels[0] = label;
+            _moneyToastReasonLabels[0] = reasonLabel;
+        }
+    }
+
+    /// <summary>Show a brief visual under the given player's info when their money changes (pay or receive).</summary>
+    public void ShowMoneyChange(int playerIndex, int amount, bool isIncome, string reason = null)
+    {
+        if (amount <= 0) return;
+        int i = playerIndex >= 0 && playerIndex < MaxPlayers ? playerIndex : 0;
+        if (_moneyToastRoots[i] == null || _moneyToastLabels[i] == null) return;
+
+        if (_moneyToastRoutines[i] != null)
+            StopCoroutine(_moneyToastRoutines[i]);
+
+        string sign = isIncome ? "+" : "−";
+        _moneyToastLabels[i].text = $"{sign}₦{amount:N0}";
+        _moneyToastLabels[i].style.color = isIncome ? new Color(0.3f, 0.9f, 0.4f) : new Color(1f, 0.45f, 0.4f);
+        if (_moneyToastReasonLabels[i] != null)
+        {
+            _moneyToastReasonLabels[i].text = !string.IsNullOrEmpty(reason) ? reason : (isIncome ? "Money received" : "Money paid");
+            _moneyToastReasonLabels[i].style.display = DisplayStyle.Flex;
+        }
+
+        if (GameSoundManager.Instance != null)
+        {
+            if (isIncome) GameSoundManager.Instance.PlayMoneyIn();
+            else GameSoundManager.Instance.PlayMoneyOut();
+            GameSoundManager.Instance.NotifyActivity();
+        }
+
+        _moneyToastRoutines[i] = StartCoroutine(AnimateMoneyToast(i));
+    }
+
+    /// <summary>Backward compatibility: show money change for player 0 (e.g. current player). Prefer ShowMoneyChange(playerIndex, ...).</summary>
+    public void ShowMoneyChange(int amount, bool isIncome, string reason = null)
+    {
+        ShowMoneyChange(0, amount, isIncome, reason);
+    }
+
+    IEnumerator AnimateMoneyToast(int playerIndex)
+    {
+        int i = playerIndex >= 0 && playerIndex < MaxPlayers ? playerIndex : 0;
+        VisualElement toastRoot = _moneyToastRoots[i];
+        if (toastRoot == null) { _moneyToastRoutines[i] = null; yield break; }
+        toastRoot.style.display = DisplayStyle.Flex;
+        toastRoot.style.opacity = 0f;
+
+        float durationIn = 0.25f;
+        float t = 0f;
+        while (t < durationIn)
+        {
+            t += Time.deltaTime;
+            float a = Mathf.Clamp01(t / durationIn);
+            toastRoot.style.opacity = a;
+            yield return null;
+        }
+        toastRoot.style.opacity = 1f;
+
+        yield return new WaitForSeconds(1.8f);
+
+        float durationOut = 0.2f;
+        t = 0f;
+        while (t < durationOut)
+        {
+            t += Time.deltaTime;
+            float a = 1f - Mathf.Clamp01(t / durationOut);
+            toastRoot.style.opacity = a;
+            yield return null;
+        }
+        toastRoot.style.display = DisplayStyle.None;
+        toastRoot.style.opacity = 1f;
+        _moneyToastRoutines[i] = null;
+    }
+    
+    void InitializePropertyPanel()
+    {
+        if (propertyPanelDocument == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Property Panel Document not assigned!");
+            return;
+        }
+        
+        var root = propertyPanelDocument.rootVisualElement;
+        PropertyPanel = root.Q<VisualElement>("PropertyPanel");
+        PropertyText = root.Q<Label>("PropertyText");
+        BuyButton = root.Q<Button>("BuyButton");
+        SkipButton = root.Q<Button>("SkipButton");
+        
+        ApplyHeaderGloss(root, "PropertyHeader");
+        
+        if (root != null)
+        {
+            root.style.display = DisplayStyle.None;
+            root.pickingMode = PickingMode.Position;
+        }
+        else
+            Debug.LogWarning("PropertyPanel root not found!");
+        if (BuyButton != null) BuyButton.pickingMode = PickingMode.Position;
+        if (SkipButton != null) SkipButton.pickingMode = PickingMode.Position;
+    }
+    
+    void InitializeJailPanel()
+    {
+        if (jailPanelDocument == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Jail Panel Document not assigned!");
+            return;
+        }
+        
+        var root = jailPanelDocument.rootVisualElement;
+        JailPanel = root.Q<VisualElement>("JailPanel");
+        JailStatusText = root.Q<Label>("JailStatusText");
+        PayBailButton = root.Q<Button>("PayBailButton");
+        UseCardButton = root.Q<Button>("UseCardButton");
+        WaitButton = root.Q<Button>("WaitButton");
+        
+        ApplyHeaderGloss(root, "JailHeader");
+        
+        // Hide entire document root by default
+        if (root != null)
+            root.style.display = DisplayStyle.None;
+        else
+            Debug.LogWarning("JailPanel root not found!");
+    }
+    
+    void InitializeCardPanel()
+    {
+        if (cardPanelDocument == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Card Panel Document not assigned!");
+            return;
+        }
+        
+        // Ensure GameObject is active
+        if (!cardPanelDocument.gameObject.activeInHierarchy)
+        {
+            cardPanelDocument.gameObject.SetActive(true);
+        }
+        if (!cardPanelDocument.enabled)
+        {
+            cardPanelDocument.enabled = true;
+        }
+        
+        // Ensure card panel renders on top of Main HUD when shown (HUD uses 100)
+        if (cardPanelDocument.panelSettings != null && cardPanelDocument.panelSettings.sortingOrder < 150)
+        {
+            cardPanelDocument.panelSettings.sortingOrder = 150;
+        }
+        var root = cardPanelDocument.rootVisualElement;
+        CardPanel = root.Q<VisualElement>("CardPanel");
+        CardIcon = root.Q<VisualElement>("CardIcon");
+        CardTitleText = root.Q<Label>("CardTitleText");
+        CardTopicText = root.Q<Label>("CardTopicText");
+        CardDescriptionText = root.Q<Label>("CardDescriptionText");
+        CardOkButton = root.Q<Button>("CardOkButton");
+        CardAltButton = root.Q<Button>("CardAltButton");
+        
+        // Ensure button is visible and enabled
+        if (CardOkButton != null)
+        {
+            CardOkButton.style.display = DisplayStyle.Flex;
+            CardOkButton.SetEnabled(true);
+        }
+        if (CardAltButton != null)
+        {
+            CardAltButton.style.display = DisplayStyle.None;
+            CardAltButton.SetEnabled(true);
+        }
+        else
+        {
+            Debug.LogError("UIDocumentManager: CardOkButton not found in CardPanel!");
+        }
+        
+        ApplyHeaderGloss(root, "CardHeader");
+        
+        if (root != null)
+        {
+            root.style.display = DisplayStyle.None;
+            root.pickingMode = PickingMode.Position;
+        }
+        else
+            Debug.LogWarning("CardPanel root not found!");
+        if (CardOkButton != null) CardOkButton.pickingMode = PickingMode.Position;
+        if (CardAltButton != null) CardAltButton.pickingMode = PickingMode.Position;
+    }
+    
+    // Helper methods for showing/hiding panels
+    // Note: We hide/show the entire document root, not just the panel element
+    public void ShowPropertyPanel() 
+    { 
+        if (propertyPanelDocument != null && propertyPanelDocument.rootVisualElement != null)
+        {
+            propertyPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+            if (propertyPanelDocument.transform != null)
+                propertyPanelDocument.transform.SetAsLastSibling();
+        }
+    }
+    
+    public void HidePropertyPanel() 
+    { 
+        if (propertyPanelDocument != null && propertyPanelDocument.rootVisualElement != null)
+            propertyPanelDocument.rootVisualElement.style.display = DisplayStyle.None; 
+    }
+    
+    public void ShowJailPanel() 
+    { 
+        if (jailPanelDocument != null && jailPanelDocument.rootVisualElement != null)
+            jailPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex; 
+    }
+    
+    public void HideJailPanel() 
+    { 
+        if (jailPanelDocument != null && jailPanelDocument.rootVisualElement != null)
+            jailPanelDocument.rootVisualElement.style.display = DisplayStyle.None; 
+    }
+    
+    public void ShowCardPanel() 
+    { 
+        if (cardPanelDocument == null)
+        {
+            Debug.LogError("UIDocumentManager: CardPanelDocument is null! Cannot show card panel.");
+            return;
+        }
+        
+        // Ensure GameObject is active
+        if (!cardPanelDocument.gameObject.activeInHierarchy)
+        {
+            cardPanelDocument.gameObject.SetActive(true);
+        }
+        if (!cardPanelDocument.enabled)
+        {
+            cardPanelDocument.enabled = true;
+        }
+        
+        if (cardPanelDocument.rootVisualElement != null)
+        {
+            var root = cardPanelDocument.rootVisualElement;
+            root.style.display = DisplayStyle.Flex;
+            root.style.visibility = Visibility.Visible;
+            root.style.opacity = 1f;
+            if (cardPanelDocument.panelSettings != null)
+                cardPanelDocument.panelSettings.sortingOrder = 200;
+            if (cardPanelDocument.transform != null)
+                cardPanelDocument.transform.SetAsLastSibling();
+            if (CardOkButton != null)
+            {
+                if (cardOkHandler != null)
+                {
+                    CardOkButton.clicked -= cardOkHandler;
+                    cardOkHandler = null;
+                }
+                CardOkButton.style.display = DisplayStyle.Flex;
+                CardOkButton.SetEnabled(true);
+            }
+            if (CardAltButton != null)
+            {
+                if (cardAltHandler != null)
+                {
+                    CardAltButton.clicked -= cardAltHandler;
+                    cardAltHandler = null;
+                }
+                CardAltButton.style.display = DisplayStyle.None;
+                CardAltButton.SetEnabled(true);
+            }
+        }
+        else
+        {
+            Debug.LogError("UIDocumentManager: CardPanelDocument rootVisualElement is null!");
+        }
+    }
+    
+    public void HideCardPanel() 
+    { 
+        if (cardPanelDocument != null && cardPanelDocument.rootVisualElement != null)
+            cardPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+
+    public void ShowChoiceCard(string title, string description, string okText, string altText, System.Action onOk, System.Action onAlt)
+    {
+        ShowCardPanel();
+        if (CardTitleText != null) CardTitleText.text = title ?? "";
+        if (CardTopicText != null) CardTopicText.text = "";
+        if (CardDescriptionText != null) CardDescriptionText.text = description ?? "";
+        ApplyCardTextOverflow();
+
+        if (CardOkButton != null)
+        {
+            CardOkButton.text = string.IsNullOrEmpty(okText) ? "OK" : okText;
+            if (cardOkHandler != null)
+                CardOkButton.clicked -= cardOkHandler;
+            cardOkHandler = onOk;
+            if (cardOkHandler != null)
+                CardOkButton.clicked += cardOkHandler;
+            CardOkButton.style.display = DisplayStyle.Flex;
+            CardOkButton.SetEnabled(true);
+        }
+        if (CardAltButton != null)
+        {
+            CardAltButton.text = string.IsNullOrEmpty(altText) ? "USE" : altText;
+            if (cardAltHandler != null)
+                CardAltButton.clicked -= cardAltHandler;
+            cardAltHandler = onAlt;
+            if (cardAltHandler != null)
+                CardAltButton.clicked += cardAltHandler;
+            CardAltButton.style.display = DisplayStyle.Flex;
+            CardAltButton.SetEnabled(true);
+        }
+    }
+
+    public void SetCardIcon(Sprite icon)
+    {
+        if (CardIcon == null) return;
+        if (icon == null)
+        {
+            CardIcon.style.backgroundImage = StyleKeyword.None;
+            return;
+        }
+        // UI Toolkit needs Texture2D for backgroundImage; Sprite alone can show as missing texture
+        Texture2D texture = SpriteToTexture2D(icon);
+        if (texture != null)
+        {
+            CardIcon.style.backgroundImage = new StyleBackground(texture);
+            CardIcon.style.backgroundSize = new StyleBackgroundSize(new BackgroundSize(BackgroundSizeType.Contain));
+        }
+        else
+            CardIcon.style.backgroundImage = new StyleBackground(icon);
+    }
+
+    /// <summary>Show the card panel in non-interactive mode (no OK/alt buttons). Used for perk reveal animation.</summary>
+    public void SetCardPanelInteractive(bool interactive)
+    {
+        if (CardOkButton != null)
+        {
+            CardOkButton.style.display = interactive ? DisplayStyle.Flex : DisplayStyle.None;
+            CardOkButton.SetEnabled(interactive);
+        }
+        if (CardAltButton != null)
+        {
+            CardAltButton.style.display = interactive ? DisplayStyle.Flex : DisplayStyle.None;
+            CardAltButton.SetEnabled(interactive);
+        }
+    }
+
+    /// <param name="typeTitle">Card type in header: "CHANCE", "COMMUNITY CHEST", or "PERK CARD".</param>
+    /// <param name="topic">Card topic between image and description (e.g. card title like "Pay for street repairs").</param>
+    /// <param name="description">Card description text.</param>
+    void SetCardContent(CardPanelMode mode, string typeTitle, string topic, string description, Sprite icon, bool interactive)
+    {
+        if (CardTitleText != null) CardTitleText.text = typeTitle ?? "";
+        if (CardTopicText != null) CardTopicText.text = topic ?? "";
+        if (CardDescriptionText != null) CardDescriptionText.text = description ?? "";
+        Sprite useIcon = icon;
+        if (useIcon == null && cardIconCatalog != null)
+            useIcon = cardIconCatalog.GetSprite(mode);
+        SetCardIcon(useIcon);
+        SetCardPanelInteractive(interactive);
+        ApplyCardTextOverflow();
+    }
+
+    void ApplyCardTextOverflow()
+    {
+        if (CardTitleText != null) { CardTitleText.style.whiteSpace = WhiteSpace.Normal; CardTitleText.style.overflow = Overflow.Visible; }
+        if (CardTopicText != null) { CardTopicText.style.whiteSpace = WhiteSpace.Normal; CardTopicText.style.overflow = Overflow.Visible; }
+        if (CardDescriptionText != null) { CardDescriptionText.style.whiteSpace = WhiteSpace.Normal; CardDescriptionText.style.overflow = Overflow.Visible; }
+    }
+
+    /// <summary>Unified API: show card with type title (CHANCE/COMMUNITY CHEST/PERK CARD), topic, description, and optional icon.</summary>
+    public void ShowCard(CardPanelMode mode, string typeTitle, string topic, string description, Sprite icon = null, bool interactive = true)
+    {
+        ShowCardPanel();
+        SetCardContent(mode, typeTitle ?? "", topic ?? "", description ?? "", icon, interactive);
+        if (interactive && CardOkButton != null)
+        {
+            if (cardOkHandler != null) CardOkButton.clicked -= cardOkHandler;
+            cardOkHandler = () => HideCardPanel();
+            CardOkButton.clicked += cardOkHandler;
+        }
+    }
+
+    /// <summary>Show a perk card in the dynamic panel. Header = "PERK CARD", topic = perk name, description = perk description.</summary>
+    public void ShowCard(PerkCardInstance perk, bool interactive = true)
+    {
+        if (perk == null) return;
+        Sprite icon = (cardIconCatalog != null) ? cardIconCatalog.GetSprite(perk.type) : null;
+        ShowCard(CardPanelMode.Perk, "PERK CARD", perk.name, perk.description, icon, interactive);
+    }
+
+    /// <summary>Show a Chance or Community Chest card. Header = card type (CHANCE/COMMUNITY CHEST), topic = card title, description = card description. Single "Continue" button only (no USE CARD).</summary>
+    public void ShowCard(Card card, CardDeckType deckType, System.Action onOkClicked = null)
+    {
+        if (card == null) return;
+        string deckLabel = deckType == CardDeckType.Chance ? "CHANCE" : "COMMUNITY CHEST";
+        Debug.Log($"[Card Visuals] Card display requested: \"{card.title}\" ({deckLabel}) — action will be applied when player continues.");
+        ShowCardPanel();
+        CardPanelMode mode = card.isGetOutOfJailFree ? CardPanelMode.GetOutOfJailFree : (deckType == CardDeckType.Chance ? CardPanelMode.Chance : CardPanelMode.CommunityChest);
+        string typeTitle = deckType == CardDeckType.Chance ? "CHANCE" : "COMMUNITY CHEST";
+        if (card.isGetOutOfJailFree) typeTitle = deckType == CardDeckType.Chance ? "CHANCE" : "COMMUNITY CHEST";
+        Sprite icon = (cardIconCatalog != null) ? cardIconCatalog.GetSprite(mode) : null;
+        SetCardContent(mode, typeTitle, card.title, card.description, icon, true);
+        if (CardOkButton != null)
+        {
+            CardOkButton.text = "Continue";
+            if (cardOkHandler != null) CardOkButton.clicked -= cardOkHandler;
+            cardOkHandler = () =>
+            {
+                onOkClicked?.Invoke();
+                HideCardPanel();
+            };
+            CardOkButton.clicked += cardOkHandler;
+        }
+        if (CardAltButton != null)
+        {
+            CardAltButton.style.display = DisplayStyle.None;
+            CardAltButton.SetEnabled(false);
+        }
+        StartCoroutine(VerifyCardDisplayAfterShow(card.title, deckLabel));
+    }
+
+    /// <summary>Verifies that the card panel actually became visible after a show request. Logs a clear message if visuals did not display.</summary>
+    IEnumerator VerifyCardDisplayAfterShow(string cardTitle, string deckLabel)
+    {
+        yield return null;
+        yield return null;
+        bool visible = IsCardPanelActuallyVisible();
+        if (visible)
+            Debug.Log($"[Card Visuals] Card display verified: \"{cardTitle}\" ({deckLabel}) — panel is visible.");
+        else
+            Debug.LogWarning($"[Card Visuals] Card action was logged but VISUALS DID NOT DISPLAY: \"{cardTitle}\" ({deckLabel}). Check: CardPanelDocument assigned on UIDocumentManager, Source Asset = CardPanel.uxml, GameObject and UIDocument enabled, PanelSettings sort order (e.g. 200).");
+    }
+
+    /// <summary>Returns true if the card panel document exists and its root is currently visible (display != None, object active).</summary>
+    public bool IsCardPanelActuallyVisible()
+    {
+        if (cardPanelDocument == null) return false;
+        if (!cardPanelDocument.gameObject.activeInHierarchy || !cardPanelDocument.enabled) return false;
+        var root = cardPanelDocument.rootVisualElement;
+        if (root == null) return false;
+        return root.style.display != DisplayStyle.None;
+    }
+    
+    void InitializeGameOverPanel()
+    {
+        if (gameOverPanelDocument == null)
+        {
+            // Game over panel is optional - don't warn if not assigned
+            return;
+        }
+        
+        var root = gameOverPanelDocument.rootVisualElement;
+        GameOverPanel = root.Q<VisualElement>("GameOverPanel");
+        WinnerNameText = root.Q<Label>("WinnerNameText");
+        WinnerStatsText = root.Q<Label>("WinnerStatsText");
+        GameOverOkButton = root.Q<Button>("GameOverOkButton");
+        
+        ApplyHeaderGloss(root, "GameOverHeader");
+        
+        // Hide entire document root by default
+        if (root != null)
+            root.style.display = DisplayStyle.None;
+    }
+    
+    public void ShowGameOverPanel(Player winner)
+    {
+        if (gameOverPanelDocument == null) return;
+        
+        if (gameOverPanelDocument.rootVisualElement != null)
+            gameOverPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        
+        if (WinnerNameText != null && winner != null)
+        {
+            WinnerNameText.text = $"🏆 {winner.playerName} WINS! 🏆";
+        }
+        
+        if (WinnerStatsText != null && winner != null)
+        {
+            WinnerStatsText.text = $"Final Money: ₦{winner.Money:N0}\n" +
+                                  $"Properties Owned: {winner.GetPropertyCount()}\n" +
+                                  $"Net Worth: ₦{winner.GetNetWorth():N0}";
+        }
+        
+        if (GameOverOkButton != null)
+        {
+            GameOverOkButton.clicked += () => {
+                HideGameOverPanel();
+                // TODO: Could reload scene or return to main menu
+            };
+        }
+    }
+    
+    public void HideGameOverPanel()
+    {
+        if (gameOverPanelDocument != null && gameOverPanelDocument.rootVisualElement != null)
+            gameOverPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+    
+    void InitializeTradePanel()
+    {
+        if (tradePanelDocument == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Trade Panel Document not assigned!");
+            return;
+        }
+        
+        var root = tradePanelDocument.rootVisualElement;
+        TradePanel = root.Q<VisualElement>("TradePanel");
+        TradeTitleText = root.Q<Label>("TradeTitleText");
+        TradeStatusText = root.Q<Label>("TradeStatusText");
+        TradeTargetDropdown = root.Q<DropdownField>("TradeTargetDropdown");
+        TradeOfferButton = root.Q<Button>("TradeOfferButton");
+        TradeShowBoardButton = root.Q<Button>("TradeShowBoardButton");
+        TradeCancelButton = root.Q<Button>("TradeCancelButton");
+        TradeAcceptButton = root.Q<Button>("TradeAcceptButton");
+        TradeRejectButton = root.Q<Button>("TradeRejectButton");
+        TradeResponseButtons = root.Q<VisualElement>("TradeResponseButtons");
+        Player1PropertiesList = root.Q<ScrollView>("Player1PropertiesList");
+        Player2PropertiesList = root.Q<ScrollView>("Player2PropertiesList");
+        Player1CardsList = root.Q<ScrollView>("Player1CardsList");
+        Player2CardsList = root.Q<ScrollView>("Player2CardsList");
+        Player1MoneyField = root.Q<IntegerField>("Player1MoneyField");
+        Player2MoneyField = root.Q<IntegerField>("Player2MoneyField");
+
+        ApplyHeaderGloss(root, "TradeHeader");
+
+        // Legacy alias
+        TradeConfirmButton = TradeOfferButton;
+        
+        // Hide entire document root by default
+        if (root != null)
+            root.style.display = DisplayStyle.None;
+        else
+            Debug.LogWarning("TradePanel root not found!");
+    }
+    
+    void InitializeBankruptcyPanel()
+    {
+        if (bankruptcyPanelDocument == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Bankruptcy Panel Document not assigned!");
+            return;
+        }
+        
+        var root = bankruptcyPanelDocument.rootVisualElement;
+        BankruptcyPanel = root.Q<VisualElement>("BankruptcyPanel");
+        BankruptcyTitleText = root.Q<Label>("BankruptcyTitleText");
+        BankruptcyMessageText = root.Q<Label>("BankruptcyMessageText");
+        BankruptcyDetailsText = root.Q<Label>("BankruptcyDetailsText");
+        BankruptcyOkButton = root.Q<Button>("BankruptcyOkButton");
+        
+        ApplyHeaderGloss(root, "BankruptcyHeader");
+        
+        // Hide entire document root by default
+        if (root != null)
+            root.style.display = DisplayStyle.None;
+        else
+            Debug.LogWarning("BankruptcyPanel root not found!");
+    }
+    
+    public void ShowTradePanel()
+    {
+        if (tradePanelDocument != null && tradePanelDocument.rootVisualElement != null)
+            tradePanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+    }
+    
+    public void HideTradePanel()
+    {
+        if (tradePanelDocument != null && tradePanelDocument.rootVisualElement != null)
+            tradePanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+    
+    /// <summary>
+    /// Show bankruptcy notification panel.
+    /// </summary>
+    public void ShowBankruptcyNotification(Player bankruptPlayer, Player creditor, int debtAmount)
+    {
+        if (bankruptPlayer == null || bankruptcyPanelDocument == null) return;
+        
+        if (bankruptcyPanelDocument.rootVisualElement != null)
+            bankruptcyPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        
+        if (BankruptcyMessageText != null)
+        {
+            BankruptcyMessageText.text = $"⚠️ {bankruptPlayer.playerName} is BANKRUPT!";
+        }
+        
+        if (BankruptcyDetailsText != null)
+        {
+            string details = $"Cannot pay ₦{debtAmount:N0}";
+            if (creditor != null)
+            {
+                details += $"\n\nProperties transferred to {creditor.playerName}";
+            }
+            else
+            {
+                details += "\n\nProperties returned to bank";
+            }
+            BankruptcyDetailsText.text = details;
+        }
+        
+        if (BankruptcyOkButton != null)
+        {
+            BankruptcyOkButton.clicked -= HideBankruptcyPanel; // Remove if already connected
+            BankruptcyOkButton.clicked += HideBankruptcyPanel;
+        }
+        
+        Debug.Log($"=== BANKRUPTCY NOTIFICATION ===");
+        Debug.Log($"{bankruptPlayer.playerName} is bankrupt! Cannot pay ₦{debtAmount:N0}");
+    }
+    
+    public void HideBankruptcyPanel()
+    {
+        if (bankruptcyPanelDocument != null && bankruptcyPanelDocument.rootVisualElement != null)
+            bankruptcyPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+    
+    void InitializeRentPaymentPanel()
+    {
+        if (rentPaymentPanelDocument == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Rent Payment Panel Document not assigned!");
+            return;
+        }
+        
+        var root = rentPaymentPanelDocument.rootVisualElement;
+        RentPaymentPanel = root.Q<VisualElement>("RentPaymentPanel");
+        RentPaymentTitleText = root.Q<Label>("RentPaymentTitleText");
+        RentPaymentMessageText = root.Q<Label>("RentPaymentMessageText");
+        RentPaymentDetailsText = root.Q<Label>("RentPaymentDetailsText");
+        RentPaymentOkButton = root.Q<Button>("RentPaymentOkButton");
+        
+        ApplyHeaderGloss(root, "RentPaymentHeader");
+        
+        if (root != null)
+        {
+            root.style.display = DisplayStyle.None;
+            root.pickingMode = PickingMode.Position;
+        }
+        else
+            Debug.LogWarning("RentPaymentPanel root not found!");
+        if (RentPaymentOkButton != null) RentPaymentOkButton.pickingMode = PickingMode.Position;
+    }
+    
+    /// <summary>
+    /// Show rent payment notification panel.
+    /// </summary>
+    public void ShowRentPaymentNotification(Player payer, Player owner, Property property, int rentAmount)
+    {
+        if (payer == null || owner == null || property == null || rentPaymentPanelDocument == null) return;
+        
+        if (rentPaymentPanelDocument.rootVisualElement != null)
+        {
+            rentPaymentPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+            if (rentPaymentPanelDocument.transform != null)
+                rentPaymentPanelDocument.transform.SetAsLastSibling();
+        }
+        
+        if (RentPaymentMessageText != null)
+        {
+            RentPaymentMessageText.text = $"{payer.playerName} paid rent";
+        }
+        
+        if (RentPaymentDetailsText != null)
+        {
+            string details = $"Property: {property.propertyName}\n";
+            details += $"Rent: ₦{rentAmount:N0}\n";
+            details += $"Paid to: {owner.playerName}";
+            RentPaymentDetailsText.text = details;
+        }
+        
+        if (RentPaymentOkButton != null)
+        {
+            RentPaymentOkButton.clicked -= HideRentPaymentPanel; // Remove if already connected
+            RentPaymentOkButton.clicked += HideRentPaymentPanel;
+        }
+        
+        TurnDebugState.LogTurnAction("DecisionShown", $"type=RentAck payer={payer.playerName} owner={owner.playerName} amount={rentAmount}", setPhase: "AwaitAck", setInputEnabled: "OK");
+        Debug.Log($"💰 {payer.playerName} paid ₦{rentAmount:N0} rent to {owner.playerName} for {property.propertyName}");
+    }
+    
+    public void HideRentPaymentPanel()
+    {
+        TurnDebugState.LogTurnAction("DecisionResolved", "type=RentAck (OK clicked)", setPhase: "ResolveTile", setInputEnabled: "None");
+        if (rentPaymentPanelDocument != null && rentPaymentPanelDocument.rootVisualElement != null)
+            rentPaymentPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+    
+    void InitializeTileDetailsPanel()
+    {
+        if (tileDetailsPanelDocument == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Tile Details Panel Document not assigned!");
+            return;
+        }
+        
+        var root = tileDetailsPanelDocument.rootVisualElement;
+        TileDetailsPanel = root.Q<VisualElement>("TileDetailsPanel");
+        TileDetailsHeader = root.Q<VisualElement>("TileDetailsHeader");
+        TileDetailsTitleText = root.Q<Label>("TileDetailsTitleText");
+        TileDetailsNameText = root.Q<Label>("TileDetailsNameText");
+        TileDetailsTypeText = root.Q<Label>("TileDetailsTypeText");
+        TileDetailsPriceText = root.Q<Label>("TileDetailsPriceText");
+        TileDetailsOwnerText = root.Q<Label>("TileDetailsOwnerText");
+        TileDetailsRentText = root.Q<Label>("TileDetailsRentText");
+        TileDetailsBuildingsText = root.Q<Label>("TileDetailsBuildingsText");
+        TileDetailsMortgageText = root.Q<Label>("TileDetailsMortgageText");
+        TileDetailsGroupText = root.Q<Label>("TileDetailsGroupText");
+        TileDetailsRentTable = root.Q<ScrollView>("TileDetailsRentTable");
+        TileDetailsColorSwatch = root.Q<VisualElement>("TileDetailsColorSwatch");
+        TileDetailsBuildingsIcons = root.Q<VisualElement>("TileDetailsBuildingsIcons");
+        TileDetailsMortgageButton = root.Q<Button>("TileDetailsMortgageButton");
+        TileDetailsRedeemButton = root.Q<Button>("TileDetailsRedeemButton");
+        TileDetailsCloseButton = root.Q<Button>("TileDetailsCloseButton");
+        
+        // Connect close button
+        if (TileDetailsCloseButton != null)
+        {
+            TileDetailsCloseButton.clicked -= HideTileDetailsPanel;
+            TileDetailsCloseButton.clicked += HideTileDetailsPanel;
+        }
+
+        if (TileDetailsMortgageButton != null)
+        {
+            TileDetailsMortgageButton.clicked -= OnTileDetailsMortgageClicked;
+            TileDetailsMortgageButton.clicked += OnTileDetailsMortgageClicked;
+        }
+
+        if (TileDetailsRedeemButton != null)
+        {
+            TileDetailsRedeemButton.clicked -= OnTileDetailsRedeemClicked;
+            TileDetailsRedeemButton.clicked += OnTileDetailsRedeemClicked;
+        }
+        
+        ApplyHeaderGloss(root, "TileDetailsHeader");
+        
+        // Hide entire document root by default
+        if (root != null)
+            root.style.display = DisplayStyle.None;
+        else
+            Debug.LogWarning("TileDetailsPanel root not found!");
+    }
+    
+    /// <summary>
+    /// Show tile details panel with information about the clicked tile.
+    /// </summary>
+    public void ShowTileDetails(TileInfo tile)
+    {
+        Debug.Log($"=== UIDocumentManager.ShowTileDetails called for {tile?.gameObject?.name ?? "NULL"} ===");
+        
+        if (tile == null)
+        {
+            Debug.LogError("UIDocumentManager.ShowTileDetails: Tile is null!");
+            return;
+        }
+        
+        if (tileDetailsPanelDocument == null)
+        {
+            Debug.LogError("[GameMechanics] FAIL: Tile details not shown - Tile Details Panel Document is NOT assigned on UIDocumentManager.");
+            return;
+        }
+        
+        if (tileDetailsPanelDocument.rootVisualElement == null)
+        {
+            Debug.LogError("[GameMechanics] FAIL: Tile details not shown - Tile Details Panel rootVisualElement is null (UIDocument may not be initialized).");
+            return;
+        }
+        
+        Debug.Log("UIDocumentManager: Setting panel display to Flex...");
+        tileDetailsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        Debug.Log("UIDocumentManager: Panel display set to Flex. Panel should be visible now.");
+
+        CurrentTileDetails = tile;
+        
+        // Update title
+        if (TileDetailsTitleText != null)
+        {
+            TileDetailsTitleText.text = "TILE DETAILS";
+        }
+        
+        // Update name
+        if (TileDetailsNameText != null)
+        {
+            if (tile.property != null)
+            {
+                TileDetailsNameText.text = tile.property.propertyName;
+            }
+            else
+            {
+                TileDetailsNameText.text = tile.tileType.ToString();
+            }
+        }
+        
+        // Update type
+        if (TileDetailsTypeText != null)
+        {
+            TileDetailsTypeText.text = tile.tileType.ToString();
+            if (tile.property != null)
+            {
+                TileDetailsTypeText.text += $" • {tile.property.propertyType}";
+            }
+        }
+        
+        // Update property-specific details
+        if (tile.property != null)
+        {
+            Property prop = tile.property;
+            
+            // Price
+            if (TileDetailsPriceText != null)
+            {
+                TileDetailsPriceText.text = $"₦{prop.price:N0}";
+            }
+            
+            // Owner
+            if (TileDetailsOwnerText != null)
+            {
+                if (prop.owner != null)
+                {
+                    TileDetailsOwnerText.text = prop.owner.playerName;
+                }
+                else
+                {
+                    TileDetailsOwnerText.text = "Unowned";
+                }
+            }
+            
+            // Current rent
+            if (TileDetailsRentText != null)
+            {
+                int currentRent = prop.CurrentRent;
+                TileDetailsRentText.text = $"₦{currentRent:N0}";
+            }
+            
+            // Buildings
+            if (TileDetailsBuildingsText != null)
+            {
+                if (prop.hasHotel)
+                {
+                    TileDetailsBuildingsText.text = "1 Hotel";
+                }
+                else if (prop.houses > 0)
+                {
+                    TileDetailsBuildingsText.text = $"{prop.houses} House{(prop.houses > 1 ? "s" : "")}";
+                }
+                else
+                {
+                    TileDetailsBuildingsText.text = "None";
+                }
+            }
+            
+            UpdateBuildingIcons(prop);
+            
+            // Mortgage status
+            if (TileDetailsMortgageText != null)
+            {
+                TileDetailsMortgageText.text = prop.isMortgaged ? "Mortgaged" : "Not Mortgaged";
+            }
+            
+            // Group
+            if (TileDetailsGroupText != null)
+            {
+                string groupInfo = $"Group: {prop.groupId}";
+                if (!string.IsNullOrEmpty(prop.tierLabel))
+                {
+                    groupInfo += $" ({prop.tierLabel})";
+                }
+                TileDetailsGroupText.text = groupInfo;
+            }
+            
+            if (TileDetailsColorSwatch != null)
+            {
+                TileDetailsColorSwatch.style.backgroundColor = GetPropertySwatchColor(prop);
+            }
+            
+            // Rent table (for Regular properties)
+            if (TileDetailsRentTable != null && prop.propertyType == PropertyType.Regular)
+            {
+                TileDetailsRentTable.Clear();
+                
+                if (prop.rentByLevel != null && prop.rentByLevel.Length >= 6)
+                {
+                    AddRentRow(TileDetailsRentTable, "Rent", $"₦{prop.rentByLevel[0]:N0}");
+                    for (int i = 1; i <= 4; i++)
+                    {
+                        AddRentRow(TileDetailsRentTable, $"With {i} House{(i > 1 ? "s" : "")}", $"₦{prop.rentByLevel[i]:N0}");
+                    }
+                    AddRentRow(TileDetailsRentTable, "With Hotel", $"₦{prop.rentByLevel[5]:N0}");
+                }
+            }
+
+            UpdateTileDetailsMortgageButtons(tile);
+        }
+        else
+        {
+            // Non-property tile
+            if (TileDetailsPriceText != null)
+                TileDetailsPriceText.text = "";
+            if (TileDetailsOwnerText != null)
+                TileDetailsOwnerText.text = "";
+            if (TileDetailsRentText != null)
+                TileDetailsRentText.text = "";
+            if (TileDetailsBuildingsText != null)
+                TileDetailsBuildingsText.text = "";
+            if (TileDetailsMortgageText != null)
+                TileDetailsMortgageText.text = "";
+            if (TileDetailsGroupText != null)
+                TileDetailsGroupText.text = "";
+            if (TileDetailsRentTable != null)
+                TileDetailsRentTable.Clear();
+            if (TileDetailsColorSwatch != null)
+                TileDetailsColorSwatch.style.backgroundColor = new Color(0.2f, 0.2f, 0.2f);
+
+            UpdateTileDetailsMortgageButtons(null);
+            UpdateBuildingIcons(null);
+        }
+    }
+    
+    public void HideTileDetailsPanel()
+    {
+        if (tileDetailsPanelDocument != null && tileDetailsPanelDocument.rootVisualElement != null)
+            tileDetailsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+
+        CurrentTileDetails = null;
+        UpdateTileDetailsMortgageButtons(null);
+        
+        // Remove highlight from currently selected tile
+        TileClickHandler selectedTile = FindFirstObjectByType<TileClickHandler>();
+        if (selectedTile != null)
+        {
+            // Find all tile click handlers and hide their highlights
+            TileClickHandler[] allHandlers = FindObjectsByType<TileClickHandler>(FindObjectsSortMode.None);
+            foreach (TileClickHandler handler in allHandlers)
+            {
+                handler.HideHighlight();
+            }
+        }
+    }
+
+    void InitializePropertyManagerPanel()
+    {
+        if (propertyManagerPanelDocument == null || propertyManagerPanelDocument.rootVisualElement == null) return;
+        var root = propertyManagerPanelDocument.rootVisualElement;
+        root.style.display = DisplayStyle.None;
+        var closeBtn = root.Q<Button>("PropertyManagerCloseButton");
+        if (closeBtn != null)
+        {
+            closeBtn.clicked -= HidePropertyManagerPanel;
+            closeBtn.clicked += HidePropertyManagerPanel;
+        }
+        // Scrim click: close when clicking the overlay background (not the inner panel)
+        root.RegisterCallback<ClickEvent>(evt => { if (evt.target == root) ExitManageMode(); });
+        // Escape key: close when panel is open (root must be focusable; we focus it on open)
+        root.RegisterCallback<KeyDownEvent>(evt => { if (evt.keyCode == KeyCode.Escape) ExitManageMode(); });
+        root.focusable = true;
+    }
+
+    /// <summary>Open the Property Manager panel. Optionally focus the row for the given tile. Disables Roll and End Turn while open.</summary>
+    public void OpenPropertyManagerPanel(TileInfo focusTile = null)
+    {
+        // Resolve the correct document: must have PropertyManagerList (Manage Properties panel), not Buy/Skip panel
+        UIDocument doc = propertyManagerPanelDocument;
+        if (doc == null || doc.rootVisualElement == null)
+        {
+            Debug.LogWarning("OpenPropertyManagerPanel: Property Manager Panel Document is not assigned. Assign a UIDocument with PropertyManagerPanel.uxml to the 'Property Manager Panel Document' slot on UIDocumentManager.");
+            return;
+        }
+        var list = doc.rootVisualElement.Q<ScrollView>("PropertyManagerList");
+        if (list == null)
+        {
+            // Wrong document assigned (e.g. PropertyPanel.uxml). Try to find PropertyManagerPanel in the scene.
+            doc = null;
+            var allDocs = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
+            foreach (var d in allDocs)
+            {
+                if (d == null || d.visualTreeAsset == null || d.rootVisualElement == null) continue;
+                if (d.visualTreeAsset.name.IndexOf("PropertyManagerPanel", StringComparison.OrdinalIgnoreCase) < 0) continue;
+                if (d.rootVisualElement.Q<ScrollView>("PropertyManagerList") != null)
+                {
+                    doc = d;
+                    propertyManagerPanelDocument = d;
+                    InitializePropertyManagerPanel();
+                    break;
+                }
+            }
+            if (doc == null)
+            {
+                Debug.LogWarning("OpenPropertyManagerPanel: Assigned document is not the Manage Properties panel (missing PropertyManagerList). Assign PropertyManagerPanel.uxml to 'Property Manager Panel Document', or add a UIDocument with PropertyManagerPanel.uxml to the scene.");
+                return;
+            }
+        }
+        _propertyManagerFocusTile = focusTile;
+        Debug.Log("ManageMode: Enter Panel");
+        doc.rootVisualElement.style.display = DisplayStyle.Flex;
+        doc.rootVisualElement.Focus();
+        IsPropertyManagerPanelOpen = true;
+        if (RollButton != null) { RollButton.Enabled = false; Debug.Log("HUD: Roll disabled (Manage open)"); }
+        if (EndTurnButton != null) { EndTurnButton.Enabled = false; Debug.Log("HUD: EndTurn disabled (Manage open)"); }
+        RefreshPropertyManagerPanel();
+    }
+
+    /// <summary>Single exit from Manage mode: hide panel, clear highlights, re-enable HUD from current phase. Call from Close, scrim, Escape.</summary>
+    public void ExitManageMode()
+    {
+        Debug.Log("ManageMode: ExitManageMode called");
+        if (propertyManagerPanelDocument != null && propertyManagerPanelDocument.rootVisualElement != null)
+            propertyManagerPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+        IsPropertyManagerPanelOpen = false;
+        _propertyManagerFocusTile = null;
+        TileClickHandler[] allHandlers = FindObjectsByType<TileClickHandler>(FindObjectsSortMode.None);
+        foreach (TileClickHandler handler in allHandlers)
+            handler.HideHighlight();
+        if (turnManager != null)
+            turnManager.RefreshHUDButtonsForCurrentPhase();
+        Debug.Log("ManageMode: ExitManageMode HUD refresh done");
+    }
+
+    /// <summary>Close the Property Manager panel. Wired to Close button; delegates to ExitManageMode.</summary>
+    public void HidePropertyManagerPanel()
+    {
+        ExitManageMode();
+    }
+
+    /// <summary>Rebuild the property list and focus in the panel. Call after open or after an action (build/sell/mortgage/redeem).</summary>
+    public void RefreshPropertyManagerPanel()
+    {
+        if (propertyManagerPanelDocument == null || !IsPropertyManagerPanelOpen) return;
+        if (turnManager == null) return;
+        Player p = turnManager.GetCurrentPlayer();
+        if (p == null) return;
+        var scroll = propertyManagerPanelDocument.rootVisualElement.Q<ScrollView>("PropertyManagerList");
+        if (scroll == null) return;
+        var container = scroll.contentContainer;
+        container.Clear();
+        var tiles = p.GetOwnedPropertyTiles();
+        int added = 0;
+        foreach (TileInfo t in tiles)
+        {
+            if (t.property == null) continue;
+            var row = CreatePropertyManagerRow(t);
+            if (row != null) { container.Add(row); added++; }
+        }
+        if (added == 0)
+        {
+            var emptyLabel = new Label("No properties yet — tap a tile to inspect or buy properties by landing on them.");
+            emptyLabel.style.whiteSpace = WhiteSpace.Normal;
+            emptyLabel.style.paddingTop = 12;
+            emptyLabel.style.paddingBottom = 12;
+            container.Add(emptyLabel);
+        }
+    }
+
+    VisualElement CreatePropertyManagerRow(TileInfo tile)
+    {
+        if (tile?.property == null || turnManager == null) return null;
+        Player p = turnManager.GetCurrentPlayer();
+        if (p == null) return null;
+        var row = new VisualElement();
+        row.AddToClassList("property-manager-row");
+        var nameLabel = new Label(tile.property.propertyName);
+        row.Add(nameLabel);
+        var buildBtn = new Button(() => RequestBuild(tile.property)) { text = "Build" };
+        var sellBtn = new Button(() => RequestSell(tile.property)) { text = "Sell" };
+        var mortgageBtn = new Button(() => RequestMortgage(tile.property)) { text = "Mortgage" };
+        var redeemBtn = new Button(() => RequestRedeem(tile.property)) { text = "Redeem" };
+        row.Add(buildBtn);
+        row.Add(sellBtn);
+        row.Add(mortgageBtn);
+        row.Add(redeemBtn);
+        return row;
+    }
+
+    void RequestBuild(Property prop) { if (turnManager != null && turnManager.CanPerformPropertyAction()) turnManager.RequestBuild(prop); RefreshPropertyManagerPanel(); }
+    void RequestSell(Property prop) { if (turnManager != null && turnManager.CanPerformPropertyAction()) turnManager.RequestSell(prop); RefreshPropertyManagerPanel(); }
+    void RequestMortgage(Property prop) { if (turnManager != null && turnManager.CanPerformPropertyAction()) turnManager.RequestMortgage(prop); RefreshPropertyManagerPanel(); }
+    void RequestRedeem(Property prop) { if (turnManager != null && turnManager.CanPerformPropertyAction()) turnManager.RequestRedeem(prop); RefreshPropertyManagerPanel(); }
+
+    void UpdateTileDetailsMortgageButtons(TileInfo tile)
+    {
+        if (TileDetailsMortgageButton == null && TileDetailsRedeemButton == null) return;
+
+        Player currentPlayer = turnManager != null ? turnManager.GetCurrentPlayer() : null;
+        Property prop = tile != null ? tile.property : null;
+
+        if (prop == null || currentPlayer == null)
+        {
+            if (TileDetailsMortgageButton != null)
+            {
+                TileDetailsMortgageButton.SetEnabled(false);
+                TileDetailsMortgageButton.text = "MORTGAGE";
+            }
+            if (TileDetailsRedeemButton != null)
+            {
+                TileDetailsRedeemButton.SetEnabled(false);
+                TileDetailsRedeemButton.text = "REDEEM";
+            }
+            return;
+        }
+
+        bool isOwner = prop.owner == currentPlayer;
+
+        if (TileDetailsMortgageButton != null)
+        {
+            if (!isOwner)
+            {
+                TileDetailsMortgageButton.SetEnabled(false);
+                TileDetailsMortgageButton.text = "MORTGAGE";
+            }
+            else if (prop.isMortgaged)
+            {
+                TileDetailsMortgageButton.SetEnabled(false);
+                TileDetailsMortgageButton.text = "MORTGAGED";
+            }
+            else if (prop.houses > 0 || prop.hasHotel)
+            {
+                TileDetailsMortgageButton.SetEnabled(false);
+                TileDetailsMortgageButton.text = "SELL BUILDINGS";
+            }
+            else
+            {
+                int mortgageValue = prop.price / 2;
+                TileDetailsMortgageButton.SetEnabled(true);
+                TileDetailsMortgageButton.text = $"MORTGAGE\n₦{mortgageValue:N0}";
+            }
+        }
+
+        if (TileDetailsRedeemButton != null)
+        {
+            if (!isOwner)
+            {
+                TileDetailsRedeemButton.SetEnabled(false);
+                TileDetailsRedeemButton.text = "REDEEM";
+            }
+            else if (!prop.isMortgaged)
+            {
+                TileDetailsRedeemButton.SetEnabled(false);
+                TileDetailsRedeemButton.text = "REDEEM";
+            }
+            else
+            {
+                int redemptionCost = (int)(prop.price * 0.6f);
+                bool canAfford = currentPlayer.CanAfford(redemptionCost);
+                TileDetailsRedeemButton.SetEnabled(canAfford);
+                TileDetailsRedeemButton.text = canAfford ? $"REDEEM\n₦{redemptionCost:N0}" : "CAN'T AFFORD";
+            }
+        }
+    }
+
+    void OnTileDetailsMortgageClicked()
+    {
+        if (CurrentTileDetails == null || CurrentTileDetails.property == null) return;
+        if (turnManager == null) return;
+
+        Player currentPlayer = turnManager.GetCurrentPlayer();
+        if (currentPlayer == null) return;
+
+        if (currentPlayer.MortgageProperty(CurrentTileDetails.property))
+        {
+            ShowTileDetails(CurrentTileDetails);
+        }
+    }
+
+    void OnTileDetailsRedeemClicked()
+    {
+        if (CurrentTileDetails == null || CurrentTileDetails.property == null) return;
+        if (turnManager == null) return;
+
+        Player currentPlayer = turnManager.GetCurrentPlayer();
+        if (currentPlayer == null) return;
+
+        if (currentPlayer.RedeemProperty(CurrentTileDetails.property))
+        {
+            ShowTileDetails(CurrentTileDetails);
+        }
+    }
+
+    void AddRentRow(ScrollView table, string label, string value)
+    {
+        if (table == null) return;
+
+        VisualElement row = new VisualElement();
+        row.AddToClassList("tile-details-rent-row");
+
+        Label left = new Label(label);
+        left.AddToClassList("tile-details-kv-key");
+
+        Label right = new Label(value);
+        right.AddToClassList("tile-details-kv-value");
+
+        row.Add(left);
+        row.Add(right);
+        table.Add(row);
+    }
+
+    Color GetPropertySwatchColor(Property prop)
+    {
+        if (prop == null) return new Color(0.2f, 0.2f, 0.2f);
+
+        if (!string.IsNullOrEmpty(prop.tierLabel))
+        {
+            switch (prop.tierLabel.ToLower())
+            {
+                case "satellite":
+                    return new Color(0.8f, 0.2f, 0.2f);
+                case "mid":
+                    return new Color(1f, 0.84f, 0f);
+                case "prime":
+                    return new Color(0.2f, 0.6f, 0.2f);
+                default:
+                    return new Color(0.3f, 0.3f, 0.8f);
+            }
+        }
+
+        return new Color(0.3f, 0.45f, 0.75f);
+    }
+
+    Sprite GetHeaderGlossSprite()
+    {
+        return uiHeaderGlossSprite != null ? uiHeaderGlossSprite : tileDetailsHeaderGlossSprite;
+    }
+
+    void ApplyHeaderGloss(VisualElement root, string headerName)
+    {
+        if (root == null || string.IsNullOrEmpty(headerName)) return;
+        Sprite gloss = GetHeaderGlossSprite();
+        if (gloss == null) return;
+
+        VisualElement header = root.Q<VisualElement>(headerName);
+        if (header != null)
+        {
+            header.style.backgroundImage = new StyleBackground(gloss);
+        }
+    }
+
+
+
+    void UpdateBuildingIcons(Property prop)
+    {
+        if (TileDetailsBuildingsIcons == null)
+            return;
+
+        TileDetailsBuildingsIcons.Clear();
+
+        if (prop == null)
+            return;
+
+        if (prop.hasHotel)
+        {
+            AddBuildingIcon(tileDetailsHotelIcon);
+            return;
+        }
+
+        int houseCount = Mathf.Clamp(prop.houses, 0, 4);
+        for (int i = 0; i < houseCount; i++)
+        {
+            AddBuildingIcon(tileDetailsHouseIcon);
+        }
+    }
+
+    void AddBuildingIcon(Sprite sprite)
+    {
+        if (TileDetailsBuildingsIcons == null) return;
+
+        VisualElement icon = new VisualElement();
+        icon.AddToClassList("tile-details-building-icon");
+
+        if (sprite != null)
+        {
+            icon.style.backgroundImage = new StyleBackground(sprite);
+        }
+
+        TileDetailsBuildingsIcons.Add(icon);
+    }
+    
+    void InitializePlayerStatisticsPanel()
+    {
+        if (playerStatisticsPanelDocument == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Player Statistics Panel Document not assigned!");
+            return;
+        }
+        
+        var root = playerStatisticsPanelDocument.rootVisualElement;
+        PlayerStatisticsPanel = root.Q<VisualElement>("PlayerStatisticsPanel");
+        StatisticsTitleText = root.Q<Label>("StatisticsTitleText");
+        StatisticsPlayerNameText = root.Q<Label>("StatisticsPlayerNameText");
+        StatisticsCharacterNameText = root.Q<Label>("StatisticsCharacterNameText");
+        StatisticsMoneyText = root.Q<Label>("StatisticsMoneyText");
+        StatisticsPropertiesText = root.Q<Label>("StatisticsPropertiesText");
+        StatisticsNetWorthText = root.Q<Label>("StatisticsNetWorthText");
+        StatisticsDetailsText = root.Q<Label>("StatisticsDetailsText");
+        CharacterBackstoryText = root.Q<Label>("CharacterBackstoryText");
+        CharacterPerksText = root.Q<Label>("CharacterPerksText");
+        CharacterCastsText = root.Q<Label>("CharacterCastsText");
+        StatisticsCloseButton = root.Q<Button>("StatisticsCloseButton");
+        
+        ApplyHeaderGloss(root, "PlayerStatisticsHeader");
+        
+        // Connect close button
+        if (StatisticsCloseButton != null)
+        {
+            StatisticsCloseButton.clicked -= HidePlayerStatisticsPanel;
+            StatisticsCloseButton.clicked += HidePlayerStatisticsPanel;
+        }
+        
+        // Hide entire document root by default
+        if (root != null)
+            root.style.display = DisplayStyle.None;
+        else
+            Debug.LogWarning("PlayerStatisticsPanel root not found!");
+    }
+    
+    /// <summary>
+    /// Show player statistics panel.
+    /// </summary>
+    public void ShowPlayerStatistics(Player player)
+    {
+        if (player == null || playerStatisticsPanelDocument == null) return;
+        
+        if (playerStatisticsPanelDocument.rootVisualElement != null)
+            playerStatisticsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        
+        // Character from database (for image and text)
+        Character c = null;
+        if (turnManager != null && turnManager.characterDB != null && player.characterIndex >= 0 && player.characterIndex < turnManager.characterDB.CharacterCount)
+            c = turnManager.characterDB.GetCharacter(player.characterIndex);
+
+        // Character image (fullImage or tokenImage)
+        if (StatisticsCharacterImage != null)
+        {
+            Sprite portrait = (c != null && c.fullImage != null) ? c.fullImage : (c != null && c.tokenImage != null ? c.tokenImage : null);
+            if (portrait != null)
+            {
+                Texture2D texture = SpriteToTexture2D(portrait);
+                if (texture != null)
+                {
+                    StatisticsCharacterImage.style.backgroundImage = new StyleBackground(texture);
+                    StatisticsCharacterImage.style.backgroundColor = new StyleColor(Color.white);
+                    StatisticsCharacterImage.style.display = DisplayStyle.Flex;
+                }
+                else
+                {
+                    StatisticsCharacterImage.style.backgroundImage = StyleKeyword.None;
+                    StatisticsCharacterImage.style.backgroundColor = player.playerColor;
+                }
+            }
+            else
+            {
+                StatisticsCharacterImage.style.backgroundImage = StyleKeyword.None;
+                StatisticsCharacterImage.style.backgroundColor = player.playerColor;
+            }
+        }
+
+        // Stats: value-only (labels are "Name:", "Character:", etc. in UXML)
+        if (StatisticsPlayerNameText != null)
+            StatisticsPlayerNameText.text = !string.IsNullOrEmpty(player.playerName) ? player.playerName : $"Player {player.playerIndex + 1}";
+        if (StatisticsCharacterNameText != null)
+            StatisticsCharacterNameText.text = c != null ? c.characterName : (player.characterName ?? "");
+        if (StatisticsMoneyText != null)
+            StatisticsMoneyText.text = $"₦{player.Money:N0}";
+        if (StatisticsPropertiesText != null)
+            StatisticsPropertiesText.text = player.GetPropertyCount().ToString();
+        if (StatisticsNetWorthText != null)
+            StatisticsNetWorthText.text = $"₦{player.GetNetWorth():N0}";
+        if (StatisticsDetailsText != null)
+        {
+            int money = player.Money;
+            int propertyValue = player.GetNetWorth() - money;
+            StatisticsDetailsText.text = $"Cash: ₦{money:N0}  ·  Property value: ₦{propertyValue:N0}  ·  Total: ₦{player.GetNetWorth():N0}";
+        }
+        if (CharacterBackstoryText != null)
+            CharacterBackstoryText.text = c != null ? c.backstory : "";
+        if (CharacterPerksText != null)
+            CharacterPerksText.text = c != null ? $"{c.perk1.name} — {c.perk1.description}\n{c.perk2.name} — {c.perk2.description}" : "";
+        if (CharacterCastsText != null)
+            CharacterCastsText.text = c != null ? $"{c.cast1.name} — {c.cast1.description}\n{c.cast2.name} — {c.cast2.description}" : "";
+    }
+    
+    /// <summary>Show player profile (stats + character) when profile is clicked on HUD. Same as ShowPlayerStatistics.</summary>
+    public void ShowPlayerProfileDetail(Player player)
+    {
+        ShowPlayerStatistics(player);
+    }
+    
+    void OnPlayerProfileClicked(int playerIndex)
+    {
+        if (turnManager == null || turnManager.players == null) return;
+        if (playerIndex < 0 || playerIndex >= turnManager.players.Count) return;
+        Player p = turnManager.players[playerIndex];
+        if (p != null && !p.IsEliminated)
+            ShowPlayerProfileDetail(p);
+    }
+    
+    public void HidePlayerStatisticsPanel()
+    {
+        if (playerStatisticsPanelDocument != null && playerStatisticsPanelDocument.rootVisualElement != null)
+            playerStatisticsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+    
+    // Update player info in UI (for player index 0-3)
+    public void UpdatePlayerInfo(int playerIndex, Player player)
+    {
+        if (player == null) return;
+        
+        VisualElement info = null;
+        VisualElement avatar = null;
+        Label nameLabel = null;
+        Label characterLabel = null;
+        Label moneyLabel = null;
+        
+        // Get the correct UI elements based on player index
+        switch (playerIndex)
+        {
+            case 0:
+                info = Player1Info;
+                avatar = Player1Avatar;
+                nameLabel = Player1Name;
+                characterLabel = Player1CharacterName;
+                moneyLabel = Player1Money;
+                break;
+            case 1:
+                info = Player2Info;
+                avatar = Player2Avatar;
+                nameLabel = Player2Name;
+                characterLabel = Player2CharacterName;
+                moneyLabel = Player2Money;
+                break;
+            case 2:
+                info = Player3Info;
+                avatar = Player3Avatar;
+                nameLabel = Player3Name;
+                characterLabel = Player3CharacterName;
+                moneyLabel = Player3Money;
+                break;
+            case 3:
+                info = Player4Info;
+                avatar = Player4Avatar;
+                nameLabel = Player4Name;
+                characterLabel = Player4CharacterName;
+                moneyLabel = Player4Money;
+                break;
+        }
+        
+        // Ensure character name is set from CharacterDatabase if empty
+        if (string.IsNullOrEmpty(player.characterName) && turnManager != null && turnManager.characterDB != null
+            && player.characterIndex >= 0 && player.characterIndex < turnManager.characterDB.CharacterCount)
+        {
+            Character c = turnManager.characterDB.GetCharacter(player.characterIndex);
+            if (c != null)
+                player.characterName = c.characterName;
+        }
+
+        if (mainHUDController != null)
+        {
+            mainHUDController.UpdatePlayerInfo(playerIndex, player);
+            return;
+        }
+
+        if (info != null)
+        {
+            // Show/hide based on whether player exists and is not eliminated
+            if (player.IsEliminated)
+            {
+                info.style.display = DisplayStyle.None;
+            }
+            else
+            {
+                info.style.display = DisplayStyle.Flex;
+                
+                // Update name (player name only; character/title in separate label)
+                if (nameLabel != null)
+                {
+                    nameLabel.text = !string.IsNullOrEmpty(player.playerName) ? player.playerName : $"Player {player.playerIndex + 1}";
+                }
+                
+                // Update character/title (e.g. "Street Hustler")
+                if (characterLabel != null)
+                {
+                    characterLabel.text = !string.IsNullOrEmpty(player.characterName) ? player.characterName : "";
+                }
+                
+                // Update money
+                if (moneyLabel != null)
+                {
+                    moneyLabel.text = $"₦{player.Money:N0}";
+                }
+                
+                // Update avatar color and visual (if avatar exists)
+                if (avatar != null)
+                {
+                    // Try to load and display avatar sprite
+                    PlayerVisualManager visualManager = PlayerVisualManager.Instance;
+                    if (visualManager != null && player.tokenSpriteIndex >= 0)
+                    {
+                        Sprite tokenSprite = visualManager.GetTokenSprite(player.tokenSpriteIndex);
+                        if (tokenSprite != null)
+                        {
+                            // Convert Sprite to Texture2D for UI Toolkit
+                            Texture2D texture = SpriteToTexture2D(tokenSprite);
+                            if (texture != null)
+                            {
+                                // Create a background image from the sprite
+                                avatar.style.backgroundImage = new StyleBackground(texture);
+                                avatar.style.backgroundColor = new StyleColor(Color.white); // Use white tint to show sprite colors
+                            }
+                            else
+                            {
+                                // Fallback to player color
+                                avatar.style.backgroundImage = StyleKeyword.None;
+                                avatar.style.backgroundColor = player.playerColor;
+                            }
+                        }
+                        else
+                        {
+                            // No sprite available, use player color as fallback
+                            avatar.style.backgroundImage = StyleKeyword.None;
+                            avatar.style.backgroundColor = player.playerColor;
+                        }
+                    }
+                    else
+                    {
+                        // No visual manager or invalid index, use player color
+                        avatar.style.backgroundImage = StyleKeyword.None;
+                        avatar.style.backgroundColor = player.playerColor;
+                    }
+                }
+            }
+        }
+    }
+
+    public void SetActivePlayerIndicator(int playerIndex)
+    {
+        activePlayerIndex = playerIndex;
+        if (mainHUDController != null)
+        {
+            mainHUDController.SetActivePlayerIndicator(playerIndex);
+            return;
+        }
+
+        if (!activePulseScheduled && mainHUDDocument != null && mainHUDDocument.rootVisualElement != null)
+        {
+            activePulseScheduled = true;
+            var root = mainHUDDocument.rootVisualElement;
+            root.schedule.Execute(() =>
+            {
+                activePulseOn = !activePulseOn;
+                ApplyActivePlayerPulse();
+            }).Every(700);
+        }
+    }
+
+    private void ApplyActivePlayerPulse()
+    {
+        ApplyActiveClass(Player1Info, Player1Avatar, activePlayerIndex == 0 && activePulseOn);
+        ApplyActiveClass(Player2Info, Player2Avatar, activePlayerIndex == 1 && activePulseOn);
+        ApplyActiveClass(Player3Info, Player3Avatar, activePlayerIndex == 2 && activePulseOn);
+        ApplyActiveClass(Player4Info, Player4Avatar, activePlayerIndex == 3 && activePulseOn);
+    }
+
+    private void ApplyActiveClass(VisualElement info, VisualElement avatar, bool active)
+    {
+        if (info != null)
+        {
+            if (active) info.AddToClassList("active-player-pulse");
+            else info.RemoveFromClassList("active-player-pulse");
+        }
+        if (avatar != null)
+        {
+            if (active) avatar.AddToClassList("active-player-pulse");
+            else avatar.RemoveFromClassList("active-player-pulse");
+        }
+    }
+    
+    /// <summary>
+    /// Updates all player info slots based on active players.
+    /// Distributes players evenly between left and right sides.
+    /// Hides slots for players that don't exist or are eliminated.
+    /// </summary>
+    public void UpdateAllPlayerInfo()
+    {
+        if (turnManager == null || turnManager.players == null)
+        {
+            // Hide all player slots if no turn manager
+            HideAllPlayerSlots();
+            return;
+        }
+        
+        // Get list of active (non-eliminated) players
+        List<Player> activePlayers = new List<Player>();
+        foreach (Player player in turnManager.players)
+        {
+            if (player != null && !player.IsEliminated)
+            {
+                activePlayers.Add(player);
+            }
+        }
+        
+        // Distribute players evenly: left side gets first half, right side gets second half
+        int totalPlayers = activePlayers.Count;
+        int leftCount = (totalPlayers + 1) / 2; // Round up for odd numbers
+        int rightCount = totalPlayers - leftCount;
+        
+        // Update left side (Player1Info = index 0, Player3Info = index 2)
+        for (int i = 0; i < 2; i++)
+        {
+            int slotIndex = i * 2; // 0 for Player1Info, 2 for Player3Info
+            if (i < leftCount)
+            {
+                // Show and update this slot
+                UpdatePlayerInfo(slotIndex, activePlayers[i]);
+            }
+            else
+            {
+                // Hide this slot
+                HidePlayerSlot(slotIndex);
+            }
+        }
+        
+        // Update right side (Player2Info = index 1, Player4Info = index 3)
+        for (int i = 0; i < 2; i++)
+        {
+            int slotIndex = i * 2 + 1; // 1 for Player2Info, 3 for Player4Info
+            int playerIndex = leftCount + i; // Start from where left side ended
+            if (i < rightCount && playerIndex < totalPlayers)
+            {
+                // Show and update this slot
+                UpdatePlayerInfo(slotIndex, activePlayers[playerIndex]);
+            }
+            else
+            {
+                // Hide this slot
+                HidePlayerSlot(slotIndex);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Hides a specific player slot by index (0-3).
+    /// </summary>
+    public void HidePlayerSlot(int playerIndex)
+    {
+        if (mainHUDController != null)
+        {
+            mainHUDController.HidePlayerSlot(playerIndex);
+            return;
+        }
+
+        VisualElement info = null;
+        
+        switch (playerIndex)
+        {
+            case 0:
+                info = Player1Info;
+                break;
+            case 1:
+                info = Player2Info;
+                break;
+            case 2:
+                info = Player3Info;
+                break;
+            case 3:
+                info = Player4Info;
+                break;
+        }
+        
+        if (info != null)
+        {
+            info.style.display = DisplayStyle.None;
+        }
+    }
+    
+    /// <summary>
+    /// Hides all player slots.
+    /// </summary>
+    private void HideAllPlayerSlots()
+    {
+        if (mainHUDController != null)
+        {
+            mainHUDController.HideAllPlayerSlots();
+            return;
+        }
+
+        if (Player1Info != null) Player1Info.style.display = DisplayStyle.None;
+        if (Player2Info != null) Player2Info.style.display = DisplayStyle.None;
+        if (Player3Info != null) Player3Info.style.display = DisplayStyle.None;
+        if (Player4Info != null) Player4Info.style.display = DisplayStyle.None;
+    }
+    
+    /// <summary>
+    /// Converts a Sprite to Texture2D for use in UI Toolkit.
+    /// Creates a readable copy of the sprite's texture region.
+    /// </summary>
+    private Texture2D SpriteToTexture2D(Sprite sprite)
+    {
+        if (sprite == null) return null;
+        
+        try
+        {
+            // Get the sprite's texture
+            Texture2D sourceTexture = sprite.texture;
+            if (sourceTexture == null) return null;
+            
+            // Check if texture is readable
+            bool wasReadable = sourceTexture.isReadable;
+            
+            // If texture is not readable, we need to use RenderTexture approach
+            if (!wasReadable)
+            {
+                // Use the sprite's texture directly if possible, or create a render texture copy
+                // For now, try to use the texture as-is (UI Toolkit might handle it)
+                // If this doesn't work, we'll fall back to player color
+                return sourceTexture;
+            }
+            
+            // Get the sprite's rect (the portion of the texture that contains the sprite)
+            Rect spriteRect = sprite.textureRect;
+            
+            // Create a new texture with the sprite's dimensions
+            Texture2D newTexture = new Texture2D((int)spriteRect.width, (int)spriteRect.height, TextureFormat.RGBA32, false);
+            
+            // Get the pixels from the sprite's region
+            Color[] pixels = sourceTexture.GetPixels(
+                (int)spriteRect.x,
+                (int)spriteRect.y,
+                (int)spriteRect.width,
+                (int)spriteRect.height
+            );
+            
+            // Apply pixels to new texture
+            newTexture.SetPixels(pixels);
+            newTexture.Apply();
+            
+            return newTexture;
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Failed to convert sprite to texture: {e.Message}. Using player color instead.");
+            return null;
+        }
+    }
+}

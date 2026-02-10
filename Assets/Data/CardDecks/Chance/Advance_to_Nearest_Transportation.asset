@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80c8ca63f043c64cb2701fecaf413b4, type: 3}
+  m_Name: Advance_to_Nearest_Transportation
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  title: Advance to Nearest Transportation
+  description: "If unowned, you may buy it. If owned, pay 2\xD7 rent"
+  type: 1
+  moveSpaces: 0
+  targetTile: 1
+  targetPropertyName: 
+  moneyAmount: 0
+  payPerHouse: 0
+  payPerHotel: 0
+  houseCost: 0
+  hotelCost: 0
+  isGetOutOfJailFree: 0
+  isGoToJail: 0

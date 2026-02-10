@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ce998a27860b941bab7b086b1344ca, type: 3}
+  m_Name: ChanceDeckData
+  m_EditorClassIdentifier: Assembly-CSharp::CardDeckData
+  deckName: Chance
+  cards:
+  - {fileID: 11400000, guid: c976c3615d7488b45a646645cdf508fc, type: 2}
+  - {fileID: 11400000, guid: 847c0e72053572b40bc920d5dc0de92a, type: 2}
+  - {fileID: 11400000, guid: 5fe9435d788cd3740bb60f4c6490200c, type: 2}
+  - {fileID: 11400000, guid: 500cb715e683db344847ff57e06f3479, type: 2}
+  - {fileID: 11400000, guid: 9c6549580d27cc545bb2d6e3cb6d0fa6, type: 2}
+  - {fileID: 11400000, guid: 4ae26fa22fae67f4f873f64283309c44, type: 2}
+  - {fileID: 11400000, guid: 931bfae0f730f694b80b9525e582991a, type: 2}
+  - {fileID: 11400000, guid: 4a3297d775c9c84449d1044be0693c5b, type: 2}
+  - {fileID: 11400000, guid: 079157ff6926fe8469382316bb0b40bb, type: 2}
+  - {fileID: 11400000, guid: b9385d32186598e40bc10395fee58f72, type: 2}
+  - {fileID: 11400000, guid: 8640167e033919d4aad373b8e8bbe414, type: 2}
+  - {fileID: 11400000, guid: 658cee6f0191eb7428df4543a70fd128, type: 2}
+  - {fileID: 11400000, guid: 4d8b0d2e1f69d3446a3c60a5c8ca3e44, type: 2}
+  - {fileID: 11400000, guid: 516e569b1d2166b4bb8d61963794d19d, type: 2}
+  - {fileID: 11400000, guid: 6aa11648dcb61a54fb0bc6c73ac80a35, type: 2}
+  - {fileID: 11400000, guid: daa32e05965832546b78181d4888972f, type: 2}

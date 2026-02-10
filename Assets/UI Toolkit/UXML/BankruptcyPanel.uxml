@@ -1,0 +1,18 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/ui.uss?fileID=7433441132597879392&amp;guid=1cfcef30dfbb29e4f8fcc0b90e81e20f&amp;type=3#ui" />
+    <Style src="project://database/Assets/UI%20Toolkit/USS/main-styles.uss?fileID=7433441132597879392&amp;guid=07cab56c084330948ac4625402a5c9e4&amp;type=3#main-styles" />
+    <ui:VisualElement name="BankruptcyOverlay" class="monopoly-overlay" style="width: 1080px; height: 100%; top: auto; left: auto; min-width: 30%; min-height: 1920px; bottom: auto; right: auto; background-image: none;">
+        <ui:VisualElement name="BankruptcyPanel" class="monopoly-panel" style="width: auto; position: absolute; background-color: rgba(55, 55, 55, 0); border-left-color: rgba(198, 164, 79, 0); border-right-color: rgba(198, 164, 79, 0); border-top-color: rgba(198, 164, 79, 0); border-bottom-color: rgba(198, 164, 79, 0); background-image: url(&quot;project://database/Assets/Sprites/PopupBackground.png?fileID=2800000&amp;guid=c9e23b271f58dcf4d99fac1bf0440800&amp;type=3#PopupBackground&quot;); background-size: 100% 80%; min-width: 477px; align-self: center; align-items: center; justify-content: center; align-content: center;">
+            <ui:VisualElement name="BankruptcyHeader" class="monopoly-header" style="background-color: rgba(18, 114, 0, 0); background-image: url(&quot;project://database/Assets/Sprites/Badge.png?fileID=2800000&amp;guid=7bf8c52eb13e0b34dad84f733f03343e&amp;type=3#Badge&quot;); background-size: 100% 231%; top: -83px; height: 280px; border-bottom-width: 0; background-position-x: center; -unity-background-scale-mode: scale-and-crop; -unity-slice-type: sliced;">
+                <ui:Label name="BankruptcyTitleText" text="BANKRUPTCY" class="monopoly-title" style="align-self: stretch; align-items: center; align-content: center; justify-content: space-between; height: 101px; width: 480px; -unity-font-definition: resource(&apos;Fonts &amp; Materials/HappyMonkey-Regular&apos;); font-size: 49px; top: 72px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="BankruptcyBody" class="monopoly-body">
+                <ui:Label name="BankruptcyMessageText" class="monopoly-text" />
+                <ui:Label name="BankruptcyDetailsText" class="monopoly-text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="BankruptcyFooter" class="monopoly-footer">
+                <ui:Button name="BankruptcyOkButton" text="OK" class="monopoly-btn monopoly-btn-danger" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); background-color: rgb(255, 132, 0); -unity-background-image-tint-color: rgb(212, 197, 159);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

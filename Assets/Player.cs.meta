@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2b5c053497ffc484f8e6f815a5cf9cca
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - propertyPanel: {fileID: 348985754807239859, guid: c85efa8ae94d16c4ebc8d150163207e7, type: 3}
+  - propertyText: {instanceID: 0}
+  - buyButton: {instanceID: 0}
+  - skipButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

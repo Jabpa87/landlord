@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &199082139504913853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5520241362785972370}
+  - component: {fileID: 530396868019626295}
+  m_Layer: 0
+  m_Name: PlayerVisualManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5520241362785972370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199082139504913853}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 155.27902, y: 6.60185, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &530396868019626295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199082139504913853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04198b2243379eb4f8377435a94f4dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisualManager
+  tokenSprites:
+  - {fileID: 4456689882687839070, guid: fd8592fc37c9bc34b92b0486daec6fd2, type: 3}
+  - {fileID: -6160939997523324761, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+  - {fileID: 6922071998142994545, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+  - {fileID: 6224345419829451340, guid: 5018ae12621f18541a38263d766abbc3, type: 3}
+  - {fileID: -4174229058519614173, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+  - {fileID: 4753611910847169362, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+  - {fileID: 782906631232722382, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+  tokenNames:
+  - Tobi
+  - Shade
+  - Bobby
+  - Juliet
+  - Ifeayi
+  - Hamza
+  - Kess
+  autoLoadSprites: 1

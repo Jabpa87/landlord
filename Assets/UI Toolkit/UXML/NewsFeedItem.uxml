@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/ui.uss?fileID=7433441132597879392&amp;guid=1cfcef30dfbb29e4f8fcc0b90e81e20f&amp;type=3#ui" />
+    <Style src="project://database/Assets/UI%20Toolkit/USS/main-styles.uss?fileID=7433441132597879392&amp;guid=07cab56c084330948ac4625402a5c9e4&amp;type=3#main-styles" />
+    <ui:VisualElement name="NewsFeedItem" class="news-feed-item">
+        <ui:VisualElement name="NewsItemAvatar" class="news-item-avatar" />
+        <ui:VisualElement name="NewsItemContent" class="news-item-content">
+            <ui:Label name="NewsItemUsername" class="news-item-username" />
+            <ui:Label name="NewsItemMessage" class="news-item-message" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c3911a319aa534ea1e2d3c99570ed2, type: 3}
+  m_Name: CharacterDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDatabase
+  characters:
+  - fullImage: {fileID: -6487343789898933435, guid: 2d925705ac858554ca27df7d1722f16c, type: 3}
+    tokenImage: {fileID: 782906631232722382, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+    characterName: Street Hustler
+    difficultyLevel: Hard
+    backstory: High school dropout who knows Abuja street economics. Starts with
+      almost nothing, but can stretch small wins into big momentum.
+    startingMoney: 500000
+    startingAssets: None
+    perk1:
+      name: Street Smart Builder
+      description: Building houses in Satellite Areas costs 20% less.
+    perk2:
+      name: Quick Flip
+      description: Selling houses returns 60% of build cost (instead of 50%).
+    cast1:
+      name: No Safety Net
+      description: Cannot collect Community Chest rewards until Turn 10.
+    cast2:
+      name: Expensive Redemption
+      description: Unmortgaging costs +10% extra interest.
+  - fullImage: {fileID: 1607660986447821018, guid: fba10c947e0a4634c94b8a54df0a8bd1, type: 3}
+    tokenImage: {fileID: 7793620220868950490, guid: fd8592fc37c9bc34b92b0486daec6fd2, type: 3}
+    characterName: Fresh Grad
+    difficultyLevel: Easy
+    backstory: "Just finished NYSC, steady salary, steady mindset. Not flashy, but
+      reliable\u2014Abuja rewards consistency."
+    startingMoney: 1500000
+    startingAssets: None
+    perk1:
+      name: Salary Bonus
+      description: Collects \u20A6300,000 when passing GO instead of \u20A6200,000.
+    perk2:
+      name: Credit Trust
+      description: First mortgage has 0% interest when redeeming (no 10% interest
+        once).
+    cast1:
+      name: Risk Averse
+      description: Minimum auction starting bid is 15% of property price (instead
+        of 10%).
+    cast2:
+      name: Limited Leverage
+      description: Can only mortgage one property per turn.
+  - fullImage: {fileID: -185124995316883028, guid: 6824ad1605bd496429d535a05d8fa3df, type: 3}
+    tokenImage: {fileID: 4753611910847169362, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+    characterName: The Prince
+    difficultyLevel: Medium
+    backstory: Wealthy man's son. Starts with advantage, but Abuja expects results.
+      The system watches him closely.
+    startingMoney: 3500000
+    startingAssets: 2 Satellite properties (random, no buildings)
+    perk1:
+      name: Family Assets
+      description: Starts the game owning 2 Satellite properties (random).
+    perk2:
+      name: Elite Access
+      description: Building in Prime Areas costs 10% less.
+    cast1:
+      name: Heavy Tax
+      description: Pays 2\u00d7 on all Tax tiles.
+    cast2:
+      name: Lifestyle Drain
+      description: Loses \u20A6100,000 every time he passes GO.
+  - fullImage: {fileID: 3275612725585846603, guid: 6a4be15f44dd9d244bc7d914ef33a7d7, type: 3}
+    tokenImage: {fileID: -6160939997523324761, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+    characterName: Tech Protege
+    difficultyLevel: Medium
+    backstory: Young coder with a foreign contract. Has money and speed, but sometimes
+      out of touch with Abujas local street value.
+    startingMoney: 2500000
+    startingAssets: 1 Utility (Electricity or Petroleum)
+    perk1:
+      name: Digital Edge
+      description: Starts owning 1 Utility automatically.
+    perk2:
+      name: Cheap Bail
+      description: Pays \u20A625,000 to exit jail instead of \u20A650,000.
+    cast1:
+      name: Local Blindspot
+      description: Receives 10% less rent from Satellite properties.
+    cast2:
+      name: Bid Penalty
+      description: First failed auction bid costs \u20A650,000.
+  - fullImage: {fileID: 4882634634746919785, guid: 75e8730db95d2c0499c73c04b28bbe60, type: 3}
+    tokenImage: {fileID: -3550853060552520348, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+    characterName: Market Queen
+    difficultyLevel: Medium
+    backstory: Self-made dealmaker from Garki Market. She understands negotiation
+      better than anyone\u2014but her name attracts attention from tax officials.
+    startingMoney: 2000000
+    startingAssets: None
+    perk1:
+      name: Master Trader
+      description: Can trade mortgaged properties (normally not allowed).
+    perk2:
+      name: Deal Maker
+      description: Earns \u20A6100,000 each time a trade is accepted.
+    cast1:
+      name: Market Exposure
+      description: Pays +15% extra on Tax tiles.
+    cast2:
+      name: No Auction Skip
+      description: Cannot skip auctions (must participate or pass officially).
+  - fullImage: {fileID: -4952874782782498498, guid: 8c8e486593d3d964ba10b9d8323d4aa8, type: 3}
+    tokenImage: {fileID: 6224345419829451340, guid: 5018ae12621f18541a38263d766abbc3, type: 3}
+    characterName: Civil Servant
+    difficultyLevel: Easy
+    backstory: Quiet, disciplined, and patient. Not rich, not flashy, but understands
+      Abuja\u2019s system better than most. Plays the long game.
+    startingMoney: 1800000
+    startingAssets: None
+    perk1:
+      name: Pension Security
+      description: Receives \u20A6100,000 every 5 turns as steady income.
+    perk2:
+      name: Legal Shield
+      description: Once per game, pays 25% less rent when landing on an owned property.
+    cast1:
+      name: Slow Growth
+      description: Cannot build Hotels until Turn 20.
+    cast2:
+      name: Paperwork Delay
+      description: All trades require one extra turn before they are finalized.
+  - fullImage: {fileID: 8853701963226063538, guid: fe95796de9ef82f44a5e9baf633188a2, type: 3}
+    tokenImage: {fileID: -8272252217215029006, guid: fd8592fc37c9bc34b92b0486daec6fd2, type: 3}
+    characterName: Omobabalowo
+    difficultyLevel: Medium
+    backstory: Child of a rich father who thinks money solves everything. Starts
+      strong, but Abuja still tests him.
+    startingMoney: 3200000
+    startingAssets: None
+    perk1:
+      name: Trust Fund
+      description: Starts with \u20A63,200,000 in cash.
+    perk2:
+      name: Premium Access
+      description: Pays 10% less when buying properties.
+    cast1:
+      name: Tax Spotlight
+      description: Pays +15% extra on Tax tiles.
+    cast2:
+      name: Soft Landing
+      description: Cannot mortgage properties until Turn 5.

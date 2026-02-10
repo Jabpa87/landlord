@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53659b96db3a6d4789c4096d3ce036e, type: 3}
+  m_Name: CardIconCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::CardIconCatalog
+  chanceCard: {fileID: 155600761107790948, guid: 38ff30cad5da321439a7bb0aab1c56ce, type: 3}
+  communityChestCard: {fileID: 965811509436117, guid: 6c6683ae1fe84774fa8a74c0d6113756, type: 3}
+  getOutOfJailCard: {fileID: 5219009730940093488, guid: 304d2d0ac1eea034fa5a16fe10949671, type: 3}
+  skipRent: {fileID: 691071901164559260, guid: b82cbf9fcf1772d42a66b0cfe258d787, type: 3}
+  goBonus: {fileID: 6576080696910681576, guid: 082003089eb553b4f92b919db33e5aaa, type: 3}
+  mortgageBoost: {fileID: -7064732664502586281, guid: ad4bfb0f3fb5e7e45a23e29d71d39f42, type: 3}
+  buildDiscount: {fileID: 6962371582171214121, guid: 02b3f082e3798394ca47ee0a200bbd4f, type: 3}
+  rentShield: {fileID: -9219927077082605630, guid: 36790431f9386354e91701e9a950ce83, type: 3}
+  bailDiscount: {fileID: -8461077189983220550, guid: edb86287fb83f5d458b253eae2cd4e42, type: 3}
+  auctionEdge: {fileID: -8827878721963908428, guid: 7d583375080357b4588d22d279cdd1da, type: 3}
+  defaultCard: {fileID: -6464869995595449900, guid: 8f3ccc2c1f3e52c4a8cee64ef6638b60, type: 3}
