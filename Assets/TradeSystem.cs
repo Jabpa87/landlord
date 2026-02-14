@@ -155,6 +155,8 @@ public class TradeSystem : MonoBehaviour
         player1OfferingMoney = 0;
         player2OfferingMoney = 0;
         tradeInProgress = true;
+        if (turnManager != null)
+            turnManager.TransitionState(GameStateMachine.State.InTrade);
         
         Debug.Log($"=== TRADE STARTED ===");
         Debug.Log($"Initiator: {initiator.playerName}");
@@ -201,6 +203,8 @@ public class TradeSystem : MonoBehaviour
         player1OfferingProperties.Add(prop);
         player2OfferingMoney = Mathf.Max(minTradeAmount, prop.price * 80 / 100);
         tradeInProgress = true;
+        if (turnManager != null)
+            turnManager.TransitionState(GameStateMachine.State.InTrade);
         ShowTradeUI();
         ShowTradeForAcceptance();
     }
@@ -430,6 +434,8 @@ public class TradeSystem : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (!tradeInProgress || targetPlayer == null) { EndTrade(); yield break; }
         bool accept = ResolveAITradeResponse();
+        if (uiManager != null)
+            uiManager.ShowResultNotification(accept ? $"{targetPlayer.playerName} accepted the trade." : $"{targetPlayer.playerName} rejected the trade.", 1.2f);
         if (uiManager != null && uiManager.TradeStatusText != null)
             uiManager.TradeStatusText.text = accept ? $"{targetPlayer.playerName} accepted the trade." : $"{targetPlayer.playerName} rejected the trade.";
         yield return new WaitForSeconds(1.5f);
@@ -598,6 +604,8 @@ public class TradeSystem : MonoBehaviour
         player2OfferingMoney = 0;
         
         HideTradeUI();
+        if (turnManager != null)
+            turnManager.TransitionState(GameStateMachine.State.ResolvingTile);
     }
     
     void ShowTradeUI()

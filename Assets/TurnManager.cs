@@ -8,6 +8,14 @@ using UnityEngine.UIElements;
 
 public class TurnManager : MonoBehaviour
 {
+    [Header("Core Controllers")]
+    [Tooltip("Single execution entrypoint for gameplay requests from UI/board.")]
+    public GameController gameController;
+    [Tooltip("Single source of truth for game state + turn ownership.")]
+    public GameStateMachine stateMachine;
+    [Tooltip("Centralized input permissions (human vs AI, buttons/board/popup interaction).")]
+    public InputGate inputGate;
+
     [Header("Players")]
     public List<Player> players = new List<Player>();
 
@@ -83,6 +91,10 @@ public class TurnManager : MonoBehaviour
 
     void Start()
     {
+        if (gameController == null) gameController = FindFirstObjectByType<GameController>();
+        if (stateMachine == null) stateMachine = FindFirstObjectByType<GameStateMachine>();
+        if (inputGate == null) inputGate = FindFirstObjectByType<InputGate>();
+
         // Always connect UI buttons
         ConnectUIButtons();
 
@@ -157,20 +169,40 @@ public class TurnManager : MonoBehaviour
         if (uiManager != null)
         {
             if (uiManager.RollButton != null)
-                uiManager.RollButton.Clicked += RollDice;
+            {
+                uiManager.RollButton.Clicked -= RollDice;
+                uiManager.RollButton.Clicked -= OnRollButtonClicked;
+                uiManager.RollButton.Clicked += OnRollButtonClicked;
+            }
             
             if (uiManager.EndTurnButton != null)
-                uiManager.EndTurnButton.Clicked += EndTurn;
+            {
+                uiManager.EndTurnButton.Clicked -= EndTurn;
+                uiManager.EndTurnButton.Clicked -= OnEndTurnButtonClicked;
+                uiManager.EndTurnButton.Clicked += OnEndTurnButtonClicked;
+            }
             
             // Jail UI buttons
             if (uiManager.PayBailButton != null)
-                uiManager.PayBailButton.clicked += PayBail;
+            {
+                uiManager.PayBailButton.clicked -= PayBail;
+                uiManager.PayBailButton.clicked -= OnPayBailButtonClicked;
+                uiManager.PayBailButton.clicked += OnPayBailButtonClicked;
+            }
             
             if (uiManager.UseCardButton != null)
-                uiManager.UseCardButton.clicked += UseJailCard;
+            {
+                uiManager.UseCardButton.clicked -= UseJailCard;
+                uiManager.UseCardButton.clicked -= OnUseJailCardButtonClicked;
+                uiManager.UseCardButton.clicked += OnUseJailCardButtonClicked;
+            }
             
             if (uiManager.WaitButton != null)
-                uiManager.WaitButton.clicked += WaitInJail;
+            {
+                uiManager.WaitButton.clicked -= WaitInJail;
+                uiManager.WaitButton.clicked -= OnWaitInJailButtonClicked;
+                uiManager.WaitButton.clicked += OnWaitInJailButtonClicked;
+            }
             
             // Property panel buttons (BUY, SKIP) - handled by TurnManager to ensure current player is called
             if (uiManager.BuyButton != null)
@@ -185,9 +217,12 @@ public class TurnManager : MonoBehaviour
                 uiManager.SkipButton.clicked += OnSkipButtonClicked;
             }
             
-            // Manage Properties (opens panel; Build/Sell/Mortgage/Redeem are inside the panel)
+            // Manage Properties (opens panel)
             if (uiManager.ManagePropertiesButton != null)
+            {
+                uiManager.ManagePropertiesButton.Clicked -= OnManagePropertiesClicked;
                 uiManager.ManagePropertiesButton.Clicked += OnManagePropertiesClicked;
+            }
 
             // Trade button
             if (uiManager.TradeButton != null)
@@ -479,6 +514,8 @@ public class TurnManager : MonoBehaviour
             setInputEnabled: (current != null && !current.isAI) ? "Roll" : "None",
             setAIEnabled: current != null && current.isAI);
         Debug.Log($"[Turn] StartTurn: current player={(current != null ? current.playerName : "null")} (index {(current != null ? current.playerIndex : -1)}) ai={current != null && current.isAI}");
+        if (current != null)
+            SetTurnOwner(current.isAI ? GameStateMachine.TurnOwner.AI : GameStateMachine.TurnOwner.Human);
 
         // Update button states using UI Toolkit (single source of truth)
         Player p = GetCurrentPlayer();
@@ -489,8 +526,13 @@ public class TurnManager : MonoBehaviour
 
         if (p != null && p.isAI)
         {
+            TransitionState(GameStateMachine.State.AIProcessing);
             GameLogger.Log($"AI_START | player={p.playerName} idx={p.playerIndex}");
             StartAITurn(p);
+        }
+        else
+        {
+            TransitionState(GameStateMachine.State.AwaitingRoll);
         }
 
         if (p != null)
@@ -543,6 +585,16 @@ public class TurnManager : MonoBehaviour
             GameSoundManager.Instance.NotifyActivity();
 
         turnInProgress = true;
+        if (p.isAI)
+        {
+            SetTurnOwner(GameStateMachine.TurnOwner.AI);
+            TransitionState(GameStateMachine.State.AIProcessing);
+        }
+        else
+        {
+            SetTurnOwner(GameStateMachine.TurnOwner.Human);
+            TransitionState(GameStateMachine.State.Moving);
+        }
         if (uiManager != null && uiManager.RollButton != null)
             uiManager.RollButton.Enabled = false;
 
@@ -645,44 +697,16 @@ public class TurnManager : MonoBehaviour
         GameLogger.Log($"MOVE_START | player={p.playerName} ai={p.isAI} steps={total}");
         yield return p.MoveSteps(total, goSalary, dice1, dice2, isDoubles);
         TurnDebugState.LogTurnAction("MoveEnded", $"player={p.playerName}", setPhase: "ResolveTile", setActiveToken: "—");
-
-        // If doubles and not in jail, allow another roll
-        if (isDoubles && !p.IsInJail && p.consecutiveDoubles < 3)
-        {
-            Debug.Log("Doubles! Roll again!");
-            turnInProgress = false; // Allow another roll
-
-            if (p.isAI)
-            {
-                yield return new WaitForSeconds(aiRollDelay);
-                RollDice();
-                yield break;
-            }
-            else
-            {
-                // Re-enable roll button
-                if (uiManager != null && uiManager.RollButton != null)
-                {
-                    uiManager.RollButton.SetEnabled(true);
-                    TurnDebugState.InputEnabled = "Roll";
-                }
-                
-                if (uiManager != null && uiManager.EndTurnButton != null)
-                {
-                    uiManager.EndTurnButton.Enabled = false;
-                }
-                
-                // Don't end turn - player can roll again
-                yield break;
-            }
-        }
+        TransitionState(p.isAI ? GameStateMachine.State.AIProcessing : GameStateMachine.State.ResolvingTile);
 
         if (p.isAI)
         {
             yield return ResolveAIChoice(p);
+            TransitionState(GameStateMachine.State.ResolvingTile);
         }
         else
         {
+            TransitionState(GameStateMachine.State.AwaitingHumanDecision);
             // Wait until any property UI choice is completed (Buy/Skip/Build).
             // Add timeout to prevent infinite waiting
             float timeout = 30f; // 30 second timeout
@@ -699,6 +723,7 @@ public class TurnManager : MonoBehaviour
                 Debug.LogWarning($"DoMoveAndWait: Timeout reached while waiting for player choice. Forcing IsAwaitingChoice to false.");
                 p.IsAwaitingChoice = false;
             }
+            TransitionState(GameStateMachine.State.ResolvingTile);
         }
 
         // If rolled doubles and not in jail, player can roll again
@@ -786,6 +811,7 @@ public class TurnManager : MonoBehaviour
         {
             if (p.isAI)
             {
+                TransitionState(GameStateMachine.State.AIProcessing);
                 yield return ResolveAIJailChoice(p);
                 
                 if (!p.IsInJail)
@@ -803,6 +829,7 @@ public class TurnManager : MonoBehaviour
             else
             {
                 // Player is still in jail - show jail UI
+                TransitionState(GameStateMachine.State.AwaitingHumanDecision);
                 ShowJailUI(p);
                 
                 // Wait for player to choose action (pay, use card, or wait)
@@ -822,6 +849,7 @@ public class TurnManager : MonoBehaviour
                 if (uiManager != null && uiManager.EndTurnButton != null && !uiManager.IsPropertyManagerPanelOpen)
                     uiManager.EndTurnButton.Enabled = true;
                 HideJailUI();
+                TransitionState(GameStateMachine.State.ResolvingTile);
             }
         }
         
@@ -830,9 +858,27 @@ public class TurnManager : MonoBehaviour
 
     public void EndTurn()
     {
+        TransitionState(GameStateMachine.State.EndTurnTransition);
+
         Player p = GetCurrentPlayer();
         TurnDebugState.LogTurnAction("EndTurnTriggered", $"player={p?.playerName} turnInProgress={turnInProgress} isAwaitingChoice={p?.IsAwaitingChoice}", setPhase: "EndTurn");
-        if (!turnInProgress) return;
+        if (!turnInProgress)
+        {
+            // Safety recovery for rare desync after UI decisions.
+            bool recoverableHumanEnd =
+                p != null &&
+                !p.isAI &&
+                !p.IsAwaitingChoice &&
+                stateMachine != null &&
+                (stateMachine.CurrentState == GameStateMachine.State.ResolvingTile ||
+                 stateMachine.CurrentState == GameStateMachine.State.ShowingResult);
+
+            if (!recoverableHumanEnd)
+                return;
+
+            turnInProgress = true;
+            Debug.LogWarning("[Turn] Recovered EndTurn from desynced turnInProgress flag.");
+        }
 
         if (p != null && p.IsAwaitingChoice) return;
         if (p != null && p.isAI && !aiTurnInProgress) return;
@@ -900,6 +946,8 @@ public class TurnManager : MonoBehaviour
     /// <summary>Call when an auction ends so the current player can press End Turn and continue.</summary>
     public void OnAuctionEnded()
     {
+        SetTurnOwner(GameStateMachine.TurnOwner.Human);
+        TransitionState(GameStateMachine.State.ResolvingTile);
         if (uiManager != null && uiManager.EndTurnButton != null && !uiManager.IsPropertyManagerPanelOpen)
         {
             uiManager.EndTurnButton.Enabled = true;
@@ -1182,6 +1230,8 @@ public class TurnManager : MonoBehaviour
     
     void ShowJailUI(Player p)
     {
+        if (p == null || p.isAI) return;
+        TransitionState(GameStateMachine.State.AwaitingHumanDecision);
         if (uiManager != null)
             uiManager.ShowJailPanel();
         
@@ -1316,6 +1366,11 @@ public class TurnManager : MonoBehaviour
     
     void OnBuyButtonClicked()
     {
+        if (gameController != null)
+        {
+            gameController.RequestBuyProperty();
+            return;
+        }
         Player p = GetCurrentPlayer();
         // Only handle click for the human player who is awaiting choice (avoids AI "buying" when human clicked)
         if (p == null || p.isAI || !p.IsAwaitingChoice)
@@ -1325,6 +1380,11 @@ public class TurnManager : MonoBehaviour
     
     void OnSkipButtonClicked()
     {
+        if (gameController != null)
+        {
+            gameController.RequestSkipProperty();
+            return;
+        }
         Player p = GetCurrentPlayer();
         if (p == null || p.isAI || !p.IsAwaitingChoice)
             return;
@@ -1472,6 +1532,7 @@ public class TurnManager : MonoBehaviour
 
     void StartAITurn(Player p)
     {
+        CloseInteractivePopupsForAI();
         aiTurnInProgress = true;
         TurnDebugState.AIEnabled = true;
         aiTurnStartTime = Time.time;
@@ -1566,6 +1627,7 @@ public class TurnManager : MonoBehaviour
         {
             GameLogger.Log($"AI_JAIL_USE_CARD | player={p.playerName}");
             p.UseGetOutOfJailFreeCard(CardDeckType.Chance);
+            ShowResultNotification($"{p.playerName} used a Get Out of Jail card.", 1.2f);
             yield break;
         }
 
@@ -1574,10 +1636,82 @@ public class TurnManager : MonoBehaviour
         {
             GameLogger.Log($"AI_JAIL_PAY_BAIL | player={p.playerName}");
             p.PayJailBail();
+            ShowResultNotification($"{p.playerName} paid bail.", 1.2f);
             yield break;
         }
 
         GameLogger.Log($"AI_JAIL_WAIT | player={p.playerName}");
         p.IsAwaitingChoice = false;
+        ShowResultNotification($"{p.playerName} stays in jail this turn.", 1.2f);
+    }
+
+    void OnRollButtonClicked()
+    {
+        if (gameController != null) gameController.RequestRollDice();
+        else RollDice();
+    }
+
+    void OnEndTurnButtonClicked()
+    {
+        if (gameController != null) gameController.RequestEndTurn();
+        else EndTurn();
+    }
+
+    void OnPayBailButtonClicked()
+    {
+        if (gameController != null) gameController.RequestJailPayBail();
+        else PayBail();
+    }
+
+    void OnUseJailCardButtonClicked()
+    {
+        if (gameController != null) gameController.RequestJailUseCard();
+        else UseJailCard();
+    }
+
+    void OnWaitInJailButtonClicked()
+    {
+        if (gameController != null) gameController.RequestJailWait();
+        else WaitInJail();
+    }
+
+    public void TransitionState(GameStateMachine.State state)
+    {
+        if (stateMachine != null) stateMachine.TransitionTo(state);
+    }
+
+    public void SetTurnOwner(GameStateMachine.TurnOwner owner)
+    {
+        if (stateMachine != null) stateMachine.SetTurnOwner(owner);
+    }
+
+    void ShowResultNotification(string message, float durationSeconds = 1.2f)
+    {
+        TransitionState(GameStateMachine.State.ShowingResult);
+        if (uiManager != null)
+            uiManager.ShowResultNotification(message, durationSeconds);
+        StartCoroutine(ReturnFromResultStateAfterDelay(durationSeconds));
+    }
+
+    public void ShowResultMessage(string message, float durationSeconds = 1.2f)
+    {
+        ShowResultNotification(message, durationSeconds);
+    }
+
+    IEnumerator ReturnFromResultStateAfterDelay(float seconds)
+    {
+        yield return new WaitForSeconds(Mathf.Max(0.1f, seconds));
+        Player current = GetCurrentPlayer();
+        if (current == null) yield break;
+        TransitionState(current.isAI ? GameStateMachine.State.AIProcessing : GameStateMachine.State.ResolvingTile);
+    }
+
+    void CloseInteractivePopupsForAI()
+    {
+        if (uiManager == null) return;
+        uiManager.HidePropertyPanel();
+        uiManager.HideJailPanel();
+        uiManager.HideTradePanel();
+        uiManager.HideCardPanel();
     }
 }

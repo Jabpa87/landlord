@@ -73,6 +73,7 @@ public class PerkRevealController : MonoBehaviour
                 yield return StartCoroutine(AnimateCardReveal(cardElement, p.playerIndex));
 
             uiManager.HideCardPanel();
+            uiManager.PinPerkCardToProfile(p.playerIndex, perk, playWiggle: true);
             yield return new WaitForSeconds(delayBetweenPlayers);
         }
 

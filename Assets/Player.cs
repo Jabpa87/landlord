@@ -764,6 +764,8 @@ public class Player : MonoBehaviour
                 {
                     activeUIManager.ShowPropertyPanel();
                     IsAwaitingChoice = true;
+                    if (turnManager != null)
+                        turnManager.TransitionState(GameStateMachine.State.AwaitingHumanDecision);
                     TurnDebugState.LogTurnAction("DecisionShown", $"type=BuyOrSkip player={playerName} tile={tile.gameObject.name}", setPhase: "AwaitDecision", setInputEnabled: "Buy,Skip");
                 }
                 else
@@ -1132,12 +1134,18 @@ public class Player : MonoBehaviour
                 {
                     activeUIManager.PropertyText.text = $"✓ Bought {prop.propertyName}!\nMoney left: ₦{wallet:N0}";
                 }
+                if (activeUIManager != null)
+                {
+                    activeUIManager.HidePropertyPanel();
+                    if (turnManager != null)
+                        turnManager.ShowResultMessage($"{playerName} purchased {prop.propertyName}.\nBalance: ₦{wallet:N0}", isAI ? 1.1f : 1.8f);
+                    else
+                        activeUIManager.ShowResultNotification($"{playerName} purchased {prop.propertyName}.\nBalance: ₦{wallet:N0}", isAI ? 1.1f : 1.8f);
+                }
                 
                 // Update currentTile to match the tile we just bought (for consistency)
                 currentTile = tile;
-                
-                // Hide the entire panel after successful purchase (with a short delay to show success message)
-                StartCoroutine(HidePanelAfterDelay(1.5f)); // Hide after 1.5 seconds to show success message
+                IsAwaitingChoice = false;
             }
             else
             {
@@ -1209,6 +1217,10 @@ public class Player : MonoBehaviour
         bool startedAuction = false;
         if (tile != null && tile.property != null && tile.property.owner == null)
         {
+            if (turnManager != null)
+                turnManager.ShowResultMessage($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
+            else if (activeUIManager != null)
+                activeUIManager.ShowResultNotification($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
             AuctionSystem auctionSystem = FindFirstObjectByType<AuctionSystem>();
             if (auctionSystem != null)
             {
@@ -2329,17 +2341,21 @@ public class Player : MonoBehaviour
     
     IEnumerator HandleCard(Card card, CardDeckType deckType)
     {
-        // Show card UI (unified dynamic panel) and wait for player to click OK (or auto-close for AI)
-        ShowCardUI(card, deckType);
-        IsAwaitingChoice = true;
-        
         if (isAI)
         {
-            // Chance/Community Chest card for AI: show briefly then auto-close
-            yield return StartCoroutine(AutoCloseCardForAI(2f));
+            // AI never opens interactive card popups.
+            if (turnManager != null)
+                turnManager.ShowResultMessage($"{playerName} drew: {card.title}", 1.2f);
+            else if (uiManager != null)
+                uiManager.ShowResultNotification($"{playerName} drew: {card.title}", 1.2f);
+            IsAwaitingChoice = false;
+            yield return new WaitForSeconds(0.8f);
         }
         else
         {
+            // Human path: show card UI and wait for Continue.
+            ShowCardUI(card, deckType);
+            IsAwaitingChoice = true;
             // Wait for human player to click OK button
             while (IsAwaitingChoice)
             {
@@ -2365,12 +2381,8 @@ public class Player : MonoBehaviour
             Debug.LogError("[GameMechanics] FAIL: Chance/Community Chest card not shown - uiManager is null on Player. Landed player=" + playerName);
             return;
         }
+        if (isAI) return;
         uiManager.ShowCard(card, deckType, OnCardOkClicked);
-        if (isAI)
-        {
-            uiManager.SetCardPanelInteractive(false);
-            StartCoroutine(AutoCloseCardForAI(1.5f));
-        }
         IsAwaitingChoice = true;
         TurnDebugState.LogTurnAction("DecisionShown", $"type=CardContinue player={playerName} card={card.title}", setPhase: "AwaitAck", setInputEnabled: "OK");
     }
@@ -2517,34 +2529,14 @@ public class Player : MonoBehaviour
                 Debug.LogWarning($"Could not find target for movement card: {card.title}");
             yield break;
         }
-        
-        // Move to target
-        yield return MoveToTile(targetIndex);
-        
-        // Check if passed GO
-        if (card.title.Contains("pass GO") || card.title.Contains("If you pass GO"))
-        {
-            // Check if we passed GO during movement
-            int goIndex = FindTileIndexByType(TileType.Go);
-            if (goIndex != -1)
-            {
-                bool passedGo = false;
-                if (card.moveSpaces > 0 && currentIndex < goIndex && targetIndex >= goIndex)
-                    passedGo = true;
-                else if (card.moveSpaces < 0 && currentIndex > goIndex && targetIndex <= goIndex)
-                    passedGo = true;
-                else if (targetIndex < currentIndex) // Wrapped around
-                    passedGo = true;
-                
-                if (passedGo)
-                {
-                    // Get goSalary from TurnManager or use default
-                    int goSalary = turnManager != null ? turnManager.goSalary : 2000000;
-                    AddMoney(goSalary);
-                    Debug.Log($"Passed GO! Collected ₦{goSalary:N0}");
-                }
-            }
-        }
+
+        // Movement contract:
+        // - "Go to"/"Advance to" moves FORWARD along board tiles.
+        // - Only explicit "Go Back"/negative spaces moves BACKWARD.
+        // - GO salary is awarded only when moving forward and card allows pass-GO payout.
+        bool moveBackward = card.moveSpaces < 0 || card.title.Contains("Go Back");
+        bool allowPassGoSalary = !moveBackward && CardAllowsPassGoSalary(card);
+        yield return MoveToTile(targetIndex, moveBackward, allowPassGoSalary);
         
         // Trigger tile action at destination
         TileInfo targetTile = boardPoints[targetIndex].GetComponent<TileInfo>();
@@ -2709,7 +2701,23 @@ public class Player : MonoBehaviour
         return nearestIndex;
     }
     
-    IEnumerator MoveToTile(int targetIndex)
+    bool CardAllowsPassGoSalary(Card card)
+    {
+        if (card == null || card.isGoToJail) return false;
+        if (card.targetTile == TileType.Go) return true;
+
+        string title = (card.title ?? string.Empty).ToLowerInvariant();
+        string description = (card.description ?? string.Empty).ToLowerInvariant();
+
+        if (title.Contains("go back")) return false;
+        if (description.Contains("do not pass go")) return false;
+        if (description.Contains("do not collect")) return false;
+        if (description.Contains("if you pass go")) return true;
+        if (description.Contains("collect") && description.Contains("go")) return true;
+        return false;
+    }
+
+    IEnumerator MoveToTile(int targetIndex, bool moveBackward = false, bool allowPassGoSalary = true)
     {
         if (boardPoints == null || targetIndex < 0 || targetIndex >= boardPoints.Length)
         {
@@ -2718,37 +2726,30 @@ public class Player : MonoBehaviour
         }
 
         int L = boardPoints.Length;
-        int forwardSteps = (targetIndex - currentIndex + L) % L;
-        if (forwardSteps == 0) forwardSteps = L;
-        int backwardSteps = (currentIndex - targetIndex + L) % L;
-        if (backwardSteps == 0) backwardSteps = L;
-
-        bool moveBackward = backwardSteps <= forwardSteps;
-        int steps = moveBackward ? backwardSteps : forwardSteps;
+        int steps = moveBackward
+            ? (currentIndex - targetIndex + L) % L
+            : (targetIndex - currentIndex + L) % L;
 
         for (int i = 0; i < steps; i++)
         {
             if (moveBackward)
             {
-                if (currentIndex == 0)
-                {
-                    int goSalary = turnManager != null ? turnManager.goSalary : 2000000;
-                    AddMoney(goSalary);
-                    Debug.Log($"Passed GO (backward)! Collected ₦{goSalary:N0}");
-                }
                 currentIndex = (currentIndex - 1 + L) % L;
             }
             else
             {
-                if (currentIndex == boardPoints.Length - 1)
+                if (allowPassGoSalary && currentIndex == boardPoints.Length - 1)
                 {
-                    int goSalary = turnManager != null ? turnManager.goSalary : 2000000;
+                    int goSalary = turnManager != null ? turnManager.goSalary : 200000;
                     AddMoney(goSalary);
                     Debug.Log($"Passed GO! Collected ₦{goSalary:N0}");
+                    yield return HandleGoBonusPerk(goSalary);
                 }
                 currentIndex = (currentIndex + 1) % L;
             }
             transform.position = boardPoints[currentIndex].position;
+            if (GameSoundManager.Instance != null)
+                GameSoundManager.Instance.PlayStep();
             yield return new WaitForSeconds(0.15f);
         }
 
@@ -2931,17 +2932,22 @@ public class Player : MonoBehaviour
 
         if (GameSoundManager.Instance != null)
             GameSoundManager.Instance.PlayPolice();
-        
-        // Move player to jail
-        currentIndex = jailIndex;
+
+        UIDocumentManager activeUIManager = uiManager != null ? uiManager : (turnManager != null ? turnManager.uiManager : null);
+        if (activeUIManager != null)
+            activeUIManager.ShowJailSirenLight(2.2f);
+
+        // Move player to jail along board tiles (no diagonal jump, no GO salary).
         if (boardPoints != null && jailIndex < boardPoints.Length)
         {
-            StopCoroutine("AnimateToJail");
-            StartCoroutine(AnimateToJail(jailIndex));
+            StopCoroutine("MoveToJailAlongBoard");
+            StartCoroutine(MoveToJailAlongBoard(jailIndex));
         }
-        else if (boardPoints != null && jailIndex < boardPoints.Length)
+        else
         {
-            transform.position = boardPoints[jailIndex].position;
+            currentIndex = jailIndex;
+            if (boardPoints != null && jailIndex < boardPoints.Length)
+                transform.position = boardPoints[jailIndex].position;
         }
         
         // Set jail state
@@ -2957,22 +2963,23 @@ public class Player : MonoBehaviour
         }
     }
 
-    private IEnumerator AnimateToJail(int jailIndex)
+    private IEnumerator MoveToJailAlongBoard(int jailIndex)
     {
-        Vector3 start = transform.position;
-        Vector3 end = boardPoints[jailIndex].position;
-        float duration = 0.9f;
-        float elapsed = 0f;
-        while (elapsed < duration)
+        if (boardPoints == null || boardPoints.Length == 0 || jailIndex < 0 || jailIndex >= boardPoints.Length)
+            yield break;
+
+        int L = boardPoints.Length;
+        int stepsBackward = (currentIndex - jailIndex + L) % L;
+        for (int i = 0; i < stepsBackward; i++)
         {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
-            // Add a small arc for a "taken away" feel
-            float arc = Mathf.Sin(t * Mathf.PI) * 0.15f;
-            transform.position = Vector3.Lerp(start, end, t) + new Vector3(0f, arc, 0f);
-            yield return null;
+            currentIndex = (currentIndex - 1 + L) % L;
+            transform.position = boardPoints[currentIndex].position;
+            if (GameSoundManager.Instance != null)
+                GameSoundManager.Instance.PlayStep();
+            yield return new WaitForSeconds(0.12f);
         }
-        transform.position = end;
+        currentIndex = jailIndex;
+        transform.position = boardPoints[jailIndex].position;
     }
     
     /// <summary>

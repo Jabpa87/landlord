@@ -80,6 +80,9 @@ public class UIDocumentManager : MonoBehaviour
     public Button CardAltButton { get; private set; }
     private System.Action cardOkHandler;
     private System.Action cardAltHandler;
+    private Coroutine resultNotificationRoutine;
+    private VisualElement jailSirenLightBar;
+    private Coroutine jailSirenRoutine;
     
     // Player Info Elements (for displaying all players)
     public VisualElement Player1Info { get; private set; }
@@ -202,6 +205,11 @@ public class UIDocumentManager : MonoBehaviour
     private Label[] _moneyToastLabels = new Label[MaxPlayers];
     private Label[] _moneyToastReasonLabels = new Label[MaxPlayers];
     private Coroutine[] _moneyToastRoutines = new Coroutine[MaxPlayers];
+    private VisualElement[] _perkCardRoots = new VisualElement[MaxPlayers];
+    private VisualElement[] _perkCardIcons = new VisualElement[MaxPlayers];
+    private Label[] _perkCardNames = new Label[MaxPlayers];
+    private Label[] _perkCardUses = new Label[MaxPlayers];
+    private Coroutine[] _perkCardWiggles = new Coroutine[MaxPlayers];
     
     // Player Statistics Panel Elements
     [Tooltip("Player statistics panel document (shown when viewing player stats)")]
@@ -632,7 +640,7 @@ public class UIDocumentManager : MonoBehaviour
         DiceText = HUDLabel.FromUIToolkit(root.Q<Label>("DiceText"));
         WalletText = HUDLabel.FromUIToolkit(root.Q<Label>("WalletText"));
         
-        // Action buttons from main UI (Manage replaces Build/Sell/Mortgage/Redeem)
+        // Main HUD only exposes high-level actions. Property actions live in Manage Properties panel.
         BuildButton = null;
         SellButton = null;
         MortgageButton = null;
@@ -1192,6 +1200,99 @@ public class UIDocumentManager : MonoBehaviour
     { 
         if (cardPanelDocument != null && cardPanelDocument.rootVisualElement != null)
             cardPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+
+    /// <summary>
+    /// Informational-only panel used for AI and human result messages.
+    /// This panel is never interactive and auto-closes after delay.
+    /// </summary>
+    public void ShowResultNotification(string message, float autoCloseSeconds = 1.2f)
+    {
+        ShowCardPanel();
+        SetCardContent(CardPanelMode.Perk, "RESULT", "", message ?? "", null, false);
+        if (CardOkButton != null && cardOkHandler != null)
+        {
+            CardOkButton.clicked -= cardOkHandler;
+            cardOkHandler = null;
+        }
+        if (CardAltButton != null && cardAltHandler != null)
+        {
+            CardAltButton.clicked -= cardAltHandler;
+            cardAltHandler = null;
+        }
+        if (resultNotificationRoutine != null)
+            StopCoroutine(resultNotificationRoutine);
+        resultNotificationRoutine = StartCoroutine(AutoHideResultNotification(autoCloseSeconds));
+    }
+
+    IEnumerator AutoHideResultNotification(float delay)
+    {
+        yield return new WaitForSeconds(Mathf.Max(0.1f, delay));
+        HideResultNotification();
+    }
+
+    public void HideResultNotification()
+    {
+        if (resultNotificationRoutine != null)
+        {
+            StopCoroutine(resultNotificationRoutine);
+            resultNotificationRoutine = null;
+        }
+        HideCardPanel();
+    }
+
+    void EnsureJailSirenLight()
+    {
+        if (jailSirenLightBar != null) return;
+        if (mainHUDDocument == null || mainHUDDocument.rootVisualElement == null) return;
+
+        var root = mainHUDDocument.rootVisualElement;
+        jailSirenLightBar = new VisualElement { name = "JailSirenLightBar" };
+        jailSirenLightBar.style.position = Position.Absolute;
+        jailSirenLightBar.style.top = 6;
+        jailSirenLightBar.style.left = 6;
+        jailSirenLightBar.style.right = 6;
+        jailSirenLightBar.style.height = 8;
+        jailSirenLightBar.style.backgroundColor = new Color(0.95f, 0.15f, 0.15f, 0.35f);
+        jailSirenLightBar.style.borderBottomLeftRadius = 4;
+        jailSirenLightBar.style.borderBottomRightRadius = 4;
+        jailSirenLightBar.style.borderTopLeftRadius = 4;
+        jailSirenLightBar.style.borderTopRightRadius = 4;
+        jailSirenLightBar.style.display = DisplayStyle.None;
+        jailSirenLightBar.pickingMode = PickingMode.Ignore;
+        root.Add(jailSirenLightBar);
+    }
+
+    public void ShowJailSirenLight(float durationSeconds = 2.2f)
+    {
+        EnsureJailSirenLight();
+        if (jailSirenLightBar == null) return;
+
+        if (jailSirenRoutine != null)
+            StopCoroutine(jailSirenRoutine);
+        jailSirenRoutine = StartCoroutine(JailSirenLightRoutine(durationSeconds));
+    }
+
+    IEnumerator JailSirenLightRoutine(float durationSeconds)
+    {
+        if (jailSirenLightBar == null) yield break;
+        jailSirenLightBar.style.display = DisplayStyle.Flex;
+
+        float elapsed = 0f;
+        float pulse = 0f;
+        while (elapsed < Mathf.Max(0.2f, durationSeconds))
+        {
+            elapsed += Time.deltaTime;
+            pulse += Time.deltaTime * 8f;
+            bool red = Mathf.FloorToInt(pulse) % 2 == 0;
+            jailSirenLightBar.style.backgroundColor = red
+                ? new Color(0.95f, 0.15f, 0.15f, 0.35f)
+                : new Color(0.2f, 0.4f, 1f, 0.35f);
+            yield return null;
+        }
+
+        jailSirenLightBar.style.display = DisplayStyle.None;
+        jailSirenRoutine = null;
     }
 
     public void ShowChoiceCard(string title, string description, string okText, string altText, System.Action onOk, System.Action onAlt)
@@ -2417,6 +2518,7 @@ public class UIDocumentManager : MonoBehaviour
                             {
                                 // Create a background image from the sprite
                                 avatar.style.backgroundImage = new StyleBackground(texture);
+                                avatar.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
                                 avatar.style.backgroundColor = new StyleColor(Color.white); // Use white tint to show sprite colors
                             }
                             else
@@ -2440,8 +2542,159 @@ public class UIDocumentManager : MonoBehaviour
                         avatar.style.backgroundColor = player.playerColor;
                     }
                 }
+
+                UpdatePerkCardOnProfile(playerIndex, player);
             }
         }
+    }
+
+    void EnsurePerkCardSlot(int playerIndex, VisualElement infoRoot)
+    {
+        if (playerIndex < 0 || playerIndex >= MaxPlayers || infoRoot == null) return;
+        if (_perkCardRoots[playerIndex] != null) return;
+
+        var root = new VisualElement { name = $"PerkCardProfile_{playerIndex}" };
+        root.AddToClassList("hud-perk-card-root");
+
+        var icon = new VisualElement { name = $"PerkCardIcon_{playerIndex}" };
+        icon.AddToClassList("hud-perk-card-icon");
+
+        var textWrap = new VisualElement { name = $"PerkCardTextWrap_{playerIndex}" };
+        textWrap.AddToClassList("hud-perk-card-text-wrap");
+
+        var nameLabel = new Label { name = $"PerkCardName_{playerIndex}" };
+        nameLabel.AddToClassList("hud-perk-card-name");
+
+        var usesLabel = new Label { name = $"PerkCardUses_{playerIndex}" };
+        usesLabel.AddToClassList("hud-perk-card-uses");
+
+        textWrap.Add(nameLabel);
+        textWrap.Add(usesLabel);
+        root.Add(icon);
+        root.Add(textWrap);
+        infoRoot.Add(root);
+
+        _perkCardRoots[playerIndex] = root;
+        _perkCardIcons[playerIndex] = icon;
+        _perkCardNames[playerIndex] = nameLabel;
+        _perkCardUses[playerIndex] = usesLabel;
+    }
+
+    void UpdatePerkCardOnProfile(int playerIndex, Player player)
+    {
+        if (player == null) return;
+        VisualElement infoRoot = GetPlayerInfoRoot(playerIndex);
+        if (infoRoot == null) return;
+        EnsurePerkCardSlot(playerIndex, infoRoot);
+
+        var root = _perkCardRoots[playerIndex];
+        var icon = _perkCardIcons[playerIndex];
+        var name = _perkCardNames[playerIndex];
+        var uses = _perkCardUses[playerIndex];
+        if (root == null || name == null || uses == null) return;
+
+        PerkCardInstance perk = (player.perkCards != null && player.perkCards.Count > 0) ? player.perkCards[0] : null;
+        if (perk == null)
+        {
+            root.style.display = DisplayStyle.None;
+            return;
+        }
+
+        root.style.display = DisplayStyle.Flex;
+        name.text = string.IsNullOrEmpty(perk.name) ? "Perk Card" : perk.name;
+        uses.text = perk.maxUses > 0 ? $"Uses: {perk.usesRemaining}/{perk.maxUses}" : "Passive";
+
+        if (icon != null)
+        {
+            Sprite perkSprite = (cardIconCatalog != null) ? cardIconCatalog.GetSprite(perk.type) : null;
+            if (perkSprite != null)
+            {
+                Texture2D t = SpriteToTexture2D(perkSprite);
+                if (t != null)
+                    icon.style.backgroundImage = new StyleBackground(t);
+                else
+                    icon.style.backgroundImage = new StyleBackground(perkSprite);
+            }
+            else
+            {
+                icon.style.backgroundImage = StyleKeyword.None;
+            }
+        }
+    }
+
+    VisualElement GetPlayerInfoRoot(int playerIndex)
+    {
+        switch (playerIndex)
+        {
+            case 0: return Player1Info;
+            case 1: return Player2Info;
+            case 2: return Player3Info;
+            case 3: return Player4Info;
+            default: return null;
+        }
+    }
+
+    public void PinPerkCardToProfile(int playerIndex, PerkCardInstance perk, bool playWiggle = true)
+    {
+        if (playerIndex < 0 || playerIndex >= MaxPlayers) return;
+        VisualElement infoRoot = GetPlayerInfoRoot(playerIndex);
+        if (infoRoot == null) return;
+        EnsurePerkCardSlot(playerIndex, infoRoot);
+
+        var root = _perkCardRoots[playerIndex];
+        var name = _perkCardNames[playerIndex];
+        var uses = _perkCardUses[playerIndex];
+        var icon = _perkCardIcons[playerIndex];
+        if (root == null || name == null || uses == null) return;
+
+        if (perk == null)
+        {
+            root.style.display = DisplayStyle.None;
+            return;
+        }
+
+        root.style.display = DisplayStyle.Flex;
+        name.text = string.IsNullOrEmpty(perk.name) ? "Perk Card" : perk.name;
+        uses.text = perk.maxUses > 0 ? $"Uses: {perk.usesRemaining}/{perk.maxUses}" : "Passive";
+
+        if (icon != null)
+        {
+            Sprite perkSprite = (cardIconCatalog != null) ? cardIconCatalog.GetSprite(perk.type) : null;
+            if (perkSprite != null)
+            {
+                Texture2D t = SpriteToTexture2D(perkSprite);
+                if (t != null)
+                    icon.style.backgroundImage = new StyleBackground(t);
+                else
+                    icon.style.backgroundImage = new StyleBackground(perkSprite);
+            }
+        }
+
+        if (playWiggle)
+        {
+            if (_perkCardWiggles[playerIndex] != null)
+                StopCoroutine(_perkCardWiggles[playerIndex]);
+            _perkCardWiggles[playerIndex] = StartCoroutine(PlayPinnedPerkWiggle(playerIndex));
+        }
+    }
+
+    IEnumerator PlayPinnedPerkWiggle(int playerIndex)
+    {
+        var root = (playerIndex >= 0 && playerIndex < MaxPlayers) ? _perkCardRoots[playerIndex] : null;
+        if (root == null) yield break;
+
+        float elapsed = 0f;
+        const float duration = 0.55f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float phase = elapsed * 24f;
+            float angle = Mathf.Sin(phase) * 6f * Mathf.Clamp01((duration - elapsed) / duration + 0.25f);
+            root.style.rotate = new StyleRotate(new Rotate(angle));
+            yield return null;
+        }
+        root.style.rotate = new StyleRotate(new Rotate(0f));
+        _perkCardWiggles[playerIndex] = null;
     }
 
     public void SetActivePlayerIndicator(int playerIndex)
@@ -2612,40 +2865,47 @@ public class UIDocumentManager : MonoBehaviour
         
         try
         {
-            // Get the sprite's texture
             Texture2D sourceTexture = sprite.texture;
             if (sourceTexture == null) return null;
-            
-            // Check if texture is readable
-            bool wasReadable = sourceTexture.isReadable;
-            
-            // If texture is not readable, we need to use RenderTexture approach
-            if (!wasReadable)
-            {
-                // Use the sprite's texture directly if possible, or create a render texture copy
-                // For now, try to use the texture as-is (UI Toolkit might handle it)
-                // If this doesn't work, we'll fall back to player color
-                return sourceTexture;
-            }
-            
-            // Get the sprite's rect (the portion of the texture that contains the sprite)
+
             Rect spriteRect = sprite.textureRect;
-            
-            // Create a new texture with the sprite's dimensions
+
+            // Always crop to sprite rect so avatar shows only selected sprite, not full atlas.
+            Texture2D readableTexture = sourceTexture;
+            bool createdReadableCopy = false;
+            if (!sourceTexture.isReadable)
+            {
+                var previous = RenderTexture.active;
+                RenderTexture rt = RenderTexture.GetTemporary(sourceTexture.width, sourceTexture.height, 0, RenderTextureFormat.ARGB32);
+                try
+                {
+                    Graphics.Blit(sourceTexture, rt);
+                    RenderTexture.active = rt;
+                    readableTexture = new Texture2D(sourceTexture.width, sourceTexture.height, TextureFormat.RGBA32, false);
+                    readableTexture.ReadPixels(new Rect(0, 0, sourceTexture.width, sourceTexture.height), 0, 0);
+                    readableTexture.Apply();
+                    createdReadableCopy = true;
+                }
+                finally
+                {
+                    RenderTexture.active = previous;
+                    RenderTexture.ReleaseTemporary(rt);
+                }
+            }
+
             Texture2D newTexture = new Texture2D((int)spriteRect.width, (int)spriteRect.height, TextureFormat.RGBA32, false);
-            
-            // Get the pixels from the sprite's region
-            Color[] pixels = sourceTexture.GetPixels(
+            Color[] pixels = readableTexture.GetPixels(
                 (int)spriteRect.x,
                 (int)spriteRect.y,
                 (int)spriteRect.width,
                 (int)spriteRect.height
             );
-            
-            // Apply pixels to new texture
             newTexture.SetPixels(pixels);
             newTexture.Apply();
-            
+
+            if (createdReadableCopy)
+                Destroy(readableTexture);
+
             return newTexture;
         }
         catch (Exception e)

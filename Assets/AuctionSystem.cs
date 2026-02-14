@@ -303,6 +303,8 @@ public class AuctionSystem : MonoBehaviour
         currentBid = minBid;
         
         auctionInProgress = true;
+        if (turnManager != null)
+            turnManager.TransitionState(GameStateMachine.State.InAuction);
         auctionStartTime = Time.time;
         lastAIAuctionPlayer = null;
         
@@ -413,6 +415,8 @@ public class AuctionSystem : MonoBehaviour
         if (willBid)
         {
             PlaceBid(ai, nextBid);
+            if (uiManager != null)
+                uiManager.ShowResultNotification($"{ai.playerName} bid ₦{nextBid:N0} in auction.", 1.0f);
             AdvanceAuctionTurn();
             CheckAuctionCompletion();
         }
@@ -421,6 +425,8 @@ public class AuctionSystem : MonoBehaviour
             if (playerBids.ContainsKey(ai) && playerBids[ai] == -1) { aiAuctionCoroutine = null; yield break; }
             playerBids[ai] = -1;
             if (auctionStatusText != null) auctionStatusText.text = $"{ai.playerName} passed";
+            if (uiManager != null)
+                uiManager.ShowResultNotification($"{ai.playerName} passed the auction.", 1.0f);
             AdvanceAuctionTurn();
             UpdateAuctionUI();
             CheckAuctionCompletion();
@@ -673,6 +679,13 @@ public class AuctionSystem : MonoBehaviour
             return;
         }
         
+        PassBid(passingPlayer);
+    }
+
+    public void PassBid(Player passingPlayer)
+    {
+        if (!auctionInProgress || turnManager == null) return;
+
         if (passingPlayer != null && passingPlayer.IsCharacter("Market Queen"))
         {
             int requiredBid = GetRequiredAuctionBid(passingPlayer);
