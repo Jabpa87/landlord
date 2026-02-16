@@ -692,6 +692,7 @@ UnityEngine.Gradient::get_colorSpace_Injected
 UnityEngine.Gradient::get_mode_Injected
 UnityEngine.Graphics::GetPreserveFramebufferAlpha
 UnityEngine.Graphics::Internal_GetMaxDrawMeshInstanceCount
+UnityEngine.Graphics::Blit2_Injected
 UnityEngine.Graphics::Blit4_Injected
 UnityEngine.Graphics::ClearRandomWriteTargets
 UnityEngine.Graphics::CopyTexture_Region_Injected
@@ -1769,6 +1770,7 @@ UnityEngine.Texture2D::get_whiteTexture_Injected
 UnityEngine.Texture2D::GetImageDataSize_Injected
 UnityEngine.Texture2D::ApplyImpl_Injected
 UnityEngine.Texture2D::GetPixelBilinearImpl_Injected
+UnityEngine.Texture2D::ReadPixelsImpl_Injected
 UnityEngine.Texture2D::SetAllPixels32_Injected
 UnityEngine.Texture2D::SetPixelImpl_Injected
 UnityEngine.Texture2D::SetPixelsImpl_Injected

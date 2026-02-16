@@ -165,8 +165,8 @@ public class TileClickManager : MonoBehaviour
     /// <summary>Returns true if the pointer is over uGUI (Canvas) or UI Toolkit. Used to avoid treating UI clicks as tile clicks.</summary>
     static bool IsPointerOverUI(Vector2 screenPosition)
     {
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-            return true;
+        // Do not early-block from EventSystem alone; fullscreen HUD roots can make this true
+        // even when the click should still hit board tiles.
         var documents = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
         foreach (var doc in documents)
         {
@@ -175,9 +175,50 @@ public class TileClickManager : MonoBehaviour
             var panel = doc.rootVisualElement.panel;
             if (panel == null) continue;
             var picked = panel.Pick(screenPosition);
-            if (picked != null)
+            if (picked != null && IsInteractiveUIElement(picked, doc.rootVisualElement))
                 return true;
         }
+        return false;
+    }
+
+    static bool IsInteractiveUIElement(VisualElement picked, VisualElement root)
+    {
+        if (picked == null) return false;
+        // If pick hit only document root/background, don't treat as UI click.
+        if (picked == root) return false;
+
+        VisualElement current = picked;
+        while (current != null)
+        {
+            if (current.pickingMode == PickingMode.Ignore)
+            {
+                current = current.parent;
+                continue;
+            }
+
+            // Universal popup layers must always block board/tile clicks.
+            if (current.ClassListContains("popup-overlay-blocker") ||
+                current.ClassListContains("popup-shell") ||
+                current.ClassListContains("popup-root"))
+            {
+                return true;
+            }
+
+            // True interactive controls that should block tile clicks.
+            if (current is Button ||
+                current is TextField ||
+                current is IntegerField ||
+                current is Toggle ||
+                current is DropdownField ||
+                current is ScrollView ||
+                current is Slider)
+            {
+                return true;
+            }
+
+            current = current.parent;
+        }
+
         return false;
     }
 

@@ -1,114 +1,89 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/ui.uss?fileID=7433441132597879392&amp;guid=1cfcef30dfbb29e4f8fcc0b90e81e20f&amp;type=3#ui" />
     <Style src="project://database/Assets/UI%20Toolkit/USS/main-styles.uss?fileID=7433441132597879392&amp;guid=07cab56c084330948ac4625402a5c9e4&amp;type=3#main-styles" />
-    <ui:VisualElement name="GameplayHUDRoot" class="gameplay-hud-root" style="min-width: 1080px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <ui:VisualElement name="SafeAreaSpacer" class="gameplay-hud-safe-area" style="flex-grow: 1; flex-shrink: 1; min-height: 0;" />
-        <ui:VisualElement name="MainHUD" class="gameplay-hud-main" style="position: relative; height: 565px; flex-shrink: 0; background-image: url(&quot;project://database/Assets/back.png?fileID=2800000&amp;guid=7d0986907192cda429da3112e95046c5&amp;type=3#back&quot;); top: 299px;">
-            <ui:VisualElement name="Player1Info" class="gameplay-hud-player-panel gameplay-hud-player-tl" style="width: 300px; top: 50px; min-width: 300px; max-width: 300px; background-color: rgba(18, 55, 28, 0); border-left-color: rgb(198, 164, 79); border-right-color: rgb(198, 164, 79); border-top-color: rgb(198, 164, 79); border-bottom-color: rgb(198, 164, 79); left: 36px;">
-                <ui:VisualElement name="Player1TopRow" class="gameplay-hud-player-top-row">
-                    <ui:VisualElement name="Player1Avatar" class="gameplay-hud-avatar gameplay-hud-avatar-circle" style="width: 100px; height: 100px;" />
-                    <ui:VisualElement name="Player1Details" class="gameplay-hud-player-details">
-                        <ui:Label name="Player1Name" text="Player 1" class="gameplay-hud-player-name" />
-                        <ui:Label name="Player1CharacterName" text="Street Hustler" class="gameplay-hud-player-title" />
-                        <ui:Label name="Player1Money" text="₦10,000,000" class="gameplay-hud-player-money" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="Player1BottomRow" class="gameplay-hud-player-bottom-row">
-                    <ui:Button name="Player1MoreButton" text="More" class="gameplay-hud-more-btn" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); background-color: rgb(255, 165, 0); -unity-background-image-tint-color: rgb(212, 197, 159);" />
-                    <ui:VisualElement name="Player1Indicators" class="gameplay-hud-indicators">
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="Player1MoneyChangeLane" class="gameplay-hud-money-lane" style="min-height: 44px; align-items: center; justify-content: center;" />
+    <ui:VisualElement name="GameplayHUDRoot" class="gameplay-hud-root">
+        <ui:VisualElement name="SafeAreaSpacer" class="gameplay-hud-safe-area" />
+        <ui:VisualElement name="MainHUD" class="gameplay-hud-main gameplay-hud-modern" style="top: 52%;">
+            <ui:VisualElement name="GameplayHUDButtonBar" class="gameplay-hud-button-bar">
+                <ui:Button name="MenuButton" text="Menu" class="gameplay-hud-action-btn gameplay-hud-btn-green" style="background-image: url(&quot;project://database/Assets/Sprites/button.png?fileID=2800000&amp;guid=b2c659062aad75e47a6c934d5ab4bd57&amp;type=3#button&quot;);" />
+                <ui:Button name="ManagePropertiesButton" text="Manage Properties" class="gameplay-hud-action-btn gameplay-hud-btn-green" style="background-image: url(&quot;project://database/Assets/Sprites/button.png?fileID=2800000&amp;guid=b2c659062aad75e47a6c934d5ab4bd57&amp;type=3#button&quot;);" />
+                <ui:Button name="TradeButton" text="Trade" class="gameplay-hud-action-btn gameplay-hud-btn-green" style="background-image: url(&quot;project://database/Assets/Sprites/button.png?fileID=2800000&amp;guid=b2c659062aad75e47a6c934d5ab4bd57&amp;type=3#button&quot;);" />
+                <ui:Button name="EndTurnButton" text="End Turn" class="gameplay-hud-action-btn gameplay-hud-btn-red" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;);" />
             </ui:VisualElement>
-            <ui:VisualElement name="Player2Info" class="gameplay-hud-player-panel gameplay-hud-player-tr" style="width: 300px; top: 50px; height: 165px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; background-color: rgba(18, 55, 28, 0); right: 37px;">
-                <ui:VisualElement name="Player2TopRow" class="gameplay-hud-player-top-row">
-                    <ui:VisualElement name="Player2Avatar" class="gameplay-hud-avatar gameplay-hud-avatar-circle" style="width: 100px; height: 100px;" />
-                    <ui:VisualElement name="Player2Details" class="gameplay-hud-player-details">
-                        <ui:Label name="Player2Name" text="Player 2" class="gameplay-hud-player-name" />
-                        <ui:Label name="Player2CharacterName" class="gameplay-hud-player-title" />
-                        <ui:Label name="Player2Money" text="₦0" class="gameplay-hud-player-money" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="Player2BottomRow" class="gameplay-hud-player-bottom-row">
-                    <ui:Button name="Player2MoreButton" text="More" class="gameplay-hud-more-btn" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); background-color: rgb(255, 165, 0); -unity-background-image-tint-color: rgb(212, 197, 159);" />
-                    <ui:VisualElement name="Player2Indicators" class="gameplay-hud-indicators">
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="Player2MoneyChangeLane" class="gameplay-hud-money-lane" style="min-height: 44px; align-items: center; justify-content: center;" />
+            <ui:VisualElement name="GameplayHUDStatusRow" class="gameplay-hud-status-row">
+                <ui:Label name="CurrentPlayerText" class="gameplay-hud-status-label gameplay-hud-status-primary" />
+                <ui:Label name="WalletText" class="gameplay-hud-status-label gameplay-hud-status-money" />
+                <ui:Label name="BuildingSupplyText" class="gameplay-hud-status-label" />
+                <ui:Label name="DoublesIndicatorText" class="gameplay-hud-status-label gameplay-hud-status-warning" />
             </ui:VisualElement>
-            <ui:VisualElement name="Player3Info" class="gameplay-hud-player-panel gameplay-hud-player-bl" style="width: 300px; bottom: 50px; background-color: rgba(18, 55, 28, 0); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; left: 39px;">
-                <ui:VisualElement name="Player3TopRow" class="gameplay-hud-player-top-row">
-                    <ui:VisualElement name="Player3Avatar" class="gameplay-hud-avatar gameplay-hud-avatar-circle" style="width: 100px; height: 100px;" />
-                    <ui:VisualElement name="Player3Details" class="gameplay-hud-player-details">
-                        <ui:Label name="Player3Name" text="Player 3" class="gameplay-hud-player-name" />
-                        <ui:Label name="Player3CharacterName" class="gameplay-hud-player-title" />
-                        <ui:Label name="Player3Money" text="₦0" class="gameplay-hud-player-money" />
+            <ui:VisualElement name="GameplayHUDProfilesRow" class="gameplay-hud-profiles-row">
+                <ui:VisualElement name="Player1Info" class="gameplay-hud-player-panel gameplay-hud-player-in-row">
+                    <ui:VisualElement name="Player1TopRow" class="gameplay-hud-player-top-row">
+                        <ui:VisualElement name="Player1Avatar" class="gameplay-hud-avatar gameplay-hud-avatar-circle" />
+                        <ui:VisualElement name="Player1Details" class="gameplay-hud-player-details">
+                            <ui:Label name="Player1Name" text="Player 1" class="gameplay-hud-player-name" />
+                            <ui:Label name="Player1CharacterName" class="gameplay-hud-player-title" />
+                            <ui:Label name="Player1Money" text="₦0" class="gameplay-hud-player-money" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
+                    <ui:VisualElement name="Player1MoneyChangeLane" class="gameplay-hud-money-lane" />
                 </ui:VisualElement>
-                <ui:VisualElement name="Player3BottomRow" class="gameplay-hud-player-bottom-row">
-                    <ui:Button name="Player3MoreButton" text="More" class="gameplay-hud-more-btn" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); background-color: rgb(255, 165, 0); -unity-background-image-tint-color: rgb(212, 197, 159);" />
-                    <ui:VisualElement name="Player3Indicators" class="gameplay-hud-indicators">
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
+                <ui:VisualElement name="Player2Info" class="gameplay-hud-player-panel gameplay-hud-player-in-row">
+                    <ui:VisualElement name="Player2TopRow" class="gameplay-hud-player-top-row">
+                        <ui:VisualElement name="Player2Avatar" class="gameplay-hud-avatar gameplay-hud-avatar-circle" />
+                        <ui:VisualElement name="Player2Details" class="gameplay-hud-player-details">
+                            <ui:Label name="Player2Name" text="Player 2" class="gameplay-hud-player-name" />
+                            <ui:Label name="Player2CharacterName" class="gameplay-hud-player-title" />
+                            <ui:Label name="Player2Money" text="₦0" class="gameplay-hud-player-money" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
+                    <ui:VisualElement name="Player2MoneyChangeLane" class="gameplay-hud-money-lane" />
                 </ui:VisualElement>
-                <ui:VisualElement name="Player3MoneyChangeLane" class="gameplay-hud-money-lane" style="min-height: 44px; align-items: center; justify-content: center;" />
+                <ui:VisualElement name="Player3Info" class="gameplay-hud-player-panel gameplay-hud-player-in-row">
+                    <ui:VisualElement name="Player3TopRow" class="gameplay-hud-player-top-row">
+                        <ui:VisualElement name="Player3Avatar" class="gameplay-hud-avatar gameplay-hud-avatar-circle" />
+                        <ui:VisualElement name="Player3Details" class="gameplay-hud-player-details">
+                            <ui:Label name="Player3Name" text="Player 3" class="gameplay-hud-player-name" />
+                            <ui:Label name="Player3CharacterName" class="gameplay-hud-player-title" />
+                            <ui:Label name="Player3Money" text="₦0" class="gameplay-hud-player-money" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Player3MoneyChangeLane" class="gameplay-hud-money-lane" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Player4Info" class="gameplay-hud-player-panel gameplay-hud-player-in-row">
+                    <ui:VisualElement name="Player4TopRow" class="gameplay-hud-player-top-row">
+                        <ui:VisualElement name="Player4Avatar" class="gameplay-hud-avatar gameplay-hud-avatar-circle" />
+                        <ui:VisualElement name="Player4Details" class="gameplay-hud-player-details">
+                            <ui:Label name="Player4Name" text="Player 4" class="gameplay-hud-player-name" />
+                            <ui:Label name="Player4CharacterName" class="gameplay-hud-player-title" />
+                            <ui:Label name="Player4Money" text="₦0" class="gameplay-hud-player-money" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Player4MoneyChangeLane" class="gameplay-hud-money-lane" />
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="Player4Info" class="gameplay-hud-player-panel gameplay-hud-player-br" style="width: 300px; bottom: 50px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; background-color: rgba(18, 55, 28, 0); right: 39px;">
-                <ui:VisualElement name="Player4TopRow" class="gameplay-hud-player-top-row">
-                    <ui:VisualElement name="Player4Avatar" class="gameplay-hud-avatar gameplay-hud-avatar-circle" style="width: 100px; height: 100px;" />
-                    <ui:VisualElement name="Player4Details" class="gameplay-hud-player-details">
-                        <ui:Label name="Player4Name" text="Player 4" class="gameplay-hud-player-name" />
-                        <ui:Label name="Player4CharacterName" class="gameplay-hud-player-title" />
-                        <ui:Label name="Player4Money" text="₦0" class="gameplay-hud-player-money" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="Player4BottomRow" class="gameplay-hud-player-bottom-row">
-                    <ui:Button name="Player4MoreButton" text="More" class="gameplay-hud-more-btn" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); background-color: rgb(255, 165, 0); -unity-background-image-tint-color: rgb(212, 197, 159);" />
-                    <ui:VisualElement name="Player4Indicators" class="gameplay-hud-indicators">
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                        <ui:VisualElement class="gameplay-hud-indicator-bar" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="Player4MoneyChangeLane" class="gameplay-hud-money-lane" style="min-height: 44px; align-items: center; justify-content: center;" />
-            </ui:VisualElement>
-            <ui:VisualElement name="GameplayHUDCenter" class="gameplay-hud-center" style="background-image: url(&quot;project://database/Assets/BACK%20vertical.png?fileID=2800000&amp;guid=62a2cdaf7b61e6c4eab30808b493aec0&amp;type=3#BACK vertical&quot;); background-color: rgba(18, 40, 25, 0); border-left-color: rgba(198, 164, 79, 0); border-right-color: rgba(198, 164, 79, 0); border-top-color: rgba(198, 164, 79, 0); border-bottom-color: rgba(198, 164, 79, 0); min-width: 30%;">
+            <ui:VisualElement name="RollDiceFloating" class="gameplay-hud-roll-floating" style="min-width: 80%; align-self: center; right: 10%; left: 10%; bottom: 55px;">
                 <ui:Label name="DiceText" text="—" class="gameplay-hud-dice-label" />
-                <ui:Button name="RollButton" text="Roll Dice" class="gameplay-hud-roll-btn" style="background-image: url(&quot;project://database/Assets/Sprites/button.png?fileID=2800000&amp;guid=b2c659062aad75e47a6c934d5ab4bd57&amp;type=3#button&quot;); height: 130px; min-width: 320px;" />
-                <ui:VisualElement name="ActionRow1" class="gameplay-hud-action-row">
-                    <ui:Button name="ManagePropertiesButton" text="Manage" class="gameplay-hud-action-btn gameplay-hud-btn-green" style="background-image: url(&quot;project://database/Assets/Sprites/button.png?fileID=2800000&amp;guid=b2c659062aad75e47a6c934d5ab4bd57&amp;type=3#button&quot;); height: 64px; min-width: 140px;" />
-                    <ui:Button name="TradeButton" text="Trade" class="gameplay-hud-action-btn gameplay-hud-btn-green" style="background-image: url(&quot;project://database/Assets/Sprites/button.png?fileID=2800000&amp;guid=b2c659062aad75e47a6c934d5ab4bd57&amp;type=3#button&quot;); min-width: 140px; height: 64px;" />
-                </ui:VisualElement>
-                <ui:Button name="EndTurnButton" text="End Turn" class="gameplay-hud-action-btn gameplay-hud-btn-red" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); background-color: rgb(140, 40, 40); -unity-background-image-tint-color: rgb(192, 0, 0); height: 64px; min-width: 240px; margin-bottom: 9px;" />
-                <ui:Label name="BuildingSupplyText" class="gameplay-hud-supply-label" />
-                <ui:Label name="DoublesIndicatorText" class="gameplay-hud-doubles-label" />
+                <ui:Button name="RollButton" text="Roll Dice" class="gameplay-hud-roll-btn" style="background-image: url(&quot;project://database/Assets/Sprites/button.png?fileID=2800000&amp;guid=b2c659062aad75e47a6c934d5ab4bd57&amp;type=3#button&quot;);" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="NewsFeedSection" class="gameplay-hud-feed-section" style="position: relative; height: 613px; min-height: 355px; flex-shrink: 0; margin-bottom: 300px; align-content: flex-end; justify-content: center; align-self: auto; align-items: auto; top: 303px; max-height: 30%;">
-            <ui:ScrollView name="NewsFeedScrollView" class="gameplay-hud-feed-scroll" style="flex-grow: 1; min-height: 0; align-content: flex-end;" />
+        <ui:VisualElement name="NewsFeedSection" class="gameplay-hud-feed-section">
+            <ui:ScrollView name="NewsFeedScrollView" class="gameplay-hud-feed-scroll" />
         </ui:VisualElement>
-        <ui:VisualElement name="GameLogButtonRow" style="flex-direction: row; align-items: center; justify-content: center; padding: 8px; flex-shrink: 0;">
-            <ui:Button name="GameLogButton" text="Game Log" class="monopoly-btn" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); -unity-background-image-tint-color: rgb(212, 197, 159); background-color: rgb(255, 165, 0); min-width: 160px; height: 48px;" />
+        <ui:VisualElement name="GameLogButtonRow" class="gameplay-hud-log-button-row" style="align-self: center; -unity-text-align: upper-center; -unity-background-scale-mode: scale-to-fit; background-position-y: center; background-position-x: center;">
+            <ui:Button name="GameLogButton" text="Game Log" class="monopoly-btn gameplay-hud-log-button" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;);" />
         </ui:VisualElement>
-        <ui:VisualElement name="GameLogOverlay" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); align-items: center; justify-content: center; display: none;">
-            <ui:VisualElement name="GameLogPanel" style="width: 90%; max-width: 900px; height: 80%; max-height: 700px; background-color: rgb(30, 45, 32); border-width: 2px; border-color: rgb(198, 164, 79); padding: 16px; flex-direction: column;">
-                <ui:VisualElement name="GameLogHeader" style="flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                    <ui:Label text="Game Log" style="font-size: 28px; -unity-font-definition: resource(&apos;Fonts &amp; Materials/HappyMonkey-Regular&apos;);" />
-                    <ui:VisualElement style="flex-direction: row;">
-                        <ui:Button name="GameLogCopyButton" text="Copy" style="margin-right: 8px; background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); -unity-background-image-tint-color: rgb(212, 197, 159);" />
-                        <ui:Button name="GameLogClearButton" text="Clear" style="margin-right: 8px; background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); -unity-background-image-tint-color: rgb(212, 197, 159);" />
-                        <ui:Button name="GameLogCloseButton" text="Close" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 100, 0);" />
+        <ui:VisualElement name="GameLogOverlay" class="gameplay-hud-log-overlay">
+            <ui:VisualElement name="GameLogPanel" class="gameplay-hud-log-panel">
+                <ui:VisualElement name="GameLogHeader" class="gameplay-hud-log-header">
+                    <ui:Label text="Game Log" class="gameplay-hud-log-title" />
+                    <ui:VisualElement class="gameplay-hud-log-actions">
+                        <ui:Button name="GameLogCopyButton" text="Copy" class="gameplay-hud-log-action-btn" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;);" />
+                        <ui:Button name="GameLogClearButton" text="Clear" class="gameplay-hud-log-action-btn" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;);" />
+                        <ui:Button name="GameLogCloseButton" text="Close" class="gameplay-hud-log-action-btn gameplay-hud-log-action-close" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;);" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:ScrollView name="GameLogScrollView" style="flex-grow: 1; min-height: 200px;" />
+                <ui:ScrollView name="GameLogScrollView" class="gameplay-hud-log-scroll" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

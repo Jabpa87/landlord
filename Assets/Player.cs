@@ -34,6 +34,12 @@ public class Player : MonoBehaviour
 
     [Header("Character Effects")]
     public string characterName = "";
+    [Tooltip("Resolved, data-driven effect profile for this character (auto-filled from CharacterDatabase).")]
+    public CharacterEffectProfile characterEffects;
+    [Tooltip("Player-selected timing mode for triggerable perks.")]
+    public PerkTimingPreference perkTimingPreference = PerkTimingPreference.Auto;
+    [Tooltip("Runtime status snapshot for character behavior UI.")]
+    public CharacterRuntimeState runtimeState = new CharacterRuntimeState();
     public int turnsTaken = 0;
     public bool creditTrustUsed = false;
     public bool legalShieldUsed = false;
@@ -167,6 +173,12 @@ public class Player : MonoBehaviour
             if (turnManager != null) Debug.Log($"[Player] {playerName}: Auto-assigned Turn Manager from scene.");
         }
 
+        // Backward compatibility: resolve data-driven effects from characterName if profile is not assigned yet.
+        if (characterEffects == null && !string.IsNullOrEmpty(characterName))
+        {
+            characterEffects = CharacterEffectCatalog.BuildProfile(new Character { characterName = characterName });
+        }
+
         EnsureBoardPoints();
         // Ensure we start at first point (safe: boardPoints may be set by TurnManager after creation)
         if (boardPoints != null && boardPoints.Length > 0 && currentIndex >= 0 && currentIndex < boardPoints.Length && boardPoints[currentIndex] != null)
@@ -246,6 +258,160 @@ public class Player : MonoBehaviour
     public bool IsCharacter(string name)
     {
         return !string.IsNullOrEmpty(characterName) && string.Equals(characterName, name);
+    }
+
+    public void ApplyCharacterData(Character character)
+    {
+        if (character == null) return;
+        characterName = character.characterName;
+        characterEffects = CharacterEffectCatalog.BuildProfile(character);
+    }
+
+    public bool HasPerkEffect(string effectKey)
+    {
+        return characterEffects != null && characterEffects.HasPerk(effectKey);
+    }
+
+    public bool HasFaultEffect(string effectKey)
+    {
+        return characterEffects != null && characterEffects.HasFault(effectKey);
+    }
+
+    public bool HasCharacterEffect(string effectKey)
+    {
+        return characterEffects != null && characterEffects.HasEffect(effectKey);
+    }
+
+    public string GetPerkEffectsSummary()
+    {
+        if (characterEffects == null || characterEffects.PerkKeys == null || characterEffects.PerkKeys.Count == 0)
+            return "";
+        List<string> names = new List<string>();
+        foreach (string key in characterEffects.PerkKeys)
+            names.Add(CharacterEffectCatalog.GetEffectDisplayName(key));
+        return string.Join(", ", names);
+    }
+
+    public string GetFaultEffectsSummary()
+    {
+        if (characterEffects == null || characterEffects.FaultKeys == null || characterEffects.FaultKeys.Count == 0)
+            return "";
+        List<string> names = new List<string>();
+        foreach (string key in characterEffects.FaultKeys)
+            names.Add(CharacterEffectCatalog.GetEffectDisplayName(key));
+        return string.Join(", ", names);
+    }
+
+    public void RecomputeCharacterRuntimeState(int purchasedPropertyCount, int totalPropertyCount)
+    {
+        if (runtimeState == null)
+            runtimeState = new CharacterRuntimeState();
+
+        runtimeState.boardPurchasedRatio = totalPropertyCount <= 0
+            ? 0f
+            : Mathf.Clamp01((float)purchasedPropertyCount / totalPropertyCount);
+        runtimeState.gamePhase = runtimeState.boardPurchasedRatio < 0.5f
+            ? "Early"
+            : (runtimeState.boardPurchasedRatio < 1f ? "Mid" : "Late");
+
+        runtimeState.turnsUntilPension = -1;
+        if (HasCharacterEffect(CharacterEffectKeys.PensionBonus))
+        {
+            int remainder = turnsTaken % 5;
+            runtimeState.turnsUntilPension = remainder == 0 ? 5 : (5 - remainder);
+        }
+
+        runtimeState.turnsUntilHotelUnlock = -1;
+        if (HasFaultEffect(CharacterEffectKeys.SlowGrowth))
+        {
+            runtimeState.turnsUntilHotelUnlock = Mathf.Max(0, 20 - turnsTaken);
+        }
+
+        runtimeState.legalShieldState = HasCharacterEffect(CharacterEffectKeys.CivilLegalShield)
+            ? (legalShieldUsed ? EffectUsageState.Used : EffectUsageState.Unused)
+            : EffectUsageState.Active;
+
+        runtimeState.creditTrustState = HasCharacterEffect(CharacterEffectKeys.CreditTrustOneTime)
+            ? (creditTrustUsed ? EffectUsageState.Used : EffectUsageState.Unused)
+            : EffectUsageState.Active;
+
+        runtimeState.bidPenaltyState = HasFaultEffect(CharacterEffectKeys.BidPenaltyOnFailedAuction)
+            ? (bidPenaltyUsed ? EffectUsageState.Used : EffectUsageState.Unused)
+            : EffectUsageState.Active;
+    }
+
+    public List<CharacterBehaviorStatusItem> BuildBehaviorStatusItems()
+    {
+        List<CharacterBehaviorStatusItem> items = new List<CharacterBehaviorStatusItem>();
+        if (characterEffects == null) return items;
+
+        if (characterEffects.PerkKeys != null)
+        {
+            foreach (string key in characterEffects.PerkKeys)
+                items.Add(BuildBehaviorItem(key, true));
+        }
+
+        if (characterEffects.FaultKeys != null)
+        {
+            foreach (string key in characterEffects.FaultKeys)
+                items.Add(BuildBehaviorItem(key, false));
+        }
+        return items;
+    }
+
+    CharacterBehaviorStatusItem BuildBehaviorItem(string effectKey, bool isPerk)
+    {
+        CharacterBehaviorStatusItem item = new CharacterBehaviorStatusItem();
+        item.effectKey = effectKey;
+        item.title = CharacterEffectCatalog.GetEffectDisplayName(effectKey);
+        item.description = effectKey;
+        item.isPerk = isPerk;
+        item.iconHint = isPerk ? "UP" : "DOWN";
+        item.state = "Active";
+        item.counter = "";
+
+        switch (effectKey)
+        {
+            case CharacterEffectKeys.PensionBonus:
+                item.counter = runtimeState != null && runtimeState.turnsUntilPension >= 0
+                    ? $"{runtimeState.turnsUntilPension} turns to payout"
+                    : "Pending";
+                item.state = "Active";
+                break;
+            case CharacterEffectKeys.CivilLegalShield:
+                item.state = legalShieldUsed ? "Used" : "Unused";
+                item.counter = legalShieldUsed ? "Once-per-game spent" : "Ready";
+                break;
+            case CharacterEffectKeys.CreditTrustOneTime:
+                item.state = creditTrustUsed ? "Used" : "Unused";
+                item.counter = creditTrustUsed ? "Once-per-game spent" : "Ready";
+                break;
+            case CharacterEffectKeys.BidPenaltyOnFailedAuction:
+                item.state = bidPenaltyUsed ? "Used" : "Unused";
+                item.counter = bidPenaltyUsed ? "Penalty consumed" : "Pending";
+                break;
+            case CharacterEffectKeys.SlowGrowth:
+                if (runtimeState != null && runtimeState.turnsUntilHotelUnlock > 0)
+                {
+                    item.state = "Locked";
+                    item.counter = $"{runtimeState.turnsUntilHotelUnlock} turns to unlock";
+                }
+                else
+                {
+                    item.state = "Unlocked";
+                    item.counter = "Hotel build unlocked";
+                }
+                break;
+            case CharacterEffectKeys.LimitedLeverage:
+                item.state = mortgagesThisTurn >= 1 ? "Locked" : "Active";
+                item.counter = $"{Mathf.Clamp(1 - mortgagesThisTurn, 0, 1)} mortgage slot this turn";
+                break;
+            default:
+                item.counter = runtimeState != null ? $"{runtimeState.gamePhase} phase" : "";
+                break;
+        }
+
+        return item;
     }
 
     public bool HasPerkCard(PerkCardType type)
@@ -549,10 +715,10 @@ public class Player : MonoBehaviour
     int GetGoSalary(int baseSalary)
     {
         int salary = baseSalary;
-        if (IsCharacter("Fresh Grad"))
+        if (HasCharacterEffect(CharacterEffectKeys.GoBonusCard))
             salary = baseSalary + 100000;
 
-        if (IsCharacter("Maitama Prince"))
+        if (HasFaultEffect(CharacterEffectKeys.LifestyleDrainOnGo))
         {
             int drain = 100000;
             if (TrySpend(drain))
@@ -783,10 +949,7 @@ public class Player : MonoBehaviour
                 {
                     bool canAfford = CanAfford(prop.price);
                     activeUIManager.BuyButton.SetEnabled(canAfford);
-                    string buttonText = prop.propertyType == PropertyType.Transportation ? "BUY TRANSPORTATION" : 
-                                       prop.propertyType == PropertyType.Utility ? "BUY UTILITY" : 
-                                       "BUY PROPERTY";
-                    activeUIManager.BuyButton.text = buttonText;
+                    activeUIManager.BuyButton.text = "BUY PROPERTY";
                     Debug.Log($"Player {playerName}: Buy button set to interactable: {canAfford} (Can afford ₦{prop.price:N0}? {canAfford})");
                 }
                 else
@@ -810,13 +973,13 @@ public class Player : MonoBehaviour
             if (!string.IsNullOrEmpty(prop.tierLabel) &&
                 prop.tierLabel.ToLower() == "satellite" &&
                 prop.owner != null &&
-                prop.owner.IsCharacter("Tech Prot\u00e9g\u00e9"))
+                prop.owner.HasCharacterEffect(CharacterEffectKeys.TechRentDiscountOnSatellite))
             {
                 rent = Mathf.RoundToInt(rent * 0.9f);
             }
             PerkCardInstance skipCard = GetPerkCard(PerkCardType.SkipRent);
             PerkCardInstance shieldCard = GetPerkCard(PerkCardType.RentShield);
-            bool legalShieldAvailable = IsCharacter("Civil Servant") && !legalShieldUsed;
+            bool legalShieldAvailable = HasCharacterEffect(CharacterEffectKeys.CivilLegalShield) && !legalShieldUsed;
 
             if (!isAI && (skipCard != null || shieldCard != null || legalShieldAvailable))
             {
@@ -1366,7 +1529,7 @@ public class Player : MonoBehaviour
         if (prop.propertyType != PropertyType.Regular) return false; // Only regular properties can have hotels
         if (prop.isMortgaged) return false; // Can't build on mortgaged properties
         if (prop.hasHotel) return false; // Already has hotel
-        if (IsCharacter("Civil Servant") && turnsTaken < 20) return false; // Slow Growth
+        if (HasFaultEffect(CharacterEffectKeys.SlowGrowth) && turnsTaken < 20) return false; // Slow Growth
         if (prop.houses < 4) return false; // Need 4 houses first
         if (!OwnsFullGroup(prop.groupId)) return false; // Must own full group (monopoly)
         
@@ -1388,10 +1551,10 @@ public class Player : MonoBehaviour
         string tier = prop.tierLabel != null ? prop.tierLabel.ToLower() : "";
         float multiplier = 1f;
 
-        if (!isHotel && IsCharacter("Garki Hustler") && tier == "satellite")
+        if (!isHotel && HasCharacterEffect(CharacterEffectKeys.SatelliteBuildDiscount) && tier == "satellite")
             multiplier *= 0.8f;
 
-        if (IsCharacter("Maitama Prince") && tier == "prime")
+        if (HasCharacterEffect(CharacterEffectKeys.PrimeBuildDiscount) && tier == "prime")
             multiplier *= 0.9f;
 
         return Mathf.RoundToInt(baseCost * multiplier);
@@ -1987,7 +2150,7 @@ public class Player : MonoBehaviour
             return false;
         }
 
-        if (IsCharacter("Fresh Grad") && mortgagesThisTurn >= 1)
+        if (HasFaultEffect(CharacterEffectKeys.LimitedLeverage) && mortgagesThisTurn >= 1)
         {
             Debug.LogWarning("Limited Leverage: Can only mortgage one property per turn.");
             return false;
@@ -2077,10 +2240,10 @@ public class Player : MonoBehaviour
         }
         
         float redemptionRate = 0.6f;
-        if (IsCharacter("Garki Hustler"))
+        if (HasFaultEffect(CharacterEffectKeys.CreditTrustOneTime))
             redemptionRate += 0.1f;
 
-        if (IsCharacter("Fresh Grad") && !creditTrustUsed)
+        if (HasCharacterEffect(CharacterEffectKeys.CreditTrustOneTime) && !creditTrustUsed)
             redemptionRate = 0.5f;
 
         int redemptionCost = Mathf.RoundToInt(prop.price * redemptionRate);
@@ -2095,7 +2258,7 @@ public class Player : MonoBehaviour
         if (TrySpend(redemptionCost))
         {
             prop.isMortgaged = false;
-            if (IsCharacter("Fresh Grad") && !creditTrustUsed && Mathf.Abs(redemptionRate - 0.5f) < 0.001f)
+            if (HasCharacterEffect(CharacterEffectKeys.CreditTrustOneTime) && !creditTrustUsed && Mathf.Abs(redemptionRate - 0.5f) < 0.001f)
             {
                 creditTrustUsed = true;
             }
@@ -2191,7 +2354,7 @@ public class Player : MonoBehaviour
         }
         
         // Sell house (normally 50% of cost; Hustler gets 60%)
-        float sellPercent = IsCharacter("Garki Hustler") ? 0.6f : 0.5f;
+        float sellPercent = HasCharacterEffect(CharacterEffectKeys.SatelliteBuildDiscount) ? 0.6f : 0.5f;
         int sellValue = Mathf.RoundToInt(prop.houseCost * sellPercent);
         prop.houses--;
         AddMoney(sellValue);
@@ -2423,7 +2586,7 @@ public class Player : MonoBehaviour
     {
         int amount = card.moneyAmount;
 
-        if (deckType == CardDeckType.CommunityChest && IsCharacter("Garki Hustler") && turnsTaken < 10 && amount > 0)
+        if (deckType == CardDeckType.CommunityChest && HasFaultEffect(CharacterEffectKeys.NoSafetyNet) && turnsTaken < 10 && amount > 0)
         {
             Debug.Log("No Safety Net: Community Chest rewards blocked until Turn 10.");
             GameLogger.Log($"PERK_NO_SAFETY_NET | player={playerName} turn={turnsTaken} blocked_amount={amount}");
@@ -2884,9 +3047,9 @@ public class Player : MonoBehaviour
     {
         int taxAmount = 100000;
         float multiplier = 1f;
-        if (IsCharacter("Maitama Prince"))
+        if (HasFaultEffect(CharacterEffectKeys.TaxPenaltyMaitama))
             multiplier *= 2f;
-        if (IsCharacter("Market Queen"))
+        if (HasFaultEffect(CharacterEffectKeys.TaxPenaltyMarketQueen))
             multiplier *= 1.15f;
 
         taxAmount = Mathf.RoundToInt(taxAmount * multiplier);

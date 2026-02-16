@@ -295,7 +295,7 @@ public class AuctionSystem : MonoBehaviour
         
         // Calculate minimum bid (10% of property value, or minimum of ₦10,000)
         int minBidPercent = minBidPercentage;
-        if (auctionInitiator != null && auctionInitiator.IsCharacter("Fresh Grad"))
+        if (auctionInitiator != null && auctionInitiator.HasCharacterEffect(CharacterEffectKeys.FreshGradMinBidIncrease))
         {
             minBidPercent = Mathf.Max(minBidPercent, 15);
         }
@@ -409,7 +409,7 @@ public class AuctionSystem : MonoBehaviour
             nextBid = currentBid;
         
         bool canAfford = ai.CanAfford(nextBid);
-        bool mustBid = ai.IsCharacter("Market Queen") && canAfford && nextBid <= currentAuctionProperty.price;
+        bool mustBid = ai.HasCharacterEffect(CharacterEffectKeys.AuctionEdge) && canAfford && nextBid <= currentAuctionProperty.price;
         bool willBid = canAfford && (mustBid || (nextBid <= currentAuctionProperty.price * 120 / 100 && Random.value > 0.4f));
         
         if (willBid)
@@ -520,7 +520,7 @@ public class AuctionSystem : MonoBehaviour
         {
             Player currentAuctionPlayer = GetAuctionCurrentPlayer();
             bool canPass = currentAuctionPlayer != null && !currentAuctionPlayer.IsEliminated;
-            if (currentAuctionPlayer != null && currentAuctionPlayer.IsCharacter("Market Queen"))
+            if (currentAuctionPlayer != null && currentAuctionPlayer.HasCharacterEffect(CharacterEffectKeys.AuctionEdge))
             {
                 int requiredBid = GetRequiredAuctionBid(currentAuctionPlayer);
                 if (currentAuctionPlayer.CanAfford(requiredBid))
@@ -558,6 +558,7 @@ public class AuctionSystem : MonoBehaviour
             // Show entire document root (like other panels)
             if (auctionPanelDocument.rootVisualElement != null)
             {
+                // Source of truth is UXML/USS. Runtime code intentionally avoids popup layout edits.
                 auctionPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
                 Debug.Log("AuctionSystem: Showing auction document root");
             }
@@ -686,7 +687,7 @@ public class AuctionSystem : MonoBehaviour
     {
         if (!auctionInProgress || turnManager == null) return;
 
-        if (passingPlayer != null && passingPlayer.IsCharacter("Market Queen"))
+        if (passingPlayer != null && passingPlayer.HasCharacterEffect(CharacterEffectKeys.AuctionEdge))
         {
             int requiredBid = GetRequiredAuctionBid(passingPlayer);
             if (passingPlayer.CanAfford(requiredBid))
@@ -1095,7 +1096,7 @@ public class AuctionSystem : MonoBehaviour
             int bid = kvp.Value;
             if (bidder == null || bidder == highestBidder) continue;
             if (bid <= 0) continue;
-            if (!bidder.IsCharacter("Tech Protégé") || bidder.bidPenaltyUsed) continue;
+            if (!bidder.HasFaultEffect(CharacterEffectKeys.BidPenaltyOnFailedAuction) || bidder.bidPenaltyUsed) continue;
 
             int penalty = 50000;
             bidder.bidPenaltyUsed = true;

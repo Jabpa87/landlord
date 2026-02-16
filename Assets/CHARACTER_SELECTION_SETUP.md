@@ -246,3 +246,63 @@ Select, Back, Start Game, and Game Settings clicks are wired in **Start()**; tok
 - **Game Settings** button (outside character section) opens the settings panel anytime.
 
 GameSceneLoader and MainMenuManager.ApplyGameSettings already use **MainMenuManager.SettingsToLoad**; MainMenuController sets it before loading the game scene, so no change is required in the game scene for basic flow.
+
+## 6. Character behavior runtime spec (data-driven)
+
+This project now uses a data-driven character behavior model with runtime UI state. Character logic should no longer depend on direct hardcoded character-name checks in gameplay systems.
+
+### 6.1 Effect key source of truth
+
+- Canonical keys are defined in `Assets/CharacterEffects.cs` (`CharacterEffectKeys`).
+- Character assets can explicitly define:
+  - `perkEffectKeys[]`
+  - `faultEffectKeys[]`
+- If those arrays are empty, fallback mapping still resolves effects from `characterName` and legacy perk/cast text.
+
+Recommended action for production data quality:
+- Populate `perkEffectKeys` and `faultEffectKeys` directly in `CharacterDatabase.asset` for every character.
+- Keep display text and effect behavior decoupled (UI text can change; keys should remain stable).
+
+### 6.2 Runtime state model
+
+Each `Player` now owns:
+- `perkTimingPreference` (`Auto`, `Early`, `Mid`, `Late`)
+- `runtimeState` (`CharacterRuntimeState`) with:
+  - `turnsUntilPension`
+  - `turnsUntilHotelUnlock`
+  - one-time status tracking (legal shield / credit trust / bid penalty)
+  - board progression snapshot (`boardPurchasedRatio`, `gamePhase`)
+
+`TurnManager` recomputes runtime state on turn boundaries via `RecomputeAllCharacterRuntimeStates()` so UI and gameplay status stay synchronized.
+
+### 6.3 “More” popup behavior dashboard rules
+
+The player statistics popup (More/profile click) is now a behavior dashboard:
+- Shows character summary and economy snapshot.
+- Shows Perk status cards and Cast/Fault status cards.
+- Each card has:
+  - icon hint (UP for perk, DOWN for fault),
+  - state badge (`Active`, `Unused`, `Used`, `Locked`, `Unlocked`),
+  - counter/details (e.g., turns until pension payout).
+
+Dashboard placement:
+- Popup anchors near the clicked player profile row (with screen-safe clamping), so it feels like a profile extension instead of a detached center modal.
+
+### 6.4 Pre-game character briefing popup rules
+
+Before first turn starts:
+- A character briefing popup is shown after perk reveal.
+- It lists each player’s selected character, effect summary, and timing selector.
+- Timing selector options: `Auto`, `Early`, `Mid`, `Late`.
+- Game start is blocked until user presses `OK - Start Game`.
+
+If the setup document is not present in a scene, startup safely falls back to normal turn start.
+
+### 6.5 Trigger timing definitions
+
+- **Early**: Prefer using triggerable one-time effects during early board development.
+- **Mid**: Prefer activation around mid ownership phase (about 50% properties purchased).
+- **Late**: Prefer activation once board is saturated (all/near-all properties purchased).
+- **Auto**: Engine decides safest timing based on current board state and effect context.
+
+Current implementation stores this preference and exposes it to runtime/UI. If a preference is invalid or missing, behavior defaults to `Auto`.

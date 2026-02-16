@@ -88,6 +88,9 @@ public class TurnManager : MonoBehaviour
     private Coroutine aiWatchdogRoutine;
     private float aiTurnStartTime;
     private bool _diceRollProcessedForTurn = false;
+    private int _activeDiceRollToken = 0;
+    private Coroutine _diceFallbackRoutine;
+    private bool _hasShownPreGameCharacterSetup;
 
     void Start()
     {
@@ -294,6 +297,7 @@ public class TurnManager : MonoBehaviour
                     if (c != null)
                     {
                         players[i].characterName = c.characterName;
+                        players[i].ApplyCharacterData(c);
                         players[i].turnsTaken = 0;
                         players[i].creditTrustUsed = false;
                         players[i].legalShieldUsed = false;
@@ -308,7 +312,7 @@ public class TurnManager : MonoBehaviour
                             buildDiscountPercent = perkBuildDiscountPercent,
                             bailDiscountAmount = perkBailDiscountAmount
                         };
-                        var perkCard = PerkCardCatalog.CreateForCharacter(c.characterName, tuning);
+                        var perkCard = PerkCardCatalog.CreateForCharacter(c, tuning);
                         if (perkCard != null)
                         {
                             players[i].AddPerkCard(perkCard);
@@ -316,7 +320,7 @@ public class TurnManager : MonoBehaviour
                     }
                 }
 
-                if (players[i].IsCharacter("Tech Prot\u00e9g\u00e9"))
+                if (players[i].HasCharacterEffect(CharacterEffectKeys.BailDiscount))
                 {
                     players[i].jailBailCost = perkBailDiscountAmount;
                 }
@@ -364,9 +368,9 @@ public class TurnManager : MonoBehaviour
         if (perkRevealController == null)
             perkRevealController = FindFirstObjectByType<PerkRevealController>();
         if (perkRevealController != null)
-            perkRevealController.RunPerkRevealSequence(players, () => StartTurn());
+            perkRevealController.RunPerkRevealSequence(players, ShowPreGameSetupThenStartTurn);
         else
-            StartTurn();
+            ShowPreGameSetupThenStartTurn();
     }
 
     System.Collections.IEnumerator ReapplyPlayerVisualsDelayed()
@@ -406,7 +410,7 @@ public class TurnManager : MonoBehaviour
         foreach (var p in players)
         {
             if (p == null) continue;
-            if (p.IsCharacter("Tech Prot\u00e9g\u00e9") && utilities.Count > 0)
+            if (p.HasCharacterEffect(CharacterEffectKeys.StarterUtility) && utilities.Count > 0)
             {
                 int idx = Random.Range(0, utilities.Count);
                 AssignPropertyToPlayer(utilities[idx], p);
@@ -417,7 +421,7 @@ public class TurnManager : MonoBehaviour
         foreach (var p in players)
         {
             if (p == null) continue;
-            if (p.IsCharacter("Maitama Prince") && satellites.Count > 0)
+            if (p.HasCharacterEffect(CharacterEffectKeys.StarterSatellites) && satellites.Count > 0)
             {
                 int count = Mathf.Min(2, satellites.Count);
                 for (int i = 0; i < count; i++)
@@ -504,6 +508,7 @@ public class TurnManager : MonoBehaviour
     void StartTurn()
     {
         turnInProgress = false;
+        RecomputeAllCharacterRuntimeStates();
 
         Player current = GetCurrentPlayer();
         TurnDebugState.LogTurnAction(
@@ -539,16 +544,57 @@ public class TurnManager : MonoBehaviour
         {
             p.turnsTaken++;
             p.mortgagesThisTurn = 0;
-            if (p.IsCharacter("Civil Servant") && p.turnsTaken % 5 == 0)
+            if (p.HasCharacterEffect(CharacterEffectKeys.PensionBonus) && p.turnsTaken % 5 == 0)
             {
                 p.AddMoney(100000);
                 GameLogger.Log($"PERK_PENSION | player={p.playerName} amount=100000");
             }
         }
+        RecomputeAllCharacterRuntimeStates();
 
         if (tradeSystem != null)
         {
             tradeSystem.ProcessPendingTrades();
+        }
+    }
+
+    void ShowPreGameSetupThenStartTurn()
+    {
+        if (_hasShownPreGameCharacterSetup)
+        {
+            StartTurn();
+            return;
+        }
+
+        _hasShownPreGameCharacterSetup = true;
+        RecomputeAllCharacterRuntimeStates();
+
+        if (uiManager != null)
+        {
+            uiManager.ShowCharacterSetupPanel(players, StartTurn);
+            return;
+        }
+
+        StartTurn();
+    }
+
+    public void RecomputeAllCharacterRuntimeStates()
+    {
+        int totalProperties = 0;
+        int purchasedProperties = 0;
+        TileInfo[] allTiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        foreach (TileInfo tile in allTiles)
+        {
+            if (tile == null || tile.property == null) continue;
+            totalProperties++;
+            if (tile.property.owner != null) purchasedProperties++;
+        }
+
+        if (players == null) return;
+        foreach (Player player in players)
+        {
+            if (player == null) continue;
+            player.RecomputeCharacterRuntimeState(purchasedProperties, totalProperties);
         }
     }
 
@@ -601,13 +647,20 @@ public class TurnManager : MonoBehaviour
         TurnDebugState.LogTurnAction("RollStarted", $"player={p.playerName} isAI={p.isAI}", setPhase: "Rolling", setInputEnabled: "None");
 
         // Use dice animation if available, otherwise use instant roll
+        int rollToken = ++_activeDiceRollToken;
+        if (_diceFallbackRoutine != null)
+        {
+            StopCoroutine(_diceFallbackRoutine);
+            _diceFallbackRoutine = null;
+        }
+
         if (diceRoller != null)
         {
             _diceRollProcessedForTurn = false;
-            StartCoroutine(DiceRollTimeoutFallback(p));
+            _diceFallbackRoutine = StartCoroutine(DiceRollTimeoutFallback(p, rollToken));
             diceRoller.RollDice((dice1, dice2) => {
                 GameLogger.Log($"DICE_ROLL | player={p.playerName} ai={p.isAI} d1={dice1} d2={dice2}");
-                OnDiceRollComplete(p, dice1, dice2);
+                OnDiceRollComplete(p, dice1, dice2, rollToken);
             });
         }
         else
@@ -616,26 +669,44 @@ public class TurnManager : MonoBehaviour
             int dice1 = Random.Range(1, 7);
             int dice2 = Random.Range(1, 7);
             GameLogger.Log($"DICE_ROLL | player={p.playerName} ai={p.isAI} d1={dice1} d2={dice2}");
-            OnDiceRollComplete(p, dice1, dice2);
+            OnDiceRollComplete(p, dice1, dice2, rollToken);
         }
     }
 
-    IEnumerator DiceRollTimeoutFallback(Player p)
+    IEnumerator DiceRollTimeoutFallback(Player p, int rollToken)
     {
         yield return new WaitForSeconds(diceCallbackTimeoutSeconds);
+        if (rollToken != _activeDiceRollToken) yield break;
         if (_diceRollProcessedForTurn) yield break;
         Debug.LogWarning("[GameMechanics] Dice roll callback not received in time - using fallback roll.");
-        OnDiceRollComplete(p, Random.Range(1, 7), Random.Range(1, 7));
+        OnDiceRollComplete(p, Random.Range(1, 7), Random.Range(1, 7), rollToken);
     }
 
     
     /// <summary>
     /// Called when dice roll is complete (either from animation or instant roll).
     /// </summary>
-    void OnDiceRollComplete(Player p, int dice1, int dice2)
+    void OnDiceRollComplete(Player p, int dice1, int dice2, int rollToken)
     {
+        if (rollToken != _activeDiceRollToken)
+        {
+            Debug.LogWarning($"[GameMechanics] Ignoring stale dice callback token={rollToken}, active={_activeDiceRollToken}.");
+            return;
+        }
+
+        if (GetCurrentPlayer() != p)
+        {
+            Debug.LogWarning($"[GameMechanics] Ignoring dice callback for non-current player {p?.playerName}.");
+            return;
+        }
+
         if (_diceRollProcessedForTurn) return;
         _diceRollProcessedForTurn = true;
+        if (_diceFallbackRoutine != null)
+        {
+            StopCoroutine(_diceFallbackRoutine);
+            _diceFallbackRoutine = null;
+        }
 
         int total = dice1 + dice2;
         bool isDoubles = (dice1 == dice2);
@@ -858,6 +929,13 @@ public class TurnManager : MonoBehaviour
 
     public void EndTurn()
     {
+        if (_diceFallbackRoutine != null)
+        {
+            StopCoroutine(_diceFallbackRoutine);
+            _diceFallbackRoutine = null;
+        }
+        _diceRollProcessedForTurn = true;
+
         TransitionState(GameStateMachine.State.EndTurnTransition);
 
         Player p = GetCurrentPlayer();

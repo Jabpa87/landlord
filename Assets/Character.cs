@@ -53,4 +53,10 @@ public class Character
     [Header("Casts / Faults (2)")]
     public Cast cast1 = new Cast();
     public Cast cast2 = new Cast();
+
+    [Header("Effect Keys (optional, data-driven)")]
+    [Tooltip("Optional perk effect keys (e.g. skip_rent, go_salary_bonus). If empty, fallback mapping uses characterName/perk text.")]
+    public string[] perkEffectKeys = new string[0];
+    [Tooltip("Optional fault effect keys (e.g. slow_growth, no_safety_net). If empty, fallback mapping uses characterName/cast text.")]
+    public string[] faultEffectKeys = new string[0];
 }

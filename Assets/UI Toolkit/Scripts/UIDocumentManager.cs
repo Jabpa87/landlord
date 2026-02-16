@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 /// <summary>
 /// Manages all UI Toolkit documents and provides easy access to UI elements.
@@ -38,6 +39,34 @@ public class UIDocumentManager : MonoBehaviour
     [Header("Scene References")]
     [Tooltip("TurnManager reference (auto-found if not assigned)")]
     public TurnManager turnManager;
+
+    [Header("Global UI Scale")]
+    [Tooltip("If enabled, all UI Toolkit documents get a minimum readable typography pass.")]
+    public bool enableGlobalUIScaling = true;
+    [Tooltip("Legacy master multiplier. Keep near 1.0; use role multipliers below.")]
+    public float globalFontMultiplier = 1.0f;
+    [Tooltip("Minimum body font size in px.")]
+    public int minBodyFontSize = 15;
+    [Tooltip("Minimum subtitle/status font size in px.")]
+    public int minSubtitleFontSize = 16;
+    [Tooltip("Minimum title/header font size in px.")]
+    public int minTitleFontSize = 20;
+    [Tooltip("Minimum money/value font size in px.")]
+    public int minMoneyFontSize = 17;
+    [Tooltip("Role multipliers to keep typography balanced by function.")]
+    public float titleFontMultiplier = 1.08f;
+    public float subtitleFontMultiplier = 1.03f;
+    public float bodyFontMultiplier = 1.0f;
+    public float moneyFontMultiplier = 1.08f;
+    public float buttonFontMultiplier = 1.02f;
+    [Tooltip("Hard caps prevent oversized text from breaking layouts.")]
+    public int maxTitleFontSize = 30;
+    public int maxSubtitleFontSize = 24;
+    public int maxBodyFontSize = 22;
+    public int maxMoneyFontSize = 24;
+    public int maxButtonFontSize = 22;
+    [Tooltip("Minimum button height in px for touch readability.")]
+    public int minButtonHeight = 50;
     
     // Main HUD Elements (HUDButton/HUDLabel work with both UI Toolkit and uGUI Hybrid)
     public HUDButton RollButton { get; private set; }
@@ -112,6 +141,9 @@ public class UIDocumentManager : MonoBehaviour
     private int activePlayerIndex = -1;
     private bool activePulseOn = false;
     private bool activePulseScheduled = false;
+    private int _lastScreenWidth;
+    private int _lastScreenHeight;
+    private readonly Dictionary<VisualElement, float> _baseFontByElement = new Dictionary<VisualElement, float>();
     
     // Game Over Panel Elements
     public UIDocument gameOverPanelDocument;
@@ -198,6 +230,14 @@ public class UIDocumentManager : MonoBehaviour
     public UIDocument propertyManagerPanelDocument;
     public bool IsPropertyManagerPanelOpen { get; private set; }
     private TileInfo _propertyManagerFocusTile;
+    enum PropertyManagerFilter
+    {
+        All,
+        Buildable,
+        Mortgaged,
+        Monopoly
+    }
+    private PropertyManagerFilter _propertyManagerFilter = PropertyManagerFilter.All;
 
     // Money change toast per player (shown under each player's info panel)
     private const int MaxPlayers = 4;
@@ -226,7 +266,18 @@ public class UIDocumentManager : MonoBehaviour
     public Label CharacterBackstoryText { get; private set; }
     public Label CharacterPerksText { get; private set; }
     public Label CharacterCastsText { get; private set; }
+    public VisualElement CharacterPerksContainer { get; private set; }
+    public VisualElement CharacterFaultsContainer { get; private set; }
     public Button StatisticsCloseButton { get; private set; }
+    private int _lastStatisticsAnchorPlayerIndex = -1;
+
+    [Header("Pre-game Character Setup")]
+    [Tooltip("Character setup panel document shown before first turn.")]
+    public UIDocument characterSetupPanelDocument;
+    public VisualElement CharacterSetupPanel { get; private set; }
+    public ScrollView CharacterSetupList { get; private set; }
+    public Button CharacterSetupOkButton { get; private set; }
+    private Action _characterSetupOkHandler;
     
     void Awake()
     {
@@ -314,12 +365,14 @@ public class UIDocumentManager : MonoBehaviour
         InitializeTileDetailsPanel();
         InitializePropertyManagerPanel();
         InitializePlayerStatisticsPanel();
+        InitializeCharacterSetupPanel();
         
         // Deactivate duplicate HUD documents - DISABLED per user request
         // DeactivateDuplicateHUDs();
         
         // Wait a frame for layout to calculate, then verify HUD is visible
         StartCoroutine(VerifyHUDVisibleAfterFrame());
+        StartCoroutine(ApplyGlobalUIScalingAfterLayout());
         
         // #region agent log
         try {
@@ -336,6 +389,16 @@ public class UIDocumentManager : MonoBehaviour
         if (Time.frameCount % 10 == 0)
         {
             EnsureMainHUDActive();
+        }
+
+        if (enableGlobalUIScaling && Time.frameCount % 30 == 0)
+        {
+            if (Screen.width != _lastScreenWidth || Screen.height != _lastScreenHeight)
+            {
+                _lastScreenWidth = Screen.width;
+                _lastScreenHeight = Screen.height;
+                ApplyGlobalUIScalingToAllDocuments();
+            }
         }
     }
     
@@ -419,6 +482,157 @@ public class UIDocumentManager : MonoBehaviour
         else
         {
             Debug.LogError("UIDocumentManager: Could not find Main HUD Document! Please assign it in the Inspector.");
+        }
+    }
+
+    IEnumerator ApplyGlobalUIScalingAfterLayout()
+    {
+        yield return null;
+        yield return null;
+        _lastScreenWidth = Screen.width;
+        _lastScreenHeight = Screen.height;
+        ApplyGlobalUIScalingToAllDocuments();
+    }
+
+    public void ApplyGlobalUIScalingToAllDocuments()
+    {
+        if (!enableGlobalUIScaling) return;
+
+        HashSet<UIDocument> documents = new HashSet<UIDocument>();
+        AddIfValid(documents, mainHUDDocument);
+        AddIfValid(documents, propertyPanelDocument);
+        AddIfValid(documents, jailPanelDocument);
+        AddIfValid(documents, cardPanelDocument);
+        AddIfValid(documents, tradePanelDocument);
+        AddIfValid(documents, gameOverPanelDocument);
+        AddIfValid(documents, bankruptcyPanelDocument);
+        AddIfValid(documents, rentPaymentPanelDocument);
+        AddIfValid(documents, tileDetailsPanelDocument);
+        AddIfValid(documents, propertyManagerPanelDocument);
+        AddIfValid(documents, playerStatisticsPanelDocument);
+        AddIfValid(documents, characterSetupPanelDocument);
+        AddIfValid(documents, moneyToastOverlayDocument);
+
+        UIDocument[] sceneDocs = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
+        foreach (UIDocument doc in sceneDocs)
+            AddIfValid(documents, doc);
+
+        foreach (UIDocument doc in documents)
+        {
+            if (doc == null || doc.rootVisualElement == null) continue;
+            NormalizeTypography(doc.rootVisualElement);
+        }
+    }
+
+    void AddIfValid(HashSet<UIDocument> set, UIDocument doc)
+    {
+        if (set == null || doc == null) return;
+        set.Add(doc);
+    }
+
+    void NormalizeTypography(VisualElement root)
+    {
+        if (root == null) return;
+        Stack<VisualElement> stack = new Stack<VisualElement>();
+        stack.Push(root);
+
+        while (stack.Count > 0)
+        {
+            VisualElement element = stack.Pop();
+            ApplyElementTypography(element);
+
+            foreach (VisualElement child in element.Children())
+                stack.Push(child);
+        }
+    }
+
+    void ApplyElementTypography(VisualElement element)
+    {
+        if (element == null) return;
+
+        string id = (element.name ?? "").ToLowerInvariant();
+        string classes = string.Join(" ", element.GetClasses()).ToLowerInvariant();
+
+        bool compactHud = classes.Contains("hud-perk-card-name") ||
+                          classes.Contains("hud-perk-card-uses") ||
+                          classes.Contains("gameplay-hud-player-title") ||
+                          classes.Contains("gameplay-hud-status-label");
+        bool cardHeader = id.Contains("cardtitletext") || id.Contains("auctiontitletext") || id.Contains("jailstatustext");
+
+        bool titleLike = id.Contains("title") || id.Contains("header") || classes.Contains("title") || classes.Contains("header");
+        bool subtitleLike = id.Contains("subtitle") || classes.Contains("subtitle") || id.Contains("status") || classes.Contains("status");
+        bool moneyLike = id.Contains("money") || id.Contains("wallet") || id.Contains("cash") || id.Contains("rent") ||
+                         id.Contains("price") || id.Contains("bid") || id.Contains("worth") || classes.Contains("money");
+        bool buttonLike = element is Button;
+
+        float baseSize;
+        if (!_baseFontByElement.TryGetValue(element, out baseSize))
+        {
+            baseSize = element.resolvedStyle.fontSize;
+            if (baseSize <= 0f || float.IsNaN(baseSize))
+                baseSize = minBodyFontSize;
+            _baseFontByElement[element] = baseSize;
+        }
+
+        float target = baseSize * globalFontMultiplier;
+        int minSize = minBodyFontSize;
+        int maxSize = maxBodyFontSize;
+        float roleMultiplier = bodyFontMultiplier;
+
+        if (titleLike)
+        {
+            minSize = minTitleFontSize;
+            maxSize = maxTitleFontSize;
+            roleMultiplier = titleFontMultiplier;
+        }
+        else if (moneyLike)
+        {
+            minSize = minMoneyFontSize;
+            maxSize = maxMoneyFontSize;
+            roleMultiplier = moneyFontMultiplier;
+        }
+        else if (subtitleLike)
+        {
+            minSize = minSubtitleFontSize;
+            maxSize = maxSubtitleFontSize;
+            roleMultiplier = subtitleFontMultiplier;
+        }
+        else if (buttonLike)
+        {
+            minSize = minBodyFontSize;
+            maxSize = maxButtonFontSize;
+            roleMultiplier = buttonFontMultiplier;
+        }
+
+        if (compactHud)
+        {
+            // Keep compact HUD lanes tidy even when global scaling is enabled.
+            minSize = Mathf.Min(minSize, 12);
+            maxSize = Mathf.Min(maxSize, 14);
+            roleMultiplier = 1f;
+        }
+        else if (cardHeader)
+        {
+            minSize = Mathf.Min(minSize, 17);
+            maxSize = Mathf.Min(maxSize, 20);
+        }
+
+        target = Mathf.Clamp(target * roleMultiplier, minSize, maxSize);
+
+        if (element is Label label)
+        {
+            label.style.fontSize = new StyleLength(new Length(target, LengthUnit.Pixel));
+            if (moneyLike)
+                label.style.unityFontStyleAndWeight = FontStyle.Bold;
+        }
+        else if (element is Button button)
+        {
+            button.style.fontSize = new StyleLength(new Length(target, LengthUnit.Pixel));
+            button.style.minHeight = new StyleLength(new Length(minButtonHeight, LengthUnit.Pixel));
+        }
+        else if (element is TextField || element is IntegerField || element is DropdownField)
+        {
+            element.style.fontSize = new StyleLength(new Length(target, LengthUnit.Pixel));
         }
     }
     
@@ -1113,10 +1327,24 @@ public class UIDocumentManager : MonoBehaviour
     
     // Helper methods for showing/hiding panels
     // Note: We hide/show the entire document root, not just the panel element
+    const float StandardPopupTopPadding = 200f;
+    const float TradePopupTopPadding = 200f;
+
+    void ApplyPropertyPanelPositioning(UIDocument doc, VisualElement panel, float topPadding = StandardPopupTopPadding)
+    {
+        // Source of truth is UXML/USS. Runtime code intentionally avoids popup layout edits.
+    }
+
+    void ApplyStandardPopupLayout(UIDocument doc, string panelName)
+    {
+        // Source of truth is UXML/USS. Runtime code intentionally avoids popup layout edits.
+    }
+
     public void ShowPropertyPanel() 
     { 
         if (propertyPanelDocument != null && propertyPanelDocument.rootVisualElement != null)
         {
+            ApplyStandardPopupLayout(propertyPanelDocument, "PropertyPanel");
             propertyPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
             if (propertyPanelDocument.transform != null)
                 propertyPanelDocument.transform.SetAsLastSibling();
@@ -1132,7 +1360,10 @@ public class UIDocumentManager : MonoBehaviour
     public void ShowJailPanel() 
     { 
         if (jailPanelDocument != null && jailPanelDocument.rootVisualElement != null)
+        {
+            ApplyStandardPopupLayout(jailPanelDocument, "JailPanel");
             jailPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex; 
+        }
     }
     
     public void HideJailPanel() 
@@ -1162,6 +1393,7 @@ public class UIDocumentManager : MonoBehaviour
         if (cardPanelDocument.rootVisualElement != null)
         {
             var root = cardPanelDocument.rootVisualElement;
+            ApplyStandardPopupLayout(cardPanelDocument, "CardPanel");
             root.style.display = DisplayStyle.Flex;
             root.style.visibility = Visibility.Visible;
             root.style.opacity = 1f;
@@ -1484,7 +1716,10 @@ public class UIDocumentManager : MonoBehaviour
         if (gameOverPanelDocument == null) return;
         
         if (gameOverPanelDocument.rootVisualElement != null)
+        {
+            ApplyStandardPopupLayout(gameOverPanelDocument, "GameOverPanel");
             gameOverPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        }
         
         if (WinnerNameText != null && winner != null)
         {
@@ -1578,7 +1813,12 @@ public class UIDocumentManager : MonoBehaviour
     public void ShowTradePanel()
     {
         if (tradePanelDocument != null && tradePanelDocument.rootVisualElement != null)
+        {
+            var tradePanel = TradePanel != null ? TradePanel : tradePanelDocument.rootVisualElement.Q<VisualElement>("TradePanel");
+            if (tradePanel != null)
+                ApplyPropertyPanelPositioning(tradePanelDocument, tradePanel, TradePopupTopPadding);
             tradePanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        }
     }
     
     public void HideTradePanel()
@@ -1595,7 +1835,10 @@ public class UIDocumentManager : MonoBehaviour
         if (bankruptPlayer == null || bankruptcyPanelDocument == null) return;
         
         if (bankruptcyPanelDocument.rootVisualElement != null)
+        {
+            ApplyStandardPopupLayout(bankruptcyPanelDocument, "BankruptcyPanel");
             bankruptcyPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        }
         
         if (BankruptcyMessageText != null)
         {
@@ -1668,6 +1911,7 @@ public class UIDocumentManager : MonoBehaviour
         
         if (rentPaymentPanelDocument.rootVisualElement != null)
         {
+            ApplyStandardPopupLayout(rentPaymentPanelDocument, "RentPaymentPanel");
             rentPaymentPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
             if (rentPaymentPanelDocument.transform != null)
                 rentPaymentPanelDocument.transform.SetAsLastSibling();
@@ -1784,6 +2028,7 @@ public class UIDocumentManager : MonoBehaviour
         }
         
         Debug.Log("UIDocumentManager: Setting panel display to Flex...");
+        ApplyStandardPopupLayout(tileDetailsPanelDocument, "TileDetailsPanel");
         tileDetailsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
         Debug.Log("UIDocumentManager: Panel display set to Flex. Panel should be visible now.");
 
@@ -1970,6 +2215,32 @@ public class UIDocumentManager : MonoBehaviour
         // Escape key: close when panel is open (root must be focusable; we focus it on open)
         root.RegisterCallback<KeyDownEvent>(evt => { if (evt.keyCode == KeyCode.Escape) ExitManageMode(); });
         root.focusable = true;
+
+        var filterAll = root.Q<Button>("PropertyManagerFilterAll");
+        var filterBuildable = root.Q<Button>("PropertyManagerFilterBuildable");
+        var filterMortgaged = root.Q<Button>("PropertyManagerFilterMortgaged");
+        var filterMonopoly = root.Q<Button>("PropertyManagerFilterMonopoly");
+
+        if (filterAll != null)
+        {
+            filterAll.clicked -= OnPropertyFilterAllClicked;
+            filterAll.clicked += OnPropertyFilterAllClicked;
+        }
+        if (filterBuildable != null)
+        {
+            filterBuildable.clicked -= OnPropertyFilterBuildableClicked;
+            filterBuildable.clicked += OnPropertyFilterBuildableClicked;
+        }
+        if (filterMortgaged != null)
+        {
+            filterMortgaged.clicked -= OnPropertyFilterMortgagedClicked;
+            filterMortgaged.clicked += OnPropertyFilterMortgagedClicked;
+        }
+        if (filterMonopoly != null)
+        {
+            filterMonopoly.clicked -= OnPropertyFilterMonopolyClicked;
+            filterMonopoly.clicked += OnPropertyFilterMonopolyClicked;
+        }
     }
 
     /// <summary>Open the Property Manager panel. Optionally focus the row for the given tile. Disables Roll and End Turn while open.</summary>
@@ -2007,7 +2278,9 @@ public class UIDocumentManager : MonoBehaviour
             }
         }
         _propertyManagerFocusTile = focusTile;
+        _propertyManagerFilter = PropertyManagerFilter.All;
         Debug.Log("ManageMode: Enter Panel");
+        ApplyStandardPopupLayout(doc, "PropertyManagerPanel");
         doc.rootVisualElement.style.display = DisplayStyle.Flex;
         doc.rootVisualElement.Focus();
         IsPropertyManagerPanelOpen = true;
@@ -2049,20 +2322,30 @@ public class UIDocumentManager : MonoBehaviour
         if (scroll == null) return;
         var container = scroll.contentContainer;
         container.Clear();
+
+        container.style.flexDirection = FlexDirection.Row;
+        container.style.flexWrap = Wrap.Wrap;
+        container.style.justifyContent = Justify.FlexStart;
+        container.style.alignContent = Align.FlexStart;
+
+        UpdatePropertyFilterButtonStates();
+
         var tiles = p.GetOwnedPropertyTiles();
         int added = 0;
         foreach (TileInfo t in tiles)
         {
             if (t.property == null) continue;
+            if (!PassesPropertyFilter(p, t.property)) continue;
             var row = CreatePropertyManagerRow(t);
             if (row != null) { container.Add(row); added++; }
         }
         if (added == 0)
         {
-            var emptyLabel = new Label("No properties yet — tap a tile to inspect or buy properties by landing on them.");
+            var emptyLabel = new Label(GetEmptyPropertyFilterMessage());
             emptyLabel.style.whiteSpace = WhiteSpace.Normal;
             emptyLabel.style.paddingTop = 12;
             emptyLabel.style.paddingBottom = 12;
+            emptyLabel.AddToClassList("pm-empty-state");
             container.Add(emptyLabel);
         }
     }
@@ -2072,19 +2355,211 @@ public class UIDocumentManager : MonoBehaviour
         if (tile?.property == null || turnManager == null) return null;
         Player p = turnManager.GetCurrentPlayer();
         if (p == null) return null;
-        var row = new VisualElement();
-        row.AddToClassList("property-manager-row");
-        var nameLabel = new Label(tile.property.propertyName);
-        row.Add(nameLabel);
-        var buildBtn = new Button(() => RequestBuild(tile.property)) { text = "Build" };
-        var sellBtn = new Button(() => RequestSell(tile.property)) { text = "Sell" };
-        var mortgageBtn = new Button(() => RequestMortgage(tile.property)) { text = "Mortgage" };
-        var redeemBtn = new Button(() => RequestRedeem(tile.property)) { text = "Redeem" };
-        row.Add(buildBtn);
-        row.Add(sellBtn);
-        row.Add(mortgageBtn);
-        row.Add(redeemBtn);
-        return row;
+        Property prop = tile.property;
+
+        var card = new VisualElement();
+        card.AddToClassList("pm-card");
+
+        var title = new Label(prop.propertyName);
+        title.AddToClassList("pm-card-title");
+        card.Add(title);
+
+        var subtitle = new Label(GetPropertySubtitle(prop));
+        subtitle.AddToClassList("pm-card-subtitle");
+        card.Add(subtitle);
+
+        var actions = new VisualElement();
+        actions.AddToClassList("pm-actions");
+
+        bool canBuild = CanBuildFromManager(p, prop);
+        bool canSell = CanSellFromManager(prop);
+        bool canMortgage = CanMortgageFromManager(prop);
+        bool canRedeem = CanRedeemFromManager(p, prop);
+
+        actions.Add(CreatePropertyActionButton("BUILD", GetBuildActionCostText(prop), "pm-action-build", canBuild, () => RequestBuild(prop)));
+        actions.Add(CreatePropertyActionButton("SELL", GetSellActionCostText(prop), "pm-action-sell", canSell, () => RequestSell(prop)));
+        actions.Add(CreatePropertyActionButton("MORTGAGE", $"₦{(prop.price / 2):N0}", "pm-action-mortgage", canMortgage, () => RequestMortgage(prop)));
+        actions.Add(CreatePropertyActionButton("REDEEM", $"₦{Mathf.RoundToInt(prop.price * 0.6f):N0}", "pm-action-redeem", canRedeem, () => RequestRedeem(prop)));
+
+        card.Add(actions);
+        return card;
+    }
+
+    VisualElement CreatePropertyActionButton(string title, string cost, string variantClass, bool enabled, Action onClick)
+    {
+        var actionWrap = new VisualElement();
+        actionWrap.AddToClassList("pm-action-item");
+        if (!string.IsNullOrEmpty(variantClass))
+            actionWrap.AddToClassList(variantClass);
+
+        var actionButton = new Button(() => { if (enabled) onClick?.Invoke(); });
+        actionButton.AddToClassList("pm-action-button");
+        actionButton.SetEnabled(enabled);
+
+        // Placeholder icon area; replace style background-image with sprite later.
+        var icon = new VisualElement();
+        icon.AddToClassList("pm-action-icon");
+        actionButton.Add(icon);
+
+        var titleLabel = new Label(title);
+        titleLabel.AddToClassList("pm-action-title");
+        actionButton.Add(titleLabel);
+
+        var costLabel = new Label(cost);
+        costLabel.AddToClassList("pm-action-cost");
+        actionButton.Add(costLabel);
+
+        actionWrap.Add(actionButton);
+        return actionWrap;
+    }
+
+    bool PassesPropertyFilter(Player p, Property prop)
+    {
+        if (p == null || prop == null) return false;
+        switch (_propertyManagerFilter)
+        {
+            case PropertyManagerFilter.Buildable:
+                return CanBuildFromManager(p, prop);
+            case PropertyManagerFilter.Mortgaged:
+                return prop.isMortgaged;
+            case PropertyManagerFilter.Monopoly:
+                return PlayerOwnsFullGroup(p, prop.groupId);
+            default:
+                return true;
+        }
+    }
+
+    bool PlayerOwnsFullGroup(Player p, string groupId)
+    {
+        if (p == null || string.IsNullOrEmpty(groupId)) return false;
+        TileInfo[] allTiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        bool foundGroup = false;
+        foreach (TileInfo t in allTiles)
+        {
+            if (t == null || t.tileType != TileType.Property || t.property == null) continue;
+            if (!string.Equals(t.property.groupId, groupId, StringComparison.OrdinalIgnoreCase)) continue;
+            foundGroup = true;
+            if (t.property.owner != p) return false;
+        }
+        return foundGroup;
+    }
+
+    bool CanBuildFromManager(Player p, Property prop)
+    {
+        if (p == null || prop == null) return false;
+        if (prop.owner != p) return false;
+        if (prop.propertyType != PropertyType.Regular) return false;
+        if (prop.isMortgaged) return false;
+        if (prop.hasHotel) return false;
+        if (!PlayerOwnsFullGroup(p, prop.groupId)) return false;
+        return true;
+    }
+
+    bool CanSellFromManager(Property prop)
+    {
+        if (prop == null) return false;
+        return prop.houses > 0 || prop.hasHotel;
+    }
+
+    bool CanMortgageFromManager(Property prop)
+    {
+        if (prop == null) return false;
+        if (prop.isMortgaged) return false;
+        if (prop.houses > 0 || prop.hasHotel) return false;
+        return true;
+    }
+
+    bool CanRedeemFromManager(Player p, Property prop)
+    {
+        if (p == null || prop == null) return false;
+        if (!prop.isMortgaged) return false;
+        int redeemCost = Mathf.RoundToInt(prop.price * 0.6f);
+        return p.CanAfford(redeemCost);
+    }
+
+    string GetPropertySubtitle(Property prop)
+    {
+        if (prop == null) return "";
+        string tier = string.IsNullOrEmpty(prop.tierLabel) ? "Property" : prop.tierLabel;
+        string state = prop.isMortgaged ? "Mortgaged" : (prop.hasHotel ? "Hotel" : $"Houses: {prop.houses}");
+        return $"{tier}  •  {state}";
+    }
+
+    string GetBuildActionCostText(Property prop)
+    {
+        if (prop == null) return "N/A";
+        if (prop.hasHotel) return "MAX";
+        if (prop.houses >= 4) return $"₦{prop.hotelCost:N0}";
+        return $"₦{prop.houseCost:N0}";
+    }
+
+    string GetSellActionCostText(Property prop)
+    {
+        if (prop == null) return "N/A";
+        if (prop.hasHotel) return $"₦{Mathf.RoundToInt(prop.hotelCost * 0.5f):N0}";
+        if (prop.houses > 0) return $"₦{Mathf.RoundToInt(prop.houseCost * 0.5f):N0}";
+        return "N/A";
+    }
+
+    string GetEmptyPropertyFilterMessage()
+    {
+        switch (_propertyManagerFilter)
+        {
+            case PropertyManagerFilter.Buildable:
+                return "No buildable properties yet.";
+            case PropertyManagerFilter.Mortgaged:
+                return "No mortgaged properties.";
+            case PropertyManagerFilter.Monopoly:
+                return "No complete color-group monopoly yet.";
+            default:
+                return "No properties yet — land on and buy properties to manage them here.";
+        }
+    }
+
+    void UpdatePropertyFilterButtonStates()
+    {
+        if (propertyManagerPanelDocument == null || propertyManagerPanelDocument.rootVisualElement == null) return;
+        var root = propertyManagerPanelDocument.rootVisualElement;
+        var allBtn = root.Q<Button>("PropertyManagerFilterAll");
+        var buildableBtn = root.Q<Button>("PropertyManagerFilterBuildable");
+        var mortgagedBtn = root.Q<Button>("PropertyManagerFilterMortgaged");
+        var monopolyBtn = root.Q<Button>("PropertyManagerFilterMonopoly");
+
+        SetFilterButtonSelected(allBtn, _propertyManagerFilter == PropertyManagerFilter.All);
+        SetFilterButtonSelected(buildableBtn, _propertyManagerFilter == PropertyManagerFilter.Buildable);
+        SetFilterButtonSelected(mortgagedBtn, _propertyManagerFilter == PropertyManagerFilter.Mortgaged);
+        SetFilterButtonSelected(monopolyBtn, _propertyManagerFilter == PropertyManagerFilter.Monopoly);
+    }
+
+    void SetFilterButtonSelected(Button button, bool selected)
+    {
+        if (button == null) return;
+        button.RemoveFromClassList("pm-filter-selected");
+        if (selected) button.AddToClassList("pm-filter-selected");
+    }
+
+    void OnPropertyFilterAllClicked()
+    {
+        _propertyManagerFilter = PropertyManagerFilter.All;
+        RefreshPropertyManagerPanel();
+    }
+
+    void OnPropertyFilterBuildableClicked()
+    {
+        _propertyManagerFilter = PropertyManagerFilter.Buildable;
+        RefreshPropertyManagerPanel();
+    }
+
+    void OnPropertyFilterMortgagedClicked()
+    {
+        _propertyManagerFilter = PropertyManagerFilter.Mortgaged;
+        RefreshPropertyManagerPanel();
+    }
+
+    void OnPropertyFilterMonopolyClicked()
+    {
+        _propertyManagerFilter = PropertyManagerFilter.Monopoly;
+        RefreshPropertyManagerPanel();
     }
 
     void RequestBuild(Property prop) { if (turnManager != null && turnManager.CanPerformPropertyAction()) turnManager.RequestBuild(prop); RefreshPropertyManagerPanel(); }
@@ -2300,6 +2775,7 @@ public class UIDocumentManager : MonoBehaviour
         var root = playerStatisticsPanelDocument.rootVisualElement;
         PlayerStatisticsPanel = root.Q<VisualElement>("PlayerStatisticsPanel");
         StatisticsTitleText = root.Q<Label>("StatisticsTitleText");
+        StatisticsCharacterImage = root.Q<VisualElement>("StatisticsCharacterImage");
         StatisticsPlayerNameText = root.Q<Label>("StatisticsPlayerNameText");
         StatisticsCharacterNameText = root.Q<Label>("StatisticsCharacterNameText");
         StatisticsMoneyText = root.Q<Label>("StatisticsMoneyText");
@@ -2309,9 +2785,12 @@ public class UIDocumentManager : MonoBehaviour
         CharacterBackstoryText = root.Q<Label>("CharacterBackstoryText");
         CharacterPerksText = root.Q<Label>("CharacterPerksText");
         CharacterCastsText = root.Q<Label>("CharacterCastsText");
+        CharacterPerksContainer = root.Q<VisualElement>("CharacterPerksContainer");
+        CharacterFaultsContainer = root.Q<VisualElement>("CharacterFaultsContainer");
         StatisticsCloseButton = root.Q<Button>("StatisticsCloseButton");
         
         ApplyHeaderGloss(root, "PlayerStatisticsHeader");
+        ApplyPlayerStatisticsVisualStyle();
         
         // Connect close button
         if (StatisticsCloseButton != null)
@@ -2326,23 +2805,151 @@ public class UIDocumentManager : MonoBehaviour
         else
             Debug.LogWarning("PlayerStatisticsPanel root not found!");
     }
+
+    void ApplyPlayerStatisticsVisualStyle()
+    {
+        // Source of truth is UXML/USS. Runtime code intentionally avoids popup layout/style edits.
+    }
+
+    void InitializeCharacterSetupPanel()
+    {
+        if (characterSetupPanelDocument == null)
+        {
+            UIDocument[] docs = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
+            foreach (UIDocument doc in docs)
+            {
+                if (doc != null && doc.visualTreeAsset != null && doc.visualTreeAsset.name.Contains("CharacterSetupPanel"))
+                {
+                    characterSetupPanelDocument = doc;
+                    break;
+                }
+            }
+        }
+        if (characterSetupPanelDocument == null) return;
+
+        VisualElement root = characterSetupPanelDocument.rootVisualElement;
+        if (root == null) return;
+
+        CharacterSetupPanel = root.Q<VisualElement>("CharacterSetupPanel");
+        CharacterSetupList = root.Q<ScrollView>("CharacterSetupList");
+        CharacterSetupOkButton = root.Q<Button>("CharacterSetupOkButton");
+
+        if (CharacterSetupOkButton != null)
+        {
+            CharacterSetupOkButton.clicked -= OnCharacterSetupOkClicked;
+            CharacterSetupOkButton.clicked += OnCharacterSetupOkClicked;
+        }
+
+        root.style.display = DisplayStyle.None;
+    }
+
+    public void ShowCharacterSetupPanel(List<Player> playerList, Action onOk)
+    {
+        if (characterSetupPanelDocument == null || characterSetupPanelDocument.rootVisualElement == null)
+        {
+            onOk?.Invoke();
+            return;
+        }
+
+        _characterSetupOkHandler = onOk;
+        VisualElement root = characterSetupPanelDocument.rootVisualElement;
+        root.style.display = DisplayStyle.Flex;
+        ApplyCharacterSetupPanelLayout();
+
+        if (CharacterSetupList != null)
+        {
+            CharacterSetupList.Clear();
+            if (playerList != null)
+            {
+                foreach (Player player in playerList)
+                {
+                    if (player == null) continue;
+                    CharacterSetupList.Add(CreateCharacterSetupRow(player));
+                }
+            }
+        }
+    }
+
+    void OnCharacterSetupOkClicked()
+    {
+        if (characterSetupPanelDocument != null && characterSetupPanelDocument.rootVisualElement != null)
+            characterSetupPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+        Action callback = _characterSetupOkHandler;
+        _characterSetupOkHandler = null;
+        callback?.Invoke();
+    }
+
+    void ApplyCharacterSetupPanelLayout()
+    {
+        // Source of truth is UXML/USS. Runtime code intentionally avoids popup layout edits.
+    }
+
+    VisualElement CreateCharacterSetupRow(Player player)
+    {
+        VisualElement row = new VisualElement();
+        row.AddToClassList("char-setup-row");
+
+        Label name = new Label($"{player.playerName} - {player.characterName}");
+        name.AddToClassList("char-setup-name");
+        row.Add(name);
+
+        Label perks = new Label($"Perks: {player.GetPerkEffectsSummary()}");
+        perks.AddToClassList("char-setup-perks");
+        row.Add(perks);
+
+        Label faults = new Label($"Casts/Faults: {player.GetFaultEffectsSummary()}");
+        faults.AddToClassList("char-setup-faults");
+        row.Add(faults);
+
+        VisualElement timingRow = new VisualElement();
+        timingRow.AddToClassList("char-setup-timing");
+        Label timingLabel = new Label("Trigger timing");
+        timingLabel.AddToClassList("char-setup-timing-label");
+        timingRow.Add(timingLabel);
+
+        List<string> choices = new List<string> { "Auto", "Early", "Mid", "Late" };
+        DropdownField timing = new DropdownField(choices, 0);
+        timing.value = player.perkTimingPreference.ToString();
+        timing.AddToClassList("char-setup-timing-dropdown");
+        timing.RegisterValueChangedCallback(evt =>
+        {
+            if (Enum.TryParse(evt.newValue, out PerkTimingPreference parsed))
+                player.perkTimingPreference = parsed;
+            if (player.runtimeState != null)
+                player.runtimeState.gamePhase = evt.newValue;
+        });
+        timingRow.Add(timing);
+        row.Add(timingRow);
+
+        return row;
+    }
     
     /// <summary>
     /// Show player statistics panel.
     /// </summary>
-    public void ShowPlayerStatistics(Player player)
+    public void ShowPlayerStatistics(Player player, int anchorPlayerIndex = -1)
     {
         if (player == null || playerStatisticsPanelDocument == null) return;
         
         if (playerStatisticsPanelDocument.rootVisualElement != null)
+        {
             playerStatisticsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        }
+        _lastStatisticsAnchorPlayerIndex = anchorPlayerIndex;
         
         // Character from database (for image and text)
         Character c = null;
         if (turnManager != null && turnManager.characterDB != null && player.characterIndex >= 0 && player.characterIndex < turnManager.characterDB.CharacterCount)
             c = turnManager.characterDB.GetCharacter(player.characterIndex);
 
-        // Character image (fullImage or tokenImage)
+        // Dynamic title
+        if (StatisticsTitleText != null)
+        {
+            string charName = c != null ? c.characterName : (player.characterName ?? "CHARACTER");
+            StatisticsTitleText.text = charName.ToUpper();
+        }
+
+        // Character portrait
         if (StatisticsCharacterImage != null)
         {
             Sprite portrait = (c != null && c.fullImage != null) ? c.fullImage : (c != null && c.tokenImage != null ? c.tokenImage : null);
@@ -2352,7 +2959,6 @@ public class UIDocumentManager : MonoBehaviour
                 if (texture != null)
                 {
                     StatisticsCharacterImage.style.backgroundImage = new StyleBackground(texture);
-                    StatisticsCharacterImage.style.backgroundColor = new StyleColor(Color.white);
                     StatisticsCharacterImage.style.display = DisplayStyle.Flex;
                 }
                 else
@@ -2368,50 +2974,137 @@ public class UIDocumentManager : MonoBehaviour
             }
         }
 
-        // Stats: value-only (labels are "Name:", "Character:", etc. in UXML)
+        // Player name and character name
         if (StatisticsPlayerNameText != null)
             StatisticsPlayerNameText.text = !string.IsNullOrEmpty(player.playerName) ? player.playerName : $"Player {player.playerIndex + 1}";
         if (StatisticsCharacterNameText != null)
             StatisticsCharacterNameText.text = c != null ? c.characterName : (player.characterName ?? "");
+
+        // Financial stats
         if (StatisticsMoneyText != null)
-            StatisticsMoneyText.text = $"₦{player.Money:N0}";
+            StatisticsMoneyText.text = $"\u20A6{player.Money:N0}";
         if (StatisticsPropertiesText != null)
-            StatisticsPropertiesText.text = player.GetPropertyCount().ToString();
+            StatisticsPropertiesText.text = $"{player.GetPropertyCount()} Properties";
         if (StatisticsNetWorthText != null)
-            StatisticsNetWorthText.text = $"₦{player.GetNetWorth():N0}";
+            StatisticsNetWorthText.text = $"Net Worth: \u20A6{player.GetNetWorth():N0}";
+
+        // Detail breakdown
         if (StatisticsDetailsText != null)
         {
             int money = player.Money;
             int propertyValue = player.GetNetWorth() - money;
-            StatisticsDetailsText.text = $"Cash: ₦{money:N0}  ·  Property value: ₦{propertyValue:N0}  ·  Total: ₦{player.GetNetWorth():N0}";
+            StatisticsDetailsText.text = $"Cash \u20A6{money:N0}  \u00B7  Property \u20A6{propertyValue:N0}";
         }
+
+        // Backstory
         if (CharacterBackstoryText != null)
             CharacterBackstoryText.text = c != null ? c.backstory : "";
+
+        // Perk / Fault text fallbacks
         if (CharacterPerksText != null)
-            CharacterPerksText.text = c != null ? $"{c.perk1.name} — {c.perk1.description}\n{c.perk2.name} — {c.perk2.description}" : "";
+        {
+            string dynamicPerks = player.GetPerkEffectsSummary();
+            CharacterPerksText.text = !string.IsNullOrEmpty(dynamicPerks)
+                ? dynamicPerks
+                : (c != null ? $"{c.perk1.name} \u2014 {c.perk1.description}\n{c.perk2.name} \u2014 {c.perk2.description}" : "");
+        }
         if (CharacterCastsText != null)
-            CharacterCastsText.text = c != null ? $"{c.cast1.name} — {c.cast1.description}\n{c.cast2.name} — {c.cast2.description}" : "";
+        {
+            string dynamicFaults = player.GetFaultEffectsSummary();
+            CharacterCastsText.text = !string.IsNullOrEmpty(dynamicFaults)
+                ? dynamicFaults
+                : (c != null ? $"{c.cast1.name} \u2014 {c.cast1.description}\n{c.cast2.name} \u2014 {c.cast2.description}" : "");
+        }
+
+        // Behavior status cards
+        PopulateCharacterBehaviorCards(player, true);
+        PopulateCharacterBehaviorCards(player, false);
     }
     
     /// <summary>Show player profile (stats + character) when profile is clicked on HUD. Same as ShowPlayerStatistics.</summary>
     public void ShowPlayerProfileDetail(Player player)
     {
-        ShowPlayerStatistics(player);
+        ShowPlayerStatistics(player, _lastStatisticsAnchorPlayerIndex);
     }
     
     void OnPlayerProfileClicked(int playerIndex)
     {
         if (turnManager == null || turnManager.players == null) return;
         if (playerIndex < 0 || playerIndex >= turnManager.players.Count) return;
+        _lastStatisticsAnchorPlayerIndex = playerIndex;
         Player p = turnManager.players[playerIndex];
         if (p != null && !p.IsEliminated)
-            ShowPlayerProfileDetail(p);
+            ShowPlayerStatistics(p, playerIndex);
     }
     
     public void HidePlayerStatisticsPanel()
     {
         if (playerStatisticsPanelDocument != null && playerStatisticsPanelDocument.rootVisualElement != null)
             playerStatisticsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+
+    void PopulateCharacterBehaviorCards(Player player, bool perks)
+    {
+        VisualElement container = perks ? CharacterPerksContainer : CharacterFaultsContainer;
+        if (container == null || player == null) return;
+
+        container.Clear();
+        List<CharacterBehaviorStatusItem> items = player.BuildBehaviorStatusItems();
+        bool found = false;
+        foreach (CharacterBehaviorStatusItem item in items)
+        {
+            if (item == null || item.isPerk != perks) continue;
+            found = true;
+            container.Add(CreateBehaviorCard(item));
+        }
+
+        if (!found)
+        {
+            Label empty = new Label(perks ? "No perk status available." : "No fault/cast status available.");
+            empty.AddToClassList("behavior-empty");
+            container.Add(empty);
+        }
+    }
+
+    VisualElement CreateBehaviorCard(CharacterBehaviorStatusItem item)
+    {
+        VisualElement card = new VisualElement();
+        card.AddToClassList("behavior-card");
+        card.AddToClassList(item.isPerk ? "behavior-card-perk" : "behavior-card-fault");
+
+        VisualElement head = new VisualElement();
+        head.AddToClassList("behavior-card-head");
+
+        Label title = new Label(item.title);
+        title.AddToClassList("behavior-card-title");
+        head.Add(title);
+
+        Label badge = new Label(item.state);
+        badge.AddToClassList("behavior-card-badge");
+        head.Add(badge);
+        card.Add(head);
+
+        Label counter = new Label(item.counter);
+        counter.AddToClassList("behavior-card-counter");
+        card.Add(counter);
+        return card;
+    }
+
+    void PositionStatisticsPanelNearProfile(int playerIndex)
+    {
+        // Source of truth is UXML/USS. Runtime code intentionally avoids popup layout edits.
+    }
+
+    VisualElement GetPlayerInfoElement(int playerIndex)
+    {
+        switch (playerIndex)
+        {
+            case 0: return Player1Info;
+            case 1: return Player2Info;
+            case 2: return Player3Info;
+            case 3: return Player4Info;
+            default: return null;
+        }
     }
     
     // Update player info in UI (for player index 0-3)
@@ -2493,7 +3186,20 @@ public class UIDocumentManager : MonoBehaviour
                 // Update character/title (e.g. "Street Hustler")
                 if (characterLabel != null)
                 {
-                    characterLabel.text = !string.IsNullOrEmpty(player.characterName) ? player.characterName : "";
+                    string characterName = !string.IsNullOrEmpty(player.characterName) ? player.characterName : "";
+                    int perkCount = (player.characterEffects != null && player.characterEffects.PerkKeys != null) ? player.characterEffects.PerkKeys.Count : 0;
+                    int faultCount = (player.characterEffects != null && player.characterEffects.FaultKeys != null) ? player.characterEffects.FaultKeys.Count : 0;
+                    characterLabel.text = (perkCount > 0 || faultCount > 0)
+                        ? $"{characterName}  P{perkCount}/F{faultCount}"
+                        : characterName;
+                    string perkSummary = player.GetPerkEffectsSummary();
+                    string faultSummary = player.GetFaultEffectsSummary();
+                    if (!string.IsNullOrEmpty(perkSummary) || !string.IsNullOrEmpty(faultSummary))
+                    {
+                        characterLabel.tooltip =
+                            $"Perks: {(string.IsNullOrEmpty(perkSummary) ? "None" : perkSummary)}\n" +
+                            $"Faults: {(string.IsNullOrEmpty(faultSummary) ? "None" : faultSummary)}";
+                    }
                 }
                 
                 // Update money
@@ -2518,7 +3224,10 @@ public class UIDocumentManager : MonoBehaviour
                             {
                                 // Create a background image from the sprite
                                 avatar.style.backgroundImage = new StyleBackground(texture);
-                                avatar.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
+                                avatar.style.backgroundSize = new StyleBackgroundSize(new BackgroundSize(BackgroundSizeType.Contain));
+                                avatar.style.backgroundRepeat = new StyleBackgroundRepeat(new BackgroundRepeat(Repeat.NoRepeat, Repeat.NoRepeat));
+                                avatar.style.backgroundPositionX = new StyleBackgroundPosition(new BackgroundPosition(BackgroundPositionKeyword.Center));
+                                avatar.style.backgroundPositionY = new StyleBackgroundPosition(new BackgroundPosition(BackgroundPositionKeyword.Center));
                                 avatar.style.backgroundColor = new StyleColor(Color.white); // Use white tint to show sprite colors
                             }
                             else

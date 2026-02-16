@@ -569,19 +569,22 @@
 }
 
 .tile-details-body {
-    padding: 14px 16px;
+    padding: 12px 16px;
+    flex-grow: 1;
+    min-height: 0;
 }
 
 .tile-details-name-row {
     flex-direction: row;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    flex-shrink: 0;
 }
 
 .tile-details-swatch {
-    width: 64px;
-    height: 22px;
-    margin-right: 12px;
+    width: 48px;
+    height: 18px;
+    margin-right: 10px;
     border-radius: 4px;
     background-color: rgb(25, 120, 200);
     border-width: 2px;
@@ -597,19 +600,28 @@
 .tile-details-divider {
     height: 1px;
     background-color: rgba(255, 255, 255, 0.12);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .tile-details-info-list {
-    margin-bottom: 8px;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 6px;
+    flex-shrink: 0;
+}
+
+.tile-details-info-col {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
 }
 
 .tile-details-kv-row {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     border-bottom-width: 1px;
     border-bottom-color: rgba(255, 255, 255, 0.08);
 }
@@ -637,42 +649,50 @@
 }
 
 .tile-details-kv-key {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
 }
 
 .tile-details-kv-value {
     color: white;
-    font-size: 14px;
+    font-size: 13px;
     -unity-font-style: bold;
 }
 
 .tile-details-chip {
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 10px;
     background-color: rgb(20, 120, 190);
     color: white;
+    font-size: 14px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
 }
 
 .tile-details-rent-section {
-    padding: 10px;
+    flex-grow: 1;
+    min-height: 0;
+    padding: 8px 10px;
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.18);
     border-width: 1px;
     border-color: rgba(255, 255, 255, 0.12);
+    flex-direction: column;
 }
 
 .tile-details-section-title {
     color: white;
+    font-size: 14px;
     -unity-font-style: bold;
     margin-bottom: 6px;
+    flex-shrink: 0;
 }
 
 .tile-details-rent-scroll {
-    height: 180px;
+    flex-grow: 1;
+    min-height: 120px;
 }
 
 .tile-details-rent-row {
@@ -684,9 +704,53 @@
     border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
+/* Thin modern scrollbar for Tile Details rent table (match profile panel style) */
+.tile-details-rent-scroll .unity-scroll-view__vertical-scroller {
+    width: 2px;
+    min-width: 2px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    margin-left: 6px;
+    margin-right: 2px;
+}
+
+.tile-details-rent-scroll .unity-base-slider__tracker {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    border-width: 0;
+}
+
+.tile-details-rent-scroll .unity-base-slider__dragger {
+    width: 2px;
+    background-color: rgba(20, 80, 50, 0.85);
+    border-radius: 2px;
+    border-width: 0;
+    min-height: 20px;
+}
+
+.tile-details-rent-scroll .unity-base-slider__dragger:hover {
+    background-color: rgba(30, 100, 65, 0.95);
+}
+
+.tile-details-rent-scroll .unity-repeat-button {
+    display: none;
+}
+
+.tile-details-rent-scroll .unity-scroll-view__vertical-scroller .unity-base-slider__input {
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
 .tile-details-footer {
     flex-direction: row;
-    padding: 12px 12px 14px 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.tile-details-footer-btn {
+    min-height: 44px;
+    font-size: 13px;
 }
 
 .tile-details-footer-column {
@@ -819,12 +883,12 @@
 }
 
 .property-btn {
-    height: 90px;
-    min-width: 360px;
+    height: 68px;
+    min-width: 240px;
     border-radius: 10px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
-    font-size: 28px;
+    font-size: 22px;
 }
 
 .property-btn-primary {
@@ -920,17 +984,17 @@
     min-width: 80px;
     margin-left: 4px;
     margin-right: 4px;
-    height: 56px;
-    font-size: 20px;
+    height: 48px;
+    font-size: 18px;
 }
 
 .monopoly-btn {
-    height: 90px;
-    min-width: 360px;
+    height: 68px;
+    min-width: 240px;
     border-radius: 10px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
-    font-size: 28px;
+    font-size: 22px;
 }
 
 .monopoly-btn-primary {
@@ -2041,7 +2105,7 @@
     border-radius: 14px;
     border-width: 1px;
     border-color: rgba(198, 164, 79, 0.45);
-    padding: 6px 8px;
+    padding: 8px 10px;
     gap: 8px;
 }
 
@@ -2052,33 +2116,34 @@
     top: auto;
     bottom: auto;
     width: auto;
-    min-width: 150px;
-    max-width: 320px;
+    min-width: 172px;
+    max-width: 360px;
     flex: 1 1 0;
     background-color: rgba(18, 55, 28, 0.92);
     border-color: rgba(198, 164, 79, 0.95);
-    padding: 6px 8px;
+    padding: 8px 10px;
     border-radius: 12px;
+    min-height: 84px;
 }
 
 .gameplay-hud-profiles-row .gameplay-hud-avatar {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
-    min-height: 34px;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
     margin-right: 8px;
 }
 
 .gameplay-hud-profiles-row .gameplay-hud-player-name {
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .gameplay-hud-profiles-row .gameplay-hud-player-title {
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .gameplay-hud-profiles-row .gameplay-hud-player-money {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .gameplay-hud-player-top-row {
@@ -2093,12 +2158,12 @@
 /* Pinned perk mini-card on each player profile */
 .hud-perk-card-root {
     position: absolute;
-    right: 6px;
-    top: -16px;
-    min-width: 120px;
-    max-width: 165px;
-    min-height: 44px;
-    padding: 4px 6px;
+    right: 4px;
+    top: -20px;
+    min-width: 148px;
+    max-width: 220px;
+    min-height: 52px;
+    padding: 6px 8px;
     flex-direction: row;
     align-items: center;
     border-radius: 8px;
@@ -2109,10 +2174,10 @@
 }
 
 .hud-perk-card-icon {
-    width: 22px;
-    height: 22px;
-    min-width: 22px;
-    min-height: 22px;
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    min-height: 26px;
     margin-right: 6px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.14);
@@ -2128,7 +2193,7 @@
 }
 
 .hud-perk-card-name {
-    font-size: 10px;
+    font-size: 11px;
     -unity-font-style: bold;
     color: rgb(255, 230, 145);
     white-space: nowrap;
@@ -2139,7 +2204,7 @@
 
 .hud-perk-card-uses {
     margin-top: 1px;
-    font-size: 9px;
+    font-size: 10px;
     color: rgba(245, 245, 245, 0.9);
     white-space: nowrap;
 }
@@ -2364,4 +2429,502 @@
     border-width: 1px;
     border-color: rgba(170, 255, 235, 0.85);
     min-height: 34px;
+}
+
+/* Property Manager redesign */
+.pm-empty-state {
+    width: 100%;
+    color: rgb(230, 236, 242);
+    -unity-text-align: middle-center;
+    font-size: 20px;
+}
+
+.pm-filter-selected {
+    border-width: 3px;
+    border-color: rgb(238, 200, 93);
+    background-color: rgb(28, 88, 48);
+    color: rgb(255, 247, 220);
+}
+
+.pm-card {
+    width: 48%;
+    min-width: 300px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: rgba(198, 164, 79, 0.9);
+    background-color: rgba(17, 29, 22, 0.78);
+}
+
+.pm-card-title {
+    font-size: 22px;
+    color: rgb(255, 248, 227);
+    -unity-font-style: bold;
+    -unity-text-align: middle-left;
+}
+
+.pm-card-subtitle {
+    margin-top: 4px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: rgb(194, 210, 221);
+    -unity-text-align: middle-left;
+}
+
+.pm-actions {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pm-action-item {
+    width: 24%;
+}
+
+.pm-action-button {
+    height: 102px;
+    padding: 4px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: rgba(138, 157, 170, 0.85);
+    background-color: rgba(41, 58, 72, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pm-action-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.18);
+    margin-bottom: 3px;
+}
+
+.pm-action-title {
+    font-size: 13px;
+    -unity-font-style: bold;
+    color: rgb(246, 249, 252);
+    -unity-text-align: middle-center;
+}
+
+.pm-action-cost {
+    margin-top: 2px;
+    font-size: 12px;
+    color: rgb(220, 228, 236);
+    -unity-text-align: middle-center;
+}
+
+.pm-action-build .pm-action-icon {
+    background-color: rgba(60, 180, 95, 0.95);
+}
+
+.pm-action-sell .pm-action-icon {
+    background-color: rgba(210, 82, 82, 0.95);
+}
+
+.pm-action-mortgage .pm-action-icon {
+    background-color: rgba(70, 138, 220, 0.95);
+}
+
+.pm-action-redeem .pm-action-icon {
+    background-color: rgba(228, 176, 62, 0.95);
+}
+
+.behavior-dashboard-panel {
+    width: 560px;
+    min-height: 640px;
+    max-width: 680px;
+}
+
+.behavior-dashboard-body {
+    padding: 18px;
+}
+
+.behavior-summary-row {
+    flex-direction: row;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+.behavior-summary-image {
+    width: 128px;
+    height: 128px;
+}
+
+.behavior-summary-meta {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.behavior-player-name {
+    font-size: 24px;
+    color: #ffffff;
+    -unity-font-style: bold;
+}
+
+.behavior-character-name {
+    font-size: 18px;
+    color: #f6cf6d;
+    margin-bottom: 6px;
+}
+
+.behavior-meta-line {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.behavior-details-line {
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.behavior-card-list {
+    margin-bottom: 8px;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.behavior-card {
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 8px;
+    background-color: rgba(24, 35, 56, 0.8);
+}
+
+.behavior-card-perk {
+    border-color: rgba(84, 215, 124, 0.5);
+}
+
+.behavior-card-fault {
+    border-color: rgba(235, 109, 109, 0.55);
+}
+
+.behavior-card-head {
+    flex-direction: row;
+    align-items: center;
+}
+
+.behavior-card-icon {
+    width: 26px;
+    height: 26px;
+    margin-right: 8px;
+    border-radius: 13px;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.behavior-card-title {
+    flex-grow: 1;
+    font-size: 15px;
+    color: #ffffff;
+    -unity-font-style: bold;
+}
+
+.behavior-card-badge {
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 10px;
+    background-color: rgba(14, 89, 155, 0.75);
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.behavior-card-counter {
+    margin-top: 5px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.behavior-empty {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.behavior-hidden-fallback {
+    display: none;
+}
+
+.char-setup-panel {
+    max-width: 1280px;
+    min-width: 940px;
+    min-height: 520px;
+}
+
+.char-setup-body {
+    padding: 18px;
+    flex-grow: 1;
+}
+
+.char-setup-intro {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+}
+
+.char-setup-list {
+    flex-grow: 1;
+}
+
+.char-setup-row {
+    margin-bottom: 10px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(21, 28, 44, 0.72);
+}
+
+.char-setup-name {
+    color: #f6cf6d;
+    font-size: 16px;
+    -unity-font-style: bold;
+    margin-bottom: 4px;
+}
+
+.char-setup-perks,
+.char-setup-faults {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+
+.char-setup-timing {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.char-setup-timing-label {
+    min-width: 110px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+}
+
+.char-setup-timing-dropdown {
+    min-width: 140px;
+}
+
+.char-setup-footer {
+    margin-top: 12px;
+    align-items: flex-end;
+}
+
+/* Universal popup standard */
+.popup-root {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 200px;
+}
+
+.popup-overlay-blocker {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.001);
+}
+
+.popup-shell {
+    position: relative;
+    align-self: center;
+    background-color: rgba(23, 55, 34, 0.92);
+    border-radius: 14px;
+    border-width: 1px;
+    border-color: rgba(198, 164, 79, 0.95);
+}
+
+.popup-header-banner {
+    width: 90%;
+    height: 520px;
+    align-self: center;
+}
+
+.popup-body {
+    width: 90%;
+    align-self: center;
+}
+
+.popup-footer {
+    width: 90%;
+    align-self: center;
+}
+
+.popup-title-display {
+    font-size: 40px;
+    -unity-font-style: bold;
+}
+
+.popup-body-text {
+    font-size: 20px;
+}
+
+.auction-header-title-hidden {
+    display: none;
+}
+
+.auction-property-name-standard {
+    top: 80px;
+}
+
+/* ── Player Profile Popup (split layout: portrait left, stats right) ── */
+
+.profile-left-col {
+    width: 220px;
+    min-width: 180px;
+    max-width: 240px;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 18px;
+    border-right-width: 2px;
+    border-right-color: rgba(236, 205, 122, 0.3);
+}
+
+.profile-portrait {
+    width: 190px;
+    height: 240px;
+    border-radius: 0;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-bottom: 8px;
+}
+
+.profile-player-name {
+    font-size: 22px;
+    -unity-font-style: bold;
+    color: #ffffff;
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.profile-character-name {
+    font-size: 16px;
+    -unity-font-style: italic;
+    color: rgba(236, 205, 122, 0.95);
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+.profile-stat-gold {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(255, 215, 0);
+    -unity-text-align: middle-center;
+    margin-bottom: 4px;
+}
+
+.profile-stat-line {
+    font-size: 15px;
+    -unity-font-style: bold;
+    color: #ffffff;
+    -unity-text-align: middle-center;
+    margin-bottom: 2px;
+}
+
+.profile-right-col {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-left: 18px;
+    padding-right: 10px;
+    padding-top: 4px;
+    max-height: 420px;
+}
+
+.profile-details-line {
+    font-size: 14px;
+    -unity-font-style: bold;
+    color: #ffffff;
+    white-space: normal;
+    margin-bottom: 6px;
+}
+
+.profile-backstory {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.72);
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    max-height: 60px;
+}
+
+.profile-section-title {
+    font-size: 16px;
+    -unity-font-style: bold;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+    margin-top: 6px;
+}
+
+.profile-section-perk {
+    color: rgb(76, 217, 100);
+}
+
+.profile-section-fault {
+    color: rgb(255, 100, 80);
+}
+
+/* Modern ultra-thin scrollbar for profile right column: only thumb visible, dark green, rounded */
+.profile-right-col .unity-scroll-view__vertical-scroller {
+    width: 2px;
+    min-width: 2px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    margin-left: 10px;
+    margin-right: 6px;
+}
+
+.profile-right-col .unity-base-slider__tracker {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    border-width: 0;
+}
+
+.profile-right-col .unity-base-slider__dragger {
+    width: 2px;
+    background-color: rgba(20, 80, 50, 0.85);
+    border-radius: 2px;
+    border-width: 0;
+    min-height: 20px;
+}
+
+.profile-right-col .unity-base-slider__dragger:hover {
+    background-color: rgba(30, 100, 65, 0.95);
+}
+
+.profile-right-col .unity-repeat-button {
+    display: none;
+}
+
+.profile-right-col .unity-scroll-view__vertical-scroller .unity-base-slider__input {
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
 }

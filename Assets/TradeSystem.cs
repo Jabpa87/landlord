@@ -287,7 +287,7 @@ public class TradeSystem : MonoBehaviour
         }
         
         // Check if property is mortgaged (only Market Queen can trade mortgaged properties)
-        if (property.isMortgaged && !owner.IsCharacter("Market Queen"))
+        if (property.isMortgaged && !owner.HasCharacterEffect(CharacterEffectKeys.MarketTradeMortgagedAllowed))
         {
             Debug.LogWarning($"TradeSystem: Cannot trade mortgaged property {property.propertyName}!");
             return;
@@ -821,7 +821,7 @@ public class TradeSystem : MonoBehaviour
             if (tile.tileType == TileType.Property && 
                 tile.property != null && 
                 tile.property.owner == player &&
-                (!tile.property.isMortgaged || player.IsCharacter("Market Queen")) &&
+                (!tile.property.isMortgaged || player.HasCharacterEffect(CharacterEffectKeys.MarketTradeMortgagedAllowed)) &&
                 tile.property.houses == 0 &&
                 !tile.property.hasHotel)
             {
@@ -969,7 +969,7 @@ public class TradeSystem : MonoBehaviour
             if (tile.tileType == TileType.Property && 
                 tile.property != null && 
                 tile.property.owner == player &&
-                (!tile.property.isMortgaged || player.IsCharacter("Market Queen")) &&
+                (!tile.property.isMortgaged || player.HasCharacterEffect(CharacterEffectKeys.MarketTradeMortgagedAllowed)) &&
                 tile.property.houses == 0 &&
                 !tile.property.hasHotel)
             {
@@ -1074,9 +1074,9 @@ public class TradeSystem : MonoBehaviour
             }
         }
 
-        if (initiator.IsCharacter("Market Queen"))
+        if (initiator.HasCharacterEffect(CharacterEffectKeys.MarketTradeBonus))
             initiator.AddMoney(100000);
-        if (target.IsCharacter("Market Queen"))
+        if (target.HasCharacterEffect(CharacterEffectKeys.MarketTradeBonus))
             target.AddMoney(100000);
         
         if (turnManager != null)
@@ -1097,8 +1097,8 @@ public class TradeSystem : MonoBehaviour
 
     bool ShouldDelayTrade()
     {
-        return (initiatingPlayer != null && initiatingPlayer.IsCharacter("Civil Servant")) ||
-               (targetPlayer != null && targetPlayer.IsCharacter("Civil Servant"));
+        return (initiatingPlayer != null && initiatingPlayer.HasFaultEffect(CharacterEffectKeys.CivilTradeDelay)) ||
+               (targetPlayer != null && targetPlayer.HasFaultEffect(CharacterEffectKeys.CivilTradeDelay));
     }
 
     void QueuePendingTrade()

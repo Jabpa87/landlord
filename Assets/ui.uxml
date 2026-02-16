@@ -1,5 +1,3 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/ui.uss?fileID=7433441132597879392&amp;guid=1cfcef30dfbb29e4f8fcc0b90e81e20f&amp;type=3#ui" />
-    <ui:Button text="Button" style="height: 22px; width: 132px;" />
-    <ui:Button text="Button" style="height: 22px; width: 132px;" />
 </ui:UXML>

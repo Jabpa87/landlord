@@ -192,7 +192,12 @@ public class MainHUDController : MonoBehaviour
         if (characterLabel != null)
         {
             characterLabel.gameObject.SetActive(true);
-            characterLabel.text = !string.IsNullOrEmpty(player.characterName) ? player.characterName : "";
+            string characterName = !string.IsNullOrEmpty(player.characterName) ? player.characterName : "";
+            int perkCount = (player.characterEffects != null && player.characterEffects.PerkKeys != null) ? player.characterEffects.PerkKeys.Count : 0;
+            int faultCount = (player.characterEffects != null && player.characterEffects.FaultKeys != null) ? player.characterEffects.FaultKeys.Count : 0;
+            characterLabel.text = (perkCount > 0 || faultCount > 0)
+                ? $"{characterName}  P{perkCount}/F{faultCount}"
+                : characterName;
         }
         if (moneyLabel != null) moneyLabel.text = $"₦{player.Money:N0}";
         if (avatarImage != null)

@@ -124,16 +124,17 @@ public class TileClickHandler : MonoBehaviour
             return;
         }
 
-        if (TileDetailsCardUI.Instance != null)
+        if (uiManager != null)
         {
-            TileDetailsCardUI.Instance.Show(tileInfo);
+            // Force UI Toolkit details panel for tile clicks.
+            uiManager.ShowTileDetails(tileInfo);
             return;
         }
 
-        if (uiManager != null)
+        // Fallback only when UI Toolkit manager is missing.
+        if (TileDetailsCardUI.Instance != null)
         {
-            // Open Property Manager panel with this tile focused (plan: single panel for all property actions)
-            uiManager.OpenPropertyManagerPanel(tileInfo);
+            TileDetailsCardUI.Instance.Show(tileInfo);
             return;
         }
 

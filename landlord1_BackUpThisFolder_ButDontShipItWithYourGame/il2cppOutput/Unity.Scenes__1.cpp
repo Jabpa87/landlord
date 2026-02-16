@@ -2676,7 +2676,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WeakAssetReferenceLoadingSystem_OnDestro
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79787
+// Method Definition Index: 79982
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TypeHandle___AssignHandles_mA221E98F0CDA4528EAD78547B06D6B0B63709C54 (TypeHandle_tA59717B0F256FC6AF591E2E6B4E908DFF73560CE* __this, SystemState_t1AAA7F65EAD5CC5666D3F0360B309F9DF032E47D* ___0_state, const RuntimeMethod* method) 
 {
 	{
@@ -2736,7 +2736,7 @@ IL2CPP_EXTERN_C  void DelegatePInvokeWrapper___codegen__OnCreate_000000E9U24Post
 	il2cppPInvokeFunc(___0_self, ___1_state);
 
 }
-// Method Definition Index: 79788
+// Method Definition Index: 79983
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnCreate_000000E9U24PostfixBurstDelegate__ctor_m7659B0BB241C7F82D3A50DF3D2808DD4735F397E (__codegen__OnCreate_000000E9U24PostfixBurstDelegate_t7D9FAB7F704A80EFE6EFFB37AAB2B027DFAC57CD* __this, RuntimeObject* ___0_p, intptr_t ___1_p, const RuntimeMethod* method) 
 {
 	__this->___method_ptr = (intptr_t)il2cpp_codegen_get_method_pointer((RuntimeMethod*)___1_p);
@@ -2765,13 +2765,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnCreate_000000E9U24PostfixBu
 	}
 	__this->___extra_arg = (intptr_t)&__codegen__OnCreate_000000E9U24PostfixBurstDelegate_Invoke_m94C5777C85925351D2109069E6E20A5ED91CB847_Multicast;
 }
-// Method Definition Index: 79789
+// Method Definition Index: 79984
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnCreate_000000E9U24PostfixBurstDelegate_Invoke_m94C5777C85925351D2109069E6E20A5ED91CB847 (__codegen__OnCreate_000000E9U24PostfixBurstDelegate_t7D9FAB7F704A80EFE6EFFB37AAB2B027DFAC57CD* __this, intptr_t ___0_self, intptr_t ___1_state, const RuntimeMethod* method) 
 {
 	typedef void (*FunctionPointerType) (RuntimeObject*, intptr_t, intptr_t, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, ___0_self, ___1_state, reinterpret_cast<RuntimeMethod*>(__this->___method));
 }
-// Method Definition Index: 79790
+// Method Definition Index: 79985
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* __codegen__OnCreate_000000E9U24PostfixBurstDelegate_BeginInvoke_mA07454829E4E71825BD9883EFF52F657DFB6BCBD (__codegen__OnCreate_000000E9U24PostfixBurstDelegate_t7D9FAB7F704A80EFE6EFFB37AAB2B027DFAC57CD* __this, intptr_t ___0_self, intptr_t ___1_state, AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___2_p, RuntimeObject* ___3_p, const RuntimeMethod* method) 
 {
 	void *__d_args[3] = {0};
@@ -2779,7 +2779,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* __codegen__OnCreate_000000E9U2
 	__d_args[1] = Box(il2cpp_defaults.int_class, &___1_state);
 	return (RuntimeObject*)il2cpp_codegen_delegate_begin_invoke((RuntimeDelegate*)__this, __d_args, (RuntimeDelegate*)___2_p, (RuntimeObject*)___3_p);
 }
-// Method Definition Index: 79791
+// Method Definition Index: 79986
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnCreate_000000E9U24PostfixBurstDelegate_EndInvoke_mBE55793FCD3CB1B5E8CEB1113ABE9BEDCB8770F7 (__codegen__OnCreate_000000E9U24PostfixBurstDelegate_t7D9FAB7F704A80EFE6EFFB37AAB2B027DFAC57CD* __this, RuntimeObject* ___0_p, const RuntimeMethod* method) 
 {
 	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___0_p, 0);
@@ -2792,7 +2792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnCreate_000000E9U24PostfixBu
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79792
+// Method Definition Index: 79987
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnCreate_000000E9U24BurstDirectCall_GetFunctionPointerDiscard_mDA06AAA66099CDCF0AFA29A4646CA09EAECD34C1 (intptr_t* ___0_p, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2835,7 +2835,7 @@ IL_002a:
 		return;
 	}
 }
-// Method Definition Index: 79793
+// Method Definition Index: 79988
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t __codegen__OnCreate_000000E9U24BurstDirectCall_GetFunctionPointer_m2CEBC3D6682582EC0CC15A2340B769356E049B41 (const RuntimeMethod* method) 
 {
 	intptr_t V_0;
@@ -2847,7 +2847,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t __codegen__OnCreate_000000E9U24Burst
 		return L_0;
 	}
 }
-// Method Definition Index: 79794
+// Method Definition Index: 79989
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnCreate_000000E9U24BurstDirectCall_Invoke_mFF0587231503E19FA7E537A04541B01AFE430A68 (intptr_t ___0_self, intptr_t ___1_state, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2930,7 +2930,7 @@ IL2CPP_EXTERN_C  void DelegatePInvokeWrapper___codegen__OnUpdate_000000EAU24Post
 	il2cppPInvokeFunc(___0_self, ___1_state);
 
 }
-// Method Definition Index: 79795
+// Method Definition Index: 79990
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnUpdate_000000EAU24PostfixBurstDelegate__ctor_mA198492BE57E5EB824FD21B53B9CC6CACBCBAB0F (__codegen__OnUpdate_000000EAU24PostfixBurstDelegate_t5CC2DD8AE400CAAE98F0EAB3A1BCFE7EF38000A9* __this, RuntimeObject* ___0_p, intptr_t ___1_p, const RuntimeMethod* method) 
 {
 	__this->___method_ptr = (intptr_t)il2cpp_codegen_get_method_pointer((RuntimeMethod*)___1_p);
@@ -2959,13 +2959,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnUpdate_000000EAU24PostfixBu
 	}
 	__this->___extra_arg = (intptr_t)&__codegen__OnUpdate_000000EAU24PostfixBurstDelegate_Invoke_m66BB6B8D6C9C4CB575451C16889989AD8C27B8C8_Multicast;
 }
-// Method Definition Index: 79796
+// Method Definition Index: 79991
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnUpdate_000000EAU24PostfixBurstDelegate_Invoke_m66BB6B8D6C9C4CB575451C16889989AD8C27B8C8 (__codegen__OnUpdate_000000EAU24PostfixBurstDelegate_t5CC2DD8AE400CAAE98F0EAB3A1BCFE7EF38000A9* __this, intptr_t ___0_self, intptr_t ___1_state, const RuntimeMethod* method) 
 {
 	typedef void (*FunctionPointerType) (RuntimeObject*, intptr_t, intptr_t, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, ___0_self, ___1_state, reinterpret_cast<RuntimeMethod*>(__this->___method));
 }
-// Method Definition Index: 79797
+// Method Definition Index: 79992
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* __codegen__OnUpdate_000000EAU24PostfixBurstDelegate_BeginInvoke_m039F998D8F8639C2D2E222FD54349B505C9C3069 (__codegen__OnUpdate_000000EAU24PostfixBurstDelegate_t5CC2DD8AE400CAAE98F0EAB3A1BCFE7EF38000A9* __this, intptr_t ___0_self, intptr_t ___1_state, AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___2_p, RuntimeObject* ___3_p, const RuntimeMethod* method) 
 {
 	void *__d_args[3] = {0};
@@ -2973,7 +2973,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* __codegen__OnUpdate_000000EAU2
 	__d_args[1] = Box(il2cpp_defaults.int_class, &___1_state);
 	return (RuntimeObject*)il2cpp_codegen_delegate_begin_invoke((RuntimeDelegate*)__this, __d_args, (RuntimeDelegate*)___2_p, (RuntimeObject*)___3_p);
 }
-// Method Definition Index: 79798
+// Method Definition Index: 79993
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnUpdate_000000EAU24PostfixBurstDelegate_EndInvoke_m024C7733A09ACE82A341EDC3634EFE906875A161 (__codegen__OnUpdate_000000EAU24PostfixBurstDelegate_t5CC2DD8AE400CAAE98F0EAB3A1BCFE7EF38000A9* __this, RuntimeObject* ___0_p, const RuntimeMethod* method) 
 {
 	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___0_p, 0);
@@ -2986,7 +2986,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnUpdate_000000EAU24PostfixBu
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79799
+// Method Definition Index: 79994
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnUpdate_000000EAU24BurstDirectCall_GetFunctionPointerDiscard_m96CAB6C595ECC5FCBA901629261C76B7F3FC8B2C (intptr_t* ___0_p, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3029,7 +3029,7 @@ IL_002a:
 		return;
 	}
 }
-// Method Definition Index: 79800
+// Method Definition Index: 79995
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t __codegen__OnUpdate_000000EAU24BurstDirectCall_GetFunctionPointer_m0103F4A7A68BFC00B5C2CA2414409259AF780F95 (const RuntimeMethod* method) 
 {
 	intptr_t V_0;
@@ -3041,7 +3041,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t __codegen__OnUpdate_000000EAU24Burst
 		return L_0;
 	}
 }
-// Method Definition Index: 79801
+// Method Definition Index: 79996
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnUpdate_000000EAU24BurstDirectCall_Invoke_m172B67EF91383C505FEB3E4ACFFE3C2EDB29B4FE (intptr_t ___0_self, intptr_t ___1_state, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3124,7 +3124,7 @@ IL2CPP_EXTERN_C  void DelegatePInvokeWrapper___codegen__OnDestroy_000000EBU24Pos
 	il2cppPInvokeFunc(___0_self, ___1_state);
 
 }
-// Method Definition Index: 79802
+// Method Definition Index: 79997
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnDestroy_000000EBU24PostfixBurstDelegate__ctor_mAF414E6A9FBFA3BDBBF538EA4BFF7DC48689C899 (__codegen__OnDestroy_000000EBU24PostfixBurstDelegate_t9150DF2F0203243F77CDB829D4D6031BF2A011DE* __this, RuntimeObject* ___0_p, intptr_t ___1_p, const RuntimeMethod* method) 
 {
 	__this->___method_ptr = (intptr_t)il2cpp_codegen_get_method_pointer((RuntimeMethod*)___1_p);
@@ -3153,13 +3153,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnDestroy_000000EBU24PostfixB
 	}
 	__this->___extra_arg = (intptr_t)&__codegen__OnDestroy_000000EBU24PostfixBurstDelegate_Invoke_m83DE71B3682378FD3572BCB1A74E913E987C223E_Multicast;
 }
-// Method Definition Index: 79803
+// Method Definition Index: 79998
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnDestroy_000000EBU24PostfixBurstDelegate_Invoke_m83DE71B3682378FD3572BCB1A74E913E987C223E (__codegen__OnDestroy_000000EBU24PostfixBurstDelegate_t9150DF2F0203243F77CDB829D4D6031BF2A011DE* __this, intptr_t ___0_self, intptr_t ___1_state, const RuntimeMethod* method) 
 {
 	typedef void (*FunctionPointerType) (RuntimeObject*, intptr_t, intptr_t, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl)((Il2CppObject*)__this->___method_code, ___0_self, ___1_state, reinterpret_cast<RuntimeMethod*>(__this->___method));
 }
-// Method Definition Index: 79804
+// Method Definition Index: 79999
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* __codegen__OnDestroy_000000EBU24PostfixBurstDelegate_BeginInvoke_m450C37ADF9E9906C65225C15D2068157266A1DE1 (__codegen__OnDestroy_000000EBU24PostfixBurstDelegate_t9150DF2F0203243F77CDB829D4D6031BF2A011DE* __this, intptr_t ___0_self, intptr_t ___1_state, AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___2_p, RuntimeObject* ___3_p, const RuntimeMethod* method) 
 {
 	void *__d_args[3] = {0};
@@ -3167,7 +3167,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* __codegen__OnDestroy_000000EBU
 	__d_args[1] = Box(il2cpp_defaults.int_class, &___1_state);
 	return (RuntimeObject*)il2cpp_codegen_delegate_begin_invoke((RuntimeDelegate*)__this, __d_args, (RuntimeDelegate*)___2_p, (RuntimeObject*)___3_p);
 }
-// Method Definition Index: 79805
+// Method Definition Index: 80000
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnDestroy_000000EBU24PostfixBurstDelegate_EndInvoke_m719DB4CA78D8060A5E7D0C19D70A618541F179D2 (__codegen__OnDestroy_000000EBU24PostfixBurstDelegate_t9150DF2F0203243F77CDB829D4D6031BF2A011DE* __this, RuntimeObject* ___0_p, const RuntimeMethod* method) 
 {
 	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___0_p, 0);
@@ -3180,7 +3180,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnDestroy_000000EBU24PostfixB
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79806
+// Method Definition Index: 80001
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnDestroy_000000EBU24BurstDirectCall_GetFunctionPointerDiscard_mD8FB74EBA7C787B61E54128AF161DD9B44247B38 (intptr_t* ___0_p, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3223,7 +3223,7 @@ IL_002a:
 		return;
 	}
 }
-// Method Definition Index: 79807
+// Method Definition Index: 80002
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t __codegen__OnDestroy_000000EBU24BurstDirectCall_GetFunctionPointer_mFBB0921335D12C7E0684CC61AD632136F7C3F0E2 (const RuntimeMethod* method) 
 {
 	intptr_t V_0;
@@ -3235,7 +3235,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t __codegen__OnDestroy_000000EBU24Burs
 		return L_0;
 	}
 }
-// Method Definition Index: 79808
+// Method Definition Index: 80003
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __codegen__OnDestroy_000000EBU24BurstDirectCall_Invoke_mA93E45E7E2729A4403E17F654948C8E7D5EF3F56 (intptr_t ___0_self, intptr_t ___1_state, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3314,7 +3314,7 @@ IL_001f:
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79809
+// Method Definition Index: 80004
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AssemblyTypeRegistry__cctor_mF2F72C48CBCB326053C5C306A9781D90D6301626 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4007,7 +4007,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AssemblyTypeRegistry__cctor_mF2F72C48CBC
 		return;
 	}
 }
-// Method Definition Index: 79810
+// Method Definition Index: 80005
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AssemblyTypeRegistry_Equals_mD88D8A056ED527AD83B9D9D02C78D0675DBA4EE2 (RuntimeObject* ___0_lhs, RuntimeObject* ___1_rhs, int32_t ___2_typeIndex, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4368,7 +4368,7 @@ IL_033b:
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_73, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&AssemblyTypeRegistry_Equals_mD88D8A056ED527AD83B9D9D02C78D0675DBA4EE2_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 79811
+// Method Definition Index: 80006
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AssemblyTypeRegistry_Equals_m910DD6E2FAB73D74728CFE57B61AF7345D4D670A (RuntimeObject* ___0_lhs, void* ___1_rhs, int32_t ___2_typeIndex, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4729,7 +4729,7 @@ IL_02c3:
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_73, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&AssemblyTypeRegistry_Equals_m910DD6E2FAB73D74728CFE57B61AF7345D4D670A_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 79812
+// Method Definition Index: 80007
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t AssemblyTypeRegistry_BoxedGetHashCode_m0CBBC3E568479688FAF8FCC5BABF5272CCADF1D1 (RuntimeObject* ___0_val, int32_t ___1_typeIndex, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5066,7 +5066,7 @@ IL_021b:
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_49, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&AssemblyTypeRegistry_BoxedGetHashCode_m0CBBC3E568479688FAF8FCC5BABF5272CCADF1D1_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 79813
+// Method Definition Index: 80008
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AssemblyTypeRegistry_SetSharedStaticTypeIndices_mE868B8FA71D92A654D659F238F2EB6D32E27BB15 (int32_t* ___0_pTypeInfos, int32_t ___1_count, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5301,7 +5301,7 @@ IL_0016:
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79814
+// Method Definition Index: 80009
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __UnmanagedPostProcessorOutput__2061669765567869899_EarlyInit_mE75C69CAE9C1579EBF2324EA386AD43480D2F857 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5373,7 +5373,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __UnmanagedPostProcessorOutput__20616697
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79815
+// Method Definition Index: 80010
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __JobReflectionRegistrationOutput__2061669765567869899_CreateJobReflectionData_m0F5933C9A8BD088B2C56EA5D32864BEA3499EAAA (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5418,7 +5418,7 @@ IL_0025:
 		return;
 	}
 }
-// Method Definition Index: 79816
+// Method Definition Index: 80011
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __JobReflectionRegistrationOutput__2061669765567869899_EarlyInit_mB0F1050B0644301F15BF9838630E70382908C372 (const RuntimeMethod* method) 
 {
 	{
@@ -5434,7 +5434,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void __JobReflectionRegistrationOutput__20616
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 79817
+// Method Definition Index: 80012
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U24BurstDirectCallInitializer_Initialize_mAC4915B3E6124009578A3A383E1D5BEFC062C77E (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5454,7 +5454,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U24BurstDirectCallInitializer_Initialize
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-// Method Definition Index: 79787
+// Method Definition Index: 79982
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void TypeHandle___AssignHandles_mA221E98F0CDA4528EAD78547B06D6B0B63709C54_inline (TypeHandle_tA59717B0F256FC6AF591E2E6B4E908DFF73560CE* __this, SystemState_t1AAA7F65EAD5CC5666D3F0360B309F9DF032E47D* ___0_state, const RuntimeMethod* method) 
 {
 	{
@@ -5471,7 +5471,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void TypeHandle___AssignHandles_m
 		return;
 	}
 }
-// Method Definition Index: 79758
+// Method Definition Index: 79953
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WeakAssetReferenceLoadingSystem___codegen__OnCreateU24BurstManaged_m870223E9D527EF292F31FDC42F4607F6A5704F45_inline (intptr_t ___0_self, intptr_t ___1_state, const RuntimeMethod* method) 
 {
 	{
@@ -5483,7 +5483,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WeakAssetReferenceLoadingSys
 		return;
 	}
 }
-// Method Definition Index: 79759
+// Method Definition Index: 79954
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WeakAssetReferenceLoadingSystem___codegen__OnUpdateU24BurstManaged_m216631E573AD9510F9815F8BC8E08DB28F4D5408_inline (intptr_t ___0_self, intptr_t ___1_state, const RuntimeMethod* method) 
 {
 	{
@@ -5495,7 +5495,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WeakAssetReferenceLoadingSys
 		return;
 	}
 }
-// Method Definition Index: 79760
+// Method Definition Index: 79955
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WeakAssetReferenceLoadingSystem___codegen__OnDestroyU24BurstManaged_m6453A0E7765BBD4ED79AF088611527034A37B3F4_inline (intptr_t ___0_self, intptr_t ___1_state, const RuntimeMethod* method) 
 {
 	{
@@ -5507,7 +5507,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WeakAssetReferenceLoadingSys
 		return;
 	}
 }
-// Method Definition Index: 66296
+// Method Definition Index: 66491
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t FunctionPointer_1_get_Value_m71D7FF781C694A7C4EE28362DFC78D8DDFE9A105_gshared_inline (FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -5516,7 +5516,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t FunctionPointer_1_get_Va
 		return L_0;
 	}
 }
-// Method Definition Index: 3512
+// Method Definition Index: 3513
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void* IntPtr_ToPointer_m1A0612EED3A1C8B8850BE2943CFC42523064B4F6_inline (intptr_t* __this, const RuntimeMethod* method) 
 {
 	{
