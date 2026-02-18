@@ -4995,10 +4995,29 @@ MonoBehaviour:
   moneyToastOverlayDocument: {fileID: 0}
   cardIconCatalog: {fileID: 11400000, guid: ad97e0cdb1b790d46908695eda57c8c5, type: 2}
   turnManager: {fileID: 1741827352}
+  enableGlobalUIScaling: 1
+  globalFontMultiplier: 1
+  minBodyFontSize: 17
+  minSubtitleFontSize: 18
+  minTitleFontSize: 22
+  minMoneyFontSize: 17
+  titleFontMultiplier: 1.08
+  subtitleFontMultiplier: 1.03
+  bodyFontMultiplier: 1
+  moneyFontMultiplier: 1.08
+  buttonFontMultiplier: 1.02
+  maxTitleFontSize: 30
+  maxSubtitleFontSize: 24
+  maxBodyFontSize: 22
+  maxMoneyFontSize: 24
+  maxButtonFontSize: 22
+  minButtonHeight: 50
   gameOverPanelDocument: {fileID: 1713111163}
   tradePanelDocument: {fileID: 1824518820}
   bankruptcyPanelDocument: {fileID: 49570115}
   rentPaymentPanelDocument: {fileID: 800879758}
+  rentPaymentPanelUGUI: {fileID: 0}
+  useUGUIRentPaymentPanel: 1
   tileDetailsPanelDocument: {fileID: 900578760}
   uiHeaderGlossSprite: {fileID: 0}
   tileDetailsHeaderGlossSprite: {fileID: 0}
@@ -5006,6 +5025,13 @@ MonoBehaviour:
   tileDetailsHotelIcon: {fileID: -1171708126452408670, guid: 23c828adc16fb014cb42272278fd02d1, type: 3}
   propertyManagerPanelDocument: {fileID: 2090749756}
   playerStatisticsPanelDocument: {fileID: 580862359}
+  characterSetupPanelDocument: {fileID: 0}
+  settingsPanelDocument: {fileID: 0}
+  iconBuild: {fileID: 7137212878804457893, guid: 839d9cbd9724a8b43a1ede93d922aca4, type: 3}
+  iconSell: {fileID: 3055314806765220214, guid: 12f1ba760a1214345a057a08c890907f, type: 3}
+  iconMortgage: {fileID: -4981826970404089989, guid: 40c6469ebdfc9be479903784ddf0afad, type: 3}
+  iconRedeem: {fileID: 8163662605648514005, guid: fac7152596506314d9d891fbf824c198, type: 3}
+  useUGUITileDetailsCard: 1
 --- !u!4 &333368054
 Transform:
   m_ObjectHideFlags: 0
@@ -7538,6 +7564,10 @@ MonoBehaviour:
   auctionTimeout: 30
   auctionMaxDuration: 60
   aiBidDelay: 0.8
+  aiRiskTolerance: 0.55
+  aiReserveFraction: 0.2
+  aiMaxBidOverPrice: 1.4
+  aiMonopolyMaxBidOverPrice: 2
 --- !u!114 &563898386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9654,6 +9684,7 @@ MonoBehaviour:
   gameMusicClip2: {fileID: 0}
   feedSoundEnabled: 1
   idleDelaySeconds: 10
+  musicEnabled: 1
 --- !u!4 &668259230
 Transform:
   m_ObjectHideFlags: 0
@@ -18864,6 +18895,19 @@ MonoBehaviour:
   boardTilesParent: {fileID: 655634780}
   autoUpdate: 1
   updateInterval: 0.3
+  manageGroupStripVisuals: 1
+  groupBrown: {fileID: 0}
+  groupG1: {fileID: 0}
+  groupG2: {fileID: 0}
+  groupG3: {fileID: 0}
+  groupG4: {fileID: 0}
+  groupG5: {fileID: 0}
+  groupG6: {fileID: 0}
+  groupG7: {fileID: 0}
+  groupG8: {fileID: 0}
+  groupG9: {fileID: 0}
+  groupG10: {fileID: 0}
+  fallbackGroupSprite: {fileID: 0}
 --- !u!4 &1429406357
 Transform:
   m_ObjectHideFlags: 0
@@ -24346,6 +24390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30f714a0f66ccb408f2a530c1ff4695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurnManager
+  gameController: {fileID: 0}
+  stateMachine: {fileID: 0}
+  inputGate: {fileID: 0}
   players:
   - {fileID: 0}
   - {fileID: 0}

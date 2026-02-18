@@ -46,11 +46,11 @@ public class UIDocumentManager : MonoBehaviour
     [Tooltip("Legacy master multiplier. Keep near 1.0; use role multipliers below.")]
     public float globalFontMultiplier = 1.0f;
     [Tooltip("Minimum body font size in px.")]
-    public int minBodyFontSize = 15;
+    public int minBodyFontSize = 17;
     [Tooltip("Minimum subtitle/status font size in px.")]
-    public int minSubtitleFontSize = 16;
+    public int minSubtitleFontSize = 18;
     [Tooltip("Minimum title/header font size in px.")]
-    public int minTitleFontSize = 20;
+    public int minTitleFontSize = 22;
     [Tooltip("Minimum money/value font size in px.")]
     public int minMoneyFontSize = 17;
     [Tooltip("Role multipliers to keep typography balanced by function.")]
@@ -67,6 +67,11 @@ public class UIDocumentManager : MonoBehaviour
     public int maxButtonFontSize = 22;
     [Tooltip("Minimum button height in px for touch readability.")]
     public int minButtonHeight = 50;
+
+    /// <summary>PlayerPrefs key for text size: 0=Small, 1=Medium, 2=Large.</summary>
+    public const string PrefsKeyUIFontSize = "UIFontSize";
+    /// <summary>Font size level: 0 Small, 1 Medium, 2 Large. Multipliers chosen so Small is still readable.</summary>
+    static readonly float[] FontSizeMultipliers = { 0.92f, 1.0f, 1.18f };
     
     // Main HUD Elements (HUDButton/HUDLabel work with both UI Toolkit and uGUI Hybrid)
     public HUDButton RollButton { get; private set; }
@@ -158,7 +163,7 @@ public class UIDocumentManager : MonoBehaviour
     public VisualElement TradePanel { get; private set; }
     public Label TradeTitleText { get; private set; }
     public Label TradeStatusText { get; private set; }
-    public DropdownField TradeTargetDropdown { get; private set; }
+    public VisualElement TradeTargetButtons { get; private set; }
     public Button TradeOfferButton { get; private set; }
     public Button TradeShowBoardButton { get; private set; }
     public Button TradeCancelButton { get; private set; }
@@ -187,6 +192,10 @@ public class UIDocumentManager : MonoBehaviour
     // Rent Payment Panel Elements
     [Tooltip("Rent payment panel document (shown when player pays rent)")]
     public UIDocument rentPaymentPanelDocument;
+    [Tooltip("Optional uGUI Rent Payment Panel controller. When set (or instance found) and enabled below, UI Toolkit rent panel is disabled.")]
+    public RentPaymentPanelUGUI rentPaymentPanelUGUI;
+    [Tooltip("When enabled and RentPaymentPanelUGUI exists in scene, rent payment uses uGUI and UI Toolkit panel stays disabled.")]
+    public bool useUGUIRentPaymentPanel = true;
     public VisualElement RentPaymentPanel { get; private set; }
     public Label RentPaymentTitleText { get; private set; }
     public Label RentPaymentMessageText { get; private set; }
@@ -278,6 +287,29 @@ public class UIDocumentManager : MonoBehaviour
     public ScrollView CharacterSetupList { get; private set; }
     public Button CharacterSetupOkButton { get; private set; }
     private Action _characterSetupOkHandler;
+
+    [Header("In-game Settings (Menu button)")]
+    [Tooltip("Optional. Settings panel with Text size Small/Medium/Large. Assign UIDocument with SettingsPanel.uxml.")]
+    public UIDocument settingsPanelDocument;
+
+    [Header("Property Manager Icons (assign from Assets/Sprites/Icons, or place in Resources/Sprites/Icons for auto-load)")]
+    [Tooltip("Build action icon (e.g. build.png).")]
+    public Sprite iconBuild;
+    [Tooltip("Sell action icon (e.g. Sell.png).")]
+    public Sprite iconSell;
+    [Tooltip("Mortgage action icon (e.g. Mortage.png).")]
+    public Sprite iconMortgage;
+    [Tooltip("Redeem action icon (e.g. Redeem.png).")]
+    public Sprite iconRedeem;
+
+    Sprite GetPropertyManagerIconBuild() => iconBuild != null ? iconBuild : Resources.Load<Sprite>("Sprites/Icons/build");
+    Sprite GetPropertyManagerIconSell() => iconSell != null ? iconSell : Resources.Load<Sprite>("Sprites/Icons/Sell");
+    Sprite GetPropertyManagerIconMortgage() => iconMortgage != null ? iconMortgage : Resources.Load<Sprite>("Sprites/Icons/Mortage");
+    Sprite GetPropertyManagerIconRedeem() => iconRedeem != null ? iconRedeem : Resources.Load<Sprite>("Sprites/Icons/Redeem");
+    
+    [Header("Tile Details Mode")]
+    [Tooltip("When enabled and TileDetailsCardUI exists in scene, tile details use uGUI and UI Toolkit tile panel stays disabled.")]
+    public bool useUGUITileDetailsCard = true;
     
     void Awake()
     {
@@ -366,9 +398,14 @@ public class UIDocumentManager : MonoBehaviour
         InitializePropertyManagerPanel();
         InitializePlayerStatisticsPanel();
         InitializeCharacterSetupPanel();
+        InitializeSettingsPanel();
         
         // Deactivate duplicate HUD documents - DISABLED per user request
         // DeactivateDuplicateHUDs();
+        
+        int fontLevel = PlayerPrefs.GetInt(PrefsKeyUIFontSize, 1);
+        if (fontLevel >= 0 && fontLevel < FontSizeMultipliers.Length)
+            globalFontMultiplier = FontSizeMultipliers[fontLevel];
         
         // Wait a frame for layout to calculate, then verify HUD is visible
         StartCoroutine(VerifyHUDVisibleAfterFrame());
@@ -512,6 +549,7 @@ public class UIDocumentManager : MonoBehaviour
         AddIfValid(documents, playerStatisticsPanelDocument);
         AddIfValid(documents, characterSetupPanelDocument);
         AddIfValid(documents, moneyToastOverlayDocument);
+        AddIfValid(documents, settingsPanelDocument);
 
         UIDocument[] sceneDocs = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
         foreach (UIDocument doc in sceneDocs)
@@ -522,6 +560,31 @@ public class UIDocumentManager : MonoBehaviour
             if (doc == null || doc.rootVisualElement == null) continue;
             NormalizeTypography(doc.rootVisualElement);
         }
+    }
+
+    /// <summary>Set text size level from settings: 0 Small, 1 Medium, 2 Large. Saves to PlayerPrefs and re-applies to all documents.</summary>
+    public void SetFontSizeLevel(int level)
+    {
+        if (level < 0 || level >= FontSizeMultipliers.Length) level = 1;
+        PlayerPrefs.SetInt(PrefsKeyUIFontSize, level);
+        globalFontMultiplier = FontSizeMultipliers[level];
+        ApplyGlobalUIScalingToAllDocuments();
+    }
+
+    /// <summary>Current font size level from PlayerPrefs (0 Small, 1 Medium, 2 Large).</summary>
+    public static int GetFontSizeLevel()
+    {
+        return PlayerPrefs.GetInt(PrefsKeyUIFontSize, 1);
+    }
+
+    /// <summary>Apply font size from settings (e.g. from Start Page or in-game). Saves to PlayerPrefs and applies if UIDocumentManager is in scene.</summary>
+    public static void ApplyFontSizeLevelFromSettings(int level)
+    {
+        if (level < 0 || level >= FontSizeMultipliers.Length) level = 1;
+        PlayerPrefs.SetInt(PrefsKeyUIFontSize, level);
+        PlayerPrefs.Save();
+        var ui = FindFirstObjectByType<UIDocumentManager>();
+        if (ui != null) ui.SetFontSizeLevel(level);
     }
 
     void AddIfValid(HashSet<UIDocument> set, UIDocument doc)
@@ -1288,6 +1351,7 @@ public class UIDocumentManager : MonoBehaviour
             cardPanelDocument.panelSettings.sortingOrder = 150;
         }
         var root = cardPanelDocument.rootVisualElement;
+        // Card panel position/layout: UXML only; do not set position/left/top in code.
         CardPanel = root.Q<VisualElement>("CardPanel");
         CardIcon = root.Q<VisualElement>("CardIcon");
         CardTitleText = root.Q<Label>("CardTitleText");
@@ -1342,6 +1406,8 @@ public class UIDocumentManager : MonoBehaviour
 
     public void ShowPropertyPanel() 
     { 
+        HidePlayerStatisticsPanel();
+        HideTileDetailsPanel();
         if (propertyPanelDocument != null && propertyPanelDocument.rootVisualElement != null)
         {
             ApplyStandardPopupLayout(propertyPanelDocument, "PropertyPanel");
@@ -1359,6 +1425,8 @@ public class UIDocumentManager : MonoBehaviour
     
     public void ShowJailPanel() 
     { 
+        HidePlayerStatisticsPanel();
+        HideTileDetailsPanel();
         if (jailPanelDocument != null && jailPanelDocument.rootVisualElement != null)
         {
             ApplyStandardPopupLayout(jailPanelDocument, "JailPanel");
@@ -1380,6 +1448,9 @@ public class UIDocumentManager : MonoBehaviour
             return;
         }
         
+        HidePlayerStatisticsPanel();
+        HideTileDetailsPanel();
+        
         // Ensure GameObject is active
         if (!cardPanelDocument.gameObject.activeInHierarchy)
         {
@@ -1393,7 +1464,7 @@ public class UIDocumentManager : MonoBehaviour
         if (cardPanelDocument.rootVisualElement != null)
         {
             var root = cardPanelDocument.rootVisualElement;
-            ApplyStandardPopupLayout(cardPanelDocument, "CardPanel");
+            // Card panel position/layout is from UXML only; no script applies position.
             root.style.display = DisplayStyle.Flex;
             root.style.visibility = Visibility.Visible;
             root.style.opacity = 1f;
@@ -1481,15 +1552,15 @@ public class UIDocumentManager : MonoBehaviour
         var root = mainHUDDocument.rootVisualElement;
         jailSirenLightBar = new VisualElement { name = "JailSirenLightBar" };
         jailSirenLightBar.style.position = Position.Absolute;
-        jailSirenLightBar.style.top = 6;
-        jailSirenLightBar.style.left = 6;
-        jailSirenLightBar.style.right = 6;
-        jailSirenLightBar.style.height = 8;
+        jailSirenLightBar.style.top = 0;
+        jailSirenLightBar.style.left = 0;
+        jailSirenLightBar.style.right = 0;
+        jailSirenLightBar.style.height = 20;
         jailSirenLightBar.style.backgroundColor = new Color(0.95f, 0.15f, 0.15f, 0.35f);
-        jailSirenLightBar.style.borderBottomLeftRadius = 4;
-        jailSirenLightBar.style.borderBottomRightRadius = 4;
-        jailSirenLightBar.style.borderTopLeftRadius = 4;
-        jailSirenLightBar.style.borderTopRightRadius = 4;
+        jailSirenLightBar.style.borderBottomLeftRadius = 6;
+        jailSirenLightBar.style.borderBottomRightRadius = 6;
+        jailSirenLightBar.style.borderTopLeftRadius = 0;
+        jailSirenLightBar.style.borderTopRightRadius = 0;
         jailSirenLightBar.style.display = DisplayStyle.None;
         jailSirenLightBar.pickingMode = PickingMode.Ignore;
         root.Add(jailSirenLightBar);
@@ -1760,7 +1831,7 @@ public class UIDocumentManager : MonoBehaviour
         TradePanel = root.Q<VisualElement>("TradePanel");
         TradeTitleText = root.Q<Label>("TradeTitleText");
         TradeStatusText = root.Q<Label>("TradeStatusText");
-        TradeTargetDropdown = root.Q<DropdownField>("TradeTargetDropdown");
+        TradeTargetButtons = root.Q<VisualElement>("TradeTargetButtons");
         TradeOfferButton = root.Q<Button>("TradeOfferButton");
         TradeShowBoardButton = root.Q<Button>("TradeShowBoardButton");
         TradeCancelButton = root.Q<Button>("TradeCancelButton");
@@ -1834,6 +1905,8 @@ public class UIDocumentManager : MonoBehaviour
     {
         if (bankruptPlayer == null || bankruptcyPanelDocument == null) return;
         
+        HidePlayerStatisticsPanel();
+        HideTileDetailsPanel();
         if (bankruptcyPanelDocument.rootVisualElement != null)
         {
             ApplyStandardPopupLayout(bankruptcyPanelDocument, "BankruptcyPanel");
@@ -1877,6 +1950,16 @@ public class UIDocumentManager : MonoBehaviour
     
     void InitializeRentPaymentPanel()
     {
+        bool useUGUI = TryGetRentPaymentUGUI(out RentPaymentPanelUGUI ugui);
+        if (useUGUI)
+        {
+            if (rentPaymentPanelDocument != null && rentPaymentPanelDocument.rootVisualElement != null)
+                rentPaymentPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            if (rentPaymentPanelDocument != null && rentPaymentPanelDocument.enabled)
+                rentPaymentPanelDocument.enabled = false;
+            return;
+        }
+
         if (rentPaymentPanelDocument == null)
         {
             Debug.LogWarning("UIDocumentManager: Rent Payment Panel Document not assigned!");
@@ -1889,17 +1972,20 @@ public class UIDocumentManager : MonoBehaviour
         RentPaymentMessageText = root.Q<Label>("RentPaymentMessageText");
         RentPaymentDetailsText = root.Q<Label>("RentPaymentDetailsText");
         RentPaymentOkButton = root.Q<Button>("RentPaymentOkButton");
+        var rentBlocker = root?.Q<VisualElement>("RentPaymentOverlayBlocker");
         
         ApplyHeaderGloss(root, "RentPaymentHeader");
         
         if (root != null)
-        {
             root.style.display = DisplayStyle.None;
-            root.pickingMode = PickingMode.Position;
-        }
         else
             Debug.LogWarning("RentPaymentPanel root not found!");
-        if (RentPaymentOkButton != null) RentPaymentOkButton.pickingMode = PickingMode.Position;
+        if (RentPaymentOkButton != null)
+            RentPaymentOkButton.clicked -= HideRentPaymentPanel;
+        if (rentBlocker != null)
+        {
+            rentBlocker.RegisterCallback<ClickEvent>(evt => HideRentPaymentPanel());
+        }
     }
     
     /// <summary>
@@ -1907,7 +1993,20 @@ public class UIDocumentManager : MonoBehaviour
     /// </summary>
     public void ShowRentPaymentNotification(Player payer, Player owner, Property property, int rentAmount)
     {
-        if (payer == null || owner == null || property == null || rentPaymentPanelDocument == null) return;
+        if (payer == null || owner == null || property == null) return;
+
+        if (TryGetRentPaymentUGUI(out RentPaymentPanelUGUI ugui))
+        {
+            ugui.Show(payer, owner, property, rentAmount);
+            TurnDebugState.LogTurnAction("DecisionShown", $"type=RentAck payer={payer.playerName} owner={owner.playerName} amount={rentAmount}", setPhase: "AwaitAck", setInputEnabled: "OK");
+            Debug.Log($"💰 {payer.playerName} paid ₦{rentAmount:N0} rent to {owner.playerName} for {property.propertyName}");
+            return;
+        }
+
+        if (rentPaymentPanelDocument == null) return;
+        
+        HidePlayerStatisticsPanel();
+        HideTileDetailsPanel();
         
         if (rentPaymentPanelDocument.rootVisualElement != null)
         {
@@ -1943,12 +2042,31 @@ public class UIDocumentManager : MonoBehaviour
     public void HideRentPaymentPanel()
     {
         TurnDebugState.LogTurnAction("DecisionResolved", "type=RentAck (OK clicked)", setPhase: "ResolveTile", setInputEnabled: "None");
+        if (TryGetRentPaymentUGUI(out RentPaymentPanelUGUI ugui))
+        {
+            ugui.Hide();
+            return;
+        }
         if (rentPaymentPanelDocument != null && rentPaymentPanelDocument.rootVisualElement != null)
             rentPaymentPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+
+    private bool TryGetRentPaymentUGUI(out RentPaymentPanelUGUI ugui)
+    {
+        ugui = rentPaymentPanelUGUI != null ? rentPaymentPanelUGUI : RentPaymentPanelUGUI.Instance;
+        return useUGUIRentPaymentPanel && ugui != null;
     }
     
     void InitializeTileDetailsPanel()
     {
+        bool useUGUI = useUGUITileDetailsCard && TileDetailsCardUI.Instance != null;
+        if (useUGUI)
+        {
+            if (tileDetailsPanelDocument != null && tileDetailsPanelDocument.rootVisualElement != null)
+                tileDetailsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            return;
+        }
+
         if (tileDetailsPanelDocument == null)
         {
             Debug.LogWarning("UIDocumentManager: Tile Details Panel Document not assigned!");
@@ -2014,6 +2132,15 @@ public class UIDocumentManager : MonoBehaviour
             Debug.LogError("UIDocumentManager.ShowTileDetails: Tile is null!");
             return;
         }
+
+        CurrentTileDetails = tile;
+        bool useUGUI = useUGUITileDetailsCard && TileDetailsCardUI.Instance != null;
+        if (useUGUI)
+        {
+            HideTileDetailsPanel();
+            TileDetailsCardUI.Instance.Show(tile);
+            return;
+        }
         
         if (tileDetailsPanelDocument == null)
         {
@@ -2031,8 +2158,6 @@ public class UIDocumentManager : MonoBehaviour
         ApplyStandardPopupLayout(tileDetailsPanelDocument, "TileDetailsPanel");
         tileDetailsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
         Debug.Log("UIDocumentManager: Panel display set to Flex. Panel should be visible now.");
-
-        CurrentTileDetails = tile;
         
         // Update title
         if (TileDetailsTitleText != null)
@@ -2182,6 +2307,8 @@ public class UIDocumentManager : MonoBehaviour
     {
         if (tileDetailsPanelDocument != null && tileDetailsPanelDocument.rootVisualElement != null)
             tileDetailsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+        if (TileDetailsCardUI.Instance != null)
+            TileDetailsCardUI.Instance.Hide();
 
         CurrentTileDetails = null;
         UpdateTileDetailsMortgageButtons(null);
@@ -2376,16 +2503,16 @@ public class UIDocumentManager : MonoBehaviour
         bool canMortgage = CanMortgageFromManager(prop);
         bool canRedeem = CanRedeemFromManager(p, prop);
 
-        actions.Add(CreatePropertyActionButton("BUILD", GetBuildActionCostText(prop), "pm-action-build", canBuild, () => RequestBuild(prop)));
-        actions.Add(CreatePropertyActionButton("SELL", GetSellActionCostText(prop), "pm-action-sell", canSell, () => RequestSell(prop)));
-        actions.Add(CreatePropertyActionButton("MORTGAGE", $"₦{(prop.price / 2):N0}", "pm-action-mortgage", canMortgage, () => RequestMortgage(prop)));
-        actions.Add(CreatePropertyActionButton("REDEEM", $"₦{Mathf.RoundToInt(prop.price * 0.6f):N0}", "pm-action-redeem", canRedeem, () => RequestRedeem(prop)));
+        actions.Add(CreatePropertyActionButton("BUILD", GetBuildActionCostText(prop), "pm-action-build", canBuild, () => RequestBuild(prop), GetPropertyManagerIconBuild()));
+        actions.Add(CreatePropertyActionButton("SELL", GetSellActionCostText(prop), "pm-action-sell", canSell, () => RequestSell(prop), GetPropertyManagerIconSell()));
+        actions.Add(CreatePropertyActionButton("MORTGAGE", $"₦{(prop.price / 2):N0}", "pm-action-mortgage", canMortgage, () => RequestMortgage(prop), GetPropertyManagerIconMortgage()));
+        actions.Add(CreatePropertyActionButton("REDEEM", $"₦{Mathf.RoundToInt(prop.price * 0.6f):N0}", "pm-action-redeem", canRedeem, () => RequestRedeem(prop), GetPropertyManagerIconRedeem()));
 
         card.Add(actions);
         return card;
     }
 
-    VisualElement CreatePropertyActionButton(string title, string cost, string variantClass, bool enabled, Action onClick)
+    VisualElement CreatePropertyActionButton(string title, string cost, string variantClass, bool enabled, Action onClick, Sprite iconSprite = null)
     {
         var actionWrap = new VisualElement();
         actionWrap.AddToClassList("pm-action-item");
@@ -2396,9 +2523,14 @@ public class UIDocumentManager : MonoBehaviour
         actionButton.AddToClassList("pm-action-button");
         actionButton.SetEnabled(enabled);
 
-        // Placeholder icon area; replace style background-image with sprite later.
         var icon = new VisualElement();
         icon.AddToClassList("pm-action-icon");
+        if (iconSprite != null)
+        {
+            Texture2D tex = SpriteToTexture2D(iconSprite);
+            if (tex != null)
+                icon.style.backgroundImage = new StyleBackground(tex);
+        }
         actionButton.Add(icon);
 
         var titleLabel = new Label(title);
@@ -2792,12 +2924,15 @@ public class UIDocumentManager : MonoBehaviour
         ApplyHeaderGloss(root, "PlayerStatisticsHeader");
         ApplyPlayerStatisticsVisualStyle();
         
-        // Connect close button
+        // Connect close button and overlay blocker (tap outside to close)
         if (StatisticsCloseButton != null)
         {
             StatisticsCloseButton.clicked -= HidePlayerStatisticsPanel;
             StatisticsCloseButton.clicked += HidePlayerStatisticsPanel;
         }
+        var statsBlocker = root?.Q<VisualElement>("PlayerStatisticsOverlayBlocker");
+        if (statsBlocker != null)
+            statsBlocker.RegisterCallback<ClickEvent>(evt => HidePlayerStatisticsPanel());
         
         // Hide entire document root by default
         if (root != null)
@@ -2884,6 +3019,80 @@ public class UIDocumentManager : MonoBehaviour
         // Source of truth is UXML/USS. Runtime code intentionally avoids popup layout edits.
     }
 
+    void InitializeSettingsPanel()
+    {
+        if (settingsPanelDocument == null)
+        {
+            UIDocument[] docs = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
+            foreach (UIDocument doc in docs)
+            {
+                if (doc != null && doc.visualTreeAsset != null && doc.visualTreeAsset.name.IndexOf("SettingsPanel", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    settingsPanelDocument = doc;
+                    break;
+                }
+            }
+        }
+        if (settingsPanelDocument == null) return;
+        var root = settingsPanelDocument.rootVisualElement;
+        if (root == null) return;
+
+        var closeBtn = root.Q<Button>("SettingsCloseButton");
+        var fontSmall = root.Q<Button>("SettingsFontSmall");
+        var fontMedium = root.Q<Button>("SettingsFontMedium");
+        var fontLarge = root.Q<Button>("SettingsFontLarge");
+        var blocker = root.Q<VisualElement>("SettingsOverlayBlocker");
+        var musicToggle = root.Q<Toggle>("SettingsMusicToggle");
+
+        if (closeBtn != null) closeBtn.clicked += HideSettingsPanel;
+        if (blocker != null) blocker.RegisterCallback<ClickEvent>(evt => HideSettingsPanel());
+        if (fontSmall != null) fontSmall.clicked += () => { ApplyFontSizeLevelFromSettings(0); RefreshSettingsPanelAppearance(); };
+        if (fontMedium != null) fontMedium.clicked += () => { ApplyFontSizeLevelFromSettings(1); RefreshSettingsPanelAppearance(); };
+        if (fontLarge != null) fontLarge.clicked += () => { ApplyFontSizeLevelFromSettings(2); RefreshSettingsPanelAppearance(); };
+        if (musicToggle != null)
+        {
+            bool musicOn = PlayerPrefs.GetInt("GameSound_MusicEnabled", 1) != 0;
+            musicToggle.SetValueWithoutNotify(musicOn);
+            musicToggle.RegisterValueChangedCallback(evt => GameSoundManager.SetMusicEnabledFromSettings(evt.newValue));
+        }
+
+        RefreshSettingsPanelAppearance();
+        root.style.display = DisplayStyle.None;
+    }
+
+    void RefreshSettingsPanelAppearance()
+    {
+        if (settingsPanelDocument == null || settingsPanelDocument.rootVisualElement == null) return;
+        var root = settingsPanelDocument.rootVisualElement;
+        int level = GetFontSizeLevel();
+        var fontSmall = root.Q<Button>("SettingsFontSmall");
+        var fontMedium = root.Q<Button>("SettingsFontMedium");
+        var fontLarge = root.Q<Button>("SettingsFontLarge");
+        foreach (var btn in new[] { fontSmall, fontMedium, fontLarge })
+        {
+            if (btn != null) btn.RemoveFromClassList("settings-font-selected");
+        }
+        var selected = level == 0 ? fontSmall : (level == 1 ? fontMedium : fontLarge);
+        if (selected != null) selected.AddToClassList("settings-font-selected");
+        var musicToggle = root.Q<Toggle>("SettingsMusicToggle");
+        if (musicToggle != null)
+            musicToggle.SetValueWithoutNotify(PlayerPrefs.GetInt("GameSound_MusicEnabled", 1) != 0);
+    }
+
+    public void ShowSettingsPanel()
+    {
+        if (settingsPanelDocument == null || settingsPanelDocument.rootVisualElement == null) return;
+        RefreshSettingsPanelAppearance();
+        settingsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        if (settingsPanelDocument.transform != null) settingsPanelDocument.transform.SetAsLastSibling();
+    }
+
+    public void HideSettingsPanel()
+    {
+        if (settingsPanelDocument != null && settingsPanelDocument.rootVisualElement != null)
+            settingsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+    }
+
     VisualElement CreateCharacterSetupRow(Player player)
     {
         VisualElement row = new VisualElement();
@@ -2934,6 +3143,8 @@ public class UIDocumentManager : MonoBehaviour
         if (playerStatisticsPanelDocument.rootVisualElement != null)
         {
             playerStatisticsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+            if (playerStatisticsPanelDocument.transform != null)
+                playerStatisticsPanelDocument.transform.SetAsLastSibling();
         }
         _lastStatisticsAnchorPlayerIndex = anchorPlayerIndex;
         

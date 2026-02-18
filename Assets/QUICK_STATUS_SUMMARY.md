@@ -12,33 +12,29 @@
 | Building System | ✅ Complete | Houses (1-4), Hotels, full group + even building rules |
 | Property Types | ✅ Complete | Regular, Utilities, Transportation |
 | Visual Buildings | ✅ Complete | House/hotel sprites with rotation |
-| Chance/Chest | ⚠️ Basic | Random events only, no card deck |
+| Chance/Chest | ✅ Complete | Full card deck system (shuffle polish pending) |
 
-## ❌ Critical Missing Features
+## ⚠️ Remaining Polish
 
-| Feature | Priority | Impact |
-|---------|----------|--------|
-| **Jail System** | 🔴 Critical | Game flow incomplete |
-| **Bankruptcy** | 🔴 Critical | Game can't end |
-| **Win Conditions** | 🔴 Critical | No game over state |
-| **Mortgage** | 🔴 Critical | Essential Monopoly feature |
-| **Auction** | 🟡 High | Property goes to auction if declined |
-| **Trading** | 🟡 High | Core multiplayer feature |
-| **Card Deck** | 🟡 High | Chance/Chest should be proper deck |
+| Area | Priority | Impact |
+|------|----------|--------|
+| **Jail System polish** | 🟡 High | Auto-release after 3 turns / forced payment flow |
+| **Card deck shuffle** | 🟡 High | Prevent repeats until deck exhausted |
+| **UI panel wiring** | 🟡 High | Tile Details + Player Statistics require scene setup |
+| **Player management UI** | 🟡 Medium | Names/colors/avatars selection flow |
 
 ## 📊 Completion Stats
 
-- **Core Mechanics:** 60% ✅
-- **Full Monopoly:** 40% ⚠️
-- **Multiplayer Ready:** 30% ❌
+- **Core Mechanics:** ~95% ✅
+- **Full Monopoly:** ~90% ✅
+- **Multiplayer Ready:** ~85% ⚠️ (player management UI pending)
 
 ## 🎯 Next Steps (Priority Order)
 
-1. **Jail System** - Implement "Go to Jail" + jail mechanics
-2. **Bankruptcy** - Detect when player can't pay, eliminate player
-3. **Win Condition** - Game ends when 1 player remains
-4. **Mortgage** - Mortgage/unmortgage properties
-5. **Auction** - Auction system for declined properties
+1. **Jail System polish** - auto-release after 3 turns, forced payment UX
+2. **Card deck shuffle** - prevent repeats until deck exhausted
+3. **UI panel wiring** - Tile Details + Player Statistics scene setup
+4. **Player management UI** - names/colors/avatars selection flow
 
 ## 📖 Full Details
 

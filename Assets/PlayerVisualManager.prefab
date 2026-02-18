@@ -45,19 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerVisualManager
   tokenSprites:
-  - {fileID: 4456689882687839070, guid: fd8592fc37c9bc34b92b0486daec6fd2, type: 3}
-  - {fileID: -6160939997523324761, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
-  - {fileID: 6922071998142994545, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
-  - {fileID: 6224345419829451340, guid: 5018ae12621f18541a38263d766abbc3, type: 3}
-  - {fileID: -4174229058519614173, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
-  - {fileID: 4753611910847169362, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
-  - {fileID: 782906631232722382, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+  - {fileID: -6487343789898933435, guid: b3b2aaf7078ecac4bae12658895e1f3e, type: 3}
+  - {fileID: -4567987715314247458, guid: ce873bd7d27642b46982a5e1c3ab24ca, type: 3}
+  - {fileID: 5724168595349758334, guid: 9a3ada39842efa44abb2022989af35dd, type: 3}
+  - {fileID: -6957849833707980888, guid: 31a9725a8264b1a4f933c21a31963149, type: 3}
+  - {fileID: -3513341788759914525, guid: 039734d487a3f5740abccf6936d22954, type: 3}
+  - {fileID: 5184719104359095016, guid: f8b2d1128920ac04ab281c275b90cfe7, type: 3}
+  - {fileID: 1482598108678118930, guid: 79da27c5b03772e47be11975b8d1fd45, type: 3}
   tokenNames:
-  - Tobi
-  - Shade
-  - Bobby
-  - Juliet
-  - Ifeayi
-  - Hamza
-  - Kess
+  - Street Hustler
+  - Fresh Grad
+  - The Prince
+  - Tech Protege
+  - Market Queen
+  - Civil Servant
+  - Omobabalowo
   autoLoadSprites: 1

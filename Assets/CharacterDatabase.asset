@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDatabase
   characters:
   - fullImage: {fileID: -6487343789898933435, guid: 2d925705ac858554ca27df7d1722f16c, type: 3}
-    tokenImage: {fileID: 782906631232722382, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+    tokenImage: {fileID: -6487343789898933435, guid: b3b2aaf7078ecac4bae12658895e1f3e, type: 3}
     characterName: Street Hustler
     difficultyLevel: Hard
     backstory: High school dropout who knows Abuja street economics. Starts with
@@ -34,7 +34,7 @@ MonoBehaviour:
       name: Expensive Redemption
       description: Unmortgaging costs +10% extra interest.
   - fullImage: {fileID: 1607660986447821018, guid: fba10c947e0a4634c94b8a54df0a8bd1, type: 3}
-    tokenImage: {fileID: 7793620220868950490, guid: fd8592fc37c9bc34b92b0486daec6fd2, type: 3}
+    tokenImage: {fileID: -4567987715314247458, guid: ce873bd7d27642b46982a5e1c3ab24ca, type: 3}
     characterName: Fresh Grad
     difficultyLevel: Easy
     backstory: "Just finished NYSC, steady salary, steady mindset. Not flashy, but
@@ -56,7 +56,7 @@ MonoBehaviour:
       name: Limited Leverage
       description: Can only mortgage one property per turn.
   - fullImage: {fileID: -185124995316883028, guid: 6824ad1605bd496429d535a05d8fa3df, type: 3}
-    tokenImage: {fileID: 4753611910847169362, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+    tokenImage: {fileID: 5724168595349758334, guid: 9a3ada39842efa44abb2022989af35dd, type: 3}
     characterName: The Prince
     difficultyLevel: Medium
     backstory: Wealthy man's son. Starts with advantage, but Abuja expects results.
@@ -76,7 +76,7 @@ MonoBehaviour:
       name: Lifestyle Drain
       description: Loses \u20A6100,000 every time he passes GO.
   - fullImage: {fileID: 3275612725585846603, guid: 6a4be15f44dd9d244bc7d914ef33a7d7, type: 3}
-    tokenImage: {fileID: -6160939997523324761, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+    tokenImage: {fileID: -6957849833707980888, guid: 31a9725a8264b1a4f933c21a31963149, type: 3}
     characterName: Tech Protege
     difficultyLevel: Medium
     backstory: Young coder with a foreign contract. Has money and speed, but sometimes
@@ -96,7 +96,7 @@ MonoBehaviour:
       name: Bid Penalty
       description: First failed auction bid costs \u20A650,000.
   - fullImage: {fileID: 4882634634746919785, guid: 75e8730db95d2c0499c73c04b28bbe60, type: 3}
-    tokenImage: {fileID: -3550853060552520348, guid: fae126bced7efde4fa3e8ff819f6c3ab, type: 3}
+    tokenImage: {fileID: -3513341788759914525, guid: 039734d487a3f5740abccf6936d22954, type: 3}
     characterName: Market Queen
     difficultyLevel: Medium
     backstory: Self-made dealmaker from Garki Market. She understands negotiation
@@ -116,7 +116,7 @@ MonoBehaviour:
       name: No Auction Skip
       description: Cannot skip auctions (must participate or pass officially).
   - fullImage: {fileID: -4952874782782498498, guid: 8c8e486593d3d964ba10b9d8323d4aa8, type: 3}
-    tokenImage: {fileID: 6224345419829451340, guid: 5018ae12621f18541a38263d766abbc3, type: 3}
+    tokenImage: {fileID: 5184719104359095016, guid: f8b2d1128920ac04ab281c275b90cfe7, type: 3}
     characterName: Civil Servant
     difficultyLevel: Easy
     backstory: Quiet, disciplined, and patient. Not rich, not flashy, but understands
@@ -136,7 +136,7 @@ MonoBehaviour:
       name: Paperwork Delay
       description: All trades require one extra turn before they are finalized.
   - fullImage: {fileID: 8853701963226063538, guid: fe95796de9ef82f44a5e9baf633188a2, type: 3}
-    tokenImage: {fileID: -8272252217215029006, guid: fd8592fc37c9bc34b92b0486daec6fd2, type: 3}
+    tokenImage: {fileID: 1482598108678118930, guid: 79da27c5b03772e47be11975b8d1fd45, type: 3}
     characterName: Omobabalowo
     difficultyLevel: Medium
     backstory: Child of a rich father who thinks money solves everything. Starts
