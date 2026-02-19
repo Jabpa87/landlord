@@ -37,6 +37,20 @@ public class AuctionSystem : MonoBehaviour
     [Tooltip("Delay before AI places bid or pass (seconds)")]
     public float aiBidDelay = 0.8f;
     
+    [Header("AI Bidding Strategy")]
+    [Tooltip("How willing AI is to bid (0 = conservative, 1 = aggressive).")]
+    [Range(0f, 1f)]
+    public float aiRiskTolerance = 0.55f;
+    [Tooltip("Fraction of net worth AI tries to keep as cash reserve (0.1 = 10%).")]
+    [Range(0.05f, 0.4f)]
+    public float aiReserveFraction = 0.2f;
+    [Tooltip("Max bid as multiple of property price when not completing monopoly (e.g. 1.4 = 140%).")]
+    [Range(1f, 2f)]
+    public float aiMaxBidOverPrice = 1.4f;
+    [Tooltip("Max bid as multiple of property price when completing a monopoly (e.g. 2 = 200%).")]
+    [Range(1.2f, 2.5f)]
+    public float aiMonopolyMaxBidOverPrice = 2f;
+    
     // Current auction state
     private float auctionStartTime;
     private Player lastAIAuctionPlayer;
@@ -233,7 +247,11 @@ public class AuctionSystem : MonoBehaviour
             Debug.LogWarning("AuctionSystem: Cannot start new auction - one is already in progress!");
             return;
         }
-        
+        if (turnManager != null && turnManager.tradeSystem != null && turnManager.tradeSystem.IsTradeInProgress())
+        {
+            Debug.LogWarning("AuctionSystem: Cannot start auction while a trade is in progress!");
+            return;
+        }
         if (property == null || tile == null)
         {
             Debug.LogWarning("AuctionSystem: Cannot start auction - property or tile is null!");
@@ -349,6 +367,116 @@ public class AuctionSystem : MonoBehaviour
         TryStartAIAuctionTurn();
     }
     
+    // --- AI strategic bidding helpers ---
+    
+    static int GetGroupSize(Property prop)
+    {
+        if (prop == null || string.IsNullOrEmpty(prop.groupId)) return 1;
+        TileInfo[] tiles = Object.FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        int count = 0;
+        foreach (TileInfo t in tiles)
+        {
+            if (t.tileType == TileType.Property && t.property != null && t.property.groupId == prop.groupId)
+                count++;
+        }
+        return count > 0 ? count : 1;
+    }
+    
+    static int GetOwnedCountInGroup(Player player, string groupId)
+    {
+        if (player == null || string.IsNullOrEmpty(groupId)) return 0;
+        TileInfo[] tiles = Object.FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        int count = 0;
+        foreach (TileInfo t in tiles)
+        {
+            if (t.tileType == TileType.Property && t.property != null && t.property.groupId == groupId && t.property.owner == player)
+                count++;
+        }
+        return count;
+    }
+    
+    /// <summary>Returns 0-1: 1 = would complete monopoly, 0.5 = one away, etc.</summary>
+    float GetMonopolyScore(Player ai, Property prop)
+    {
+        if (ai == null || prop == null || string.IsNullOrEmpty(prop.groupId)) return 0f;
+        int groupSize = GetGroupSize(prop);
+        int owned = GetOwnedCountInGroup(ai, prop.groupId);
+        if (owned >= groupSize) return 0f; // already have monopoly
+        int need = groupSize - owned; // 1 = one more completes monopoly
+        return need == 1 ? 1f : (need == 2 ? 0.5f : 0.2f);
+    }
+    
+    /// <summary>0 = early (few props bought), 1 = late (most bought).</summary>
+    float GetGameStage()
+    {
+        if (turnManager == null || turnManager.players == null) return 0.5f;
+        TileInfo[] tiles = Object.FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        int totalProps = 0;
+        foreach (TileInfo t in tiles)
+        {
+            if (t.tileType == TileType.Property && t.property != null) totalProps++;
+        }
+        if (totalProps <= 0) return 0.5f;
+        int owned = 0;
+        foreach (Player p in turnManager.players)
+        {
+            if (p != null && !p.IsEliminated) owned += p.GetPropertyCount();
+        }
+        return Mathf.Clamp01((float)owned / totalProps);
+    }
+    
+    int GetRichestOpponentMoney(Player exclude)
+    {
+        if (turnManager == null || turnManager.players == null) return 0;
+        int max = 0;
+        foreach (Player p in turnManager.players)
+        {
+            if (p != null && !p.IsEliminated && p != exclude)
+                max = Mathf.Max(max, p.Money);
+        }
+        return max;
+    }
+    
+    /// <summary>Strategic score 0-1 for whether AI should bid. Uses property value, monopoly potential, cash reserve, opponents, game stage.</summary>
+    float GetAIBidScore(Player ai, int nextBid)
+    {
+        if (ai == null || currentAuctionProperty == null) return 0f;
+        
+        int price = currentAuctionProperty.price;
+        float monopolyScore = GetMonopolyScore(ai, currentAuctionProperty);
+        bool wouldCompleteMonopoly = monopolyScore >= 0.99f;
+        float maxOverPrice = wouldCompleteMonopoly ? aiMonopolyMaxBidOverPrice : aiMaxBidOverPrice;
+        if (nextBid > price * maxOverPrice)
+            return 0f;
+        
+        // Value: prefer not to overpay (1 at price, lower above)
+        float valueScore = nextBid <= price ? 1f : Mathf.Clamp01(1f - (float)(nextBid - price) / (price * (maxOverPrice - 1f)));
+        
+        // Cash reserve: penalize if bid would leave us with less than reserve
+        int reserve = Mathf.Max(50000, (int)(ai.GetNetWorth() * aiReserveFraction));
+        int cashAfter = ai.Money - nextBid;
+        float cashScore = cashAfter >= reserve ? 1f : Mathf.Clamp01((float)cashAfter / reserve);
+        
+        // Game stage: early = more aggressive for monopolies, mid/late = still value monopolies highly
+        float gameStage = GetGameStage();
+        float stageBonus = (1f - gameStage) * 0.15f; // early game slight boost
+        
+        // Opponent pressure: if highest bidder has less cash, we can push; if they have more, we're more cautious
+        int opponentCash = highestBidder != null ? highestBidder.Money : GetRichestOpponentMoney(ai);
+        float opponentFactor = 1f;
+        if (highestBidder != null && highestBidder != ai)
+        {
+            if (ai.Money > highestBidder.Money + nextBid)
+                opponentFactor = 1.1f; // we can outbid comfortably
+            else if (ai.Money < highestBidder.Money)
+                opponentFactor = 0.85f; // they're richer, be cautious
+        }
+        
+        // Weighted combination: monopoly and value matter most
+        float score = (valueScore * 0.25f + monopolyScore * 0.45f + cashScore * 0.2f + stageBonus) * opponentFactor;
+        return Mathf.Clamp01(score * (0.7f + 0.3f * aiRiskTolerance));
+    }
+    
     /// <summary>
     /// If the current auction player is AI, start a coroutine to bid or pass automatically.
     /// Same-player guard: if same AI is current again (bug), force pass and advance.
@@ -410,7 +538,10 @@ public class AuctionSystem : MonoBehaviour
         
         bool canAfford = ai.CanAfford(nextBid);
         bool mustBid = ai.HasCharacterEffect(CharacterEffectKeys.AuctionEdge) && canAfford && nextBid <= currentAuctionProperty.price;
-        bool willBid = canAfford && (mustBid || (nextBid <= currentAuctionProperty.price * 120 / 100 && Random.value > 0.4f));
+        float bidScore = GetAIBidScore(ai, nextBid);
+        // Threshold with slight randomness so AI isn't perfectly predictable
+        float threshold = 0.42f - (aiRiskTolerance * 0.12f) + (Random.value * 0.15f);
+        bool willBid = canAfford && (mustBid || (bidScore >= threshold));
         
         if (willBid)
         {

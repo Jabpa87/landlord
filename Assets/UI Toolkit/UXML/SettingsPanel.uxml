@@ -1,0 +1,21 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/ui.uss?fileID=7433441132597879392&amp;guid=1cfcef30dfbb29e4f8fcc0b90e81e20f&amp;type=3#ui" />
+    <Style src="project://database/Assets/UI%20Toolkit/USS/main-styles.uss?fileID=7433441132597879392&amp;guid=07cab56c084330948ac4625402a5c9e4&amp;type=3#main-styles" />
+    <ui:VisualElement name="SettingsOverlay" class="monopoly-overlay popup-root" style="align-items: center; justify-content: center;">
+        <ui:VisualElement name="SettingsOverlayBlocker" class="popup-overlay-blocker" />
+        <ui:VisualElement name="SettingsPanel" class="monopoly-panel popup-shell" style="min-width: 320px; max-width: 92%; padding: 24px; background-color: rgb(41, 55, 42);">
+            <ui:Label text="SETTINGS" class="monopoly-title" style="font-size: 28px; -unity-text-align: middle-center; margin-bottom: 16px;" />
+            <ui:Label text="Text size" class="monopoly-text" style="font-size: 20px; margin-bottom: 8px;" />
+            <ui:VisualElement style="flex-direction: row; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+                <ui:Button name="SettingsFontSmall" text="Small" class="monopoly-btn monopoly-btn-secondary settings-font-btn" style="min-width: 90px;" />
+                <ui:Button name="SettingsFontMedium" text="Medium" class="monopoly-btn monopoly-btn-secondary settings-font-btn" style="min-width: 90px;" />
+                <ui:Button name="SettingsFontLarge" text="Large" class="monopoly-btn monopoly-btn-secondary settings-font-btn" style="min-width: 90px;" />
+            </ui:VisualElement>
+            <ui:Label text="Music" class="monopoly-text" style="font-size: 20px; margin-bottom: 8px;" />
+            <ui:VisualElement name="SettingsMusicRow" style="flex-direction: row; align-items: center; margin-bottom: 20px;">
+                <ui:Toggle name="SettingsMusicToggle" label="Background music" class="monopoly-toggle" style="flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:Button name="SettingsCloseButton" text="Close" class="monopoly-btn monopoly-btn-secondary" style="align-self: center; min-width: 140px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

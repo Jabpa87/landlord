@@ -197,6 +197,12 @@ public class PropertyAssigner : MonoBehaviour
             boardVisuals.ApplyVisualsToTiles();
             Debug.Log("BoardTileVisuals: Refreshed tile labels.");
         }
+
+        PropertyOwnershipTagManager ownershipManager = FindFirstObjectByType<PropertyOwnershipTagManager>();
+        if (ownershipManager != null)
+        {
+            ownershipManager.RefreshAllTags();
+        }
     }
 
     void SaveAssets()
@@ -235,5 +241,44 @@ public class PropertyAssigner : MonoBehaviour
         }
         Debug.Log($"Cleared {cleared} property assignments.");
         SaveAssets();
+    }
+
+    [ContextMenu("Validate Property Assignments")]
+    public void ValidatePropertyAssignments()
+    {
+        int propertyTiles = 0;
+        int valid = 0;
+        int missing = 0;
+        int invalid = 0;
+
+        foreach (TileInfo tile in FindObjectsByType<TileInfo>(FindObjectsSortMode.None))
+        {
+            if (tile == null || tile.tileType != TileType.Property)
+                continue;
+
+            propertyTiles++;
+            if (tile.property == null)
+            {
+                missing++;
+                Debug.LogWarning($"[Property Validation] Missing property data on tile '{tile.gameObject.name}'.");
+                continue;
+            }
+
+            bool nameOk = !string.IsNullOrWhiteSpace(tile.property.propertyName);
+            bool priceOk = tile.property.price > 0;
+            if (!nameOk || !priceOk)
+            {
+                invalid++;
+                Debug.LogWarning($"[Property Validation] Invalid property on tile '{tile.gameObject.name}': " +
+                                 $"name='{tile.property.propertyName}', price={tile.property.price}.");
+                continue;
+            }
+
+            valid++;
+        }
+
+        Debug.Log($"[Property Validation] tiles={propertyTiles}, valid={valid}, missing={missing}, invalid={invalid}.");
+        if (missing > 0 || invalid > 0)
+            Debug.LogWarning("[Property Validation] Found assignment issues. Run 'Assign All (Regular + Transport + Utility)' and re-check.");
     }
 }

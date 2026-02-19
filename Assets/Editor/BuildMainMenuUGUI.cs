@@ -16,6 +16,17 @@ public static class BuildMainMenuUGUI
 
     private const string CharacterDatabasePath = "Assets/CharacterDatabase.asset";
     private const string DefaultFontPath = "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset";
+    private const string DiceCanvasName = "DiceOverlayCanvas";
+    private const string DiceRootName = "DiceOverlayRoot";
+    private const string Dice1Name = "Dice1";
+    private const string Dice2Name = "Dice2";
+    private const string Dice01Path = "Assets/Dice/dice-01.png";
+    private const string Dice02Path = "Assets/Dice/dice-02.png";
+    private const string Dice03Path = "Assets/Dice/dice-03.png";
+    private const string Dice04Path = "Assets/Dice/dice-04.png";
+    private const string Dice05Path = "Assets/Dice/dice-05.png";
+    private const string Dice06Path = "Assets/Dice/dice-06.png";
+    private const string DiceRollSheetPath = "Assets/Dice/Glossy Red Dice Rolls.png";
 
     [MenuItem("Tools/UI/Build Main Menu")]
     public static void Build()
@@ -264,6 +275,87 @@ public static class BuildMainMenuUGUI
         Debug.Log("Main Menu uGUI created/updated.");
     }
 
+    [MenuItem("Tools/UI/Build Dice Overlay")]
+    public static void BuildDiceOverlay()
+    {
+        var scene = EditorSceneManager.GetActiveScene();
+        if (!scene.IsValid())
+        {
+            Debug.LogError("No active scene. Open GameScene.unity first.");
+            return;
+        }
+
+        var canvas = GetOrCreateCanvas(DiceCanvasName);
+        canvas.sortingOrder = 50;
+
+        var root = GetOrCreateUIObject(DiceRootName, canvas.transform);
+        SetCentered(root, new Vector2(260f, 140f));
+
+        var rootImage = EnsureImage(root, new Color(1f, 1f, 1f, 0f));
+        var rootButton = root.GetComponent<Button>() ?? root.AddComponent<Button>();
+        rootButton.targetGraphic = rootImage;
+
+        var dice1 = GetOrCreateUIObject(Dice1Name, root.transform);
+        SetAnchored(dice1, new Vector2(0.25f, 0.5f), new Vector2(0.25f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+        SetSize(dice1, new Vector2(110f, 110f));
+        var dice1Image = EnsureImage(dice1, Color.white);
+
+        var dice2 = GetOrCreateUIObject(Dice2Name, root.transform);
+        SetAnchored(dice2, new Vector2(0.75f, 0.5f), new Vector2(0.75f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+        SetSize(dice2, new Vector2(110f, 110f));
+        var dice2Image = EnsureImage(dice2, Color.white);
+
+        Sprite[] faceSprites = new Sprite[6];
+        faceSprites[0] = AssetDatabase.LoadAssetAtPath<Sprite>(Dice01Path);
+        faceSprites[1] = AssetDatabase.LoadAssetAtPath<Sprite>(Dice02Path);
+        faceSprites[2] = AssetDatabase.LoadAssetAtPath<Sprite>(Dice03Path);
+        faceSprites[3] = AssetDatabase.LoadAssetAtPath<Sprite>(Dice04Path);
+        faceSprites[4] = AssetDatabase.LoadAssetAtPath<Sprite>(Dice05Path);
+        faceSprites[5] = AssetDatabase.LoadAssetAtPath<Sprite>(Dice06Path);
+
+        Sprite[] rollFrames = LoadRollFrames();
+
+        DiceRoller roller = Object.FindFirstObjectByType<DiceRoller>();
+        if (roller == null)
+        {
+            var go = new GameObject("DiceRoller");
+            roller = go.AddComponent<DiceRoller>();
+        }
+
+        roller.dice1Image = dice1Image;
+        roller.dice2Image = dice2Image;
+        roller.faceSprites = faceSprites;
+        roller.rollFrames = rollFrames;
+        roller.dice1Faces = new Image[0];
+        roller.dice2Faces = new Image[0];
+        roller.dice1Model = null;
+        roller.dice2Model = null;
+        roller.diceButton = rootButton;
+        roller.diceRoot = root;
+        roller.diceRollPanel = root;
+        roller.diceDisplayContainer = root;
+        roller.keepDiceVisibleAtStart = false;
+        roller.keepDiceVisibleAfterRoll = true;
+        roller.showWhenActiveOnly = true;
+        roller.useBounceAnimation = true;
+        roller.rollDuration = 1.2f;
+        roller.faceChangeSpeed = 16f;
+        roller.rollFrameRate = 30f;
+        roller.rollFrameOffset = 9;
+
+        var tm = Object.FindFirstObjectByType<TurnManager>();
+        if (tm != null)
+        {
+            roller.turnManager = tm;
+            tm.diceRoller = roller;
+            EditorUtility.SetDirty(tm);
+        }
+
+        EditorUtility.SetDirty(roller);
+        EditorSceneManager.MarkSceneDirty(scene);
+        Debug.Log("Dice overlay built and DiceRoller configured.");
+    }
+
     private static Canvas GetOrCreateCanvas(string name)
     {
         var go = GameObject.Find(name);
@@ -321,6 +413,17 @@ public static class BuildMainMenuUGUI
         rt.localScale = Vector3.one;
     }
 
+    private static void SetCentered(GameObject go, Vector2 size)
+    {
+        var rt = go.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0.5f, 0.5f);
+        rt.anchorMax = new Vector2(0.5f, 0.5f);
+        rt.pivot = new Vector2(0.5f, 0.5f);
+        rt.anchoredPosition = Vector2.zero;
+        rt.sizeDelta = size;
+        rt.localScale = Vector3.one;
+    }
+
     private static void SetSize(GameObject go, Vector2 size)
     {
         var rt = go.GetComponent<RectTransform>();
@@ -334,6 +437,31 @@ public static class BuildMainMenuUGUI
         img.color = color;
         img.raycastTarget = true;
         return img;
+    }
+
+    private static Sprite[] LoadRollFrames()
+    {
+        Object[] assets = AssetDatabase.LoadAllAssetsAtPath(DiceRollSheetPath);
+        if (assets == null || assets.Length == 0) return new Sprite[0];
+        var sprites = new System.Collections.Generic.List<Sprite>();
+        foreach (var a in assets)
+        {
+            if (a is Sprite s) sprites.Add(s);
+        }
+        sprites.Sort((a, b) => ParseFrameIndex(a.name).CompareTo(ParseFrameIndex(b.name)));
+        return sprites.ToArray();
+    }
+
+    private static int ParseFrameIndex(string name)
+    {
+        if (string.IsNullOrEmpty(name)) return 0;
+        int underscore = name.LastIndexOf('_');
+        if (underscore >= 0 && underscore + 1 < name.Length)
+        {
+            if (int.TryParse(name.Substring(underscore + 1), out int n))
+                return n;
+        }
+        return 0;
     }
 
     private static TMP_Text CreateText(string name, Transform parent, string text, int size)

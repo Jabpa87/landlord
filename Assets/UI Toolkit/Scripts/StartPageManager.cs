@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using System;
 using System.Collections;
 
 /// <summary>
@@ -29,6 +30,12 @@ public class StartPageManager : MonoBehaviour
     [Header("Scene")]
     [Tooltip("Main menu scene name (use 'MainMenu', not 'StartPage'). Loaded when V/S Computer or Pass Device is chosen.")]
     public string mainMenuSceneName = "MainMenu";
+
+    [Header("Settings (Start Page)")]
+    [Tooltip("Assign SettingsPanel.uxml so Settings can open even when no UIDocument is in the scene. Required for runtime-created panel.")]
+    public VisualTreeAsset settingsPanelAsset;
+    [Tooltip("Optional. UIDocument that uses SettingsPanel.uxml. If null, will try to find one in scene or create from Settings Panel Asset.")]
+    public UIDocument settingsPanelDocument;
 
     private Button vsComputerButton;
     private Button passDeviceButton;
@@ -91,6 +98,73 @@ public class StartPageManager : MonoBehaviour
             gameOptionsButton.clicked += OnGameOptionsClicked;
 
         ApplyButtonIcons();
+        StartCoroutine(EnsureSettingsPanelThenInitialize());
+    }
+
+    IEnumerator EnsureSettingsPanelThenInitialize()
+    {
+        if (settingsPanelDocument == null)
+        {
+            foreach (var doc in FindObjectsByType<UIDocument>(FindObjectsSortMode.None))
+            {
+                if (doc != null && doc.visualTreeAsset != null && doc.visualTreeAsset.name.IndexOf("SettingsPanel", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    settingsPanelDocument = doc;
+                    break;
+                }
+            }
+        }
+        if (settingsPanelDocument == null && settingsPanelAsset != null && startPageDocument != null && startPageDocument.panelSettings != null)
+        {
+            GameObject go = new GameObject("SettingsPanel (Runtime)");
+            go.transform.SetParent(startPageDocument.transform.parent, worldPositionStays: false);
+            var newDoc = go.AddComponent<UIDocument>();
+            newDoc.visualTreeAsset = settingsPanelAsset;
+            newDoc.panelSettings = startPageDocument.panelSettings;
+            newDoc.sortingOrder = startPageDocument.sortingOrder + 10;
+            settingsPanelDocument = newDoc;
+            yield return null;
+        }
+        InitializeStartPageSettingsPanel();
+    }
+
+    void InitializeStartPageSettingsPanel()
+    {
+        if (settingsPanelDocument == null || settingsPanelDocument.rootVisualElement == null) return;
+        var root = settingsPanelDocument.rootVisualElement;
+        root.style.display = DisplayStyle.None;
+
+        var closeBtn = root.Q<Button>("SettingsCloseButton");
+        var fontSmall = root.Q<Button>("SettingsFontSmall");
+        var fontMedium = root.Q<Button>("SettingsFontMedium");
+        var fontLarge = root.Q<Button>("SettingsFontLarge");
+        var blocker = root.Q<VisualElement>("SettingsOverlayBlocker");
+        var musicToggle = root.Q<Toggle>("SettingsMusicToggle");
+
+        if (closeBtn != null) closeBtn.clicked += () => { root.style.display = DisplayStyle.None; };
+        if (blocker != null) blocker.RegisterCallback<ClickEvent>(evt => { root.style.display = DisplayStyle.None; });
+        if (fontSmall != null) fontSmall.clicked += () => { UIDocumentManager.ApplyFontSizeLevelFromSettings(0); RefreshStartPageSettingsAppearance(root); };
+        if (fontMedium != null) fontMedium.clicked += () => { UIDocumentManager.ApplyFontSizeLevelFromSettings(1); RefreshStartPageSettingsAppearance(root); };
+        if (fontLarge != null) fontLarge.clicked += () => { UIDocumentManager.ApplyFontSizeLevelFromSettings(2); RefreshStartPageSettingsAppearance(root); };
+        if (musicToggle != null)
+        {
+            musicToggle.RegisterValueChangedCallback(evt => GameSoundManager.SetMusicEnabledFromSettings(evt.newValue));
+        }
+    }
+
+    void RefreshStartPageSettingsAppearance(VisualElement root)
+    {
+        if (root == null) return;
+        int level = UIDocumentManager.GetFontSizeLevel();
+        var fontSmall = root.Q<Button>("SettingsFontSmall");
+        var fontMedium = root.Q<Button>("SettingsFontMedium");
+        var fontLarge = root.Q<Button>("SettingsFontLarge");
+        foreach (var btn in new[] { fontSmall, fontMedium, fontLarge })
+        {
+            if (btn != null) btn.RemoveFromClassList("settings-font-selected");
+        }
+        var selected = level == 0 ? fontSmall : (level == 1 ? fontMedium : fontLarge);
+        if (selected != null) selected.AddToClassList("settings-font-selected");
     }
 
     void ApplyButtonIcons()
@@ -154,8 +228,28 @@ public class StartPageManager : MonoBehaviour
 
     void OnGameOptionsClicked()
     {
-        Debug.Log("StartPage: Game Options — open your options panel here.");
-        ShowComingSoon("Game Options");
+        if (settingsPanelDocument == null || settingsPanelDocument.rootVisualElement == null)
+        {
+            Debug.Log("StartPage: Settings panel not found. On StartPageManager (Inspector), assign 'Settings Panel Asset' to SettingsPanel.uxml.");
+            return;
+        }
+        var root = settingsPanelDocument.rootVisualElement;
+        int level = UIDocumentManager.GetFontSizeLevel();
+        var fontSmall = root.Q<Button>("SettingsFontSmall");
+        var fontMedium = root.Q<Button>("SettingsFontMedium");
+        var fontLarge = root.Q<Button>("SettingsFontLarge");
+        foreach (var btn in new[] { fontSmall, fontMedium, fontLarge })
+        {
+            if (btn != null) btn.RemoveFromClassList("settings-font-selected");
+        }
+        var selected = level == 0 ? fontSmall : (level == 1 ? fontMedium : fontLarge);
+        if (selected != null) selected.AddToClassList("settings-font-selected");
+        var musicToggle = root.Q<Toggle>("SettingsMusicToggle");
+        if (musicToggle != null)
+            musicToggle.SetValueWithoutNotify(UnityEngine.PlayerPrefs.GetInt("GameSound_MusicEnabled", 1) != 0);
+        root.style.display = DisplayStyle.Flex;
+        if (settingsPanelDocument.transform != null)
+            settingsPanelDocument.transform.SetAsLastSibling();
     }
 
     void LoadMainMenu(bool isPassDevice)

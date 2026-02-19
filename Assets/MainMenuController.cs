@@ -60,6 +60,11 @@ public class MainMenuController : MonoBehaviour
     [Header("Game Settings (outside character section)")]
     public Button gameSettingsButton;
     public GameObject gameSettingsPanel;
+    [Header("Text size (assign in Settings panel)")]
+    [Tooltip("Optional buttons for Small / Medium / Large text. Saves to PlayerPrefs for game scene.")]
+    public Button fontSizeSmallButton;
+    public Button fontSizeMediumButton;
+    public Button fontSizeLargeButton;
 
     [Header("Scene")]
     public string gameSceneName = "GameScene";
@@ -99,6 +104,9 @@ public class MainMenuController : MonoBehaviour
         }
 
         if (gameSettingsPanel != null) gameSettingsPanel.SetActive(false);
+        if (fontSizeSmallButton != null) fontSizeSmallButton.onClick.AddListener(() => SetFontSizeLevel(0));
+        if (fontSizeMediumButton != null) fontSizeMediumButton.onClick.AddListener(() => SetFontSizeLevel(1));
+        if (fontSizeLargeButton != null) fontSizeLargeButton.onClick.AddListener(() => SetFontSizeLevel(2));
         ApplyPlayerCountFromDropdown();
         SyncPlayerCountDropdown();
 
@@ -256,6 +264,14 @@ public class MainMenuController : MonoBehaviour
     {
         if (gameSettingsPanel != null)
             gameSettingsPanel.SetActive(!gameSettingsPanel.activeSelf);
+    }
+
+    void SetFontSizeLevel(int level)
+    {
+        level = Mathf.Clamp(level, 0, 2);
+        PlayerPrefs.SetInt(UIDocumentManager.PrefsKeyUIFontSize, level);
+        var ui = FindFirstObjectByType<UIDocumentManager>();
+        if (ui != null) ui.SetFontSizeLevel(level);
     }
 
     void OnPlayerCountDropdownChanged(int value)

@@ -114,7 +114,7 @@ public class TileClickHandler : MonoBehaviour
     }
     
     /// <summary>
-    /// Show tile details in UI panel. Uses TileDetailsCardUI (uGUI) if present, otherwise UIDocumentManager (UI Toolkit).
+    /// Show tile details in UI panel. Prefer TileDetailsCardUI (uGUI), fallback to UIDocumentManager.
     /// </summary>
     public void ShowTileDetails()
     {
@@ -124,17 +124,15 @@ public class TileClickHandler : MonoBehaviour
             return;
         }
 
-        if (uiManager != null)
-        {
-            // Force UI Toolkit details panel for tile clicks.
-            uiManager.ShowTileDetails(tileInfo);
-            return;
-        }
-
-        // Fallback only when UI Toolkit manager is missing.
         if (TileDetailsCardUI.Instance != null)
         {
             TileDetailsCardUI.Instance.Show(tileInfo);
+            return;
+        }
+
+        if (uiManager != null)
+        {
+            uiManager.ShowTileDetails(tileInfo);
             return;
         }
 

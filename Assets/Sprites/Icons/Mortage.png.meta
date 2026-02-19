@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 5018ae12621f18541a38263d766abbc3
+guid: 40c6469ebdfc9be479903784ddf0afad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7840245296287319653
-    second: Adobe Express - file (4)_0
-  - first:
-      213: 6224345419829451340
-    second: Adobe Express - file (4)_1
+      213: -4981826970404089989
+    second: Mortage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,45 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Adebayo
+      name: Mortage_0
       rect:
         serializedVersion: 2
-        x: 132
-        y: 248
-        width: 582
-        height: 575
+        x: 0
+        y: 0
+        width: 328
+        height: 264
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b99fdd2417ad13390800000000000000
-      internalID: -7840245296287319653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rukky
-      rect:
-        serializedVersion: 2
-        x: 817
-        y: 245
-        width: 588
-        height: 579
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c4a934c6e21516650800000000000000
-      internalID: 6224345419829451340
+      spriteID: b7f8a98e3cefcdab0800000000000000
+      internalID: -4981826970404089989
       vertices: []
       indices: 
       edges: []
@@ -176,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9b99df25212cb9d4e8f0440f895bc075
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -186,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Adebayo: -7840245296287319653
-      Rukky: 6224345419829451340
+      Mortage_0: -4981826970404089989
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

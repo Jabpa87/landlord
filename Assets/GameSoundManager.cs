@@ -49,6 +49,11 @@ public class GameSoundManager : MonoBehaviour
     private bool _playSecondTrackNext;
 
     const string PrefFeedSound = "GameSound_FeedSoundEnabled";
+    const string PrefMusicEnabled = "GameSound_MusicEnabled";
+
+    [Tooltip("Whether background music is enabled (saved to PlayerPrefs).")]
+    public bool musicEnabled = true;
+    bool _musicEnabledFromPrefs;
 
     void Awake()
     {
@@ -70,6 +75,8 @@ public class GameSoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         feedSoundEnabled = PlayerPrefs.GetInt(PrefFeedSound, 1) != 0;
+        _musicEnabledFromPrefs = PlayerPrefs.GetInt(PrefMusicEnabled, 1) != 0;
+        musicEnabled = _musicEnabledFromPrefs;
 
         _oneShotSource = gameObject.AddComponent<AudioSource>();
         _oneShotSource.playOnAwake = false;
@@ -133,6 +140,12 @@ public class GameSoundManager : MonoBehaviour
 
     void Update()
     {
+        if (!musicEnabled)
+        {
+            if (_idleSource != null && _idleSource.isPlaying)
+                _idleSource.Stop();
+            return;
+        }
         AudioClip nextClip = GetNextGameMusicClip();
         if (nextClip == null || _idleSource.isPlaying) return;
         if (Time.time - _lastActivityTime >= idleDelaySeconds)
@@ -142,6 +155,29 @@ public class GameSoundManager : MonoBehaviour
             _lastActivityTime = Time.time;
             _playSecondTrackNext = !_playSecondTrackNext;
         }
+    }
+
+    /// <summary>Whether background music is enabled. Persisted to PlayerPrefs.</summary>
+    public bool MusicEnabled
+    {
+        get => musicEnabled;
+        set
+        {
+            musicEnabled = value;
+            PlayerPrefs.SetInt(PrefMusicEnabled, value ? 1 : 0);
+            PlayerPrefs.Save();
+            if (_idleSource != null && _idleSource.isPlaying && !value)
+                _idleSource.Stop();
+        }
+    }
+
+    /// <summary>Set music enabled from settings (e.g. Start Page). Saves to PlayerPrefs; applies to Instance if in scene.</summary>
+    public static void SetMusicEnabledFromSettings(bool enabled)
+    {
+        PlayerPrefs.SetInt(PrefMusicEnabled, enabled ? 1 : 0);
+        PlayerPrefs.Save();
+        if (Instance != null)
+            Instance.MusicEnabled = enabled;
     }
 
     AudioClip GetNextGameMusicClip()

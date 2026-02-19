@@ -81,9 +81,21 @@ public class MainMenuManager : MonoBehaviour
     {
         "Hat", "Car", "Dog", "Ship", "Wheelbarrow", "Boot"
     };
+
+    bool IsMainMenuSceneName(string sceneName)
+    {
+        return string.Equals(sceneName, "MainMenu", System.StringComparison.OrdinalIgnoreCase) ||
+               string.Equals(sceneName, "Mainmenunew", System.StringComparison.OrdinalIgnoreCase);
+    }
     
     void Start()
     {
+        if (!IsMainMenuSceneName(gameObject.scene.name))
+        {
+            enabled = false;
+            return;
+        }
+
         // #region agent log
         WriteDebugLog("H1", "main_menu_start", "MainMenuManager.Start",
             $"docAssigned={mainMenuDocument != null}, goActive={gameObject.activeInHierarchy}");
@@ -130,7 +142,7 @@ public class MainMenuManager : MonoBehaviour
             $"docScene={docScene.name}, docSceneLoaded={docScene.isLoaded}, mgrScene={mgrScene.name}, mgrSceneLoaded={mgrScene.isLoaded}");
         // #endregion
 
-        if (!string.Equals(mgrScene.name, "MainMenu", System.StringComparison.OrdinalIgnoreCase))
+        if (!IsMainMenuSceneName(mgrScene.name))
         {
             // #region agent log
             WriteDebugLog("H7", "main_menu_wrong_scene", "MainMenuManager.Start",
@@ -453,36 +465,6 @@ public class MainMenuManager : MonoBehaviour
         nameRow.Add(nameInput);
         slot.Add(nameRow);
         
-        // Color selection
-        var colorRow = new VisualElement();
-        colorRow.name = "ColorRow";
-        colorRow.AddToClassList("player-row-modern");
-        var colorLabel = new Label("Color:") { name = "ColorLabel" };
-        colorLabel.AddToClassList("player-label-modern");
-        colorRow.Add(colorLabel);
-        var colorOptions = new VisualElement();
-        colorOptions.name = "ColorOptions";
-        colorOptions.AddToClassList("color-options-modern");
-        
-        // Add color buttons
-        string[] colorNames = { "Red", "Blue", "Green", "Yellow", "Purple", "Orange", "Pink", "Cyan" };
-        for (int j = 0; j < availableColors.Length && j < colorNames.Length; j++)
-        {
-            var colorBtn = new Button();
-            colorBtn.name = $"Color{colorNames[j]}";
-            colorBtn.AddToClassList("color-button-modern");
-            colorBtn.AddToClassList($"{colorNames[j].ToLower()}-color");
-            colorBtn.AddToClassList("pulse-target");
-            colorBtn.style.backgroundColor = availableColors[j];
-            int pIndex = playerIndex;
-            int cIndex = j;
-            colorBtn.clicked += () => OnColorSelected(pIndex, cIndex);
-            colorOptions.Add(colorBtn);
-        }
-        
-        colorRow.Add(colorOptions);
-        slot.Add(colorRow);
-        
         // Avatar/token selection
         var avatarRow = new VisualElement();
         avatarRow.name = "AvatarRow";
@@ -535,12 +517,6 @@ public class MainMenuManager : MonoBehaviour
         aiRow.Add(aiToggle);
         slot.Add(aiRow);
         
-        // Select default color
-        if (playerIndex < availableColors.Length)
-        {
-            OnColorSelected(playerIndex, playerIndex);
-        }
-        
         // Select default avatar (same as player index, or 0)
         int defaultAvatar = playerIndex < maxAvatars ? playerIndex : 0;
         selectedAvatars[playerIndex] = defaultAvatar;
@@ -555,23 +531,34 @@ public class MainMenuManager : MonoBehaviour
     }
     
     /// <summary>
-    /// Helper method to set fallback display for avatar button (colored circle with letter).
+    /// Set avatar button display: character portrait sprite when available, otherwise colored circle with letter.
     /// </summary>
     void SetAvatarButtonFallback(Button avatarBtn, int avatarIndex)
     {
-        // Remove existing non-badge children
         RemoveNonBadgeChildren(avatarBtn);
-        
+        EnsureAvatarBadge(avatarBtn);
+
+        Sprite portrait = null;
+        if (characterPortraits != null && avatarIndex >= 0 && avatarIndex < characterPortraits.Length)
+            portrait = characterPortraits[avatarIndex];
+
+        if (portrait != null)
+        {
+            avatarBtn.style.backgroundImage = new StyleBackground(portrait);
+            avatarBtn.style.backgroundSize = new StyleBackgroundSize(new BackgroundSize(BackgroundSizeType.Contain));
+            avatarBtn.style.backgroundColor = new Color(1, 1, 1, 0.2f);
+            return;
+        }
+
         int colorIndex = avatarIndex % availableColors.Length;
         avatarBtn.style.backgroundColor = availableColors[colorIndex];
-        // Get name from availableAvatarNames or generate one
+        avatarBtn.style.backgroundImage = StyleKeyword.None;
         string avatarName = avatarIndex < availableAvatarNames.Length ? availableAvatarNames[avatarIndex] : $"Avatar {avatarIndex + 1}";
         var avatarLetterLabel = new Label(avatarName.Length > 0 ? avatarName.Substring(0, 1) : "?");
         avatarLetterLabel.style.fontSize = 24;
         avatarLetterLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
         avatarLetterLabel.style.color = Color.white;
         avatarBtn.Add(avatarLetterLabel);
-        EnsureAvatarBadge(avatarBtn);
     }
     
     void SetupPlayerSlot(VisualElement slot, int playerIndex)
@@ -588,46 +575,11 @@ public class MainMenuManager : MonoBehaviour
             nameInput.value = $"Player {playerIndex + 1}";
         }
         
-        // Setup color buttons
-        var colorOptions = slot.Q<VisualElement>("ColorOptions");
-        if (colorOptions != null)
-        {
-            var colorButtons = colorOptions.Query<Button>().ToList();
-            for (int i = 0; i < colorButtons.Count && i < availableColors.Length; i++)
-            {
-                int btnIndex = i;
-                int pIndex = playerIndex;
-                colorButtons[i].clicked += () => OnColorSelected(pIndex, btnIndex);
-            }
-        }
-        
-        // Select default color for this player
-        if (playerIndex < availableColors.Length)
-        {
-            OnColorSelected(playerIndex, playerIndex);
-        }
-        
         // Setup avatar buttons
         var avatarOptions = slot.Q<VisualElement>("AvatarOptions");
         if (avatarOptions != null)
         {
             var avatarButtons = avatarOptions.Query<Button>().ToList();
-            
-            // Get selected color for this player (for fallback display)
-            Color playerColor = availableColors[playerIndex % availableColors.Length];
-            if (colorOptions != null)
-            {
-                var colorButtons = colorOptions.Query<Button>().ToList();
-                for (int j = 0; j < colorButtons.Count; j++)
-                {
-                    if (colorButtons[j].ClassListContains("selected"))
-                    {
-                        playerColor = availableColors[j];
-                        break;
-                    }
-                }
-            }
-            
             for (int i = 0; i < avatarButtons.Count; i++)
             {
                 int btnIndex = i;
@@ -869,28 +821,12 @@ public class MainMenuManager : MonoBehaviour
         {
             var slot = playerSlots[i];
             var nameInput = slot.Q<TextField>("PlayerNameInput");
-            var colorOptions = slot.Q<VisualElement>("ColorOptions");
             
             string playerName = nameInput != null ? nameInput.value : $"Player {i + 1}";
             if (string.IsNullOrEmpty(playerName))
                 playerName = $"Player {i + 1}";
             
-            // Find selected color
-            Color selectedColor = availableColors[i % availableColors.Length];
-            if (colorOptions != null)
-            {
-                var colorButtons = colorOptions.Query<Button>().ToList();
-                for (int j = 0; j < colorButtons.Count; j++)
-                {
-                    if (colorButtons[j].ClassListContains("selected"))
-                    {
-                        selectedColor = availableColors[j];
-                        break;
-                    }
-                }
-            }
-            
-            // Find selected avatar: use stored value (what user clicked), else which button has "selected", else player index
+            // Find selected avatar (color is derived from avatar index; no color picker) use stored value (what user clicked), else which button has "selected", else player index
             int selectedAvatar;
             if (selectedAvatars.ContainsKey(i))
                 selectedAvatar = selectedAvatars[i];
@@ -911,6 +847,7 @@ public class MainMenuManager : MonoBehaviour
                     }
                 }
             }
+            Color selectedColor = availableColors[selectedAvatar % availableColors.Length];
 
             // AI toggle
             bool isAI = false;

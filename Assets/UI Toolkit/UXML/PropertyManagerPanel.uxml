@@ -1,9 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/ui.uss?fileID=7433441132597879392&amp;guid=1cfcef30dfbb29e4f8fcc0b90e81e20f&amp;type=3#ui" />
     <Style src="project://database/Assets/UI%20Toolkit/USS/main-styles.uss?fileID=7433441132597879392&amp;guid=07cab56c084330948ac4625402a5c9e4&amp;type=3#main-styles" />
-    <ui:VisualElement name="PropertyManagerOverlay" class="monopoly-overlay popup-root" style="flex-grow: 1; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center;">
+    <ui:VisualElement name="PropertyManagerOverlay" class="monopoly-overlay popup-root property-manager-overlay" style="flex-grow: 1; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); align-items: center; justify-content: flex-start;">
         <ui:VisualElement name="PropertyManagerOverlayBlocker" class="popup-overlay-blocker" />
-        <ui:VisualElement name="PropertyManagerPanel" class="monopoly-panel popup-shell" style="background-image: none; background-size: 100% 80%; padding: 16px; align-items: stretch; justify-content: flex-start; align-self: center; align-content: stretch; background-color: rgb(41, 55, 42); width: 88%; max-width: 1300px; min-width: 900px; min-height: 420px; height: 62%; max-height: 760px;">
+        <ui:VisualElement name="PropertyManagerPanel" class="monopoly-panel popup-shell" style="background-image: none; background-size: 100% 80%; padding: 16px; align-items: stretch; justify-content: flex-start; align-self: center; align-content: stretch; background-color: rgb(41, 55, 42); width: 45%; max-width: 765px; min-width: 698px; min-height: 620px; height: 90%; max-height: 1020px; top: 200px;">
             <ui:VisualElement name="PropertyManagerHeader" class="tile-details-header monopoly-header" style="flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 12px; height: 92px; top: 0;">
                 <ui:Label text="Manage Properties" class="tile-details-title monopoly-title" style="font-size: 32px; -unity-font-definition: resource(&apos;Fonts &amp; Materials/HappyMonkey-Regular&apos;);" />
                 <ui:Button name="PropertyManagerCloseButton" text="Close" class="monopoly-btn monopoly-btn-secondary" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 100, 0); color: rgb(0, 0, 0);" />
@@ -14,7 +14,76 @@
                 <ui:Button name="PropertyManagerFilterMortgaged" text="Mortgaged" class="monopoly-btn" style="margin-right: 8px; margin-bottom: 4px; min-width: 140px; height: 52px;" />
                 <ui:Button name="PropertyManagerFilterMonopoly" text="Monopoly" class="monopoly-btn" style="margin-bottom: 4px; min-width: 140px; height: 52px;" />
             </ui:VisualElement>
-            <ui:ScrollView name="PropertyManagerList" class="scrollbar-theme-neon popup-body" style="flex-grow: 1; min-height: 200px; width: 100%;" />
+            <ui:ScrollView name="PropertyManagerList" class="scrollbar-theme-neon popup-body" style="flex-grow: 1; min-height: 200px; width: 100%;">
+                <ui:VisualElement name="PropertyManagerPlaceholder1" class="pm-card">
+                    <ui:Label text="Property name (placeholder)" class="pm-card-title" />
+                    <ui:Label text="Group • 0 houses" class="pm-card-subtitle" />
+                    <ui:VisualElement class="pm-actions">
+                        <ui:VisualElement class="pm-action-item pm-action-build">
+                            <ui:Button class="pm-action-button">
+                                <ui:VisualElement class="pm-action-icon" style="bottom: -8px;" />
+                                <ui:Label text="BUILD" class="pm-action-title" />
+                                <ui:Label text="₦57,000" class="pm-action-cost" />
+                            </ui:Button>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="pm-action-item pm-action-sell">
+                            <ui:Button class="pm-action-button">
+                                <ui:VisualElement class="pm-action-icon" />
+                                <ui:Label text="SELL" class="pm-action-title" />
+                                <ui:Label text="N/A" class="pm-action-cost" />
+                            </ui:Button>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="pm-action-item pm-action-mortgage">
+                            <ui:Button class="pm-action-button">
+                                <ui:VisualElement class="pm-action-icon" />
+                                <ui:Label text="MORTGAGE" class="pm-action-title" />
+                                <ui:Label text="₦13,000" class="pm-action-cost" />
+                            </ui:Button>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="pm-action-item pm-action-redeem">
+                            <ui:Button class="pm-action-button">
+                                <ui:VisualElement class="pm-action-icon" />
+                                <ui:Label text="REDEEM" class="pm-action-title" />
+                                <ui:Label text="₦15,600" class="pm-action-cost" />
+                            </ui:Button>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="PropertyManagerPlaceholder2" class="pm-card">
+                    <ui:Label text="Another property (placeholder)" class="pm-card-title" />
+                    <ui:Label text="Satellite • Mortgaged" class="pm-card-subtitle" />
+                    <ui:VisualElement class="pm-actions">
+                        <ui:VisualElement class="pm-action-item pm-action-build">
+                            <ui:Button class="pm-action-button">
+                                <ui:VisualElement class="pm-action-icon" />
+                                <ui:Label text="BUILD" class="pm-action-title" />
+                                <ui:Label text="₦—" class="pm-action-cost" />
+                            </ui:Button>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="pm-action-item pm-action-sell">
+                            <ui:Button class="pm-action-button">
+                                <ui:VisualElement class="pm-action-icon" />
+                                <ui:Label text="SELL" class="pm-action-title" />
+                                <ui:Label text="N/A" class="pm-action-cost" />
+                            </ui:Button>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="pm-action-item pm-action-mortgage">
+                            <ui:Button class="pm-action-button">
+                                <ui:VisualElement class="pm-action-icon" />
+                                <ui:Label text="MORTGAGE" class="pm-action-title" />
+                                <ui:Label text="—" class="pm-action-cost" />
+                            </ui:Button>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="pm-action-item pm-action-redeem">
+                            <ui:Button class="pm-action-button">
+                                <ui:VisualElement class="pm-action-icon" />
+                                <ui:Label text="REDEEM" class="pm-action-title" />
+                                <ui:Label text="₦15,600" class="pm-action-cost" />
+                            </ui:Button>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:ScrollView>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

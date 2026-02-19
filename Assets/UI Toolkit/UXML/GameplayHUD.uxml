@@ -62,12 +62,12 @@
                     <ui:VisualElement name="Player4MoneyChangeLane" class="gameplay-hud-money-lane" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="RollDiceFloating" class="gameplay-hud-roll-floating" style="min-width: 80%; align-self: center; right: 10%; left: 10%; bottom: 55px;">
+            <ui:VisualElement name="RollDiceFloating" class="gameplay-hud-roll-floating" style="min-width: 80%; align-self: center; right: 10%; left: 10%; bottom: 10px;">
                 <ui:Label name="DiceText" text="—" class="gameplay-hud-dice-label" />
                 <ui:Button name="RollButton" text="Roll Dice" class="gameplay-hud-roll-btn" style="background-image: url(&quot;project://database/Assets/Sprites/button.png?fileID=2800000&amp;guid=b2c659062aad75e47a6c934d5ab4bd57&amp;type=3#button&quot;);" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="NewsFeedSection" class="gameplay-hud-feed-section">
+        <ui:VisualElement name="NewsFeedSection" class="gameplay-hud-feed-section" style="top: 72%;">
             <ui:ScrollView name="NewsFeedScrollView" class="gameplay-hud-feed-scroll" />
         </ui:VisualElement>
         <ui:VisualElement name="GameLogButtonRow" class="gameplay-hud-log-button-row" style="align-self: center; -unity-text-align: upper-center; -unity-background-scale-mode: scale-to-fit; background-position-y: center; background-position-x: center;">

@@ -887,6 +887,26 @@ public class Player : MonoBehaviour
     }
     
     // --- Property System ---
+    bool IsPurchasablePropertyDataValid(Property prop)
+    {
+        return prop != null &&
+               !string.IsNullOrWhiteSpace(prop.propertyName) &&
+               prop.price > 0;
+    }
+
+    bool ValidatePurchasablePropertyData(Property prop, TileInfo tile, string context)
+    {
+        if (IsPurchasablePropertyDataValid(prop))
+            return true;
+
+        string tileName = tile != null ? tile.gameObject.name : "null";
+        string propName = prop != null ? prop.propertyName : "null";
+        int propPrice = prop != null ? prop.price : -1;
+        Debug.LogWarning($"[{context}] Invalid property data on tile '{tileName}'. name='{propName}', price={propPrice}. " +
+                         "This tile will be treated as non-purchasable. Re-run PropertyAssigner.");
+        return false;
+    }
+
     void HandlePropertyTile(TileInfo tile)
     {
         if (tile == null)
@@ -905,6 +925,12 @@ public class Player : MonoBehaviour
         
         currentTile = tile; // Store for button callbacks
         Property prop = tile.property;
+        if (!ValidatePurchasablePropertyData(prop, tile, "HandlePropertyTile"))
+        {
+            currentTile = null;
+            IsAwaitingChoice = false;
+            return;
+        }
         
         // For utilities, store the dice roll for rent calculation
         if (prop.propertyType == PropertyType.Utility)
@@ -1255,6 +1281,14 @@ public class Player : MonoBehaviour
         }
         
         Property prop = tile.property;
+        if (!ValidatePurchasablePropertyData(prop, tile, "BuyProperty"))
+        {
+            if (activeUIManager != null)
+                activeUIManager.HidePropertyPanel();
+            IsAwaitingChoice = false;
+            currentTile = null;
+            return;
+        }
         Debug.Log($"Player {playerName}: Attempting to buy: {prop.propertyName} for ₦{prop.price:N0}");
         Debug.Log($"Player {playerName}: Current wallet: ₦{wallet:N0}");
         
@@ -1380,20 +1414,27 @@ public class Player : MonoBehaviour
         bool startedAuction = false;
         if (tile != null && tile.property != null && tile.property.owner == null)
         {
-            if (turnManager != null)
-                turnManager.ShowResultMessage($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
-            else if (activeUIManager != null)
-                activeUIManager.ShowResultNotification($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
-            AuctionSystem auctionSystem = FindFirstObjectByType<AuctionSystem>();
-            if (auctionSystem != null)
+            if (ValidatePurchasablePropertyData(tile.property, tile, "SkipAction"))
             {
-                Debug.Log($"Player {playerName} declined to buy {tile.property.propertyName} - starting auction");
-                auctionSystem.StartAuction(tile.property, tile, this);
-                startedAuction = true;
+                if (turnManager != null)
+                    turnManager.ShowResultMessage($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
+                else if (activeUIManager != null)
+                    activeUIManager.ShowResultNotification($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
+                AuctionSystem auctionSystem = FindFirstObjectByType<AuctionSystem>();
+                if (auctionSystem != null)
+                {
+                    Debug.Log($"Player {playerName} declined to buy {tile.property.propertyName} - starting auction");
+                    auctionSystem.StartAuction(tile.property, tile, this);
+                    startedAuction = true;
+                }
+                else
+                {
+                    Debug.LogWarning("AuctionSystem not found! Property will remain unsold.");
+                }
             }
             else
             {
-                Debug.LogWarning("AuctionSystem not found! Property will remain unsold.");
+                Debug.LogWarning($"Player {playerName}: Skipped invalid property tile without starting auction.");
             }
         }
         

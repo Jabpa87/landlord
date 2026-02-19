@@ -9300,7 +9300,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t ChunkIndex_op_Implicit_m8
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mF6134C0EDCBBB961E6D98C4B22BA5D1DB8B394B1_gshared (BinarySerializationContext_1_t23512758D8EFF45D567234F08333EA078CB965B2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9321,7 +9321,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mF6134C0EDCBBB961E6D98C4B22BA5D1DB8B394B1(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m8CDE73D446DDD404B32907BB5A33821F933CB769_gshared (BinarySerializationContext_1_t23512758D8EFF45D567234F08333EA078CB965B2* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -9359,7 +9359,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m8CDE73D446DDD404B32907
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t23512758D8EFF45D567234F08333EA078CB965B2*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m8CDE73D446DDD404B32907BB5A33821F933CB769(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mB4BEE5F8478BE386664AE359C15F7D667597E1D8_gshared (BinarySerializationContext_1_t23512758D8EFF45D567234F08333EA078CB965B2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9380,7 +9380,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mB4BEE5F84
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t23512758D8EFF45D567234F08333EA078CB965B2*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mB4BEE5F8478BE386664AE359C15F7D667597E1D8(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m071C938FF7072160C514158A2FFCB055707BA5BD_gshared (BinarySerializationContext_1_t23512758D8EFF45D567234F08333EA078CB965B2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9408,7 +9408,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m3E813A443F818CD318E78BCE2E4907131EBFF230_gshared (BinarySerializationContext_1_tDCC6A027E99EBA66FB461944E00310864EA49B2B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9429,7 +9429,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m3E813A443F818CD318E78BCE2E4907131EBFF230(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m4F5497F93D98261731C630E5024601ED329968A6_gshared (BinarySerializationContext_1_tDCC6A027E99EBA66FB461944E00310864EA49B2B* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -9467,7 +9467,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m4F5497F93D98261731C630
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tDCC6A027E99EBA66FB461944E00310864EA49B2B*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m4F5497F93D98261731C630E5024601ED329968A6(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m247B6E9177A50B96EF72F6A0DDD1CD80A1DEA590_gshared (BinarySerializationContext_1_tDCC6A027E99EBA66FB461944E00310864EA49B2B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9488,7 +9488,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m247B6E917
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tDCC6A027E99EBA66FB461944E00310864EA49B2B*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m247B6E9177A50B96EF72F6A0DDD1CD80A1DEA590(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mD33437BBEDF51DBC42E064E1BF995337B6AF8027_gshared (BinarySerializationContext_1_tDCC6A027E99EBA66FB461944E00310864EA49B2B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9516,7 +9516,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mDD396EA886234A36C34C18EF066C3964EBEC936E_gshared (BinarySerializationContext_1_t4625CC8C0582933864DEE3090852FDD39E85B55F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9537,7 +9537,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mDD396EA886234A36C34C18EF066C3964EBEC936E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mDA3AA61FC7829E7205C8D37F17110134AEFA455E_gshared (BinarySerializationContext_1_t4625CC8C0582933864DEE3090852FDD39E85B55F* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, BlobAssetReferenceData_tF4066C18E41A2817A3C1144C8A2AE91A33894998 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -9575,7 +9575,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mDA3AA61FC7829E7205C8D3
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t4625CC8C0582933864DEE3090852FDD39E85B55F*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mDA3AA61FC7829E7205C8D37F17110134AEFA455E(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m41C53006C9616037BD28DD5C96B593D504639EC2_gshared (BinarySerializationContext_1_t4625CC8C0582933864DEE3090852FDD39E85B55F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9596,7 +9596,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m41C53006C
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t4625CC8C0582933864DEE3090852FDD39E85B55F*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m41C53006C9616037BD28DD5C96B593D504639EC2(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m93AD88202F9FA3382FAF40AFA0399E8BF84C828A_gshared (BinarySerializationContext_1_t4625CC8C0582933864DEE3090852FDD39E85B55F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9624,7 +9624,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m3185ADE5FB882728AB7330435D742B42E116592D_gshared (BinarySerializationContext_1_t58F83E7FD06BC45E54A6A472CBA2828C8836C388* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9645,7 +9645,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m3185ADE5FB882728AB7330435D742B42E116592D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mD77B9ADA6C930A359F391C37C694FF4998921802_gshared (BinarySerializationContext_1_t58F83E7FD06BC45E54A6A472CBA2828C8836C388* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, bool ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -9683,7 +9683,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mD77B9ADA6C930A359F391C
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t58F83E7FD06BC45E54A6A472CBA2828C8836C388*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mD77B9ADA6C930A359F391C37C694FF4998921802(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m0C5ACEED4F14A1BCB593DEB3579587040393D6BC_gshared (BinarySerializationContext_1_t58F83E7FD06BC45E54A6A472CBA2828C8836C388* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9704,7 +9704,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m0C5ACEED4
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t58F83E7FD06BC45E54A6A472CBA2828C8836C388*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m0C5ACEED4F14A1BCB593DEB3579587040393D6BC(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m8A4DDA6316516CDF1C4A059E1075379C51BDC7E8_gshared (BinarySerializationContext_1_t58F83E7FD06BC45E54A6A472CBA2828C8836C388* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9732,7 +9732,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m9B47C9E780203F682ACF1734BF648CB0CA0FC361_gshared (BinarySerializationContext_1_tAF69A20D10E691D4FADC4AE30CF3AC55E2D5F716* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9753,7 +9753,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m9B47C9E780203F682ACF1734BF648CB0CA0FC361(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m7DB96FE472FDCF07ADAA10E4E795E1D21E22210B_gshared (BinarySerializationContext_1_tAF69A20D10E691D4FADC4AE30CF3AC55E2D5F716* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, uint8_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -9791,7 +9791,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m7DB96FE472FDCF07ADAA10
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tAF69A20D10E691D4FADC4AE30CF3AC55E2D5F716*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m7DB96FE472FDCF07ADAA10E4E795E1D21E22210B(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mD61849AC89EFE3B213940261267CBDAD557CBF31_gshared (BinarySerializationContext_1_tAF69A20D10E691D4FADC4AE30CF3AC55E2D5F716* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9812,7 +9812,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mD61849AC8
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tAF69A20D10E691D4FADC4AE30CF3AC55E2D5F716*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mD61849AC89EFE3B213940261267CBDAD557CBF31(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mA8BE39ED511A51EA232670F2391C6BDC4B9D487B_gshared (BinarySerializationContext_1_tAF69A20D10E691D4FADC4AE30CF3AC55E2D5F716* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9840,7 +9840,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m686D25AE8219F5CB1AB8D5810E988D6A73A5F7C4_gshared (BinarySerializationContext_1_tE19DB0EDF3571A54489E9EAFEB29B46E21BCC65A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9861,7 +9861,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m686D25AE8219F5CB1AB8D5810E988D6A73A5F7C4(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m5E5305B3C58921578F9CF4908CCFA82E4EE4F5D8_gshared (BinarySerializationContext_1_tE19DB0EDF3571A54489E9EAFEB29B46E21BCC65A* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Il2CppChar ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -9899,7 +9899,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m5E5305B3C58921578F9CF4
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tE19DB0EDF3571A54489E9EAFEB29B46E21BCC65A*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m5E5305B3C58921578F9CF4908CCFA82E4EE4F5D8(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mCE095BD55092EE033D76889BFBDFB06F93240B7C_gshared (BinarySerializationContext_1_tE19DB0EDF3571A54489E9EAFEB29B46E21BCC65A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9920,7 +9920,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mCE095BD55
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tE19DB0EDF3571A54489E9EAFEB29B46E21BCC65A*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mCE095BD55092EE033D76889BFBDFB06F93240B7C(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m5388616A5CE7D7F8049830BAC9E1A454783F2B1F_gshared (BinarySerializationContext_1_tE19DB0EDF3571A54489E9EAFEB29B46E21BCC65A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9948,7 +9948,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m33BA1F87EC47E2A4617597A89BD070232C521C18_gshared (BinarySerializationContext_1_t125324B6E99A50EDCA92BCA462DBA22DE36898C5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9969,7 +9969,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m33BA1F87EC47E2A4617597A89BD070232C521C18(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m684CAE3E82D936DBDF91779ACA7C4EE1FFA92AC4_gshared (BinarySerializationContext_1_t125324B6E99A50EDCA92BCA462DBA22DE36898C5* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10007,7 +10007,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m684CAE3E82D936DBDF9177
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t125324B6E99A50EDCA92BCA462DBA22DE36898C5*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m684CAE3E82D936DBDF91779ACA7C4EE1FFA92AC4(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m20705836F5E9B226A8C74B9529A2E934715A961F_gshared (BinarySerializationContext_1_t125324B6E99A50EDCA92BCA462DBA22DE36898C5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10028,7 +10028,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m20705836F
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t125324B6E99A50EDCA92BCA462DBA22DE36898C5*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m20705836F5E9B226A8C74B9529A2E934715A961F(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m1EC9674570FF2F347E23F1B745D7D44A05FC3F63_gshared (BinarySerializationContext_1_t125324B6E99A50EDCA92BCA462DBA22DE36898C5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10056,7 +10056,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m7B3304CD2F1770D9CEEE3BD59CBEF310C7981A98_gshared (BinarySerializationContext_1_t5D7A6D228A30A3580FF6F51C9F58BAB4EDD43E4F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10077,7 +10077,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m7B3304CD2F1770D9CEEE3BD59CBEF310C7981A98(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mF19AAE111C377F752EF8B3DD0FF1CA7A6F76C3C4_gshared (BinarySerializationContext_1_t5D7A6D228A30A3580FF6F51C9F58BAB4EDD43E4F* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10116,7 +10116,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mF19AAE111C377F752EF8B3
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5D7A6D228A30A3580FF6F51C9F58BAB4EDD43E4F*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mF19AAE111C377F752EF8B3DD0FF1CA7A6F76C3C4(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mAF00A8CCA67D922BDA29131BDB2EDD315CB507EB_gshared (BinarySerializationContext_1_t5D7A6D228A30A3580FF6F51C9F58BAB4EDD43E4F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10137,7 +10137,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mAF00A8CCA
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5D7A6D228A30A3580FF6F51C9F58BAB4EDD43E4F*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mAF00A8CCA67D922BDA29131BDB2EDD315CB507EB(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m6F1B375902D5FE1657893C01510F4FAE35984C44_gshared (BinarySerializationContext_1_t5D7A6D228A30A3580FF6F51C9F58BAB4EDD43E4F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10165,7 +10165,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mA6D8D4FA469F3DACAE08408C2EAD707DCD27AED8_gshared (BinarySerializationContext_1_t1B6414F546C49B585350E3E36DB76E5F3D58945B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10186,7 +10186,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mA6D8D4FA469F3DACAE08408C2EAD707DCD27AED8(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m1CCA88CD8A82EE0D6C8B31A25B2DB7958DD45CF7_gshared (BinarySerializationContext_1_t1B6414F546C49B585350E3E36DB76E5F3D58945B* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10224,7 +10224,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m1CCA88CD8A82EE0D6C8B31
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t1B6414F546C49B585350E3E36DB76E5F3D58945B*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m1CCA88CD8A82EE0D6C8B31A25B2DB7958DD45CF7(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m62C7B29B7CA3EB670885195E32320785DF9A3222_gshared (BinarySerializationContext_1_t1B6414F546C49B585350E3E36DB76E5F3D58945B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10245,7 +10245,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m62C7B29B7
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t1B6414F546C49B585350E3E36DB76E5F3D58945B*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m62C7B29B7CA3EB670885195E32320785DF9A3222(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mC826F7B656CB07FE7A380E8BA35E8300E601B522_gshared (BinarySerializationContext_1_t1B6414F546C49B585350E3E36DB76E5F3D58945B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10273,7 +10273,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m7F3FD875DB2344D915F84BB9C322153FDE9B907E_gshared (BinarySerializationContext_1_t5F312B6A6C12E250FA952D06913160293CB26943* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10294,7 +10294,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m7F3FD875DB2344D915F84BB9C322153FDE9B907E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mC13CD95D9A7B6AC7BA3CE23FE17FE4D844268EFA_gshared (BinarySerializationContext_1_t5F312B6A6C12E250FA952D06913160293CB26943* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, double ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10332,7 +10332,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mC13CD95D9A7B6AC7BA3CE2
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5F312B6A6C12E250FA952D06913160293CB26943*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mC13CD95D9A7B6AC7BA3CE23FE17FE4D844268EFA(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m193B73F187DFE7B163FBB05346472062F8E24E28_gshared (BinarySerializationContext_1_t5F312B6A6C12E250FA952D06913160293CB26943* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10353,7 +10353,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m193B73F18
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5F312B6A6C12E250FA952D06913160293CB26943*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m193B73F187DFE7B163FBB05346472062F8E24E28(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m0D03570E8F057102535BEC03C48DF37A528231F9_gshared (BinarySerializationContext_1_t5F312B6A6C12E250FA952D06913160293CB26943* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10381,7 +10381,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mFE8F229682AD3D57FA10A969304982BBA2675A43_gshared (BinarySerializationContext_1_t46C1CED62F378E1C7D736AD0FEB7DE372493D4D4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10402,7 +10402,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mFE8F229682AD3D57FA10A969304982BBA2675A43(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m90A7A628047C9D7103A19E32C5CF9664047767BE_gshared (BinarySerializationContext_1_t46C1CED62F378E1C7D736AD0FEB7DE372493D4D4* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10440,7 +10440,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m90A7A628047C9D7103A19E
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t46C1CED62F378E1C7D736AD0FEB7DE372493D4D4*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m90A7A628047C9D7103A19E32C5CF9664047767BE(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m38B0497CD3A48C8273912D8B7ADF4EEBB0096B9A_gshared (BinarySerializationContext_1_t46C1CED62F378E1C7D736AD0FEB7DE372493D4D4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10461,7 +10461,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m38B0497CD
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t46C1CED62F378E1C7D736AD0FEB7DE372493D4D4*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m38B0497CD3A48C8273912D8B7ADF4EEBB0096B9A(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mE369B7070436610F0990B1D43AE94E083F83B468_gshared (BinarySerializationContext_1_t46C1CED62F378E1C7D736AD0FEB7DE372493D4D4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10489,7 +10489,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m353CED208275DA84FDA92315AB410CEBE898EAD2_gshared (BinarySerializationContext_1_t1D4FCEF4E1F3EEF2958CC9A57313631ADF1A6FCA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10510,7 +10510,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m353CED208275DA84FDA92315AB410CEBE898EAD2(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mD6FD907942D2C2D8A4162415A3AAF8E14A6CD96C_gshared (BinarySerializationContext_1_t1D4FCEF4E1F3EEF2958CC9A57313631ADF1A6FCA* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Entity_t56176FC78C475061A82383D9E0CEE352C6C52ABD ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10548,7 +10548,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mD6FD907942D2C2D8A41624
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t1D4FCEF4E1F3EEF2958CC9A57313631ADF1A6FCA*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mD6FD907942D2C2D8A4162415A3AAF8E14A6CD96C(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m3A34E721B2762EA4F26D43EDDB85FBDEB9C14A0D_gshared (BinarySerializationContext_1_t1D4FCEF4E1F3EEF2958CC9A57313631ADF1A6FCA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10569,7 +10569,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m3A34E721B
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t1D4FCEF4E1F3EEF2958CC9A57313631ADF1A6FCA*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m3A34E721B2762EA4F26D43EDDB85FBDEB9C14A0D(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mBC67057AFA56B6741DDFE808C119A81ADA3520C5_gshared (BinarySerializationContext_1_t1D4FCEF4E1F3EEF2958CC9A57313631ADF1A6FCA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10597,7 +10597,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mA3A4DBEA954DD34A1513FE6E39415FD66AFEB8D3_gshared (BinarySerializationContext_1_t928B99DCE22822DC0D2114ABFFE317E42D6AA5ED* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10618,7 +10618,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mA3A4DBEA954DD34A1513FE6E39415FD66AFEB8D3(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m9031E9B279CD14707FC2569A82BB66513144CE33_gshared (BinarySerializationContext_1_t928B99DCE22822DC0D2114ABFFE317E42D6AA5ED* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10660,7 +10660,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m9031E9B279CD14707FC256
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t928B99DCE22822DC0D2114ABFFE317E42D6AA5ED*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m9031E9B279CD14707FC2569A82BB66513144CE33(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m2C7C8C0935D9BF3471731F12BAAADC95C49BC343_gshared (BinarySerializationContext_1_t928B99DCE22822DC0D2114ABFFE317E42D6AA5ED* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10681,7 +10681,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m2C7C8C093
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t928B99DCE22822DC0D2114ABFFE317E42D6AA5ED*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m2C7C8C0935D9BF3471731F12BAAADC95C49BC343(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m126462929E7CD46D30D442FDB3E55804636AC498_gshared (BinarySerializationContext_1_t928B99DCE22822DC0D2114ABFFE317E42D6AA5ED* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10709,7 +10709,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m23A17E0B67858F0BFED7C0EC4E65F3AD46DE4A22_gshared (BinarySerializationContext_1_t5AECC94F2699300D602818BDF9033818F3F2FC06* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10730,7 +10730,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m23A17E0B67858F0BFED7C0EC4E65F3AD46DE4A22(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mA52BBD9C01FA67AF04B95F020FB7FD31660EBAE4_gshared (BinarySerializationContext_1_t5AECC94F2699300D602818BDF9033818F3F2FC06* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Guid_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10768,7 +10768,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mA52BBD9C01FA67AF04B95F
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5AECC94F2699300D602818BDF9033818F3F2FC06*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mA52BBD9C01FA67AF04B95F020FB7FD31660EBAE4(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m791A047468FF53842D7F273DD9CF5CB2760DDDE0_gshared (BinarySerializationContext_1_t5AECC94F2699300D602818BDF9033818F3F2FC06* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10789,7 +10789,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m791A04746
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5AECC94F2699300D602818BDF9033818F3F2FC06*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m791A047468FF53842D7F273DD9CF5CB2760DDDE0(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m51C7B212749A123316B8949AB9996DC7D6E299FF_gshared (BinarySerializationContext_1_t5AECC94F2699300D602818BDF9033818F3F2FC06* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10817,7 +10817,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m8A9E29FD0D925D5A8CD97B5D73C98962E3FCFFDD_gshared (BinarySerializationContext_1_t0491227DA8DF2198B70D33DB2E2126D3EB4D42F1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10838,7 +10838,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m8A9E29FD0D925D5A8CD97B5D73C98962E3FCFFDD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mCBFE62FF56EC62019A9A0B510CD272CCE821E2F8_gshared (BinarySerializationContext_1_t0491227DA8DF2198B70D33DB2E2126D3EB4D42F1* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, int16_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10876,7 +10876,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mCBFE62FF56EC62019A9A0B
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t0491227DA8DF2198B70D33DB2E2126D3EB4D42F1*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mCBFE62FF56EC62019A9A0B510CD272CCE821E2F8(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mB8066D529D46B070A313C39A6E8D7564D56AA1B7_gshared (BinarySerializationContext_1_t0491227DA8DF2198B70D33DB2E2126D3EB4D42F1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10897,7 +10897,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mB8066D529
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t0491227DA8DF2198B70D33DB2E2126D3EB4D42F1*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mB8066D529D46B070A313C39A6E8D7564D56AA1B7(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mC5604BF3FA7E256AB60AD00479B550D0B81D78A3_gshared (BinarySerializationContext_1_t0491227DA8DF2198B70D33DB2E2126D3EB4D42F1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10925,7 +10925,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m0F97B6B5367ACDE8A112C56633EF39C1A972D23F_gshared (BinarySerializationContext_1_t5646983FE60B0CA430B4E8DC56732F8B2E43E03D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -10946,7 +10946,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m0F97B6B5367ACDE8A112C56633EF39C1A972D23F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m13670727C0B1A97975E27807B83060035C3F3064_gshared (BinarySerializationContext_1_t5646983FE60B0CA430B4E8DC56732F8B2E43E03D* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, int32_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -10984,7 +10984,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m13670727C0B1A97975E278
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5646983FE60B0CA430B4E8DC56732F8B2E43E03D*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m13670727C0B1A97975E27807B83060035C3F3064(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mA6BAEF90D63CE2A1F90E1B9FC6823D6831909A8C_gshared (BinarySerializationContext_1_t5646983FE60B0CA430B4E8DC56732F8B2E43E03D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11005,7 +11005,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mA6BAEF90D
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5646983FE60B0CA430B4E8DC56732F8B2E43E03D*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mA6BAEF90D63CE2A1F90E1B9FC6823D6831909A8C(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mD3B21E3E83568E6F2A16D64037DB966F96677C23_gshared (BinarySerializationContext_1_t5646983FE60B0CA430B4E8DC56732F8B2E43E03D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11033,7 +11033,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m236FAE15A025D48A8D29A1FC4B8385D932D85D9E_gshared (BinarySerializationContext_1_t7D45F4B3B600F3CAB3428EC07F4B7A38AB132033* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11054,7 +11054,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m236FAE15A025D48A8D29A1FC4B8385D932D85D9E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mD1DE4DE9C7B4F6A08911EF2DB82E30B65C82ADC1_gshared (BinarySerializationContext_1_t7D45F4B3B600F3CAB3428EC07F4B7A38AB132033* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, int32_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -11092,7 +11092,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mD1DE4DE9C7B4F6A08911EF
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t7D45F4B3B600F3CAB3428EC07F4B7A38AB132033*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mD1DE4DE9C7B4F6A08911EF2DB82E30B65C82ADC1(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m3E48B5D86144A9DC38537477C15785D7F74C37D1_gshared (BinarySerializationContext_1_t7D45F4B3B600F3CAB3428EC07F4B7A38AB132033* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11113,7 +11113,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m3E48B5D86
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t7D45F4B3B600F3CAB3428EC07F4B7A38AB132033*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m3E48B5D86144A9DC38537477C15785D7F74C37D1(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m2E1444A700AFBEE1D4EBC65B0D5E46FD23C53285_gshared (BinarySerializationContext_1_t7D45F4B3B600F3CAB3428EC07F4B7A38AB132033* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11141,7 +11141,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m868353889D4BA1F1CE162AFD575DF19AD49B8BED_gshared (BinarySerializationContext_1_t462D76FA82F737AB7361C3D100E4FA898AB8695E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11162,7 +11162,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m868353889D4BA1F1CE162AFD575DF19AD49B8BED(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m9A8FAFFDE408128F9621379E89FB0A0BB9DDB181_gshared (BinarySerializationContext_1_t462D76FA82F737AB7361C3D100E4FA898AB8695E* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, int64_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -11200,7 +11200,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m9A8FAFFDE408128F962137
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t462D76FA82F737AB7361C3D100E4FA898AB8695E*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m9A8FAFFDE408128F9621379E89FB0A0BB9DDB181(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m5DB752CF0439A76956828499BBD5BDA13E34632A_gshared (BinarySerializationContext_1_t462D76FA82F737AB7361C3D100E4FA898AB8695E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11221,7 +11221,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m5DB752CF0
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t462D76FA82F737AB7361C3D100E4FA898AB8695E*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m5DB752CF0439A76956828499BBD5BDA13E34632A(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m2BF291A4D22210FABED363F0212118F793AE386B_gshared (BinarySerializationContext_1_t462D76FA82F737AB7361C3D100E4FA898AB8695E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11249,7 +11249,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m47C2815630213381770C9382A160D24EC53318FA_gshared (BinarySerializationContext_1_t385FA1AC4492D05DE688AB3369DCBC32C6863740* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11270,7 +11270,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m47C2815630213381770C9382A160D24EC53318FA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m38F12AE46011CD0B6F573A3FF20246A9E2EDCF6A_gshared (BinarySerializationContext_1_t385FA1AC4492D05DE688AB3369DCBC32C6863740* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -11308,7 +11308,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m38F12AE46011CD0B6F573A
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t385FA1AC4492D05DE688AB3369DCBC32C6863740*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m38F12AE46011CD0B6F573A3FF20246A9E2EDCF6A(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m74ECD2F1DBE877D49D7F3492171116A7CFDCF104_gshared (BinarySerializationContext_1_t385FA1AC4492D05DE688AB3369DCBC32C6863740* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11329,7 +11329,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m74ECD2F1D
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t385FA1AC4492D05DE688AB3369DCBC32C6863740*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m74ECD2F1DBE877D49D7F3492171116A7CFDCF104(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m4CDA47F2F8D0F87678BB035BAC9923521883ED1B_gshared (BinarySerializationContext_1_t385FA1AC4492D05DE688AB3369DCBC32C6863740* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11357,7 +11357,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mBAA2B45510DDC63C05E704736D53DAE949F1E8C6_gshared (BinarySerializationContext_1_t85C0DC881DE9AC260199A4D69E50C1A51575CF77* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11378,7 +11378,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mBAA2B45510DDC63C05E704736D53DAE949F1E8C6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mCC9FEBF333A4686A7D8556BD999E66DBE988D41F_gshared (BinarySerializationContext_1_t85C0DC881DE9AC260199A4D69E50C1A51575CF77* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, RuntimeObject* ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -11417,7 +11417,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mCC9FEBF333A4686A7D8556
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t85C0DC881DE9AC260199A4D69E50C1A51575CF77*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mCC9FEBF333A4686A7D8556BD999E66DBE988D41F(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m3480C3875514D7992A652B0272B78AFFB984F356_gshared (BinarySerializationContext_1_t85C0DC881DE9AC260199A4D69E50C1A51575CF77* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11438,7 +11438,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m3480C3875
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t85C0DC881DE9AC260199A4D69E50C1A51575CF77*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m3480C3875514D7992A652B0272B78AFFB984F356(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mB70FA31FDDBA5B2CBA5FF40BFBA88BC4F259A784_gshared (BinarySerializationContext_1_t85C0DC881DE9AC260199A4D69E50C1A51575CF77* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11466,7 +11466,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mDA4CA0C8DA108E1E26CF3873B31EBE9E25680052_gshared (BinarySerializationContext_1_t39DBE3F603E5B02C6B851BE28CAAE9E1491134A5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11487,7 +11487,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mDA4CA0C8DA108E1E26CF3873B31EBE9E25680052(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mA957D9558069410828B8448797AE38341FAA9A0F_gshared (BinarySerializationContext_1_t39DBE3F603E5B02C6B851BE28CAAE9E1491134A5* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -11525,7 +11525,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mA957D9558069410828B844
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t39DBE3F603E5B02C6B851BE28CAAE9E1491134A5*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mA957D9558069410828B8448797AE38341FAA9A0F(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m809C0726805216F9048B34084F98C3149AD49FF3_gshared (BinarySerializationContext_1_t39DBE3F603E5B02C6B851BE28CAAE9E1491134A5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11546,7 +11546,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m809C07268
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t39DBE3F603E5B02C6B851BE28CAAE9E1491134A5*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m809C0726805216F9048B34084F98C3149AD49FF3(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m37C36A2627DBC2AB1AFA1F761B7D224E17062429_gshared (BinarySerializationContext_1_t39DBE3F603E5B02C6B851BE28CAAE9E1491134A5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11574,7 +11574,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mF2250652790EE4B67616D19A0CF06584AEB4682F_gshared (BinarySerializationContext_1_t39F9FB91E14CE625DDA18B6BDFF6CA511926D746* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11595,7 +11595,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mF2250652790EE4B67616D19A0CF06584AEB4682F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mBDB202DD7D9825702C08C5499D891BB3A5D180B3_gshared (BinarySerializationContext_1_t39F9FB91E14CE625DDA18B6BDFF6CA511926D746* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, int8_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -11633,7 +11633,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mBDB202DD7D9825702C08C5
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t39F9FB91E14CE625DDA18B6BDFF6CA511926D746*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mBDB202DD7D9825702C08C5499D891BB3A5D180B3(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m22BB1D17AA3DF6AA25F0E74A6DA8780C3D457B2E_gshared (BinarySerializationContext_1_t39F9FB91E14CE625DDA18B6BDFF6CA511926D746* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11654,7 +11654,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m22BB1D17A
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t39F9FB91E14CE625DDA18B6BDFF6CA511926D746*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m22BB1D17AA3DF6AA25F0E74A6DA8780C3D457B2E(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mF9BE43F90EE53E0983F06D1DF313639B82ECA6E0_gshared (BinarySerializationContext_1_t39F9FB91E14CE625DDA18B6BDFF6CA511926D746* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11682,7 +11682,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m6DCF09133197B3EF19BA6F95DCC36A9AF4BCECAF_gshared (BinarySerializationContext_1_t0535D670FC8FFFFDF5094C2433D5702828BDEA0F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11703,7 +11703,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m6DCF09133197B3EF19BA6F95DCC36A9AF4BCECAF(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m0FFA54EC975B5C585B4E0630281119F9CC913C2B_gshared (BinarySerializationContext_1_t0535D670FC8FFFFDF5094C2433D5702828BDEA0F* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -11741,7 +11741,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m0FFA54EC975B5C585B4E06
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t0535D670FC8FFFFDF5094C2433D5702828BDEA0F*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m0FFA54EC975B5C585B4E0630281119F9CC913C2B(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m7578A062338AB448E32F7F3B65A47DECD79012C1_gshared (BinarySerializationContext_1_t0535D670FC8FFFFDF5094C2433D5702828BDEA0F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11762,7 +11762,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m7578A0623
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t0535D670FC8FFFFDF5094C2433D5702828BDEA0F*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m7578A062338AB448E32F7F3B65A47DECD79012C1(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m3AA10F290587889F5F16EE1D50F70DA522DCFCD5_gshared (BinarySerializationContext_1_t0535D670FC8FFFFDF5094C2433D5702828BDEA0F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11790,7 +11790,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mCD886784F2832F2CABB28DDC757A7038B59B1246_gshared (BinarySerializationContext_1_tB78C4B0E36380C5874742EE51D9C27C98A6B2027* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11811,7 +11811,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mCD886784F2832F2CABB28DDC757A7038B59B1246(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m76178F0B65993D651B91C40C8D518C315DC48CC6_gshared (BinarySerializationContext_1_tB78C4B0E36380C5874742EE51D9C27C98A6B2027* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -11849,7 +11849,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m76178F0B65993D651B91C4
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tB78C4B0E36380C5874742EE51D9C27C98A6B2027*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m76178F0B65993D651B91C40C8D518C315DC48CC6(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m140A93F1ED38FACF695E363A7734091A639C4699_gshared (BinarySerializationContext_1_tB78C4B0E36380C5874742EE51D9C27C98A6B2027* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11870,7 +11870,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m140A93F1E
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tB78C4B0E36380C5874742EE51D9C27C98A6B2027*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m140A93F1ED38FACF695E363A7734091A639C4699(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mA5FFB955D3C5285F42D7513E8C307B167CD84620_gshared (BinarySerializationContext_1_tB78C4B0E36380C5874742EE51D9C27C98A6B2027* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11898,7 +11898,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mC8A1739ED718D0CD09A2C54942FF8D54EBD6DCBF_gshared (BinarySerializationContext_1_t4A47855AA5F56EA0DBBFEE7A140F2EF0E02DCC2A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11919,7 +11919,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mC8A1739ED718D0CD09A2C54942FF8D54EBD6DCBF(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mAE72D73BFB1D48F225AF8EE6D2D7418D6519F3FB_gshared (BinarySerializationContext_1_t4A47855AA5F56EA0DBBFEE7A140F2EF0E02DCC2A* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, float ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -11957,7 +11957,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mAE72D73BFB1D48F225AF8E
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t4A47855AA5F56EA0DBBFEE7A140F2EF0E02DCC2A*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mAE72D73BFB1D48F225AF8EE6D2D7418D6519F3FB(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m3C256CA166749717CA74FA751D038F552DB692C9_gshared (BinarySerializationContext_1_t4A47855AA5F56EA0DBBFEE7A140F2EF0E02DCC2A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -11978,7 +11978,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m3C256CA16
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t4A47855AA5F56EA0DBBFEE7A140F2EF0E02DCC2A*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m3C256CA166749717CA74FA751D038F552DB692C9(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m405B10198241D12844BE7F147EBF388F1FD161F9_gshared (BinarySerializationContext_1_t4A47855AA5F56EA0DBBFEE7A140F2EF0E02DCC2A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12006,7 +12006,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m53CDE857B175D9A28EE0746DF4454F82A77A4B53_gshared (BinarySerializationContext_1_t7044F75982A45B96980EBEAB37077E031EA2F21C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12027,7 +12027,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m53CDE857B175D9A28EE0746DF4454F82A77A4B53(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m7E1B5BFF34263D36BCAA45F58F7FF3F5C5181570_gshared (BinarySerializationContext_1_t7044F75982A45B96980EBEAB37077E031EA2F21C* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -12075,7 +12075,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m7E1B5BFF34263D36BCAA45
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t7044F75982A45B96980EBEAB37077E031EA2F21C*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m7E1B5BFF34263D36BCAA45F58F7FF3F5C5181570(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mC89A8B3975712D418FBF45C7855D56F8AA993721_gshared (BinarySerializationContext_1_t7044F75982A45B96980EBEAB37077E031EA2F21C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12096,7 +12096,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mC89A8B397
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t7044F75982A45B96980EBEAB37077E031EA2F21C*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mC89A8B3975712D418FBF45C7855D56F8AA993721(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m4B48DF8C0F2257EC1EB4FE8459EB7FA0FD640F2C_gshared (BinarySerializationContext_1_t7044F75982A45B96980EBEAB37077E031EA2F21C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12124,7 +12124,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mF516A8AF6D581F188FEDDC9457116DAE0B69B92F_gshared (BinarySerializationContext_1_t93B2A2EC0F7EC348F462EB644BC2C06B7CCFC5E9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12145,7 +12145,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mF516A8AF6D581F188FEDDC9457116DAE0B69B92F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mDED974EF4401021F29C13E07FDD1CF5EF8F424B5_gshared (BinarySerializationContext_1_t93B2A2EC0F7EC348F462EB644BC2C06B7CCFC5E9* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -12183,7 +12183,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mDED974EF4401021F29C13E
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t93B2A2EC0F7EC348F462EB644BC2C06B7CCFC5E9*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mDED974EF4401021F29C13E07FDD1CF5EF8F424B5(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m3F0057EAAD361EE96DAE25F73EAA21A54CBC0FBC_gshared (BinarySerializationContext_1_t93B2A2EC0F7EC348F462EB644BC2C06B7CCFC5E9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12204,7 +12204,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m3F0057EAA
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t93B2A2EC0F7EC348F462EB644BC2C06B7CCFC5E9*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m3F0057EAAD361EE96DAE25F73EAA21A54CBC0FBC(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m1A991B8FBE8B00A218502E4E6B4C4272AFCF44C9_gshared (BinarySerializationContext_1_t93B2A2EC0F7EC348F462EB644BC2C06B7CCFC5E9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12232,7 +12232,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mC0EEFDF9A51BC5E811DED716788B890CEBD4FCD3_gshared (BinarySerializationContext_1_tD28DC01BE0561A875789AB296A5DB05D8684C62A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12253,7 +12253,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mC0EEFDF9A51BC5E811DED716788B890CEBD4FCD3(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mFFC5C6DABD693CA710FDA0A46E6CD4FAFB469D77_gshared (BinarySerializationContext_1_tD28DC01BE0561A875789AB296A5DB05D8684C62A* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -12291,7 +12291,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mFFC5C6DABD693CA710FDA0
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tD28DC01BE0561A875789AB296A5DB05D8684C62A*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mFFC5C6DABD693CA710FDA0A46E6CD4FAFB469D77(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mA2877ED6754BDD2D0BF290D0F3D08E08E5DB9598_gshared (BinarySerializationContext_1_tD28DC01BE0561A875789AB296A5DB05D8684C62A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12312,7 +12312,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mA2877ED67
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tD28DC01BE0561A875789AB296A5DB05D8684C62A*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mA2877ED6754BDD2D0BF290D0F3D08E08E5DB9598(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m41CB91EABAD20821ABB6F66A85F525FA142AF609_gshared (BinarySerializationContext_1_tD28DC01BE0561A875789AB296A5DB05D8684C62A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12340,7 +12340,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m8BD9326F8E15DF7CD378C963BE0B7EF738153081_gshared (BinarySerializationContext_1_t2EFC5AE74317D749C8F859F61067F5E585240DF1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12361,7 +12361,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m8BD9326F8E15DF7CD378C963BE0B7EF738153081(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m2CC11C63EF30F4AFD45DB8279C2913CC5372AA69_gshared (BinarySerializationContext_1_t2EFC5AE74317D749C8F859F61067F5E585240DF1* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -12399,7 +12399,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m2CC11C63EF30F4AFD45DB8
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t2EFC5AE74317D749C8F859F61067F5E585240DF1*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m2CC11C63EF30F4AFD45DB8279C2913CC5372AA69(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m26F7DB51C7898FBC360FB6F8247B8DA75FF729E3_gshared (BinarySerializationContext_1_t2EFC5AE74317D749C8F859F61067F5E585240DF1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12420,7 +12420,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m26F7DB51C
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t2EFC5AE74317D749C8F859F61067F5E585240DF1*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m26F7DB51C7898FBC360FB6F8247B8DA75FF729E3(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mA3E1806185788FE1BF05A61C78361EA748FACFF9_gshared (BinarySerializationContext_1_t2EFC5AE74317D749C8F859F61067F5E585240DF1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12448,7 +12448,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m1BAB2D05690ABDABF1DFE48C67AFB1CCA3A97A10_gshared (BinarySerializationContext_1_tE15F03D7CFACDD6B6EC3C674CB286D889C4D9450* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12469,7 +12469,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m1BAB2D05690ABDABF1DFE48C67AFB1CCA3A97A10(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m0886E9ECE3CD3B3B8AAC9E494F4CC81C152F5B66_gshared (BinarySerializationContext_1_tE15F03D7CFACDD6B6EC3C674CB286D889C4D9450* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -12507,7 +12507,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m0886E9ECE3CD3B3B8AAC9E
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tE15F03D7CFACDD6B6EC3C674CB286D889C4D9450*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m0886E9ECE3CD3B3B8AAC9E494F4CC81C152F5B66(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m492998F8F397AA0466731535319C660849F233C8_gshared (BinarySerializationContext_1_tE15F03D7CFACDD6B6EC3C674CB286D889C4D9450* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12528,7 +12528,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m492998F8F
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tE15F03D7CFACDD6B6EC3C674CB286D889C4D9450*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m492998F8F397AA0466731535319C660849F233C8(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m2901C6D9B3C79BD1E4B3F48CC395CFED9F914FB2_gshared (BinarySerializationContext_1_tE15F03D7CFACDD6B6EC3C674CB286D889C4D9450* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12556,7 +12556,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m9BEABED1C6D3DD42E9B0C1642E3248D67F2300AB_gshared (BinarySerializationContext_1_t211F1D1F53D20D9FA20606975E9ADB364C172F53* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12577,7 +12577,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m9BEABED1C6D3DD42E9B0C1642E3248D67F2300AB(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mA52CDB992540883ED5AA309114071FB91D8D7767_gshared (BinarySerializationContext_1_t211F1D1F53D20D9FA20606975E9ADB364C172F53* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -12616,7 +12616,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mA52CDB992540883ED5AA30
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t211F1D1F53D20D9FA20606975E9ADB364C172F53*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mA52CDB992540883ED5AA309114071FB91D8D7767(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mACA1A7494FAC82A5BAC2E77B9A8606FEECAA574D_gshared (BinarySerializationContext_1_t211F1D1F53D20D9FA20606975E9ADB364C172F53* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12637,7 +12637,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mACA1A7494
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t211F1D1F53D20D9FA20606975E9ADB364C172F53*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mACA1A7494FAC82A5BAC2E77B9A8606FEECAA574D(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m5702A3154F83C8A1AD38E810A510C3A40B42C649_gshared (BinarySerializationContext_1_t211F1D1F53D20D9FA20606975E9ADB364C172F53* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12665,7 +12665,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mE5EF8F17A750897C991DDC055D4D8FAE9C7618A6_gshared (BinarySerializationContext_1_tCE85A5984C96AF32E191A19967472669DE1ED915* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12686,7 +12686,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mE5EF8F17A750897C991DDC055D4D8FAE9C7618A6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m1E160C629CFA0118F1CE83EBE2ED59C6856E3856_gshared (BinarySerializationContext_1_tCE85A5984C96AF32E191A19967472669DE1ED915* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -12724,7 +12724,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m1E160C629CFA0118F1CE83
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tCE85A5984C96AF32E191A19967472669DE1ED915*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m1E160C629CFA0118F1CE83EBE2ED59C6856E3856(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m62CAD5B9163A901CC42D078221E95180B6233FE9_gshared (BinarySerializationContext_1_tCE85A5984C96AF32E191A19967472669DE1ED915* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12745,7 +12745,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m62CAD5B91
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tCE85A5984C96AF32E191A19967472669DE1ED915*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m62CAD5B9163A901CC42D078221E95180B6233FE9(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m28A0F30A48B75F03BDC7EF36D925DA32BDA355D5_gshared (BinarySerializationContext_1_tCE85A5984C96AF32E191A19967472669DE1ED915* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12773,7 +12773,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m06983E2F86788FC38A51AE36A1A25F86C1645AA4_gshared (BinarySerializationContext_1_t517F1D77FFA584325388648AD393437FF123B0C1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12794,7 +12794,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m06983E2F86788FC38A51AE36A1A25F86C1645AA4(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mD1AF02219AFA346E93E75189CDA5B782D7A61BDD_gshared (BinarySerializationContext_1_t517F1D77FFA584325388648AD393437FF123B0C1* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -12833,7 +12833,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mD1AF02219AFA346E93E751
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t517F1D77FFA584325388648AD393437FF123B0C1*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mD1AF02219AFA346E93E75189CDA5B782D7A61BDD(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m39C8FD28B288182E90CD9E64BBE41913E5170057_gshared (BinarySerializationContext_1_t517F1D77FFA584325388648AD393437FF123B0C1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12854,7 +12854,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m39C8FD28B
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t517F1D77FFA584325388648AD393437FF123B0C1*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m39C8FD28B288182E90CD9E64BBE41913E5170057(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m557D45F0C88FFD5C662C343F1CB75F734166E5AF_gshared (BinarySerializationContext_1_t517F1D77FFA584325388648AD393437FF123B0C1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12882,7 +12882,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m903394E7EB6E13ABB71B4ADDB1818ABBA0863015_gshared (BinarySerializationContext_1_tCA4AD0F933E59DD2AE5E1CBAB724331C02CFAADD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12903,7 +12903,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m903394E7EB6E13ABB71B4ADDB1818ABBA0863015(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mE16005F63AC587FBE1A23D6EC332FD33F496754A_gshared (BinarySerializationContext_1_tCA4AD0F933E59DD2AE5E1CBAB724331C02CFAADD* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -12945,7 +12945,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mE16005F63AC587FBE1A23D
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tCA4AD0F933E59DD2AE5E1CBAB724331C02CFAADD*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mE16005F63AC587FBE1A23D6EC332FD33F496754A(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m11F85AD3909BD1623F13868284B6016BB3ED2ABD_gshared (BinarySerializationContext_1_tCA4AD0F933E59DD2AE5E1CBAB724331C02CFAADD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12966,7 +12966,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m11F85AD39
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tCA4AD0F933E59DD2AE5E1CBAB724331C02CFAADD*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m11F85AD3909BD1623F13868284B6016BB3ED2ABD(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mFC01234145485E77114D197E4C3CA2AEA693C6A6_gshared (BinarySerializationContext_1_tCA4AD0F933E59DD2AE5E1CBAB724331C02CFAADD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -12994,7 +12994,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m14B5CF1BCA230013B40DFAE2618E25EAEF6AAE8B_gshared (BinarySerializationContext_1_t765B4E27FC3689A87E47B2A836D5DC2E0C3CB2A8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13015,7 +13015,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m14B5CF1BCA230013B40DFAE2618E25EAEF6AAE8B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mA4F435E2EDD0B7400D4D663F2E4BDF1CD10CD09F_gshared (BinarySerializationContext_1_t765B4E27FC3689A87E47B2A836D5DC2E0C3CB2A8* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13053,7 +13053,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mA4F435E2EDD0B7400D4D66
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t765B4E27FC3689A87E47B2A836D5DC2E0C3CB2A8*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mA4F435E2EDD0B7400D4D663F2E4BDF1CD10CD09F(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m9E30D88288F6CF56B1B51DA19B753C24DED8C2CA_gshared (BinarySerializationContext_1_t765B4E27FC3689A87E47B2A836D5DC2E0C3CB2A8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13074,7 +13074,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m9E30D8828
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t765B4E27FC3689A87E47B2A836D5DC2E0C3CB2A8*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m9E30D88288F6CF56B1B51DA19B753C24DED8C2CA(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m2F05D82E5AE8A372EDEC928F91336B7FA7A4BC9F_gshared (BinarySerializationContext_1_t765B4E27FC3689A87E47B2A836D5DC2E0C3CB2A8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13102,7 +13102,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mFB55FF678112E5E3C5BF7F2B9ECF8C17C1B02B26_gshared (BinarySerializationContext_1_t22C890B5C8D5C161EA4DC856D0F604688C952100* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13123,7 +13123,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mFB55FF678112E5E3C5BF7F2B9ECF8C17C1B02B26(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mA6F7CC4F8B2DE19997B86A0B567789B370D30307_gshared (BinarySerializationContext_1_t22C890B5C8D5C161EA4DC856D0F604688C952100* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13161,7 +13161,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mA6F7CC4F8B2DE19997B86A
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t22C890B5C8D5C161EA4DC856D0F604688C952100*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mA6F7CC4F8B2DE19997B86A0B567789B370D30307(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mEF2C6E9770BD6F3A135989ACEB2FFCE3A504F954_gshared (BinarySerializationContext_1_t22C890B5C8D5C161EA4DC856D0F604688C952100* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13182,7 +13182,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mEF2C6E977
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t22C890B5C8D5C161EA4DC856D0F604688C952100*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mEF2C6E9770BD6F3A135989ACEB2FFCE3A504F954(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mAB1F96508A87FD77B05193E6963C8C10D304C1DA_gshared (BinarySerializationContext_1_t22C890B5C8D5C161EA4DC856D0F604688C952100* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13210,7 +13210,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m30DBFB2F10CFE98416F39DD7C59D32CBBEC06D87_gshared (BinarySerializationContext_1_t2FA8E2C0F5DB073046F0DD77A90274C356E12C55* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13231,7 +13231,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m30DBFB2F10CFE98416F39DD7C59D32CBBEC06D87(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m17CFA04ADAF3F38D65DBB4F327B778A3FDDE04EC_gshared (BinarySerializationContext_1_t2FA8E2C0F5DB073046F0DD77A90274C356E12C55* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13270,7 +13270,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m17CFA04ADAF3F38D65DBB4
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t2FA8E2C0F5DB073046F0DD77A90274C356E12C55*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m17CFA04ADAF3F38D65DBB4F327B778A3FDDE04EC(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mF443F741749FC41ECE7EBC8B133DBC40D5D1095D_gshared (BinarySerializationContext_1_t2FA8E2C0F5DB073046F0DD77A90274C356E12C55* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13291,7 +13291,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mF443F7417
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t2FA8E2C0F5DB073046F0DD77A90274C356E12C55*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mF443F741749FC41ECE7EBC8B133DBC40D5D1095D(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m02E423D4BDE858D840376545498EA9D595FDE846_gshared (BinarySerializationContext_1_t2FA8E2C0F5DB073046F0DD77A90274C356E12C55* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13319,7 +13319,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mA10A5588AF1DC26D0331DD78F82EE59F3E00A468_gshared (BinarySerializationContext_1_tD4BA28C31EF0DB5D9F560BD4307DC4E3386DEEEA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13340,7 +13340,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mA10A5588AF1DC26D0331DD78F82EE59F3E00A468(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mDE33A20CEFFE5A084EF982EA5E86CC9A43FD496A_gshared (BinarySerializationContext_1_tD4BA28C31EF0DB5D9F560BD4307DC4E3386DEEEA* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13378,7 +13378,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mDE33A20CEFFE5A084EF982
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tD4BA28C31EF0DB5D9F560BD4307DC4E3386DEEEA*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mDE33A20CEFFE5A084EF982EA5E86CC9A43FD496A(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m865F084F0DBFE993DC445E10E926933387DA47BA_gshared (BinarySerializationContext_1_tD4BA28C31EF0DB5D9F560BD4307DC4E3386DEEEA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13399,7 +13399,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m865F084F0
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tD4BA28C31EF0DB5D9F560BD4307DC4E3386DEEEA*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m865F084F0DBFE993DC445E10E926933387DA47BA(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m008DEA10BECC9E5809E974245BD62E0967D0CB23_gshared (BinarySerializationContext_1_tD4BA28C31EF0DB5D9F560BD4307DC4E3386DEEEA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13427,7 +13427,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mA690873FB92D575B8708D8E024F5741606AB0C8E_gshared (BinarySerializationContext_1_tC009228BCCA0A1BDA5590389D555C6700E22B73D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13448,7 +13448,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mA690873FB92D575B8708D8E024F5741606AB0C8E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mDD12094B889043CB391C245FCC1D7F9871B216FB_gshared (BinarySerializationContext_1_tC009228BCCA0A1BDA5590389D555C6700E22B73D* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13486,7 +13486,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mDD12094B889043CB391C24
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tC009228BCCA0A1BDA5590389D555C6700E22B73D*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mDD12094B889043CB391C245FCC1D7F9871B216FB(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mF96828F7560CBDBA067C954A2B7A880818792823_gshared (BinarySerializationContext_1_tC009228BCCA0A1BDA5590389D555C6700E22B73D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13507,7 +13507,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mF96828F75
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tC009228BCCA0A1BDA5590389D555C6700E22B73D*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mF96828F7560CBDBA067C954A2B7A880818792823(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m6BD0AF26616291636E485FF0F6FE659ED46501E7_gshared (BinarySerializationContext_1_tC009228BCCA0A1BDA5590389D555C6700E22B73D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13535,7 +13535,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m9D8E9E7ABFE289E846A1C3A814590E528BE3BBE7_gshared (BinarySerializationContext_1_tD40A19AD5E710DF63086B0E978FC7A01A1641A5E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13556,7 +13556,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m9D8E9E7ABFE289E846A1C3A814590E528BE3BBE7(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m9B95BFBC5623148B4A83EB48860916887F2C0C43_gshared (BinarySerializationContext_1_tD40A19AD5E710DF63086B0E978FC7A01A1641A5E* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13594,7 +13594,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m9B95BFBC5623148B4A83EB
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tD40A19AD5E710DF63086B0E978FC7A01A1641A5E*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m9B95BFBC5623148B4A83EB48860916887F2C0C43(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m7808145875DB0CAC2AA910366B035D903D5B9C6E_gshared (BinarySerializationContext_1_tD40A19AD5E710DF63086B0E978FC7A01A1641A5E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13615,7 +13615,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m780814587
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tD40A19AD5E710DF63086B0E978FC7A01A1641A5E*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m7808145875DB0CAC2AA910366B035D903D5B9C6E(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m7683D9B544EF7488E08DD708AF6C82E5D0D48F60_gshared (BinarySerializationContext_1_tD40A19AD5E710DF63086B0E978FC7A01A1641A5E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13643,7 +13643,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m4BAC8082865257AD7B329649BCEF39F4D4720961_gshared (BinarySerializationContext_1_tAD1DE24A69E04FE2A8FB22ADEC102BF2C6F9D58C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13664,7 +13664,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m4BAC8082865257AD7B329649BCEF39F4D4720961(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m2A1F6D53AD84620D0F1906272C64B973EB7198BF_gshared (BinarySerializationContext_1_tAD1DE24A69E04FE2A8FB22ADEC102BF2C6F9D58C* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13702,7 +13702,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m2A1F6D53AD84620D0F1906
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tAD1DE24A69E04FE2A8FB22ADEC102BF2C6F9D58C*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m2A1F6D53AD84620D0F1906272C64B973EB7198BF(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mF2D1F87EAEDAD620ED1C16452E4260A2B4D984C7_gshared (BinarySerializationContext_1_tAD1DE24A69E04FE2A8FB22ADEC102BF2C6F9D58C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13723,7 +13723,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mF2D1F87EA
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tAD1DE24A69E04FE2A8FB22ADEC102BF2C6F9D58C*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mF2D1F87EAEDAD620ED1C16452E4260A2B4D984C7(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m4C03B0889864516E6C52A65DBB62B98CC5624E53_gshared (BinarySerializationContext_1_tAD1DE24A69E04FE2A8FB22ADEC102BF2C6F9D58C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13751,7 +13751,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mCC9F2C4617ED1BF4654BE9EA8CC4FC6A40A40ACA_gshared (BinarySerializationContext_1_t2277833063CFDFD0B6393C67FDFD0E0F6384E85A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13772,7 +13772,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mCC9F2C4617ED1BF4654BE9EA8CC4FC6A40A40ACA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mFD0E041EFE33A3FD36D772E4BAD953E2A24739FD_gshared (BinarySerializationContext_1_t2277833063CFDFD0B6393C67FDFD0E0F6384E85A* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13810,7 +13810,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mFD0E041EFE33A3FD36D772
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t2277833063CFDFD0B6393C67FDFD0E0F6384E85A*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mFD0E041EFE33A3FD36D772E4BAD953E2A24739FD(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mB79C94EE5A666D20D848D75E1F6DDA99E95B525B_gshared (BinarySerializationContext_1_t2277833063CFDFD0B6393C67FDFD0E0F6384E85A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13831,7 +13831,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mB79C94EE5
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t2277833063CFDFD0B6393C67FDFD0E0F6384E85A*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mB79C94EE5A666D20D848D75E1F6DDA99E95B525B(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mED2B8692F6DACE6664D99ABBFB2B01735AEB75A0_gshared (BinarySerializationContext_1_t2277833063CFDFD0B6393C67FDFD0E0F6384E85A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13859,7 +13859,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mA76ECD36E1ABC0A32A28BA99F8707925F67FACAA_gshared (BinarySerializationContext_1_tB8F89A395E3E22FDB009CECCBC12FFAFD3D1B7BB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13880,7 +13880,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mA76ECD36E1ABC0A32A28BA99F8707925F67FACAA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mCDEA02A24FB17D4842AFDE8FCE4BA40D06F5128C_gshared (BinarySerializationContext_1_tB8F89A395E3E22FDB009CECCBC12FFAFD3D1B7BB* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13918,7 +13918,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mCDEA02A24FB17D4842AFDE
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tB8F89A395E3E22FDB009CECCBC12FFAFD3D1B7BB*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mCDEA02A24FB17D4842AFDE8FCE4BA40D06F5128C(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mEA0835E2260824A7DE6C3C750DAF21D464B46686_gshared (BinarySerializationContext_1_tB8F89A395E3E22FDB009CECCBC12FFAFD3D1B7BB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13939,7 +13939,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mEA0835E22
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tB8F89A395E3E22FDB009CECCBC12FFAFD3D1B7BB*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mEA0835E2260824A7DE6C3C750DAF21D464B46686(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m0760FF663F695FAF5D36B47FBAB48C2543E2569B_gshared (BinarySerializationContext_1_tB8F89A395E3E22FDB009CECCBC12FFAFD3D1B7BB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13967,7 +13967,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m7CADE49ED3FAE5C54A1F10EE4D453D0A25E3BEA9_gshared (BinarySerializationContext_1_t6AC988C06754CA3A37D178250A99AB1C182CF267* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13988,7 +13988,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m7CADE49ED3FAE5C54A1F10EE4D453D0A25E3BEA9(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m55F253D7842B5E3EEDE9D232DE394D2AA8BD74E5_gshared (BinarySerializationContext_1_t6AC988C06754CA3A37D178250A99AB1C182CF267* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14026,7 +14026,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m55F253D7842B5E3EEDE9D2
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t6AC988C06754CA3A37D178250A99AB1C182CF267*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m55F253D7842B5E3EEDE9D232DE394D2AA8BD74E5(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m98C66FF53832EACE98DB0BC25A43B82C9130FB06_gshared (BinarySerializationContext_1_t6AC988C06754CA3A37D178250A99AB1C182CF267* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14047,7 +14047,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m98C66FF53
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t6AC988C06754CA3A37D178250A99AB1C182CF267*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m98C66FF53832EACE98DB0BC25A43B82C9130FB06(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m7D67B3CD77DCB2CAA4C0F7DD3053EED39D101D3D_gshared (BinarySerializationContext_1_t6AC988C06754CA3A37D178250A99AB1C182CF267* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14075,7 +14075,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mB22FA01B83A05C4D9485696E910BF895C5C979DB_gshared (BinarySerializationContext_1_t1DDCBA448C416C9DAF44BE2580267D6D45FEFD8E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14096,7 +14096,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mB22FA01B83A05C4D9485696E910BF895C5C979DB(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m1D345F5FF3B19E453F3337BA15750F55B422BB19_gshared (BinarySerializationContext_1_t1DDCBA448C416C9DAF44BE2580267D6D45FEFD8E* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14134,7 +14134,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m1D345F5FF3B19E453F3337
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t1DDCBA448C416C9DAF44BE2580267D6D45FEFD8E*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m1D345F5FF3B19E453F3337BA15750F55B422BB19(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m05C9EDEC776B1D455CA0940BEE1B597124CFB293_gshared (BinarySerializationContext_1_t1DDCBA448C416C9DAF44BE2580267D6D45FEFD8E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14155,7 +14155,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m05C9EDEC7
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t1DDCBA448C416C9DAF44BE2580267D6D45FEFD8E*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m05C9EDEC776B1D455CA0940BEE1B597124CFB293(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m1FB86C935815753EFED93843CFCF0064A01FD15A_gshared (BinarySerializationContext_1_t1DDCBA448C416C9DAF44BE2580267D6D45FEFD8E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14183,7 +14183,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m3DCD044B21C4196E72963739694FF39D109985DC_gshared (BinarySerializationContext_1_t7E378B74A4CEC22D7EBA9AE74AFDAE395666F3F1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14204,7 +14204,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m3DCD044B21C4196E72963739694FF39D109985DC(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m1F05700E8CA2056E09A2938903F5AA1F2F9D7D43_gshared (BinarySerializationContext_1_t7E378B74A4CEC22D7EBA9AE74AFDAE395666F3F1* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14242,7 +14242,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m1F05700E8CA2056E09A293
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t7E378B74A4CEC22D7EBA9AE74AFDAE395666F3F1*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m1F05700E8CA2056E09A2938903F5AA1F2F9D7D43(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mF2FDC4368F35D6861207262E6141E909B51FE02B_gshared (BinarySerializationContext_1_t7E378B74A4CEC22D7EBA9AE74AFDAE395666F3F1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14263,7 +14263,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mF2FDC4368
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t7E378B74A4CEC22D7EBA9AE74AFDAE395666F3F1*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mF2FDC4368F35D6861207262E6141E909B51FE02B(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m6DA1B9A6790051BA24204CAA11255AF983A39FB2_gshared (BinarySerializationContext_1_t7E378B74A4CEC22D7EBA9AE74AFDAE395666F3F1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14291,7 +14291,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mC6EF4B8A38FE8BDD48D82EBB2D62CA605D337FCD_gshared (BinarySerializationContext_1_tAEE6FFD5400772164272C7FCBC667236C6F97ACA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14312,7 +14312,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mC6EF4B8A38FE8BDD48D82EBB2D62CA605D337FCD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m4EDB0C06C984095E92E216AEBC98D1C8051C0212_gshared (BinarySerializationContext_1_tAEE6FFD5400772164272C7FCBC667236C6F97ACA* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, TimeValue_t45AE43B219493F9459363F32C79E8986B5F82E0E ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14350,7 +14350,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m4EDB0C06C984095E92E216
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tAEE6FFD5400772164272C7FCBC667236C6F97ACA*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m4EDB0C06C984095E92E216AEBC98D1C8051C0212(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mD9C189B2B672D32D86A52A0F76A1A3688B7CCAF5_gshared (BinarySerializationContext_1_tAEE6FFD5400772164272C7FCBC667236C6F97ACA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14371,7 +14371,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mD9C189B2B
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tAEE6FFD5400772164272C7FCBC667236C6F97ACA*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mD9C189B2B672D32D86A52A0F76A1A3688B7CCAF5(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m2BE7B5671837C1C6F35DBCF380AA1DC9D2F7A92C_gshared (BinarySerializationContext_1_tAEE6FFD5400772164272C7FCBC667236C6F97ACA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14399,7 +14399,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mB5268AF93742EA00D1EC2DEACED95CCF34087E44_gshared (BinarySerializationContext_1_t94D2672C21EE2307794EFEA834C2160B125EFF3E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14420,7 +14420,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mB5268AF93742EA00D1EC2DEACED95CCF34087E44(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m5EF744A58516AE889A78DD90D112F5C064BDAA58_gshared (BinarySerializationContext_1_t94D2672C21EE2307794EFEA834C2160B125EFF3E* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, TransformOrigin_tD11A368A96C0771398EBB4E6D435318AC0EF8502 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14458,7 +14458,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m5EF744A58516AE889A78DD
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t94D2672C21EE2307794EFEA834C2160B125EFF3E*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m5EF744A58516AE889A78DD90D112F5C064BDAA58(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m2C87896D4E0D31F1B8E856530CE1A382A59E4979_gshared (BinarySerializationContext_1_t94D2672C21EE2307794EFEA834C2160B125EFF3E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14479,7 +14479,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m2C87896D4
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t94D2672C21EE2307794EFEA834C2160B125EFF3E*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m2C87896D4E0D31F1B8E856530CE1A382A59E4979(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m5C50671BAEAC718F89529672CE07E060361A80F2_gshared (BinarySerializationContext_1_t94D2672C21EE2307794EFEA834C2160B125EFF3E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14507,7 +14507,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m60D67464FD2B7AF2F59B3CCD512CFD367E2A597D_gshared (BinarySerializationContext_1_tA21E9B29321B19B97FBCAC7A5EAA6C28C3A358BA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14528,7 +14528,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m60D67464FD2B7AF2F59B3CCD512CFD367E2A597D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m44B61BF877DE967E4E5C30A4125C50D21BDD7BF9_gshared (BinarySerializationContext_1_tA21E9B29321B19B97FBCAC7A5EAA6C28C3A358BA* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Translate_t494F6E802F8A640D67819C9D26BE62DED1218A8E ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14566,7 +14566,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m44B61BF877DE967E4E5C30
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tA21E9B29321B19B97FBCAC7A5EAA6C28C3A358BA*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m44B61BF877DE967E4E5C30A4125C50D21BDD7BF9(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m33A5C446C3821FCF9CB40FE8D59730C0BD1C6900_gshared (BinarySerializationContext_1_tA21E9B29321B19B97FBCAC7A5EAA6C28C3A358BA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14587,7 +14587,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m33A5C446C
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tA21E9B29321B19B97FBCAC7A5EAA6C28C3A358BA*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m33A5C446C3821FCF9CB40FE8D59730C0BD1C6900(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mDBCBC8C3A738127AB3EEED2A69D4AFE4F139FE75_gshared (BinarySerializationContext_1_tA21E9B29321B19B97FBCAC7A5EAA6C28C3A358BA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14615,7 +14615,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mD03F8B38158AD8CDDD7CCD1D2E5712B2C2F03D3F_gshared (BinarySerializationContext_1_tE4B557CC71EE529F7E60F7A42BF7F1E412BCB628* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14636,7 +14636,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mD03F8B38158AD8CDDD7CCD1D2E5712B2C2F03D3F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m63CBE2E5E240C81BCD7B0FE2109D2A83AA7504C0_gshared (BinarySerializationContext_1_tE4B557CC71EE529F7E60F7A42BF7F1E412BCB628* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, uint16_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14674,7 +14674,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m63CBE2E5E240C81BCD7B0F
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tE4B557CC71EE529F7E60F7A42BF7F1E412BCB628*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m63CBE2E5E240C81BCD7B0FE2109D2A83AA7504C0(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m86ED389127303AC48864D59C676E291940419098_gshared (BinarySerializationContext_1_tE4B557CC71EE529F7E60F7A42BF7F1E412BCB628* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14695,7 +14695,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m86ED38912
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tE4B557CC71EE529F7E60F7A42BF7F1E412BCB628*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m86ED389127303AC48864D59C676E291940419098(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mF14A744E4C60C09F65A6D32376794E21377AC105_gshared (BinarySerializationContext_1_tE4B557CC71EE529F7E60F7A42BF7F1E412BCB628* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14723,7 +14723,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m1158D9F338597C2DB3C680559C6CFE7D62998D44_gshared (BinarySerializationContext_1_tA92A35BA4013DE8B3079F9048890C82976FEF62A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14744,7 +14744,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m1158D9F338597C2DB3C680559C6CFE7D62998D44(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m827E74B1A186E6595E3C725FC723E37748496013_gshared (BinarySerializationContext_1_tA92A35BA4013DE8B3079F9048890C82976FEF62A* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, uint32_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14782,7 +14782,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m827E74B1A186E6595E3C72
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tA92A35BA4013DE8B3079F9048890C82976FEF62A*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m827E74B1A186E6595E3C725FC723E37748496013(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m4163D6CB50899F00720E385777E5870A2EF8CD67_gshared (BinarySerializationContext_1_tA92A35BA4013DE8B3079F9048890C82976FEF62A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14803,7 +14803,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m4163D6CB5
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tA92A35BA4013DE8B3079F9048890C82976FEF62A*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m4163D6CB50899F00720E385777E5870A2EF8CD67(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mA93698EEDC02D29D887DB819305F99C1A74D25B9_gshared (BinarySerializationContext_1_tA92A35BA4013DE8B3079F9048890C82976FEF62A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14831,7 +14831,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m81F7D737F12817A7C3B949EC0DCAA2E0F59FFEEA_gshared (BinarySerializationContext_1_t1AE6185774680F4502E12BFF55AA53E95B15F34E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14852,7 +14852,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m81F7D737F12817A7C3B949EC0DCAA2E0F59FFEEA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mF922C8B791562EF9037435FD2D0816D8C4E3503D_gshared (BinarySerializationContext_1_t1AE6185774680F4502E12BFF55AA53E95B15F34E* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, uint64_t ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14890,7 +14890,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mF922C8B791562EF9037435
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t1AE6185774680F4502E12BFF55AA53E95B15F34E*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mF922C8B791562EF9037435FD2D0816D8C4E3503D(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mB86254A1CB4CA41FAA0305893AD96B79641690A8_gshared (BinarySerializationContext_1_t1AE6185774680F4502E12BFF55AA53E95B15F34E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14911,7 +14911,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mB86254A1C
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t1AE6185774680F4502E12BFF55AA53E95B15F34E*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mB86254A1CB4CA41FAA0305893AD96B79641690A8(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m02AAA3B3C5F24BB186A451973F24ED7D80C9C907_gshared (BinarySerializationContext_1_t1AE6185774680F4502E12BFF55AA53E95B15F34E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14939,7 +14939,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m00A49708BEC5153824175AAB87E6600EA8542024_gshared (BinarySerializationContext_1_t6C58E2937BB4DCD4E7A824A94A372FAB690635E6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14960,7 +14960,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m00A49708BEC5153824175AAB87E6600EA8542024(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mCB241CB837E540BC4DA139A767BFFDBF45FF5A1A_gshared (BinarySerializationContext_1_t6C58E2937BB4DCD4E7A824A94A372FAB690635E6* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, UntypedUnityObjectRef_t86F1E1943CFA71521B795266B8952DE9E791381B ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14998,7 +14998,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mCB241CB837E540BC4DA139
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t6C58E2937BB4DCD4E7A824A94A372FAB690635E6*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mCB241CB837E540BC4DA139A767BFFDBF45FF5A1A(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m54602C09D48E0557D5FAB621A5A2241E48BDBF80_gshared (BinarySerializationContext_1_t6C58E2937BB4DCD4E7A824A94A372FAB690635E6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15019,7 +15019,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m54602C09D
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t6C58E2937BB4DCD4E7A824A94A372FAB690635E6*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m54602C09D48E0557D5FAB621A5A2241E48BDBF80(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m5D812352A83F41965D6512035770EC70ADF9BCBF_gshared (BinarySerializationContext_1_t6C58E2937BB4DCD4E7A824A94A372FAB690635E6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15047,7 +15047,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m86F517B5839E284B8E31A4B603C0062985DD70EE_gshared (BinarySerializationContext_1_t804B9B6E8612F949C27E0B0C1FCCC70F6E117E8F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15068,7 +15068,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m86F517B5839E284B8E31A4B603C0062985DD70EE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mF801322DED939731B9C816A6178D8835ABA629AD_gshared (BinarySerializationContext_1_t804B9B6E8612F949C27E0B0C1FCCC70F6E117E8F* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, UntypedWeakReferenceId_tE6BA94FD975EA12B639C0A568532BD1AB874492A ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -15106,7 +15106,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mF801322DED939731B9C816
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t804B9B6E8612F949C27E0B0C1FCCC70F6E117E8F*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mF801322DED939731B9C816A6178D8835ABA629AD(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mC2CA481B4ADF6A7FECCF432553DBCBA091BD7329_gshared (BinarySerializationContext_1_t804B9B6E8612F949C27E0B0C1FCCC70F6E117E8F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15127,7 +15127,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mC2CA481B4
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t804B9B6E8612F949C27E0B0C1FCCC70F6E117E8F*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mC2CA481B4ADF6A7FECCF432553DBCBA091BD7329(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m91C965B94A6B45B7AFC3AD8BBE8D74101313B13E_gshared (BinarySerializationContext_1_t804B9B6E8612F949C27E0B0C1FCCC70F6E117E8F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15155,7 +15155,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_m0235751B8D6680906D941398A77B7E0F70FEA965_gshared (BinarySerializationContext_1_t38382965D054269B65C1145E947A1026D8FF8C14* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15176,7 +15176,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_m0235751B8D6680906D941398A77B7E0F70FEA965(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mFCFF898EA2D7053C9E96528F9207A571A3E0A6A6_gshared (BinarySerializationContext_1_t38382965D054269B65C1145E947A1026D8FF8C14* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -15214,7 +15214,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mFCFF898EA2D7053C9E9652
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t38382965D054269B65C1145E947A1026D8FF8C14*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mFCFF898EA2D7053C9E96528F9207A571A3E0A6A6(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m2487C4ED61EE9F694BE59CA367C518F1B948128D_gshared (BinarySerializationContext_1_t38382965D054269B65C1145E947A1026D8FF8C14* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15235,7 +15235,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m2487C4ED6
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t38382965D054269B65C1145E947A1026D8FF8C14*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m2487C4ED61EE9F694BE59CA367C518F1B948128D(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mEADD427417E84DFB0B7659992E2D3FB68E08030E_gshared (BinarySerializationContext_1_t38382965D054269B65C1145E947A1026D8FF8C14* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15263,7 +15263,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mEA09BAB8B86DFDC27AF9B1C965C2BDC69710BCB2_gshared (BinarySerializationContext_1_t5C61B99B7ABE331DDDFACFE6E473A512E1C0CEAD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15284,7 +15284,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mEA09BAB8B86DFDC27AF9B1C965C2BDC69710BCB2(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mEBDA318FDCAE9A056FF489D98306166969BA30C0_gshared (BinarySerializationContext_1_t5C61B99B7ABE331DDDFACFE6E473A512E1C0CEAD* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -15322,7 +15322,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mEBDA318FDCAE9A056FF489
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5C61B99B7ABE331DDDFACFE6E473A512E1C0CEAD*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mEBDA318FDCAE9A056FF489D98306166969BA30C0(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_mE274126F7D3071AE4E4B7A1317F045760D38C062_gshared (BinarySerializationContext_1_t5C61B99B7ABE331DDDFACFE6E473A512E1C0CEAD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15343,7 +15343,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_mE274126F7
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_t5C61B99B7ABE331DDDFACFE6E473A512E1C0CEAD*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_mE274126F7D3071AE4E4B7A1317F045760D38C062(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m0B9DF6D3AF4C401C1A9D8D018A4A23B13EA6371B_gshared (BinarySerializationContext_1_t5C61B99B7ABE331DDDFACFE6E473A512E1C0CEAD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15371,7 +15371,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mDFE7039BA29345C627531B6CFBE8D8970993787E_gshared (BinarySerializationContext_1_tCE3D761EFF44C4A53A51D59D5BC295D31F464E57* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15392,7 +15392,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mDFE7039BA29345C627531B6CFBE8D8970993787E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_mB6F0BAE0FC4F590EDB010AD8EBAFB24E936A6EEA_gshared (BinarySerializationContext_1_tCE3D761EFF44C4A53A51D59D5BC295D31F464E57* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Vector3Int_t65CB06F557251D18A37BD71F3655BA836A357376 ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -15430,7 +15430,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_mB6F0BAE0FC4F590EDB010A
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tCE3D761EFF44C4A53A51D59D5BC295D31F464E57*>(__this + _offset);
 	BinarySerializationContext_1__ctor_mB6F0BAE0FC4F590EDB010AD8EBAFB24E936A6EEA(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m08F172A24EFB6BF69A19C6D1124B1300E00396CB_gshared (BinarySerializationContext_1_tCE3D761EFF44C4A53A51D59D5BC295D31F464E57* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15451,7 +15451,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m08F172A24
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tCE3D761EFF44C4A53A51D59D5BC295D31F464E57*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m08F172A24EFB6BF69A19C6D1124B1300E00396CB(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_m323E7E874403A67C7C7F6E5749A08657B1CC0248_gshared (BinarySerializationContext_1_tCE3D761EFF44C4A53A51D59D5BC295D31F464E57* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15479,7 +15479,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitationWithoutAdap
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 77522
+// Method Definition Index: 77585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinarySerializationContext_1_get_Writer_mD01E3395A6632454977988F528FBDC286BF9C4AB_gshared (BinarySerializationContext_1_tCB2A4913277508504F8087B9A32E6EB47CFECA8B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15500,7 +15500,7 @@ IL2CPP_EXTERN_C  UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* B
 	_returnValue = BinarySerializationContext_1_get_Writer_mD01E3395A6632454977988F528FBDC286BF9C4AB(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 77523
+// Method Definition Index: 77586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1__ctor_m6F284D06BCBB901BBE2DDA88614CF07812C959BF_gshared (BinarySerializationContext_1_tCB2A4913277508504F8087B9A32E6EB47CFECA8B* __this, BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* ___0_visitor, Enumerator_tE8EFD7362F3F53666FE35A24B05B48AE2962278D ___1_adapters, Il2CppFullySharedGenericAny ___2_value, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_TValue_tC39ABF013A0B51DE9ED66A3FC1048B0F191209D9 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(InitializedTypeInfo(method->klass)->rgctx_data, 1));
@@ -15529,7 +15529,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1__ctor_m6F284D06BCBB901BBE2DDA
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tCB2A4913277508504F8087B9A32E6EB47CFECA8B*>(__this + _offset);
 	BinarySerializationContext_1__ctor_m6F284D06BCBB901BBE2DDA88614CF07812C959BF(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_isRoot, method);
 }
-// Method Definition Index: 77524
+// Method Definition Index: 77587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitation_m3E2EC5B5EC50F36E47A385DEB0EE18665409EABE_gshared (BinarySerializationContext_1_tCB2A4913277508504F8087B9A32E6EB47CFECA8B* __this, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_TValue_tC39ABF013A0B51DE9ED66A3FC1048B0F191209D9 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(InitializedTypeInfo(method->klass)->rgctx_data, 1));
@@ -15552,7 +15552,7 @@ IL2CPP_EXTERN_C  void BinarySerializationContext_1_ContinueVisitation_m3E2EC5B5E
 	_thisAdjusted = reinterpret_cast<BinarySerializationContext_1_tCB2A4913277508504F8087B9A32E6EB47CFECA8B*>(__this + _offset);
 	BinarySerializationContext_1_ContinueVisitation_m3E2EC5B5EC50F36E47A385DEB0EE18665409EABE(_thisAdjusted, method);
 }
-// Method Definition Index: 77525
+// Method Definition Index: 77588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BinarySerializationContext_1_ContinueVisitationWithoutAdapters_mF3E9A8E8B408561A6B73DFCBBD1D5945823C198F_gshared (BinarySerializationContext_1_tCB2A4913277508504F8087B9A32E6EB47CFECA8B* __this, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_TValue_tC39ABF013A0B51DE9ED66A3FC1048B0F191209D9 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(InitializedTypeInfo(method->klass)->rgctx_data, 1));
@@ -23385,7 +23385,7 @@ IL2CPP_EXTERN_C  RemoteContentSetDataU5BU5D_tED2581990D7F05739715D9C7849F477441D
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76161
+// Method Definition Index: 76224
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BlobAssetComputationContext_2__ctor_m85AEBE86D873D6BF115324A999A785F920854F5D_gshared (BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7* __this, BlobAssetStore_t8FAC30A10346590A5E6604B8D558BB8468B5384C ___0_blobAssetStore, int32_t ___1_initialCapacity, int32_t ___2_allocator, const RuntimeMethod* method) 
 {
 	bool V_0 = false;
@@ -23445,7 +23445,7 @@ IL2CPP_EXTERN_C  void BlobAssetComputationContext_2__ctor_m85AEBE86D873D6BF11532
 	_thisAdjusted = reinterpret_cast<BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7*>(__this + _offset);
 	BlobAssetComputationContext_2__ctor_m85AEBE86D873D6BF115324A999A785F920854F5D(_thisAdjusted, ___0_blobAssetStore, ___1_initialCapacity, ___2_allocator, method);
 }
-// Method Definition Index: 76162
+// Method Definition Index: 76225
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool BlobAssetComputationContext_2_get_IsCreated_m83C190F259E32B20B62061C7C3ABD4140DF6B385_gshared (BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23465,7 +23465,7 @@ IL2CPP_EXTERN_C  bool BlobAssetComputationContext_2_get_IsCreated_m83C190F259E32
 	_returnValue = BlobAssetComputationContext_2_get_IsCreated_m83C190F259E32B20B62061C7C3ABD4140DF6B385(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76163
+// Method Definition Index: 76226
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NativeArray_1_tDB8B8DC66CC8E16ED6D9A8C75D2C1AFC80AC1E18 BlobAssetComputationContext_2_GetSettings_mED78C6F7BF331C92ED1DA988ACCC3C05183DC85D_gshared (BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7* __this, int32_t ___0_allocator, const RuntimeMethod* method) 
 {
 	{
@@ -23488,7 +23488,7 @@ IL2CPP_EXTERN_C  NativeArray_1_tDB8B8DC66CC8E16ED6D9A8C75D2C1AFC80AC1E18 BlobAss
 	_returnValue = BlobAssetComputationContext_2_GetSettings_mED78C6F7BF331C92ED1DA988ACCC3C05183DC85D(_thisAdjusted, ___0_allocator, method);
 	return _returnValue;
 }
-// Method Definition Index: 76164
+// Method Definition Index: 76227
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BlobAssetComputationContext_2_Dispose_mE58D7BD373F93485E2BACE2FD8D972ADE4989DE3_gshared (BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7* __this, const RuntimeMethod* method) 
 {
 	bool V_0 = false;
@@ -23532,7 +23532,7 @@ IL2CPP_EXTERN_C  void BlobAssetComputationContext_2_Dispose_mE58D7BD373F93485E2B
 	_thisAdjusted = reinterpret_cast<BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7*>(__this + _offset);
 	BlobAssetComputationContext_2_Dispose_mE58D7BD373F93485E2BACE2FD8D972ADE4989DE3(_thisAdjusted, method);
 }
-// Method Definition Index: 76165
+// Method Definition Index: 76228
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool BlobAssetComputationContext_2_NeedToComputeBlobAsset_mF29C75C3DDAD6837A2A04408DD77AAB7E28A4FD6_gshared (BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7* __this, Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B ___0_hash, const RuntimeMethod* method) 
 {
 	bool V_0 = false;
@@ -23585,7 +23585,7 @@ IL2CPP_EXTERN_C  bool BlobAssetComputationContext_2_NeedToComputeBlobAsset_mF29C
 	_returnValue = BlobAssetComputationContext_2_NeedToComputeBlobAsset_mF29C75C3DDAD6837A2A04408DD77AAB7E28A4FD6(_thisAdjusted, ___0_hash, method);
 	return _returnValue;
 }
-// Method Definition Index: 76166
+// Method Definition Index: 76229
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BlobAssetComputationContext_2_AddBlobAssetToCompute_mB718A00587AD41021ABEBC1945F99D6BAB72DE84_gshared (BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7* __this, Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B ___0_hash, Il2CppFullySharedGenericStruct ___1_settings, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_TS_t053D34C0EC24003B3A5FDE6E3045B0C0137DFC19 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(InitializedTypeInfo(method->klass)->rgctx_data, 14));
@@ -23630,7 +23630,7 @@ IL2CPP_EXTERN_C  void BlobAssetComputationContext_2_AddBlobAssetToCompute_mB718A
 	_thisAdjusted = reinterpret_cast<BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7*>(__this + _offset);
 	BlobAssetComputationContext_2_AddBlobAssetToCompute_mB718A00587AD41021ABEBC1945F99D6BAB72DE84(_thisAdjusted, ___0_hash, ___1_settings, method);
 }
-// Method Definition Index: 76167
+// Method Definition Index: 76230
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BlobAssetComputationContext_2_AddComputedBlobAsset_m78D3E331516658CB450C4ECCCC503BC0952AC7B3_gshared (BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7* __this, Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B ___0_hash, BlobAssetReference_1_t2539DE18562593E15A5CAC630C2C2045EEA597E9 ___1_blob, const RuntimeMethod* method) 
 {
 	bool V_0 = false;
@@ -23696,7 +23696,7 @@ IL2CPP_EXTERN_C  void BlobAssetComputationContext_2_AddComputedBlobAsset_m78D3E3
 	_thisAdjusted = reinterpret_cast<BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7*>(__this + _offset);
 	BlobAssetComputationContext_2_AddComputedBlobAsset_m78D3E331516658CB450C4ECCCC503BC0952AC7B3(_thisAdjusted, ___0_hash, ___1_blob, method);
 }
-// Method Definition Index: 76168
+// Method Definition Index: 76231
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool BlobAssetComputationContext_2_GetBlobAsset_mAF3720A491C23428CECCD48BA2E9CF5566074968_gshared (BlobAssetComputationContext_2_t83A122E45E788838535B63D61AEC55650D5101F7* __this, Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B ___0_hash, BlobAssetReference_1_t2539DE18562593E15A5CAC630C2C2045EEA597E9* ___1_blob, const RuntimeMethod* method) 
 {
 	bool V_0 = false;
@@ -34911,7 +34911,7 @@ IL2CPP_EXTERN_C  FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E B
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_mE9AE2968725B445ABEBD61A3A7C93B5C2204928E_gshared (Buffer_1_t2AA2065A8CCA17DCF8E53D789BA407C07206B3CD* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -35093,7 +35093,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_mE9AE2968725B445ABEBD61A3A7C93B5C2204928E_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_t2AA2065A8CCA17DCF8E53D789BA407C07206B3CD*>(__this + _offset);
 	Buffer_1__ctor_mE9AE2968725B445ABEBD61A3A7C93B5C2204928E(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ValueTuple_2U5BU5D_tDEEAFCC1B39456246D3A0D4D92FF7592CA9EC962* Buffer_1_ToArray_m88D902CE9DDE615D656ECC21C39E44E4EFDE9F14_gshared (Buffer_1_t2AA2065A8CCA17DCF8E53D789BA407C07206B3CD* __this, const RuntimeMethod* method) 
 {
 	ValueTuple_2U5BU5D_tDEEAFCC1B39456246D3A0D4D92FF7592CA9EC962* V_0 = NULL;
@@ -35154,7 +35154,7 @@ IL2CPP_EXTERN_C  ValueTuple_2U5BU5D_tDEEAFCC1B39456246D3A0D4D92FF7592CA9EC962* B
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_m0E7738D8A249F34D07764B08616253F2FAF947A2_gshared (Buffer_1_t7489BD84CB56DC700EAFF8AD12494B138EEA1181* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -35336,7 +35336,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_m0E7738D8A249F34D07764B08616253F2FAF947A2_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_t7489BD84CB56DC700EAFF8AD12494B138EEA1181*>(__this + _offset);
 	Buffer_1__ctor_m0E7738D8A249F34D07764B08616253F2FAF947A2(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ComponentTypeU5BU5D_t331558D7EA88D95D7A228BE9D7B0CA2EB406836C* Buffer_1_ToArray_m52A48D62E172BD174297FFE82F13909AC0673FB1_gshared (Buffer_1_t7489BD84CB56DC700EAFF8AD12494B138EEA1181* __this, const RuntimeMethod* method) 
 {
 	ComponentTypeU5BU5D_t331558D7EA88D95D7A228BE9D7B0CA2EB406836C* V_0 = NULL;
@@ -35397,7 +35397,7 @@ IL2CPP_EXTERN_C  ComponentTypeU5BU5D_t331558D7EA88D95D7A228BE9D7B0CA2EB406836C* 
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_mCA3CAB859EF638AEA56347DA74B5CABAAB17F76D_gshared (Buffer_1_t9B6292878C6BF8E6B600994FF4C2B16AAB609D10* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -35579,7 +35579,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_mCA3CAB859EF638AEA56347DA74B5CABAAB17F76D_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_t9B6292878C6BF8E6B600994FF4C2B16AAB609D10*>(__this + _offset);
 	Buffer_1__ctor_mCA3CAB859EF638AEA56347DA74B5CABAAB17F76D(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GlyphPairAdjustmentRecordU5BU5D_tD5DD2A739A4CA745E7F28ECCB2CD0BD0A65A38F7* Buffer_1_ToArray_m05B7463DE8022CDAC634269353BCC155582FCA37_gshared (Buffer_1_t9B6292878C6BF8E6B600994FF4C2B16AAB609D10* __this, const RuntimeMethod* method) 
 {
 	GlyphPairAdjustmentRecordU5BU5D_tD5DD2A739A4CA745E7F28ECCB2CD0BD0A65A38F7* V_0 = NULL;
@@ -35640,7 +35640,7 @@ IL2CPP_EXTERN_C  GlyphPairAdjustmentRecordU5BU5D_tD5DD2A739A4CA745E7F28ECCB2CD0B
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_m80220F5DC4555225341D972203F96BBA80B6F905_gshared (Buffer_1_t7521E85AEF5FC449DCAA3CC247C109861F668453* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -35821,7 +35821,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_m80220F5DC4555225341D972203F96BBA80B6F905_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_t7521E85AEF5FC449DCAA3CC247C109861F668453*>(__this + _offset);
 	Buffer_1__ctor_m80220F5DC4555225341D972203F96BBA80B6F905(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* Buffer_1_ToArray_m4D07B2933FC31CC8F9D52D12760020012C65D2F9_gshared (Buffer_1_t7521E85AEF5FC449DCAA3CC247C109861F668453* __this, const RuntimeMethod* method) 
 {
 	Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* V_0 = NULL;
@@ -35882,7 +35882,7 @@ IL2CPP_EXTERN_C  Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* Buffer_1
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_m5E4E804B96D357BC6F1434F0B45AFFE2E09857A5_gshared (Buffer_1_t47C9FBB1C64CF912CC2F37FD425BCFE4E740813C* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -36064,7 +36064,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_m5E4E804B96D357BC6F1434F0B45AFFE2E09857A5_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_t47C9FBB1C64CF912CC2F37FD425BCFE4E740813C*>(__this + _offset);
 	Buffer_1__ctor_m5E4E804B96D357BC6F1434F0B45AFFE2E09857A5(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR InternedStringU5BU5D_t0B851758733FC0B118D84BE83AED10A0404C18D5* Buffer_1_ToArray_m835C29CE6D5C6818FC3A5B4CD4C0C39E736A6AA0_gshared (Buffer_1_t47C9FBB1C64CF912CC2F37FD425BCFE4E740813C* __this, const RuntimeMethod* method) 
 {
 	InternedStringU5BU5D_t0B851758733FC0B118D84BE83AED10A0404C18D5* V_0 = NULL;
@@ -36125,7 +36125,7 @@ IL2CPP_EXTERN_C  InternedStringU5BU5D_t0B851758733FC0B118D84BE83AED10A0404C18D5*
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_mA3365FB13DDC11386B51C7B5E691832DD7819F72_gshared (Buffer_1_tC5E38DD33641259569860E7D2521C0A65E11441B* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -36307,7 +36307,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_mA3365FB13DDC11386B51C7B5E691832DD7819F72_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_tC5E38DD33641259569860E7D2521C0A65E11441B*>(__this + _offset);
 	Buffer_1__ctor_mA3365FB13DDC11386B51C7B5E691832DD7819F72(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MarkToBaseAdjustmentRecordU5BU5D_tECA7CEA6635E17961BB362A1BD69322800A15966* Buffer_1_ToArray_m3E1E0F29541808A82435D1997C87F4CD7B23784B_gshared (Buffer_1_tC5E38DD33641259569860E7D2521C0A65E11441B* __this, const RuntimeMethod* method) 
 {
 	MarkToBaseAdjustmentRecordU5BU5D_tECA7CEA6635E17961BB362A1BD69322800A15966* V_0 = NULL;
@@ -36368,7 +36368,7 @@ IL2CPP_EXTERN_C  MarkToBaseAdjustmentRecordU5BU5D_tECA7CEA6635E17961BB362A1BD693
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_m086C12C5694E0D6EFB7A2B3FE005444773F1BC8B_gshared (Buffer_1_t78B6DF8A4894DAF17C243F0D271FBE2B62619A14* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -36550,7 +36550,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_m086C12C5694E0D6EFB7A2B3FE005444773F1BC8B_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_t78B6DF8A4894DAF17C243F0D271FBE2B62619A14*>(__this + _offset);
 	Buffer_1__ctor_m086C12C5694E0D6EFB7A2B3FE005444773F1BC8B(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MarkToBaseAdjustmentRecordU5BU5D_t4F120A507E14039BC63574D1815FF2E7B9D73911* Buffer_1_ToArray_mD6FB6D00609A2A5BBFD50EC64281B18717B0F618_gshared (Buffer_1_t78B6DF8A4894DAF17C243F0D271FBE2B62619A14* __this, const RuntimeMethod* method) 
 {
 	MarkToBaseAdjustmentRecordU5BU5D_t4F120A507E14039BC63574D1815FF2E7B9D73911* V_0 = NULL;
@@ -36611,7 +36611,7 @@ IL2CPP_EXTERN_C  MarkToBaseAdjustmentRecordU5BU5D_t4F120A507E14039BC63574D1815FF
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_m309F4E747F3CBF63BB9B6470E89A69B367B33FD5_gshared (Buffer_1_t4791E2493D69BE78059DB64F5984BCEC79E91537* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -36793,7 +36793,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_m309F4E747F3CBF63BB9B6470E89A69B367B33FD5_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_t4791E2493D69BE78059DB64F5984BCEC79E91537*>(__this + _offset);
 	Buffer_1__ctor_m309F4E747F3CBF63BB9B6470E89A69B367B33FD5(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MarkToMarkAdjustmentRecordU5BU5D_tD0484B2268EBA1947BBA50456596875426ED9CDB* Buffer_1_ToArray_m5664CFDAB57FCDE933E3C46608689ADABB1E7143_gshared (Buffer_1_t4791E2493D69BE78059DB64F5984BCEC79E91537* __this, const RuntimeMethod* method) 
 {
 	MarkToMarkAdjustmentRecordU5BU5D_tD0484B2268EBA1947BBA50456596875426ED9CDB* V_0 = NULL;
@@ -36854,7 +36854,7 @@ IL2CPP_EXTERN_C  MarkToMarkAdjustmentRecordU5BU5D_tD0484B2268EBA1947BBA504565968
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_m9178E0FB078F890A98854B06AF9C08C14061F4AC_gshared (Buffer_1_tCA1933430719B4829D9E8C1DB02C579B9C68E7CD* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -37036,7 +37036,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_m9178E0FB078F890A98854B06AF9C08C14061F4AC_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_tCA1933430719B4829D9E8C1DB02C579B9C68E7CD*>(__this + _offset);
 	Buffer_1__ctor_m9178E0FB078F890A98854B06AF9C08C14061F4AC(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MarkToMarkAdjustmentRecordU5BU5D_t09E9394A7451C53E2DD62ACB4FD0CF5F52159061* Buffer_1_ToArray_mE26F64BF3B230381A1DA7A9A1438E7262B24CFE5_gshared (Buffer_1_tCA1933430719B4829D9E8C1DB02C579B9C68E7CD* __this, const RuntimeMethod* method) 
 {
 	MarkToMarkAdjustmentRecordU5BU5D_t09E9394A7451C53E2DD62ACB4FD0CF5F52159061* V_0 = NULL;
@@ -37097,7 +37097,7 @@ IL2CPP_EXTERN_C  MarkToMarkAdjustmentRecordU5BU5D_t09E9394A7451C53E2DD62ACB4FD0C
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_mFF799DFC84B4B2F34DF2E115F8578F515922DEE2_gshared (Buffer_1_t709A0F0E4967DFFEC8EECF06ABBE6F9EC01E17F9* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -37279,7 +37279,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_mFF799DFC84B4B2F34DF2E115F8578F515922DEE2_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_t709A0F0E4967DFFEC8EECF06ABBE6F9EC01E17F9*>(__this + _offset);
 	Buffer_1__ctor_mFF799DFC84B4B2F34DF2E115F8578F515922DEE2(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NameAndParametersU5BU5D_tA6C2AC34ACDB1967A7A2CEF4BE1D717ADA695CA2* Buffer_1_ToArray_m40E10266FD47A465F14829B86C4D21C1BF7B2F49_gshared (Buffer_1_t709A0F0E4967DFFEC8EECF06ABBE6F9EC01E17F9* __this, const RuntimeMethod* method) 
 {
 	NameAndParametersU5BU5D_tA6C2AC34ACDB1967A7A2CEF4BE1D717ADA695CA2* V_0 = NULL;
@@ -37340,7 +37340,7 @@ IL2CPP_EXTERN_C  NameAndParametersU5BU5D_tA6C2AC34ACDB1967A7A2CEF4BE1D717ADA695C
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 81748
+// Method Definition Index: 81811
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_1__ctor_m072DE84AEC969582EB5760D4835747F9DC0C02AF_gshared (Buffer_1_t10E8615C3706C626725B10C3DDEF0AD28D233B59* __this, RuntimeObject* ___0_source, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -37521,7 +37521,7 @@ IL2CPP_EXTERN_C  void Buffer_1__ctor_m072DE84AEC969582EB5760D4835747F9DC0C02AF_A
 	_thisAdjusted = reinterpret_cast<Buffer_1_t10E8615C3706C626725B10C3DDEF0AD28D233B59*>(__this + _offset);
 	Buffer_1__ctor_m072DE84AEC969582EB5760D4835747F9DC0C02AF(_thisAdjusted, ___0_source, method);
 }
-// Method Definition Index: 81749
+// Method Definition Index: 81812
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* Buffer_1_ToArray_mEA121F3E6F21C367A4FBE26B8305CF0D60D63BC2_gshared (Buffer_1_t10E8615C3706C626725B10C3DDEF0AD28D233B59* __this, const RuntimeMethod* method) 
 {
 	ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* V_0 = NULL;
@@ -37577,7 +37577,7 @@ IL2CPP_EXTERN_C  ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* Buffer_
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-// Method Definition Index: 77643
+// Method Definition Index: 77706
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR UnsafeAppendBuffer_t9EC160EA10485CD9DD96EDCBCEA06C7BCEF81500* BinaryPropertyWriter_get_Writer_mD2E83F0A7F617700C55756D83BFC3DDF555005B3_inline (BinaryPropertyWriter_t1DFB61991965A34BA8A6AD209BFFF0A80827CBF1* __this, const RuntimeMethod* method) 
 {
 	{

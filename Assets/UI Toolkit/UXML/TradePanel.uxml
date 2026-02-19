@@ -8,9 +8,9 @@
                 <ui:Label name="TradeTitleText" text="TRADE" class="monopoly-title" style="align-self: center; align-items: center; align-content: center; justify-content: space-between; height: 101px; width: 70%; -unity-font-definition: resource(&apos;Fonts &amp; Materials/HappyMonkey-Regular&apos;); font-size: 48px; top: 88px;" />
             </ui:VisualElement>
             <ui:VisualElement name="TradeBody" class="monopoly-body popup-body" style="width: 90%; align-self: center; height: 100%; top: -82px; padding-bottom: 2px; padding-top: 2px;">
-                <ui:VisualElement name="TradeTargetRow" style="flex-direction: row; padding: 10px; gap: 10px; align-items: center;">
+                <ui:VisualElement name="TradeTargetRow" style="flex-direction: row; padding: 10px; gap: 10px; align-items: center; flex-wrap: wrap;">
                     <ui:Label text="Select Player:" style="font-size: 16px; -unity-font-style: bold; color: rgb(220, 236, 250);" />
-                    <ui:DropdownField name="TradeTargetDropdown" style="flex-grow: 1; font-size: 20px; height: 61px;" />
+                    <ui:VisualElement name="TradeTargetButtons" style="flex-direction: row; flex-wrap: wrap; gap: 8px; flex-grow: 1;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="TradePropertiesRow" style="flex-direction: row; gap: 10px; padding: 10px; flex-grow: 1;">
                     <ui:VisualElement name="TradeYourProperties" style="flex-grow: 1; background-color: rgb(20, 28, 37); border-width: 2px; border-color: rgb(198, 164, 79); border-radius: 8px; padding: 8px; width: 30%; opacity: 1; left: -10px;">
@@ -33,17 +33,18 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="TradeCashRow" style="flex-direction: row; gap: 10px; padding: 10px;">
-                    <ui:VisualElement style="flex-grow: 1;">
-                        <ui:IntegerField name="Player1MoneyField" label="You Offer (₦)" value="0" class="input-field" style="color: rgb(48, 174, 191);" />
+                    <ui:VisualElement style="flex-grow: 1;" class="trade-money-wrap">
+                        <ui:IntegerField name="Player1MoneyField" label="You offer (₦)" value="0" class="trade-money-field" />
                     </ui:VisualElement>
-                    <ui:VisualElement style="flex-grow: 1;">
-                        <ui:IntegerField name="Player2MoneyField" label="You Expect (₦)" value="0" class="input-field" style="color: rgb(100, 149, 237);" />
+                    <ui:VisualElement style="flex-grow: 1;" class="trade-money-wrap">
+                        <ui:IntegerField name="Player2MoneyField" label="You expect (₦)" value="0" class="trade-money-field" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:Label name="TradeStatusText" style="padding: 5px; text-align: center; font-size: 16px; color: rgb(220, 236, 250); display: none;" />
             </ui:VisualElement>
             <ui:VisualElement name="TradeFooter" class="monopoly-footer popup-footer" style="flex-direction: column; align-self: center; top: -22px; padding-top: 2px;">
-                <ui:VisualElement name="TradeActionButtons" style="flex-direction: row; padding: 10px; gap: 10px; align-self: center;">
+                <ui:VisualElement name="TradeActionButtons" style="flex-direction: row; padding: 10px; gap: 10px; align-self: center; flex-wrap: wrap;">
+                    <ui:Button name="TradeShowBoardButton" text="VIEW BOARD" class="monopoly-btn monopoly-btn-secondary trade-view-board-btn" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(0, 100, 0); color: rgb(0, 0, 0);" />
                     <ui:Button name="TradeOfferButton" text="OFFER" class="monopoly-btn monopoly-btn-primary" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); background-color: rgb(255, 132, 0); -unity-background-image-tint-color: rgb(212, 197, 159);" />
                     <ui:Button name="TradeCancelButton" text="CANCEL" class="monopoly-btn monopoly-btn-danger" style="background-image: url(&quot;project://database/Assets/Sprites/Gold%20Button.png?fileID=2800000&amp;guid=ede0ae4f446efc54196b89973a3304f6&amp;type=3#Gold Button&quot;); background-color: rgb(255, 132, 0); -unity-background-image-tint-color: rgb(212, 197, 159);" />
                 </ui:VisualElement>

@@ -16,7 +16,24 @@ public class PropertyOwnershipTagManager : MonoBehaviour
     [Tooltip("Update interval in seconds (0 = every frame, not recommended)")]
     public float updateInterval = 0.5f;
     
+    [Header("Group Strip Visuals")]
+    [Tooltip("Enable group-strip sprite synchronization for buildable properties.")]
+    public bool manageGroupStripVisuals = true;
+    public Sprite groupBrown;
+    public Sprite groupG1;
+    public Sprite groupG2;
+    public Sprite groupG3;
+    public Sprite groupG4;
+    public Sprite groupG5;
+    public Sprite groupG6;
+    public Sprite groupG7;
+    public Sprite groupG8;
+    public Sprite groupG9;
+    public Sprite groupG10;
+    public Sprite fallbackGroupSprite;
+    
     private PropertyOwnershipTag[] allTags;
+    private PropertyGroupStripVisual[] allGroupStrips;
     private float lastUpdateTime;
     
     void Start()
@@ -49,6 +66,7 @@ public class PropertyOwnershipTagManager : MonoBehaviour
             if (Time.time - lastUpdateTime >= updateInterval)
             {
                 UpdateAllTags();
+                if (manageGroupStripVisuals) UpdateAllGroupStrips();
                 lastUpdateTime = Time.time;
             }
         }
@@ -83,12 +101,25 @@ public class PropertyOwnershipTagManager : MonoBehaviour
             }
             
             // Add PropertyOwnershipTag
-            PropertyOwnershipTag tag = tile.gameObject.AddComponent<PropertyOwnershipTag>();
+            tile.gameObject.AddComponent<PropertyOwnershipTag>();
             addedCount++;
+
+            EnsureGroupStripVisual(tile);
         }
-        
+
+        if (manageGroupStripVisuals)
+        {
+            foreach (TileInfo tile in allTiles)
+            {
+                if (tile == null || tile.tileType != TileType.Property || tile.property == null) continue;
+                EnsureGroupStripVisual(tile);
+            }
+        }
+
         // Cache all tags for updates
         allTags = boardTilesParent.GetComponentsInChildren<PropertyOwnershipTag>();
+        if (manageGroupStripVisuals)
+            allGroupStrips = boardTilesParent.GetComponentsInChildren<PropertyGroupStripVisual>(true);
         
         Debug.Log($"PropertyOwnershipTagManager: Added PropertyOwnershipTag to {addedCount} property tiles ({skippedCount} already had it)");
     }
@@ -111,6 +142,21 @@ public class PropertyOwnershipTagManager : MonoBehaviour
             }
         }
     }
+
+    public void UpdateAllGroupStrips()
+    {
+        if (!manageGroupStripVisuals) return;
+        if (allGroupStrips == null || allGroupStrips.Length == 0)
+        {
+            allGroupStrips = FindObjectsByType<PropertyGroupStripVisual>(FindObjectsSortMode.None);
+        }
+
+        foreach (PropertyGroupStripVisual strip in allGroupStrips)
+        {
+            if (strip != null)
+                strip.ApplyGroupStripVisual(force: true);
+        }
+    }
     
     /// <summary>
     /// Force refresh all tags (useful after property purchases/trades).
@@ -119,6 +165,30 @@ public class PropertyOwnershipTagManager : MonoBehaviour
     public void RefreshAllTags()
     {
         UpdateAllTags();
+        if (manageGroupStripVisuals) UpdateAllGroupStrips();
         Debug.Log("PropertyOwnershipTagManager: Refreshed all ownership tags");
+    }
+
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus && manageGroupStripVisuals) UpdateAllGroupStrips();
+    }
+
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (!pauseStatus && manageGroupStripVisuals) UpdateAllGroupStrips();
+    }
+
+    void EnsureGroupStripVisual(TileInfo tile)
+    {
+        if (!manageGroupStripVisuals || tile == null) return;
+        PropertyGroupStripVisual strip = tile.GetComponent<PropertyGroupStripVisual>();
+        if (strip == null)
+            strip = tile.gameObject.AddComponent<PropertyGroupStripVisual>();
+
+        strip.ApplySharedGroupSprites(
+            groupBrown, groupG1, groupG2, groupG3, groupG4, groupG5, groupG6, groupG7, groupG8, groupG9, groupG10, fallbackGroupSprite
+        );
+        strip.ApplyGroupStripVisual(force: true);
     }
 }

@@ -13539,7 +13539,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JobStruct_1__cctor_mC6356F599F4A3E220D52
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mA617E2C412AB27C3F9798C2C63378A4EA345F993_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13559,7 +13559,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mA617E2C412AB27C3F9798C2C63378A4EA345F993(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m3AEB3244C8420A8F2DF9CDF39DA480E4617F0FF4_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -13604,7 +13604,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m3AEB3244C8420A8F2DF9CD
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m3AEB3244C8420A8F2DF9CDF39DA480E4617F0FF4(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m3E661C7366BEAE82A7F7F15BDC3BA0E73DCEDBBE_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13625,7 +13625,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m3E661C7366BEAE82A7F7F15BDC3BA0E73DCEDBBE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDeserializationContext_1_GetInstance_m0977C8532507536029939E0256E76D6A075ACC29_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13643,7 +13643,7 @@ IL2CPP_EXTERN_C  KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDe
 	_returnValue = JsonDeserializationContext_1_GetInstance_m0977C8532507536029939E0256E76D6A075ACC29_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDeserializationContext_1_ContinueVisitation_m1AD731A88B781006106E9C0214F4097810F1F6AD_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, const RuntimeMethod* method) 
 {
 	KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 V_0;
@@ -13682,7 +13682,7 @@ IL2CPP_EXTERN_C  KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m1AD731A88B781006106E9C0214F4097810F1F6AD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDeserializationContext_1_ContinueVisitation_mFFDBB77F54B94E9B305D32BFCB0915A2DC5CD5A0_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 V_0;
@@ -13722,7 +13722,7 @@ IL2CPP_EXTERN_C  KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mFFDBB77F54B94E9B305D32BFCB0915A2DC5CD5A0(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m0D30884579F4279B76971483BD1A44F79C6C8C4C_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -13745,7 +13745,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m0D3088457
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m0D30884579F4279B76971483BD1A44F79C6C8C4C(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mB3EB1C88D0B6341F5BB003B3C9AB57D3BD242B2B_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -13769,7 +13769,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mB3EB1C88D
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mB3EB1C88D0B6341F5BB003B3C9AB57D3BD242B2B(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0EBB4BC0F7629638969372751C330F1B9CE8C0EB_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, const RuntimeMethod* method) 
 {
 	KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 V_0;
@@ -13807,7 +13807,7 @@ IL2CPP_EXTERN_C  KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0EBB4BC0F7629638969372751C330F1B9CE8C0EB(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m688485C11C9A110AF9B427CCA8537F114BC801E5_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 V_0;
@@ -13846,7 +13846,7 @@ IL2CPP_EXTERN_C  KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m688485C11C9A110AF9B427CCA8537F114BC801E5(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEAB190001C19649A38BFCCC86F21C0C00C69FA17_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -13868,7 +13868,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEAB190001C19649A38BFCCC86F21C0C00C69FA17(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB088CB422A5F2E47E65D856A0CD8729FD73D7C59_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -13891,7 +13891,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB088CB422A5F2E47E65D856A0CD8729FD73D7C59(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mBB38A932272D6D18957FC70E7C3A7B88E6D32252_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13912,7 +13912,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mBB38A932272D6D18957FC70E7C3A7B88E6D32252(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m73011BFA1BBAEAE49727F2B8A8845C8FC49B8041_gshared (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13941,7 +13941,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m832D58060529EA8269808684443195B99A189000_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, const RuntimeMethod* method) 
 {
 	{
@@ -13961,7 +13961,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m832D58060529EA8269808684443195B99A189000(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mADFE657A5D875C00817A7177FD46BE9A5225E144_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14002,7 +14002,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mADFE657A5D875C00817A71
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mADFE657A5D875C00817A7177FD46BE9A5225E144(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mC6E9B5764743A1FF1C1364A487525A7281CB370D_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14023,7 +14023,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mC6E9B5764743A1FF1C1364A487525A7281CB370D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeserializationContext_1_GetInstance_m27F6C8FE2C996D2593D3110CCB0C66CC55E8B69A_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14041,7 +14041,7 @@ IL2CPP_EXTERN_C  StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeser
 	_returnValue = JsonDeserializationContext_1_GetInstance_m27F6C8FE2C996D2593D3110CCB0C66CC55E8B69A_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeserializationContext_1_ContinueVisitation_m53B2554C79E492DE3242542DF8C71A696BC3C86F_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, const RuntimeMethod* method) 
 {
 	StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC V_0;
@@ -14080,7 +14080,7 @@ IL2CPP_EXTERN_C  StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m53B2554C79E492DE3242542DF8C71A696BC3C86F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeserializationContext_1_ContinueVisitation_mF0BA65445A2253ADED12D299350D831E03150DD8_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC V_0;
@@ -14120,7 +14120,7 @@ IL2CPP_EXTERN_C  StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mF0BA65445A2253ADED12D299350D831E03150DD8(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m59D5D4FAD8FFE6365E723C807D75C84BC3DE428D_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -14143,7 +14143,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m59D5D4FAD
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m59D5D4FAD8FFE6365E723C807D75C84BC3DE428D(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m2681CD9590B12D02397A3D8B1BCE77F96DAD7411_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -14167,7 +14167,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m2681CD959
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m2681CD9590B12D02397A3D8B1BCE77F96DAD7411(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m56E138ABB50309842916BAE9C3C502259D0AF94C_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, const RuntimeMethod* method) 
 {
 	StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC V_0;
@@ -14205,7 +14205,7 @@ IL2CPP_EXTERN_C  StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m56E138ABB50309842916BAE9C3C502259D0AF94C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE816E728E58C2642B5D83736C410F9B72C8562ED_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC V_0;
@@ -14244,7 +14244,7 @@ IL2CPP_EXTERN_C  StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE816E728E58C2642B5D83736C410F9B72C8562ED(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5C5556D87B7B4BF522AE959BB3D3CA97A4B99904_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -14266,7 +14266,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5C5556D87B7B4BF522AE959BB3D3CA97A4B99904(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF1B1DEEC84D85A21A5B710F189138B27A270D698_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -14289,7 +14289,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF1B1DEEC84D85A21A5B710F189138B27A270D698(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m784F7338CDE66B919CFF9595E4B02E8E5A10E598_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14310,7 +14310,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m784F7338CDE66B919CFF9595E4B02E8E5A10E598(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m2BEE6A68EEBF6FFC4E9B88A9C1C86051F46EEF95_gshared (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14339,7 +14339,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mD5E190D470099B2994EBFD9C6AE502C7A5163C16_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14359,7 +14359,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mD5E190D470099B2994EBFD9C6AE502C7A5163C16(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m52B20D43F1C0BF2131F9E1F7391430C341F2783D_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14401,7 +14401,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m52B20D43F1C0BF2131F9E1
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m52B20D43F1C0BF2131F9E1F7391430C341F2783D(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mD3BE1DEF40AD6D65048E4B94D7BCF9A0550A4F7C_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14422,7 +14422,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mD3BE1DEF40AD6D65048E4B94D7BCF9A0550A4F7C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeserializationContext_1_GetInstance_m9FC00F6D79B791746064199D7DBC76C598859A31_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14440,7 +14440,7 @@ IL2CPP_EXTERN_C  StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeser
 	_returnValue = JsonDeserializationContext_1_GetInstance_m9FC00F6D79B791746064199D7DBC76C598859A31_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeserializationContext_1_ContinueVisitation_mBF4D2AFE618A0D518A5C7988976D18B6F1CD2DCE_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, const RuntimeMethod* method) 
 {
 	StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F V_0;
@@ -14479,7 +14479,7 @@ IL2CPP_EXTERN_C  StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mBF4D2AFE618A0D518A5C7988976D18B6F1CD2DCE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeserializationContext_1_ContinueVisitation_mEFFE069B2B871006419F3C8E8FA17807CFCCD20A_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F V_0;
@@ -14519,7 +14519,7 @@ IL2CPP_EXTERN_C  StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mEFFE069B2B871006419F3C8E8FA17807CFCCD20A(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m1472D38DF1BD6CD5EE46B02D9ED62F19C11B623A_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -14542,7 +14542,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m1472D38DF
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m1472D38DF1BD6CD5EE46B02D9ED62F19C11B623A(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m49AB30F8086E6387521B7D7CC7413B5C9ADC007D_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -14566,7 +14566,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m49AB30F80
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m49AB30F8086E6387521B7D7CC7413B5C9ADC007D(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m61999BC31BFA5843B4297AAA01D1734D64ABCAE9_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, const RuntimeMethod* method) 
 {
 	StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F V_0;
@@ -14604,7 +14604,7 @@ IL2CPP_EXTERN_C  StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m61999BC31BFA5843B4297AAA01D1734D64ABCAE9(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m4E97335C602924433086A2C19E60FDEA82E6B6FC_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F V_0;
@@ -14643,7 +14643,7 @@ IL2CPP_EXTERN_C  StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m4E97335C602924433086A2C19E60FDEA82E6B6FC(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m89CB8F0CBA14A00CF7FCD426D9C273A7B595819E_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -14665,7 +14665,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m89CB8F0CBA14A00CF7FCD426D9C273A7B595819E(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mCDB5D70985CE3CC50BD66330225010240F1D5163_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -14688,7 +14688,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mCDB5D70985CE3CC50BD66330225010240F1D5163(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m233A865B8DEB9555C276266A270786A3BB1AEC19_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14709,7 +14709,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m233A865B8DEB9555C276266A270786A3BB1AEC19(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m6965D593FF03B07F30EF3D302F329C51EFA4EA68_gshared (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14738,7 +14738,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mA5B309B0BDEFB67BB5A726E7CACABE6120616895_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14758,7 +14758,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mA5B309B0BDEFB67BB5A726E7CACABE6120616895(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m692E028F9F51CE63B7998582868801C623A3CE0F_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -14800,7 +14800,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m692E028F9F51CE63B79985
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m692E028F9F51CE63B7998582868801C623A3CE0F(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFEDEDDEEF0DFA9713ECF74EF50C2FE280BA57F5F_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14821,7 +14821,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFEDEDDEEF0DFA9713ECF74EF50C2FE280BA57F5F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeserializationContext_1_GetInstance_m808FFE71FCA6BBBE6CB8861F9702EC3BF1225DF6_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14839,7 +14839,7 @@ IL2CPP_EXTERN_C  StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeser
 	_returnValue = JsonDeserializationContext_1_GetInstance_m808FFE71FCA6BBBE6CB8861F9702EC3BF1225DF6_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeserializationContext_1_ContinueVisitation_mD6DAA2B368B234A50A5439D171DBED92C667165A_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, const RuntimeMethod* method) 
 {
 	StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C V_0;
@@ -14878,7 +14878,7 @@ IL2CPP_EXTERN_C  StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mD6DAA2B368B234A50A5439D171DBED92C667165A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeserializationContext_1_ContinueVisitation_m4213F40F8E0AA42DDD86D645DFBBFEFF0622D55C_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C V_0;
@@ -14918,7 +14918,7 @@ IL2CPP_EXTERN_C  StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m4213F40F8E0AA42DDD86D645DFBBFEFF0622D55C(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m0064F048130E2CC73363E1503BF566D303F3C17A_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -14941,7 +14941,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m0064F0481
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m0064F048130E2CC73363E1503BF566D303F3C17A(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m3A9D48EB52BB6B0CFD031DBCA4144CBA262FE069_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -14965,7 +14965,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m3A9D48EB5
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m3A9D48EB52BB6B0CFD031DBCA4144CBA262FE069(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m88E2D2A19206AAF93FAF4F0ADD1EDAB0921F449D_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, const RuntimeMethod* method) 
 {
 	StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C V_0;
@@ -15003,7 +15003,7 @@ IL2CPP_EXTERN_C  StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m88E2D2A19206AAF93FAF4F0ADD1EDAB0921F449D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD77301BBCFF91EF45F87B7B65BF941D80F44D1E7_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C V_0;
@@ -15042,7 +15042,7 @@ IL2CPP_EXTERN_C  StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD77301BBCFF91EF45F87B7B65BF941D80F44D1E7(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m06FDE130B5D021A11C45DEB1DE25600B7641C870_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -15064,7 +15064,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m06FDE130B5D021A11C45DEB1DE25600B7641C870(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m57C0F0554CF6F5A1AAAC51A966661C3E981B08C8_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -15087,7 +15087,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m57C0F0554CF6F5A1AAAC51A966661C3E981B08C8(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m536FD0A369CADBE23DE9AED9DA3C2D73EA08EB41_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15108,7 +15108,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m536FD0A369CADBE23DE9AED9DA3C2D73EA08EB41(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m7D4F18C8C4502CC78700874C2F11DE1DAB47523D_gshared (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15137,7 +15137,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mF6E01F34DB0B722492F436EA26ECB1EB6F2F20ED_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15157,7 +15157,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mF6E01F34DB0B722492F436EA26ECB1EB6F2F20ED(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m460ADF88B3CAF4A0B1F1A213F14822D8536B00E0_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -15199,7 +15199,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m460ADF88B3CAF4A0B1F1A2
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m460ADF88B3CAF4A0B1F1A213F14822D8536B00E0(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m10C02D4F669661A40189A13C3B7AC2254D8943BD_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15220,7 +15220,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m10C02D4F669661A40189A13C3B7AC2254D8943BD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeserializationContext_1_GetInstance_m42DC3F39D63205F716C25645206E453D6ED4231A_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15238,7 +15238,7 @@ IL2CPP_EXTERN_C  StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeser
 	_returnValue = JsonDeserializationContext_1_GetInstance_m42DC3F39D63205F716C25645206E453D6ED4231A_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeserializationContext_1_ContinueVisitation_mB02E77D2C7BC45F72C00C0FF350EC547EF8F8D54_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, const RuntimeMethod* method) 
 {
 	StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 V_0;
@@ -15277,7 +15277,7 @@ IL2CPP_EXTERN_C  StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mB02E77D2C7BC45F72C00C0FF350EC547EF8F8D54(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeserializationContext_1_ContinueVisitation_mEE3120A24024D540EBE8BE29193BB41E18B00181_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 V_0;
@@ -15317,7 +15317,7 @@ IL2CPP_EXTERN_C  StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mEE3120A24024D540EBE8BE29193BB41E18B00181(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m224F6F52DBB803D7220C4BFBF97D0882F8059628_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -15340,7 +15340,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m224F6F52D
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m224F6F52DBB803D7220C4BFBF97D0882F8059628(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mCD6ACB84E6F39549747F2B5CC054E10D95A21F97_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -15364,7 +15364,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mCD6ACB84E
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mCD6ACB84E6F39549747F2B5CC054E10D95A21F97(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3773FC7792E0E35C11CD36C832ABAE853CFF4749_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, const RuntimeMethod* method) 
 {
 	StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 V_0;
@@ -15402,7 +15402,7 @@ IL2CPP_EXTERN_C  StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3773FC7792E0E35C11CD36C832ABAE853CFF4749(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD1ED7028375949452347FBEB202D250C1B9F9195_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 V_0;
@@ -15441,7 +15441,7 @@ IL2CPP_EXTERN_C  StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD1ED7028375949452347FBEB202D250C1B9F9195(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0ACA1EF98659A08776D3A486F233CB003CFD04DF_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -15463,7 +15463,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0ACA1EF98659A08776D3A486F233CB003CFD04DF(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mECF8EE4B4288EBD3C4412DA0C119B2E865A2C182_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -15486,7 +15486,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mECF8EE4B4288EBD3C4412DA0C119B2E865A2C182(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m70B8352F0D027FA5142B86DA64F73C6A13A6AB3A_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15507,7 +15507,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m70B8352F0D027FA5142B86DA64F73C6A13A6AB3A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m4ACA524D936ACA3697D590890897B7B2597CB761_gshared (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15536,7 +15536,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m3FE01DDA04EE28636B065AA742E1AA3CCC0C73F0_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15556,7 +15556,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m3FE01DDA04EE28636B065AA742E1AA3CCC0C73F0(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mB115C06AF7F78775099F1A178F08C70E8FFF8839_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -15597,7 +15597,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mB115C06AF7F78775099F1A
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mB115C06AF7F78775099F1A178F08C70E8FFF8839(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m546095DBA80FA0863B395B97B7E32C0614A19BD8_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15618,7 +15618,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m546095DBA80FA0863B395B97B7E32C0614A19BD8(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializationContext_1_GetInstance_mCBD670D738697583EDD56C1DB3B22A480662D1D5_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15636,7 +15636,7 @@ IL2CPP_EXTERN_C  Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_GetInstance_mCBD670D738697583EDD56C1DB3B22A480662D1D5_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializationContext_1_ContinueVisitation_m0EEB5D62EC2BF500D9890A752C573AEC07B13764_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, const RuntimeMethod* method) 
 {
 	Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC V_0;
@@ -15675,7 +15675,7 @@ IL2CPP_EXTERN_C  Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m0EEB5D62EC2BF500D9890A752C573AEC07B13764(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializationContext_1_ContinueVisitation_m7CBE84B246FF374FE89D89E0D63A32DF0E8BCBC5_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC V_0;
@@ -15715,7 +15715,7 @@ IL2CPP_EXTERN_C  Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m7CBE84B246FF374FE89D89E0D63A32DF0E8BCBC5(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mE616363E804ECC5C823D4559B95A3F2551E75DFA_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -15738,7 +15738,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mE616363E8
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mE616363E804ECC5C823D4559B95A3F2551E75DFA(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m929DFF597299C6EE36E3E9BD195962EA8AC7E0EB_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -15762,7 +15762,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m929DFF597
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m929DFF597299C6EE36E3E9BD195962EA8AC7E0EB(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB1C8B5968EB6D2916C350404FD43CC491473C737_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, const RuntimeMethod* method) 
 {
 	Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC V_0;
@@ -15800,7 +15800,7 @@ IL2CPP_EXTERN_C  Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB1C8B5968EB6D2916C350404FD43CC491473C737(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mC7C456CDE47E4130CB4517190CF519083CA55BC7_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC V_0;
@@ -15839,7 +15839,7 @@ IL2CPP_EXTERN_C  Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mC7C456CDE47E4130CB4517190CF519083CA55BC7(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEE45CBD4118468B53E2CFD7ADD1549FAE9FD4342_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -15861,7 +15861,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEE45CBD4118468B53E2CFD7ADD1549FAE9FD4342(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mCC2785C63764198FA52AAE46739B87E986E60105_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -15884,7 +15884,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mCC2785C63764198FA52AAE46739B87E986E60105(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m119184555D0649AE1DD17507457EC1F8A9B2F4CF_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15905,7 +15905,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m119184555D0649AE1DD17507457EC1F8A9B2F4CF(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m48FD216EC4632DC9274AAA86B626945C83370E20_gshared (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15934,7 +15934,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m5D3E02CB903E16CEA9C46DEB57F9BDACE053174F_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, const RuntimeMethod* method) 
 {
 	{
@@ -15954,7 +15954,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m5D3E02CB903E16CEA9C46DEB57F9BDACE053174F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m54F4FE7D7D599C1F8022B78F2225A772925A19EE_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -16005,7 +16005,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m54F4FE7D7D599C1F8022B7
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m54F4FE7D7D599C1F8022B78F2225A772925A19EE(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mDDABA82B8CF6F118038CDFC91A964C8F47B8D41E_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16026,7 +16026,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mDDABA82B8CF6F118038CDFC91A964C8F47B8D41E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeserializationContext_1_GetInstance_mD2C8A0576D0785580978A1C1E69E499CA2C18924_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16044,7 +16044,7 @@ IL2CPP_EXTERN_C  Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_GetInstance_mD2C8A0576D0785580978A1C1E69E499CA2C18924_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeserializationContext_1_ContinueVisitation_m05ED8824C6D0539C6EACC46E69D0E3E416EC13B4_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, const RuntimeMethod* method) 
 {
 	Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 V_0;
@@ -16083,7 +16083,7 @@ IL2CPP_EXTERN_C  Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m05ED8824C6D0539C6EACC46E69D0E3E416EC13B4(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeserializationContext_1_ContinueVisitation_m527F4A0864A8A528BC33A0F9D70B56BA53BEFBED_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 V_0;
@@ -16123,7 +16123,7 @@ IL2CPP_EXTERN_C  Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m527F4A0864A8A528BC33A0F9D70B56BA53BEFBED(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mAE840E43812A7E1DCFE4287D12A9855DF0E688A1_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -16146,7 +16146,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mAE840E438
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mAE840E43812A7E1DCFE4287D12A9855DF0E688A1(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m58015A3C40F0EE24C951FFF2839128ED7305DCD1_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -16170,7 +16170,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m58015A3C4
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m58015A3C40F0EE24C951FFF2839128ED7305DCD1(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5BBB32BD4092472902D5B59788E68A0E9FB3F2D5_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, const RuntimeMethod* method) 
 {
 	Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 V_0;
@@ -16208,7 +16208,7 @@ IL2CPP_EXTERN_C  Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5BBB32BD4092472902D5B59788E68A0E9FB3F2D5(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7E35289D4AF5AE5E665E24516DA2B58A02FCAB2D_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 V_0;
@@ -16247,7 +16247,7 @@ IL2CPP_EXTERN_C  Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7E35289D4AF5AE5E665E24516DA2B58A02FCAB2D(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m353BDE634EB6DB5FD831543367852D35361A53A7_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -16269,7 +16269,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m353BDE634EB6DB5FD831543367852D35361A53A7(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m93493AACBD48CBB2C1F966476C66FD254DC7EC20_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -16292,7 +16292,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m93493AACBD48CBB2C1F966476C66FD254DC7EC20(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m5BB96E1773A695D1B6F411F841B73E511BDFDB11_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16313,7 +16313,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m5BB96E1773A695D1B6F411F841B73E511BDFDB11(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mBA759C1EAC9A09BA5DFA3761DF9D3CE6FE199740_gshared (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16342,7 +16342,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m4139732F695D6980ACC6C9348BEBB479B738D4A5_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16362,7 +16362,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m4139732F695D6980ACC6C9348BEBB479B738D4A5(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m1CBD550A145EFC8A61FB46CD5C31720BF5B1AE43_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -16403,7 +16403,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m1CBD550A145EFC8A61FB46
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m1CBD550A145EFC8A61FB46CD5C31720BF5B1AE43(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m8133426257CF517E7C30E2FD50A83480640C90D3_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16424,7 +16424,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m8133426257CF517E7C30E2FD50A83480640C90D3(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 JsonDeserializationContext_1_GetInstance_mCD4F758F2D25561811A19B6038D93923D0B0BED2_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16442,7 +16442,7 @@ IL2CPP_EXTERN_C  BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 Js
 	_returnValue = JsonDeserializationContext_1_GetInstance_mCD4F758F2D25561811A19B6038D93923D0B0BED2_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 JsonDeserializationContext_1_ContinueVisitation_m6DC32373FBD69799B9265121660FCCB39B007F49_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, const RuntimeMethod* method) 
 {
 	BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 V_0;
@@ -16481,7 +16481,7 @@ IL2CPP_EXTERN_C  BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m6DC32373FBD69799B9265121660FCCB39B007F49(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 JsonDeserializationContext_1_ContinueVisitation_m50728C1CB91C8F61B6E3BF9937C2AF95F919E1E1_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 V_0;
@@ -16521,7 +16521,7 @@ IL2CPP_EXTERN_C  BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m50728C1CB91C8F61B6E3BF9937C2AF95F919E1E1(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mDA92FB4F1D11F1FB66C6075B55EA0C4FCE476CA9_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -16544,7 +16544,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mDA92FB4F1
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mDA92FB4F1D11F1FB66C6075B55EA0C4FCE476CA9(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m6918279ABBB3AEB5A01BE29E70C9E3FBE4095580_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -16568,7 +16568,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m6918279AB
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m6918279ABBB3AEB5A01BE29E70C9E3FBE4095580(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2DF84180FFFBFA7849B95208DCE0F4164F0B2015_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, const RuntimeMethod* method) 
 {
 	BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 V_0;
@@ -16606,7 +16606,7 @@ IL2CPP_EXTERN_C  BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2DF84180FFFBFA7849B95208DCE0F4164F0B2015(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m30C65FD89753CA9859E6DA3A299ED7AB70D55BF6_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 V_0;
@@ -16645,7 +16645,7 @@ IL2CPP_EXTERN_C  BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m30C65FD89753CA9859E6DA3A299ED7AB70D55BF6(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m9AC296A372CCCB844DF7AEB08B3313CD3172FBC0_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -16667,7 +16667,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m9AC296A372CCCB844DF7AEB08B3313CD3172FBC0(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mFE4E4CB206878C80222955DBF3351F78D81DD340_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -16690,7 +16690,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mFE4E4CB206878C80222955DBF3351F78D81DD340(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m1D477E2EB2BA66F5680E219C5D4A1CB7FCE7CE65_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16711,7 +16711,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m1D477E2EB2BA66F5680E219C5D4A1CB7FCE7CE65(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m5010C5FDDDD7CDFA240CA9ACB226EDDA2B1BCD3D_gshared (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16740,7 +16740,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m1C0962532B8656C62C1E82F2B694AF98E3B9ADCB_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16760,7 +16760,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m1C0962532B8656C62C1E82F2B694AF98E3B9ADCB(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mD2CFF0B504D58F82346FF81EC5750A3E75CD30BD_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -16801,7 +16801,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mD2CFF0B504D58F82346FF8
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mD2CFF0B504D58F82346FF81EC5750A3E75CD30BD(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m9C010D452F982D8958901B7CC9BEB357EEABC452_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16822,7 +16822,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m9C010D452F982D8958901B7CC9BEB357EEABC452(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F JsonDeserializationContext_1_GetInstance_mAF06056A22B762F63AAF470960ADC6F8B306C351_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, const RuntimeMethod* method) 
 {
 	{
@@ -16840,7 +16840,7 @@ IL2CPP_EXTERN_C  BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F Json
 	_returnValue = JsonDeserializationContext_1_GetInstance_mAF06056A22B762F63AAF470960ADC6F8B306C351_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F JsonDeserializationContext_1_ContinueVisitation_m7412BAE496169A1C8C7496BF612E6E44DF6A05C6_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, const RuntimeMethod* method) 
 {
 	BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F V_0;
@@ -16879,7 +16879,7 @@ IL2CPP_EXTERN_C  BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F Json
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m7412BAE496169A1C8C7496BF612E6E44DF6A05C6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F JsonDeserializationContext_1_ContinueVisitation_mDAAA9991F53B72E21FE14FF2E8F9B81C1BCA0B50_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F V_0;
@@ -16919,7 +16919,7 @@ IL2CPP_EXTERN_C  BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F Json
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mDAAA9991F53B72E21FE14FF2E8F9B81C1BCA0B50(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mFB9768C77212D3D92AECF1D35B59977078422EF1_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -16942,7 +16942,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mFB9768C77
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mFB9768C77212D3D92AECF1D35B59977078422EF1(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mC4A7AD62529F47099F1A933C12DB0DB0D603F14C_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -16966,7 +16966,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mC4A7AD625
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mC4A7AD62529F47099F1A933C12DB0DB0D603F14C(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m73FF8D429543F4F44B49912AE319F6019474B8DE_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, const RuntimeMethod* method) 
 {
 	BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F V_0;
@@ -17004,7 +17004,7 @@ IL2CPP_EXTERN_C  BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F Json
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m73FF8D429543F4F44B49912AE319F6019474B8DE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m341495F8BE33F63C6BC3CAE163C4617C17E93809_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F V_0;
@@ -17043,7 +17043,7 @@ IL2CPP_EXTERN_C  BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F Json
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m341495F8BE33F63C6BC3CAE163C4617C17E93809(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7C4D5F29C269B70E13074423BFBC9E2D293837F3_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -17065,7 +17065,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7C4D5F29C269B70E13074423BFBC9E2D293837F3(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m39C968FDFD7B06736DE30175412425ADE4D2A3A7_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -17088,7 +17088,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m39C968FDFD7B06736DE30175412425ADE4D2A3A7(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mC9968FBFDBB454683CC4DAA0A42A117ED8747567_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17109,7 +17109,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mC9968FBFDBB454683CC4DAA0A42A117ED8747567(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m6C28C9F9D7C51808B6518CE582CDEC95B1AD7773_gshared (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17138,7 +17138,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m512C6B57D55B55DBBB8B99D64C2C0477FBCF7E89_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17158,7 +17158,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m512C6B57D55B55DBBB8B99D64C2C0477FBCF7E89(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m46FD9EBAB9FD6013DF841A4C943EA6A9426DCF72_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -17199,7 +17199,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m46FD9EBAB9FD6013DF841A
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m46FD9EBAB9FD6013DF841A4C943EA6A9426DCF72(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mCDB4B75DE0E13B2E57CFDC185075716DA0ADD650_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17220,7 +17220,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mCDB4B75DE0E13B2E57CFDC185075716DA0ADD650(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDeserializationContext_1_GetInstance_mDF80241A0E818A09FDCB797C355D614A8297FBE7_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17238,7 +17238,7 @@ IL2CPP_EXTERN_C  BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDe
 	_returnValue = JsonDeserializationContext_1_GetInstance_mDF80241A0E818A09FDCB797C355D614A8297FBE7_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDeserializationContext_1_ContinueVisitation_m2FAA3CB386442C996D4195BFAAE15C509EE17CC8_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, const RuntimeMethod* method) 
 {
 	BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 V_0;
@@ -17277,7 +17277,7 @@ IL2CPP_EXTERN_C  BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m2FAA3CB386442C996D4195BFAAE15C509EE17CC8(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDeserializationContext_1_ContinueVisitation_m2C85C4E9844255225F583FBA26D9B6DBB8790AE8_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 V_0;
@@ -17317,7 +17317,7 @@ IL2CPP_EXTERN_C  BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m2C85C4E9844255225F583FBA26D9B6DBB8790AE8(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mD53753EBD93E6D05BD6D51A6BF536EB155918106_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -17340,7 +17340,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mD53753EBD
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mD53753EBD93E6D05BD6D51A6BF536EB155918106(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m5C29F86A15E6DCAC3D03BA9A696CCE891A3A6E2A_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -17364,7 +17364,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m5C29F86A1
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m5C29F86A15E6DCAC3D03BA9A696CCE891A3A6E2A(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mAFCC4F53F2875D787C3A16DFC186EEB4B3913919_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, const RuntimeMethod* method) 
 {
 	BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 V_0;
@@ -17402,7 +17402,7 @@ IL2CPP_EXTERN_C  BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mAFCC4F53F2875D787C3A16DFC186EEB4B3913919(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mC16EF508FC161450C41DB9A4CEC110A0CE89EFAB_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 V_0;
@@ -17441,7 +17441,7 @@ IL2CPP_EXTERN_C  BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mC16EF508FC161450C41DB9A4CEC110A0CE89EFAB(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE6F6A75F38DA0C51C6A0473A3AE66BC1FBA176B1_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -17463,7 +17463,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE6F6A75F38DA0C51C6A0473A3AE66BC1FBA176B1(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1C154C35D77CFE82AE292D045775301E2AD4F406_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -17486,7 +17486,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1C154C35D77CFE82AE292D045775301E2AD4F406(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m0E8E2F509E6EBD4BFF289DFA215AC4B6DE3A4870_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17507,7 +17507,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m0E8E2F509E6EBD4BFF289DFA215AC4B6DE3A4870(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mBFE0243231704A3468A783FC33E4C7B50FDBF398_gshared (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17536,7 +17536,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m02F15B8E08A8B9FDB6452488D5B72C0DE21EFFA3_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17556,7 +17556,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m02F15B8E08A8B9FDB6452488D5B72C0DE21EFFA3(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m910B6FF2B985FC98B547BF48474F1F315A0C91B0_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, bool ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -17597,7 +17597,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m910B6FF2B985FC98B547BF
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m910B6FF2B985FC98B547BF48474F1F315A0C91B0(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mE1951A43E75C9F5012B342048E430C334D0A6879_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17618,7 +17618,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mE1951A43E75C9F5012B342048E430C334D0A6879(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool JsonDeserializationContext_1_GetInstance_mFB2A9BACA86351A6B076D1C1DEEC8E002D7E5A7C_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17636,7 +17636,7 @@ IL2CPP_EXTERN_C  bool JsonDeserializationContext_1_GetInstance_mFB2A9BACA86351A6
 	_returnValue = JsonDeserializationContext_1_GetInstance_mFB2A9BACA86351A6B076D1C1DEEC8E002D7E5A7C_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool JsonDeserializationContext_1_ContinueVisitation_mC491830110DF5B739CF288DCF9D5C169E0712A67_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, const RuntimeMethod* method) 
 {
 	bool V_0 = false;
@@ -17673,7 +17673,7 @@ IL2CPP_EXTERN_C  bool JsonDeserializationContext_1_ContinueVisitation_mC49183011
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mC491830110DF5B739CF288DCF9D5C169E0712A67(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool JsonDeserializationContext_1_ContinueVisitation_m9041929971DE9D0E9A74D7A103AD0BA05FAA5111_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	bool V_0 = false;
@@ -17711,7 +17711,7 @@ IL2CPP_EXTERN_C  bool JsonDeserializationContext_1_ContinueVisitation_m904192997
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m9041929971DE9D0E9A74D7A103AD0BA05FAA5111(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mEA71C4CA5A56215661D39C380BD197638ABF2C13_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, bool* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -17734,7 +17734,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mEA71C4CA5
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mEA71C4CA5A56215661D39C380BD197638ABF2C13(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mE83F7025D3402F5994B98F2A8C8885FA6BA6B01F_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, bool* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -17758,7 +17758,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mE83F7025D
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mE83F7025D3402F5994B98F2A8C8885FA6BA6B01F(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2D6C34129784A0065EB0628B4119E48CC135D6CE_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, const RuntimeMethod* method) 
 {
 	bool V_0 = false;
@@ -17794,7 +17794,7 @@ IL2CPP_EXTERN_C  bool JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2D6C34129784A0065EB0628B4119E48CC135D6CE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBC889DC8A69413D7FE19B5FE6D3C2FC69AF225A8_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	bool V_0 = false;
@@ -17831,7 +17831,7 @@ IL2CPP_EXTERN_C  bool JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBC889DC8A69413D7FE19B5FE6D3C2FC69AF225A8(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBC99464F0BD81B492F84B2F10953CE6A95FD31CE_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, bool* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -17853,7 +17853,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBC99464F0BD81B492F84B2F10953CE6A95FD31CE(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2467E277D4012047AD60F55DCCE8405F72AB7732_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, bool* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -17876,7 +17876,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2467E277D4012047AD60F55DCCE8405F72AB7732(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m415E91F63B2338FE9298204689C1EB04412A2BD0_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17897,7 +17897,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m415E91F63B2338FE9298204689C1EB04412A2BD0(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mD5A2B97C7F03631EAB9EFF85690100ABAE365511_gshared (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17926,7 +17926,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m9EEA90B823EF0A463D02E387B419FDBE0DFAD85C_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, const RuntimeMethod* method) 
 {
 	{
@@ -17946,7 +17946,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m9EEA90B823EF0A463D02E387B419FDBE0DFAD85C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m998441DC9F853182A05EAEA6467FE6FFCC2541AE_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, uint8_t ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -17987,7 +17987,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m998441DC9F853182A05EAE
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m998441DC9F853182A05EAEA6467FE6FFCC2541AE(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m4A78C5418FA105FF54FDA85B2D8E8DD660A95DB7_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18008,7 +18008,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m4A78C5418FA105FF54FDA85B2D8E8DD660A95DB7(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t JsonDeserializationContext_1_GetInstance_m9D873064DBADC2E3EBF246254D01B2BF28F13EBE_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18026,7 +18026,7 @@ IL2CPP_EXTERN_C  uint8_t JsonDeserializationContext_1_GetInstance_m9D873064DBADC
 	_returnValue = JsonDeserializationContext_1_GetInstance_m9D873064DBADC2E3EBF246254D01B2BF28F13EBE_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t JsonDeserializationContext_1_ContinueVisitation_mFE6A20986723D495969853B3D62F61988D73D495_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, const RuntimeMethod* method) 
 {
 	uint8_t V_0 = 0x0;
@@ -18063,7 +18063,7 @@ IL2CPP_EXTERN_C  uint8_t JsonDeserializationContext_1_ContinueVisitation_mFE6A20
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mFE6A20986723D495969853B3D62F61988D73D495(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t JsonDeserializationContext_1_ContinueVisitation_mF354ADC247CA01E7825B7F80DEDF800CF6F1C8DF_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	uint8_t V_0 = 0x0;
@@ -18101,7 +18101,7 @@ IL2CPP_EXTERN_C  uint8_t JsonDeserializationContext_1_ContinueVisitation_mF354AD
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mF354ADC247CA01E7825B7F80DEDF800CF6F1C8DF(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m4282F417F6533CE7527B3705CE6E83515F062F51_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, uint8_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -18124,7 +18124,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m4282F417F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m4282F417F6533CE7527B3705CE6E83515F062F51(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mF6DC769E66DF6E7EDE43FBC4C03AA3BDF2C490BF_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, uint8_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -18148,7 +18148,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mF6DC769E6
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mF6DC769E66DF6E7EDE43FBC4C03AA3BDF2C490BF(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD714E20504DAD73E7CEE4F0EC49A1A424B19C71A_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, const RuntimeMethod* method) 
 {
 	uint8_t V_0 = 0x0;
@@ -18184,7 +18184,7 @@ IL2CPP_EXTERN_C  uint8_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD714E20504DAD73E7CEE4F0EC49A1A424B19C71A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint8_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0236A1CBB73FBACEF443EFDA3A227EFDCAB8E45D_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	uint8_t V_0 = 0x0;
@@ -18221,7 +18221,7 @@ IL2CPP_EXTERN_C  uint8_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0236A1CBB73FBACEF443EFDA3A227EFDCAB8E45D(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5B1E710C7CA177DF4703876B203660BDA0556B66_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, uint8_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -18243,7 +18243,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5B1E710C7CA177DF4703876B203660BDA0556B66(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA03321AB7F0999BB1644BF26063C4F12485DB9C6_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, uint8_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -18266,7 +18266,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA03321AB7F0999BB1644BF26063C4F12485DB9C6(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m2FBF2F829D6FAEDB3437BA0EFB590C4A49C377F2_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18287,7 +18287,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m2FBF2F829D6FAEDB3437BA0EFB590C4A49C377F2(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mF884CE0ACCACBA1A3B9785E02C45BFF3E9C10BEA_gshared (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18316,7 +18316,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m8B9B58A8A36E30256862C0C23EA8E518ABB0C407_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18336,7 +18336,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m8B9B58A8A36E30256862C0C23EA8E518ABB0C407(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m9552F226EC22BF8CA7FF754DCD33D12BBAAC14B9_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Il2CppChar ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -18377,7 +18377,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m9552F226EC22BF8CA7FF75
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m9552F226EC22BF8CA7FF754DCD33D12BBAAC14B9(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m8A213DA38FAA225D6C402085DF8D0E5810CE0DE4_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18398,7 +18398,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m8A213DA38FAA225D6C402085DF8D0E5810CE0DE4(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Il2CppChar JsonDeserializationContext_1_GetInstance_m8172700DD5892492B5EDCF439635AD78F3ADA855_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18416,7 +18416,7 @@ IL2CPP_EXTERN_C  Il2CppChar JsonDeserializationContext_1_GetInstance_m8172700DD5
 	_returnValue = JsonDeserializationContext_1_GetInstance_m8172700DD5892492B5EDCF439635AD78F3ADA855_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Il2CppChar JsonDeserializationContext_1_ContinueVisitation_m5F500390EAF3B26026CD34C92A686D5FA557E26C_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, const RuntimeMethod* method) 
 {
 	Il2CppChar V_0 = 0x0;
@@ -18453,7 +18453,7 @@ IL2CPP_EXTERN_C  Il2CppChar JsonDeserializationContext_1_ContinueVisitation_m5F5
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m5F500390EAF3B26026CD34C92A686D5FA557E26C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Il2CppChar JsonDeserializationContext_1_ContinueVisitation_mB4A9B5A5C111B6395006A80CF8950F5557D5CB06_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Il2CppChar V_0 = 0x0;
@@ -18491,7 +18491,7 @@ IL2CPP_EXTERN_C  Il2CppChar JsonDeserializationContext_1_ContinueVisitation_mB4A
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mB4A9B5A5C111B6395006A80CF8950F5557D5CB06(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mB1479EFF81C128AEAA9807B76390923BA278AC65_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, Il2CppChar* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -18514,7 +18514,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mB1479EFF8
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mB1479EFF81C128AEAA9807B76390923BA278AC65(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m2C8FBE2B70E335224C4DEDE4C3CB43944FC34770_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, Il2CppChar* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -18538,7 +18538,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m2C8FBE2B7
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m2C8FBE2B70E335224C4DEDE4C3CB43944FC34770(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Il2CppChar JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m46C3BEE483518A280D81E4A43D0AFFB1D7C5153E_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, const RuntimeMethod* method) 
 {
 	Il2CppChar V_0 = 0x0;
@@ -18574,7 +18574,7 @@ IL2CPP_EXTERN_C  Il2CppChar JsonDeserializationContext_1_ContinueVisitationWitho
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m46C3BEE483518A280D81E4A43D0AFFB1D7C5153E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Il2CppChar JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m42AD72944C67B7B8DF6FE5AE7C8D99A8E3F7F9A9_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Il2CppChar V_0 = 0x0;
@@ -18611,7 +18611,7 @@ IL2CPP_EXTERN_C  Il2CppChar JsonDeserializationContext_1_ContinueVisitationWitho
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m42AD72944C67B7B8DF6FE5AE7C8D99A8E3F7F9A9(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m589B856B5ED704BEA2F2DF0D9F285FC45BF00E2F_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, Il2CppChar* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -18633,7 +18633,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m589B856B5ED704BEA2F2DF0D9F285FC45BF00E2F(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m11A4C55F7EC6AB90C01C0BEB70936BE3AABF8BA5_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, Il2CppChar* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -18656,7 +18656,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m11A4C55F7EC6AB90C01C0BEB70936BE3AABF8BA5(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mBE4E814D8232E8DAA93EDA5140D13E7A0F76029D_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18677,7 +18677,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mBE4E814D8232E8DAA93EDA5140D13E7A0F76029D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m8FB20B5C6AFDCDD27221E1CB6F54BE51BF719261_gshared (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18706,7 +18706,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mE1782722637425C3556FDC85FC74D8F13E566F9F_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18726,7 +18726,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mE1782722637425C3556FDC85FC74D8F13E566F9F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m38C16B72090417EDD5EE247E0DCE18E1CDBB29F2_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -18767,7 +18767,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m38C16B72090417EDD5EE24
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m38C16B72090417EDD5EE247E0DCE18E1CDBB29F2(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFAF141DB3B6037FBDB40E2312AFD990BEEFBA6F0_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18788,7 +18788,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFAF141DB3B6037FBDB40E2312AFD990BEEFBA6F0(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializationContext_1_GetInstance_m19DE7AACED2E130AA3E38060393DAE29DAC91A0A_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -18806,7 +18806,7 @@ IL2CPP_EXTERN_C  Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_GetInstance_m19DE7AACED2E130AA3E38060393DAE29DAC91A0A_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializationContext_1_ContinueVisitation_mB9BF5C1CD6064580A9097B1B05255A7D22D2E95C_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, const RuntimeMethod* method) 
 {
 	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F V_0;
@@ -18845,7 +18845,7 @@ IL2CPP_EXTERN_C  Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mB9BF5C1CD6064580A9097B1B05255A7D22D2E95C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializationContext_1_ContinueVisitation_m4142612D7C8EDA7C8AB502C01486B2181FDB7A0B_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F V_0;
@@ -18885,7 +18885,7 @@ IL2CPP_EXTERN_C  Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m4142612D7C8EDA7C8AB502C01486B2181FDB7A0B(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m2DE44085AAEFCA409BEFAB39236E2A41181FBF04_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -18908,7 +18908,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m2DE44085A
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m2DE44085AAEFCA409BEFAB39236E2A41181FBF04(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m8242FC89CBB81E6FBE055E707879B8DCB380A116_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -18932,7 +18932,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m8242FC89C
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m8242FC89CBB81E6FBE055E707879B8DCB380A116(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6164C7182FA8E621E3985192B51EC290D3E7CD35_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, const RuntimeMethod* method) 
 {
 	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F V_0;
@@ -18970,7 +18970,7 @@ IL2CPP_EXTERN_C  Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6164C7182FA8E621E3985192B51EC290D3E7CD35(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDE7EFD00F548F05C779202598C2AA7E7639E8CF0_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F V_0;
@@ -19009,7 +19009,7 @@ IL2CPP_EXTERN_C  Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDE7EFD00F548F05C779202598C2AA7E7639E8CF0(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m4D59F3B7F6CAF5A7C4C315789FC53DFE2D4905FB_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -19031,7 +19031,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m4D59F3B7F6CAF5A7C4C315789FC53DFE2D4905FB(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB03D17F31A4C17DFC2874A5B3CC1EDAE480DD05D_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -19054,7 +19054,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB03D17F31A4C17DFC2874A5B3CC1EDAE480DD05D(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m908229E4FDFED19CEB829D7304EF0F2078C6682F_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19075,7 +19075,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m908229E4FDFED19CEB829D7304EF0F2078C6682F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m73E6697C85FB4CEE074CAFD4B60C18C5F32810A9_gshared (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19104,7 +19104,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mD613058EDEECAF1F96525538CCC63BF8A50FC0D0_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19124,7 +19124,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mD613058EDEECAF1F96525538CCC63BF8A50FC0D0(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m2E49BF56B5A3FE7B443B00D05994C01FD7EFBACB_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -19166,7 +19166,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m2E49BF56B5A3FE7B443B00
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m2E49BF56B5A3FE7B443B00D05994C01FD7EFBACB(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mD4BC2100534504D51ED3D72F3E9277BF26800EAC_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19187,7 +19187,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mD4BC2100534504D51ED3D72F3E9277BF26800EAC(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializationContext_1_GetInstance_m0CEBA3DCB99AA492DA9D01C61BF65235A43B2D91_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19205,7 +19205,7 @@ IL2CPP_EXTERN_C  Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_GetInstance_m0CEBA3DCB99AA492DA9D01C61BF65235A43B2D91_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializationContext_1_ContinueVisitation_mD68AB4B2C30DF130F524F679185B54D390D89C2B_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, const RuntimeMethod* method) 
 {
 	Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 V_0;
@@ -19244,7 +19244,7 @@ IL2CPP_EXTERN_C  Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mD68AB4B2C30DF130F524F679185B54D390D89C2B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializationContext_1_ContinueVisitation_m673D6062F42CF6643DBDC89EF145A574E43192D1_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 V_0;
@@ -19284,7 +19284,7 @@ IL2CPP_EXTERN_C  Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m673D6062F42CF6643DBDC89EF145A574E43192D1(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mF63B87ACA8D863063B00EDA16770548788D2035A_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -19307,7 +19307,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mF63B87ACA
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mF63B87ACA8D863063B00EDA16770548788D2035A(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m11A0093E798A9AD92ED92CFDF4F3095D5EF1C46F_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -19331,7 +19331,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m11A0093E7
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m11A0093E798A9AD92ED92CFDF4F3095D5EF1C46F(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBFB1187F2280E1689902F8D629662234F02136CE_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, const RuntimeMethod* method) 
 {
 	Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 V_0;
@@ -19369,7 +19369,7 @@ IL2CPP_EXTERN_C  Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBFB1187F2280E1689902F8D629662234F02136CE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA2E4882E2377B04AC928B9971D00703BD80E411A_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 V_0;
@@ -19408,7 +19408,7 @@ IL2CPP_EXTERN_C  Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA2E4882E2377B04AC928B9971D00703BD80E411A(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m9A1555EC2E2FD3EE13602EC9AE528CD83DA09D41_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -19430,7 +19430,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m9A1555EC2E2FD3EE13602EC9AE528CD83DA09D41(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m67D25E44C752EA9E7350ED54FC22339460B8821C_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -19453,7 +19453,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m67D25E44C752EA9E7350ED54FC22339460B8821C(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m0B041978677E5858FCFE1DD2D2C18C2AD1975FF9_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19474,7 +19474,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m0B041978677E5858FCFE1DD2D2C18C2AD1975FF9(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m367169D65CAD12952CA5BFF99D8EB0EF8DC9B08F_gshared (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19503,7 +19503,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m7F8753652EC4FA850F97A7002AE96107A966B2A8_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19523,7 +19523,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m7F8753652EC4FA850F97A7002AE96107A966B2A8(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m17B37729FF4891F9746B9B13FCB5A502D24FBD8C_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -19564,7 +19564,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m17B37729FF4891F9746B9B
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m17B37729FF4891F9746B9B13FCB5A502D24FBD8C(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m301661FD19EDDA5FE53C48BCB31BE0A34C3CB4FD_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19585,7 +19585,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m301661FD19EDDA5FE53C48BCB31BE0A34C3CB4FD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserializationContext_1_GetInstance_m785D4A8654B4771C72721E4BD8B49E48573627BE_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19603,7 +19603,7 @@ IL2CPP_EXTERN_C  DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_GetInstance_m785D4A8654B4771C72721E4BD8B49E48573627BE_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserializationContext_1_ContinueVisitation_m3302255278CC05155328C5486B6A77F0BC70A1AE_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, const RuntimeMethod* method) 
 {
 	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D V_0;
@@ -19642,7 +19642,7 @@ IL2CPP_EXTERN_C  DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m3302255278CC05155328C5486B6A77F0BC70A1AE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserializationContext_1_ContinueVisitation_mAFFE89A33A247B8EDE35C3FE58B990FC3AC01FF9_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D V_0;
@@ -19682,7 +19682,7 @@ IL2CPP_EXTERN_C  DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mAFFE89A33A247B8EDE35C3FE58B990FC3AC01FF9(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mF9C2F1078A134ABB4225B52E1E27BFBED69F94C0_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -19705,7 +19705,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mF9C2F1078
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mF9C2F1078A134ABB4225B52E1E27BFBED69F94C0(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m62543ACA9EBBD2E5E62C6B5C5254CA8BD8932B4E_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -19729,7 +19729,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m62543ACA9
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m62543ACA9EBBD2E5E62C6B5C5254CA8BD8932B4E(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2FFA6E0E52346AE84D4FBC1ACEF244E492049A10_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, const RuntimeMethod* method) 
 {
 	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D V_0;
@@ -19767,7 +19767,7 @@ IL2CPP_EXTERN_C  DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2FFA6E0E52346AE84D4FBC1ACEF244E492049A10(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m473CB6BCFB6E54CCBC8440DCD63173B03315DC34_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D V_0;
@@ -19806,7 +19806,7 @@ IL2CPP_EXTERN_C  DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m473CB6BCFB6E54CCBC8440DCD63173B03315DC34(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE925B12438F0AFE2FD5F57F80ADC09E2C656E35E_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -19828,7 +19828,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE925B12438F0AFE2FD5F57F80ADC09E2C656E35E(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA568DCD8E1E76CECC3BAF172BB353AB2E396CD56_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -19851,7 +19851,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA568DCD8E1E76CECC3BAF172BB353AB2E396CD56(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m1DBC04E4DBBC77938BC39FBF67C841653F3BC7A2_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19872,7 +19872,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m1DBC04E4DBBC77938BC39FBF67C841653F3BC7A2(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m039E142188FDC3C3E4479A67946CE475AB035592_gshared (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19901,7 +19901,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m718B6DA4AF5825816ADF3C8E408257F1AD0FE74C_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19921,7 +19921,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m718B6DA4AF5825816ADF3C8E408257F1AD0FE74C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m04969E43800A46BF42BE555F54C7F2805A1BC158_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, double ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -19962,7 +19962,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m04969E43800A46BF42BE55
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m04969E43800A46BF42BE555F54C7F2805A1BC158(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m01807809E2E0FA7C4B0517A5BE7EFD1030F621D4_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -19983,7 +19983,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m01807809E2E0FA7C4B0517A5BE7EFD1030F621D4(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double JsonDeserializationContext_1_GetInstance_mC1EAC78CCDE6962F8F704BB5387AA48E2917E8AB_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20001,7 +20001,7 @@ IL2CPP_EXTERN_C  double JsonDeserializationContext_1_GetInstance_mC1EAC78CCDE696
 	_returnValue = JsonDeserializationContext_1_GetInstance_mC1EAC78CCDE6962F8F704BB5387AA48E2917E8AB_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double JsonDeserializationContext_1_ContinueVisitation_m0A817DB3EF7B097F171C575B6773BA8F84257789_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, const RuntimeMethod* method) 
 {
 	double V_0 = 0.0;
@@ -20038,7 +20038,7 @@ IL2CPP_EXTERN_C  double JsonDeserializationContext_1_ContinueVisitation_m0A817DB
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m0A817DB3EF7B097F171C575B6773BA8F84257789(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double JsonDeserializationContext_1_ContinueVisitation_m962DC5E7582F3A0039C98EC22FBDC838AFAC1101_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	double V_0 = 0.0;
@@ -20076,7 +20076,7 @@ IL2CPP_EXTERN_C  double JsonDeserializationContext_1_ContinueVisitation_m962DC5E
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m962DC5E7582F3A0039C98EC22FBDC838AFAC1101(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mB92F81C5CF3F2D40022DB7340E52359585F64DF9_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, double* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -20099,7 +20099,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mB92F81C5C
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mB92F81C5CF3F2D40022DB7340E52359585F64DF9(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m4C9B2F37F57C7BA8B81197DDF2FFF054B05B0B81_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, double* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -20123,7 +20123,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m4C9B2F37F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m4C9B2F37F57C7BA8B81197DDF2FFF054B05B0B81(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m53223B734F1A75FD3B70D025D8C82A038A989165_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, const RuntimeMethod* method) 
 {
 	double V_0 = 0.0;
@@ -20159,7 +20159,7 @@ IL2CPP_EXTERN_C  double JsonDeserializationContext_1_ContinueVisitationWithoutAd
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m53223B734F1A75FD3B70D025D8C82A038A989165(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8C3C11F1CCB8007D406DA83DFD944120E62A3177_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	double V_0 = 0.0;
@@ -20196,7 +20196,7 @@ IL2CPP_EXTERN_C  double JsonDeserializationContext_1_ContinueVisitationWithoutAd
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8C3C11F1CCB8007D406DA83DFD944120E62A3177(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m654D7C65AE227278EFBFDDB4266A22E11D886A56_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, double* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -20218,7 +20218,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m654D7C65AE227278EFBFDDB4266A22E11D886A56(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m19D49AFAAB24F1464BAC6037AB97A8574655BD69_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, double* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -20241,7 +20241,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m19D49AFAAB24F1464BAC6037AB97A8574655BD69(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m3B8EB57D76491D69BB092A4C11AFC39F7C847E1C_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20262,7 +20262,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m3B8EB57D76491D69BB092A4C11AFC39F7C847E1C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mEA8AABA186327662B182D31329E4D1C4617FF29C_gshared (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20291,7 +20291,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m46EA595C4907F1BDDB217C69B79EE7366C5B682D_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20311,7 +20311,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m46EA595C4907F1BDDB217C69B79EE7366C5B682D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mFCBB6ECF584CAC23414C62F210246AEB04C0B189_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -20352,7 +20352,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mFCBB6ECF584CAC23414C62
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mFCBB6ECF584CAC23414C62F210246AEB04C0B189(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m1B65B45A29CF0C78A9630693924F6AD28E4EFD86_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20373,7 +20373,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m1B65B45A29CF0C78A9630693924F6AD28E4EFD86(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDeserializationContext_1_GetInstance_mA4A645BCA1BD9DEC2B4969BFB7309AC87D9A62DF_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20391,7 +20391,7 @@ IL2CPP_EXTERN_C  EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDe
 	_returnValue = JsonDeserializationContext_1_GetInstance_mA4A645BCA1BD9DEC2B4969BFB7309AC87D9A62DF_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDeserializationContext_1_ContinueVisitation_m97E2F6C7CACDB23908F5309049D19E43C544EE29_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, const RuntimeMethod* method) 
 {
 	EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 V_0;
@@ -20430,7 +20430,7 @@ IL2CPP_EXTERN_C  EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m97E2F6C7CACDB23908F5309049D19E43C544EE29(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDeserializationContext_1_ContinueVisitation_m22F0B27C34C8866D2602E2B3025F425B3488E505_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 V_0;
@@ -20470,7 +20470,7 @@ IL2CPP_EXTERN_C  EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m22F0B27C34C8866D2602E2B3025F425B3488E505(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mF3C64E19537275E0FF89D0FEC27FC11A53ACA816_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -20493,7 +20493,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mF3C64E195
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mF3C64E19537275E0FF89D0FEC27FC11A53ACA816(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m7FBEFD24A2F174DABD871EE15475AB0A1F35E56D_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -20517,7 +20517,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m7FBEFD24A
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m7FBEFD24A2F174DABD871EE15475AB0A1F35E56D(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m316A13B0CE786ADA7ABEF9A163E1A7FD7B68F83A_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, const RuntimeMethod* method) 
 {
 	EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 V_0;
@@ -20555,7 +20555,7 @@ IL2CPP_EXTERN_C  EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m316A13B0CE786ADA7ABEF9A163E1A7FD7B68F83A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDD9584210D3BD4AA659F9CD90CB53C82CFEEF7BF_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 V_0;
@@ -20594,7 +20594,7 @@ IL2CPP_EXTERN_C  EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDD9584210D3BD4AA659F9CD90CB53C82CFEEF7BF(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8E476881862A31AE9D2B878AF505945F830773A5_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -20616,7 +20616,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8E476881862A31AE9D2B878AF505945F830773A5(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m472480F742BE4884526B9F318005D08E2B072BB0_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -20639,7 +20639,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m472480F742BE4884526B9F318005D08E2B072BB0(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m217C2A5DF5E9D7432D6396D138CE1B47821A8B7A_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20660,7 +20660,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m217C2A5DF5E9D7432D6396D138CE1B47821A8B7A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mFD6F206A043205A366799AF8572D2276489C3CCA_gshared (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20689,7 +20689,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m2AC292D0E2D1990188521FF7E4040CD9B4883809_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20709,7 +20709,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m2AC292D0E2D1990188521FF7E4040CD9B4883809(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m8EE7701CF816252D7E2FCF32C0CE63A9F08677A0_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -20750,7 +20750,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m8EE7701CF816252D7E2FCF
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m8EE7701CF816252D7E2FCF32C0CE63A9F08677A0(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m595512BE0ABDCC71D2CA60219C79D68FAB28DA29_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20771,7 +20771,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m595512BE0ABDCC71D2CA60219C79D68FAB28DA29(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeserializationContext_1_GetInstance_m52D32BD08AD4CC672022CDC4E061CE2271336118_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -20789,7 +20789,7 @@ IL2CPP_EXTERN_C  EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_GetInstance_m52D32BD08AD4CC672022CDC4E061CE2271336118_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeserializationContext_1_ContinueVisitation_m8E14D39AC450E6288B8DA732A20DE304D1337217_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, const RuntimeMethod* method) 
 {
 	EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 V_0;
@@ -20828,7 +20828,7 @@ IL2CPP_EXTERN_C  EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m8E14D39AC450E6288B8DA732A20DE304D1337217(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeserializationContext_1_ContinueVisitation_m199FB9A433D8E9ED90FC1C91DBB220A248A5C418_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 V_0;
@@ -20868,7 +20868,7 @@ IL2CPP_EXTERN_C  EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m199FB9A433D8E9ED90FC1C91DBB220A248A5C418(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m5ADECFF4FBA290B79DCCB1AD672EC0B17A8A6604_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -20891,7 +20891,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m5ADECFF4F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m5ADECFF4FBA290B79DCCB1AD672EC0B17A8A6604(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m5E80E3B5D4CDDE8FCCA68658E0ABA4A9A47A830A_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -20915,7 +20915,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m5E80E3B5D
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m5E80E3B5D4CDDE8FCCA68658E0ABA4A9A47A830A(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m833A3DBB63FCD1D98055AEC3A6C7566BC3F308BE_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, const RuntimeMethod* method) 
 {
 	EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 V_0;
@@ -20953,7 +20953,7 @@ IL2CPP_EXTERN_C  EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m833A3DBB63FCD1D98055AEC3A6C7566BC3F308BE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m303177ACBBE299BC928434B5169119B07552FAE7_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 V_0;
@@ -20992,7 +20992,7 @@ IL2CPP_EXTERN_C  EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m303177ACBBE299BC928434B5169119B07552FAE7(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB92C50A6B26F482ED690B67D13703B78E0F3B6EB_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -21014,7 +21014,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB92C50A6B26F482ED690B67D13703B78E0F3B6EB(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5F00CD337DE0D2EEACA8B1546B4623DD5C056C89_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -21037,7 +21037,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5F00CD337DE0D2EEACA8B1546B4623DD5C056C89(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m89364A3A767DF7E0B451B77BFE1DC7694CD506C2_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21058,7 +21058,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m89364A3A767DF7E0B451B77BFE1DC7694CD506C2(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m710AEFDFCF2A832A4F08CFB03E8C49EC27A70B64_gshared (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21087,7 +21087,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m82C6F9B6DAF050BCF67526834DA653C0E2BED716_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21107,7 +21107,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m82C6F9B6DAF050BCF67526834DA653C0E2BED716(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m7330E86420E349313D40F21185EA2766D42F1925_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -21148,7 +21148,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m7330E86420E349313D40F2
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m7330E86420E349313D40F21185EA2766D42F1925(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mE4B5D711BC8331FE45BC838B2EFD1CD5E3192097_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21169,7 +21169,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mE4B5D711BC8331FE45BC838B2EFD1CD5E3192097(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 JsonDeserializationContext_1_GetInstance_m78EB5A60007BFBF4C89918FCDC5A7C0E461ED2A3_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21187,7 +21187,7 @@ IL2CPP_EXTERN_C  FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 J
 	_returnValue = JsonDeserializationContext_1_GetInstance_m78EB5A60007BFBF4C89918FCDC5A7C0E461ED2A3_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 JsonDeserializationContext_1_ContinueVisitation_m412EFE739F2226C0510A905B017E45C5BABE9469_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, const RuntimeMethod* method) 
 {
 	FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 V_0;
@@ -21226,7 +21226,7 @@ IL2CPP_EXTERN_C  FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m412EFE739F2226C0510A905B017E45C5BABE9469(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 JsonDeserializationContext_1_ContinueVisitation_mB6D443EE805AC6BB496DC3B9547DE8BB3C666B68_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 V_0;
@@ -21266,7 +21266,7 @@ IL2CPP_EXTERN_C  FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mB6D443EE805AC6BB496DC3B9547DE8BB3C666B68(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mF60E072122BC10760D14AFF61E890EB7FBBF59E0_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -21289,7 +21289,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mF60E07212
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mF60E072122BC10760D14AFF61E890EB7FBBF59E0(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m4494B9F2CD6FC9BC48364EBB320A7732D5FDF2DD_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -21313,7 +21313,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m4494B9F2C
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m4494B9F2CD6FC9BC48364EBB320A7732D5FDF2DD(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBB504AD74829286E96C4C85103C69BC1247A8452_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, const RuntimeMethod* method) 
 {
 	FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 V_0;
@@ -21351,7 +21351,7 @@ IL2CPP_EXTERN_C  FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBB504AD74829286E96C4C85103C69BC1247A8452(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEE4767C48675E39C3FF499B5CA8695BE7CCC1A39_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 V_0;
@@ -21390,7 +21390,7 @@ IL2CPP_EXTERN_C  FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEE4767C48675E39C3FF499B5CA8695BE7CCC1A39(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7FFD3FECDF3EEB74E9CCCE42D61772605EAB593E_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -21412,7 +21412,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7FFD3FECDF3EEB74E9CCCE42D61772605EAB593E(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m07AC46DEC5052348BABC92C8BB8A5B1D3919C5DC_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -21435,7 +21435,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m07AC46DEC5052348BABC92C8BB8A5B1D3919C5DC(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mC0031878DD3F1BB4536287752D7186290CFCB791_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21456,7 +21456,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mC0031878DD3F1BB4536287752D7186290CFCB791(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m09C00A6B1BF7993588ADF7028CA094B222DA8B95_gshared (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21485,7 +21485,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m7294311371AE361EC5CCB7C7A9029253B506915C_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21505,7 +21505,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m7294311371AE361EC5CCB7C7A9029253B506915C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m2C508EEAE206968958DC30D33C5C9908B89C361E_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -21546,7 +21546,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m2C508EEAE206968958DC30
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m2C508EEAE206968958DC30D33C5C9908B89C361E(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mBF08A67BEA8624F0707F641AB6595C13AE7F0A6E_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21567,7 +21567,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mBF08A67BEA8624F0707F641AB6595C13AE7F0A6E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 JsonDeserializationContext_1_GetInstance_m3C3D9C28FC6C5DB8DF970B46971D0C621005178A_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21585,7 +21585,7 @@ IL2CPP_EXTERN_C  FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 Js
 	_returnValue = JsonDeserializationContext_1_GetInstance_m3C3D9C28FC6C5DB8DF970B46971D0C621005178A_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 JsonDeserializationContext_1_ContinueVisitation_m54F18D00F560C7DF0507A67CAD5955976871FEB0_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, const RuntimeMethod* method) 
 {
 	FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 V_0;
@@ -21624,7 +21624,7 @@ IL2CPP_EXTERN_C  FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m54F18D00F560C7DF0507A67CAD5955976871FEB0(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 JsonDeserializationContext_1_ContinueVisitation_m3EEB58A459CCF9AB67D77D5EC4B276D8CDFDBBC8_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 V_0;
@@ -21664,7 +21664,7 @@ IL2CPP_EXTERN_C  FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m3EEB58A459CCF9AB67D77D5EC4B276D8CDFDBBC8(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mBDF3D440617B3E7B744EEF248B86CBFB15C06015_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -21687,7 +21687,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mBDF3D4406
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mBDF3D440617B3E7B744EEF248B86CBFB15C06015(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m5934F388EB5D3BB36BF82AEA07A1480AFAF5FCE9_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -21711,7 +21711,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m5934F388E
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m5934F388EB5D3BB36BF82AEA07A1480AFAF5FCE9(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7AA2F853ED4A5AE055E2D08865CDC1A3048ACA99_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, const RuntimeMethod* method) 
 {
 	FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 V_0;
@@ -21749,7 +21749,7 @@ IL2CPP_EXTERN_C  FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7AA2F853ED4A5AE055E2D08865CDC1A3048ACA99(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m336932AC947CA2BC2B2AD184BEF353E4BEAB3D44_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 V_0;
@@ -21788,7 +21788,7 @@ IL2CPP_EXTERN_C  FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m336932AC947CA2BC2B2AD184BEF353E4BEAB3D44(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2F64E54722136B0CD8D0EAF1B0099A65A9A75EB5_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -21810,7 +21810,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2F64E54722136B0CD8D0EAF1B0099A65A9A75EB5(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7C67460FE4005C67DD3A0AAEDDA6A9B6C53A883E_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -21833,7 +21833,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7C67460FE4005C67DD3A0AAEDDA6A9B6C53A883E(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m5A05346229CC550DF5622B38BF93AEA2A5C3F4AE_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21854,7 +21854,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m5A05346229CC550DF5622B38BF93AEA2A5C3F4AE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m34DD8B29C9D5F93714AA3B4BB8C7BEDBD3F46C6D_gshared (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21883,7 +21883,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m441136F661FD4E14F7F5A84BFC0D676698864E6C_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21903,7 +21903,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m441136F661FD4E14F7F5A84BFC0D676698864E6C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mBC5831D1EE5020B8D871F47E54D9C480585A4CCC_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -21944,7 +21944,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mBC5831D1EE5020B8D871F4
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mBC5831D1EE5020B8D871F47E54D9C480585A4CCC(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m3F84FC6DC3670D69E859E7674544ABB690A872BA_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21965,7 +21965,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m3F84FC6DC3670D69E859E7674544ABB690A872BA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 JsonDeserializationContext_1_GetInstance_mEF0F6C233BF78216C21FCDBE34EFE5163EFEBAB5_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -21983,7 +21983,7 @@ IL2CPP_EXTERN_C  FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 
 	_returnValue = JsonDeserializationContext_1_GetInstance_mEF0F6C233BF78216C21FCDBE34EFE5163EFEBAB5_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 JsonDeserializationContext_1_ContinueVisitation_mF9D39ED3B73636A3C7360D065CB9099B157884D8_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, const RuntimeMethod* method) 
 {
 	FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 V_0;
@@ -22022,7 +22022,7 @@ IL2CPP_EXTERN_C  FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mF9D39ED3B73636A3C7360D065CB9099B157884D8(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 JsonDeserializationContext_1_ContinueVisitation_m17EFAD1A2D95E694662505CBE2C3058D2636B286_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 V_0;
@@ -22062,7 +22062,7 @@ IL2CPP_EXTERN_C  FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m17EFAD1A2D95E694662505CBE2C3058D2636B286(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mE876C994AA8BB7B88208606F62278012FBFD63BA_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -22085,7 +22085,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mE876C994A
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mE876C994AA8BB7B88208606F62278012FBFD63BA(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m8696D1053E1693F0CB149D6AA0A42CE0E1E8CCAA_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -22109,7 +22109,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m8696D1053
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m8696D1053E1693F0CB149D6AA0A42CE0E1E8CCAA(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m02F9762BAE9BDE481D31C7E1AC7C7FBFB7A36070_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, const RuntimeMethod* method) 
 {
 	FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 V_0;
@@ -22147,7 +22147,7 @@ IL2CPP_EXTERN_C  FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m02F9762BAE9BDE481D31C7E1AC7C7FBFB7A36070(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA6ED078DDD4AEC7859F34BF93D2253224FFB1CAB_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 V_0;
@@ -22186,7 +22186,7 @@ IL2CPP_EXTERN_C  FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA6ED078DDD4AEC7859F34BF93D2253224FFB1CAB(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m247B817528AA3DE9280E6ACF348ABDC3F9464AC3_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -22208,7 +22208,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m247B817528AA3DE9280E6ACF348ABDC3F9464AC3(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m198FBF9203622318FBC5DF638CE337F3337C4639_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -22231,7 +22231,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m198FBF9203622318FBC5DF638CE337F3337C4639(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m54BF6442F7BCC5C3ABF9C4A1617776C6799E19E9_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22252,7 +22252,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m54BF6442F7BCC5C3ABF9C4A1617776C6799E19E9(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m8ACDB8426BD400FA85D85104D7D5546699EECB61_gshared (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22281,7 +22281,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m096DDBD56BA010C5FEC3BDA0B775E147F052894A_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22301,7 +22301,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m096DDBD56BA010C5FEC3BDA0B775E147F052894A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m9E69FB01FA13164B3D9287E17F422EEDBF4826FD_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -22342,7 +22342,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m9E69FB01FA13164B3D9287
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m9E69FB01FA13164B3D9287E17F422EEDBF4826FD(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m27B3605AFB797157A0275FEBAE4C4E14C4398891_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22363,7 +22363,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m27B3605AFB797157A0275FEBAE4C4E14C4398891(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E JsonDeserializationContext_1_GetInstance_mA343CE2D47C36763C75B054400037A7EACCD84E8_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22381,7 +22381,7 @@ IL2CPP_EXTERN_C  FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E J
 	_returnValue = JsonDeserializationContext_1_GetInstance_mA343CE2D47C36763C75B054400037A7EACCD84E8_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E JsonDeserializationContext_1_ContinueVisitation_mEC811C0E9EBAE9295DE65B97CE74B8DC3714810A_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, const RuntimeMethod* method) 
 {
 	FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E V_0;
@@ -22420,7 +22420,7 @@ IL2CPP_EXTERN_C  FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mEC811C0E9EBAE9295DE65B97CE74B8DC3714810A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E JsonDeserializationContext_1_ContinueVisitation_m64CEB29FE1EDA4AF7499C78DED65FC113D5243E6_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E V_0;
@@ -22460,7 +22460,7 @@ IL2CPP_EXTERN_C  FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m64CEB29FE1EDA4AF7499C78DED65FC113D5243E6(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m8D426800F08525A36E4564A06EA5DCFF2B598589_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -22483,7 +22483,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m8D426800F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m8D426800F08525A36E4564A06EA5DCFF2B598589(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mB10BC8F42CBD9A29478B05E77CF296D5FEE9FF45_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -22507,7 +22507,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mB10BC8F42
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mB10BC8F42CBD9A29478B05E77CF296D5FEE9FF45(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m897A4A17ACB8D0931DFC7B1326CD2E9959E91F75_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, const RuntimeMethod* method) 
 {
 	FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E V_0;
@@ -22545,7 +22545,7 @@ IL2CPP_EXTERN_C  FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m897A4A17ACB8D0931DFC7B1326CD2E9959E91F75(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6D5EA61F2A8ABAB929CE2D7CF7F697836E89E988_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E V_0;
@@ -22584,7 +22584,7 @@ IL2CPP_EXTERN_C  FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6D5EA61F2A8ABAB929CE2D7CF7F697836E89E988(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2F7E600A160E6FF74CD8C8D2910569BEAA4BE560_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -22606,7 +22606,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2F7E600A160E6FF74CD8C8D2910569BEAA4BE560(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBE689E4B1F6FC0115B8314A952E67BCBF7A96618_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -22629,7 +22629,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBE689E4B1F6FC0115B8314A952E67BCBF7A96618(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mD9E177474A0CA4559206008CB9015B8FC8012930_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22650,7 +22650,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mD9E177474A0CA4559206008CB9015B8FC8012930(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mF4A9F5D1C45C9866523E9B85F67DE2BDCCF264EE_gshared (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22679,7 +22679,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m903613D66D0D17D0B8C640BB991C3AD5BF43580E_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22699,7 +22699,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m903613D66D0D17D0B8C640BB991C3AD5BF43580E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m229A957EE788C4F74A4AD7B4F2B4F146AEFF6D76_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -22740,7 +22740,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m229A957EE788C4F74A4AD7
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m229A957EE788C4F74A4AD7B4F2B4F146AEFF6D76(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m761E817D8C14631F37F820AF9153CBC0F8537494_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22761,7 +22761,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m761E817D8C14631F37F820AF9153CBC0F8537494(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 JsonDeserializationContext_1_GetInstance_mB31EB1747B3241693874BE642F9317D4B03D23ED_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -22779,7 +22779,7 @@ IL2CPP_EXTERN_C  FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 Js
 	_returnValue = JsonDeserializationContext_1_GetInstance_mB31EB1747B3241693874BE642F9317D4B03D23ED_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 JsonDeserializationContext_1_ContinueVisitation_mC5B5EC66C1231518274261E010A6BC198FC7FAF6_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, const RuntimeMethod* method) 
 {
 	FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 V_0;
@@ -22818,7 +22818,7 @@ IL2CPP_EXTERN_C  FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mC5B5EC66C1231518274261E010A6BC198FC7FAF6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 JsonDeserializationContext_1_ContinueVisitation_m370F6741321CCF6C0654CE44EE26226EB441532C_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 V_0;
@@ -22858,7 +22858,7 @@ IL2CPP_EXTERN_C  FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m370F6741321CCF6C0654CE44EE26226EB441532C(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m38B895462A1A18FA6E68B62DF79451055E1947BA_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -22881,7 +22881,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m38B895462
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m38B895462A1A18FA6E68B62DF79451055E1947BA(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m51E9437A41642EB10AC1B46BF64A892A12DAD163_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -22905,7 +22905,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m51E9437A4
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m51E9437A41642EB10AC1B46BF64A892A12DAD163(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m4254D6BDEF9D16D1C89E31F7345EB4818412FBD8_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, const RuntimeMethod* method) 
 {
 	FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 V_0;
@@ -22943,7 +22943,7 @@ IL2CPP_EXTERN_C  FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m4254D6BDEF9D16D1C89E31F7345EB4818412FBD8(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3B238D41275BF6593756A96C88504F9B1E89A76E_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 V_0;
@@ -22982,7 +22982,7 @@ IL2CPP_EXTERN_C  FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 Js
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3B238D41275BF6593756A96C88504F9B1E89A76E(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7E699D559D0705A0797E5E9181D0606EBE1075BC_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -23004,7 +23004,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7E699D559D0705A0797E5E9181D0606EBE1075BC(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE92A3670735B67F26355AD5F2144852BAC2ADB46_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -23027,7 +23027,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE92A3670735B67F26355AD5F2144852BAC2ADB46(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m0B6544DD314DDF23760CAD02BA0C8426C84FB725_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23048,7 +23048,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m0B6544DD314DDF23760CAD02BA0C8426C84FB725(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mA1D43C5898D58441D8E12124B6E06B9F98D9F70A_gshared (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23077,7 +23077,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m824E77FD2688CE7AAB75E9E9FA5F3658951C37B0_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23097,7 +23097,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m824E77FD2688CE7AAB75E9E9FA5F3658951C37B0(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mC8341641829B6FD89FB2299544C78A630797A014_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -23142,7 +23142,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mC8341641829B6FD89FB229
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mC8341641829B6FD89FB2299544C78A630797A014(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m76C9F9FEF61A7529FF6C1E531370B5BE534E1294_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23163,7 +23163,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m76C9F9FEF61A7529FF6C1E531370B5BE534E1294(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDeserializationContext_1_GetInstance_m6E00F6E0513A9ED4DB360F98D66F151E9BE3DF1A_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23181,7 +23181,7 @@ IL2CPP_EXTERN_C  FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDe
 	_returnValue = JsonDeserializationContext_1_GetInstance_m6E00F6E0513A9ED4DB360F98D66F151E9BE3DF1A_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDeserializationContext_1_ContinueVisitation_mCBBD9855A2B16A19AD03E8E8AEB84A194AE738B6_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, const RuntimeMethod* method) 
 {
 	FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C V_0;
@@ -23220,7 +23220,7 @@ IL2CPP_EXTERN_C  FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mCBBD9855A2B16A19AD03E8E8AEB84A194AE738B6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDeserializationContext_1_ContinueVisitation_m106B8733639F675623102AD1097D578AACF4F13B_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C V_0;
@@ -23260,7 +23260,7 @@ IL2CPP_EXTERN_C  FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m106B8733639F675623102AD1097D578AACF4F13B(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m37B3D8C960FE825F9B0BDE0EA2121E9BA1B3755A_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -23283,7 +23283,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m37B3D8C96
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m37B3D8C960FE825F9B0BDE0EA2121E9BA1B3755A(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mEC2B3A8D161AAF2BC70D5BCBC21CC611A6DA344F_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -23307,7 +23307,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mEC2B3A8D1
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mEC2B3A8D161AAF2BC70D5BCBC21CC611A6DA344F(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB3370FA0A6F2896822253B183DAED3CF8FD11562_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, const RuntimeMethod* method) 
 {
 	FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C V_0;
@@ -23345,7 +23345,7 @@ IL2CPP_EXTERN_C  FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB3370FA0A6F2896822253B183DAED3CF8FD11562(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2C48BA3C2E6739D73B1418BACD2DF5E5E4CA9BB6_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C V_0;
@@ -23384,7 +23384,7 @@ IL2CPP_EXTERN_C  FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2C48BA3C2E6739D73B1418BACD2DF5E5E4CA9BB6(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB4B1D5432E2D1BDFCE7CE4A3C87E9E6D8FB72A62_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -23406,7 +23406,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB4B1D5432E2D1BDFCE7CE4A3C87E9E6D8FB72A62(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m51FB54A8D877327000CEA3864500C38B994A3A01_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -23429,7 +23429,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m51FB54A8D877327000CEA3864500C38B994A3A01(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mCF983E407E4CF3C003050172ACA5381969DB42C8_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23450,7 +23450,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mCF983E407E4CF3C003050172ACA5381969DB42C8(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m7EEDFF70DDBB72CAA8D271F38F4C4A3EC0A63680_gshared (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23479,7 +23479,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m6CDBC53C233044386D1A9CD3BBECAAA307DE9F17_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23499,7 +23499,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m6CDBC53C233044386D1A9CD3BBECAAA307DE9F17(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m1F579D50DAFA59D12F38523B224BB3D0A9F1A131_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Guid_t ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -23540,7 +23540,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m1F579D50DAFA59D12F3852
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m1F579D50DAFA59D12F38523B224BB3D0A9F1A131(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFE34147A257865ED16B97664F712DCBD91F17574_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23561,7 +23561,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFE34147A257865ED16B97664F712DCBD91F17574(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t JsonDeserializationContext_1_GetInstance_mFB61E66054BD886D198224CEA5DF7103AC86DF71_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23579,7 +23579,7 @@ IL2CPP_EXTERN_C  Guid_t JsonDeserializationContext_1_GetInstance_mFB61E66054BD88
 	_returnValue = JsonDeserializationContext_1_GetInstance_mFB61E66054BD886D198224CEA5DF7103AC86DF71_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t JsonDeserializationContext_1_ContinueVisitation_m97FC75604987814FFE834D08CC2879251E984652_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, const RuntimeMethod* method) 
 {
 	Guid_t V_0;
@@ -23618,7 +23618,7 @@ IL2CPP_EXTERN_C  Guid_t JsonDeserializationContext_1_ContinueVisitation_m97FC756
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m97FC75604987814FFE834D08CC2879251E984652(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t JsonDeserializationContext_1_ContinueVisitation_m3024FE5E964B2DA2B60E7342142648409E3DF11C_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Guid_t V_0;
@@ -23658,7 +23658,7 @@ IL2CPP_EXTERN_C  Guid_t JsonDeserializationContext_1_ContinueVisitation_m3024FE5
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m3024FE5E964B2DA2B60E7342142648409E3DF11C(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m78A7AA494F5EBF1CD77203DE455CD04F0100842F_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, Guid_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -23681,7 +23681,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m78A7AA494
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m78A7AA494F5EBF1CD77203DE455CD04F0100842F(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m865D003B4A14222F4249FE9E72CB0217EC1C8204_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, Guid_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -23705,7 +23705,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m865D003B4
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m865D003B4A14222F4249FE9E72CB0217EC1C8204(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m99CD8775C66A29CFD93E284921C3107A07E92F2B_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, const RuntimeMethod* method) 
 {
 	Guid_t V_0;
@@ -23743,7 +23743,7 @@ IL2CPP_EXTERN_C  Guid_t JsonDeserializationContext_1_ContinueVisitationWithoutAd
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m99CD8775C66A29CFD93E284921C3107A07E92F2B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB1789948287331C904B6F904D2C51B0474BB115A_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Guid_t V_0;
@@ -23782,7 +23782,7 @@ IL2CPP_EXTERN_C  Guid_t JsonDeserializationContext_1_ContinueVisitationWithoutAd
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB1789948287331C904B6F904D2C51B0474BB115A(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mAD9E7D831E5FF3B73870AB75AF5AD1F8A9F2BD80_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, Guid_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -23804,7 +23804,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mAD9E7D831E5FF3B73870AB75AF5AD1F8A9F2BD80(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7AE26D2ECF6676D059D5F22EDF1C9635CE3DB8A2_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, Guid_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -23827,7 +23827,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7AE26D2ECF6676D059D5F22EDF1C9635CE3DB8A2(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mEDACF00921360E7DEDBE35F19A761991B63DF0D3_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23848,7 +23848,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mEDACF00921360E7DEDBE35F19A761991B63DF0D3(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m9232EFD5AC368670861B899C84BF50791A0C0C67_gshared (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23877,7 +23877,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mB1A4AAD20606C5CD80031FEFBA7D28AAB4BB17E0_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23897,7 +23897,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mB1A4AAD20606C5CD80031FEFBA7D28AAB4BB17E0(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mAF0AC18C1FC2A863DAD56E5C9CD3703071FD3DEF_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -23938,7 +23938,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mAF0AC18C1FC2A863DAD56E
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mAF0AC18C1FC2A863DAD56E5C9CD3703071FD3DEF(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m8010A0F6E679C4307B10CFF1E358FB0B15408EA3_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23959,7 +23959,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m8010A0F6E679C4307B10CFF1E358FB0B15408EA3(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeserializationContext_1_GetInstance_m58D1563976765BE7D935148CD9036550F45A14F7_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -23977,7 +23977,7 @@ IL2CPP_EXTERN_C  Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeseriali
 	_returnValue = JsonDeserializationContext_1_GetInstance_m58D1563976765BE7D935148CD9036550F45A14F7_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeserializationContext_1_ContinueVisitation_mB15DF9858F85721EE4BD7A448B0A662143E9156D_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, const RuntimeMethod* method) 
 {
 	Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B V_0;
@@ -24016,7 +24016,7 @@ IL2CPP_EXTERN_C  Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeseriali
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mB15DF9858F85721EE4BD7A448B0A662143E9156D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeserializationContext_1_ContinueVisitation_m4821E28A0DBE2E7C786F2E9B29EA977C3F9D9C3F_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B V_0;
@@ -24056,7 +24056,7 @@ IL2CPP_EXTERN_C  Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeseriali
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m4821E28A0DBE2E7C786F2E9B29EA977C3F9D9C3F(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m305CC25933D0488135EDA1F8984319D66233E305_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -24079,7 +24079,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m305CC2593
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m305CC25933D0488135EDA1F8984319D66233E305(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m0429A8B1D8AC76D0A0696E5BCCF5E83FAD61739D_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -24103,7 +24103,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m0429A8B1D
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m0429A8B1D8AC76D0A0696E5BCCF5E83FAD61739D(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF3140CF7A151884DF38946099EED24447F65D1E4_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, const RuntimeMethod* method) 
 {
 	Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B V_0;
@@ -24141,7 +24141,7 @@ IL2CPP_EXTERN_C  Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeseriali
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF3140CF7A151884DF38946099EED24447F65D1E4(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF987A0D5A8A85967CBDF4C62D161BFF4D286A255_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B V_0;
@@ -24180,7 +24180,7 @@ IL2CPP_EXTERN_C  Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeseriali
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF987A0D5A8A85967CBDF4C62D161BFF4D286A255(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6966223B86DDEE82BEFE35254D9612A798880102_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -24202,7 +24202,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6966223B86DDEE82BEFE35254D9612A798880102(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7332FE7CAFC50291FEF49EDB72528365B7181CE2_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -24225,7 +24225,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7332FE7CAFC50291FEF49EDB72528365B7181CE2(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mC484701B94BECF012230C3FA5803E54D950EA4E6_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24246,7 +24246,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mC484701B94BECF012230C3FA5803E54D950EA4E6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m434B9C253FCCA04393DBA9B119C4FCFF0C05EA52_gshared (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24275,7 +24275,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m40F87345A31C926BF01CF242AAFE6A89A3B8923C_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24295,7 +24295,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m40F87345A31C926BF01CF242AAFE6A89A3B8923C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mCA50A8C19E05142F7277C965ABE526BC69C72124_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, int16_t ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -24336,7 +24336,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mCA50A8C19E05142F7277C9
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mCA50A8C19E05142F7277C965ABE526BC69C72124(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m2FFB035778684D65B415BBE39161E27AADD0DCC2_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24357,7 +24357,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m2FFB035778684D65B415BBE39161E27AADD0DCC2(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int16_t JsonDeserializationContext_1_GetInstance_mB4087877599CE1C1CBDA1C11CC6A59061F5113BB_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24375,7 +24375,7 @@ IL2CPP_EXTERN_C  int16_t JsonDeserializationContext_1_GetInstance_mB4087877599CE
 	_returnValue = JsonDeserializationContext_1_GetInstance_mB4087877599CE1C1CBDA1C11CC6A59061F5113BB_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int16_t JsonDeserializationContext_1_ContinueVisitation_mBBA83E938EB99309365A89077F66CA6756E1494B_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, const RuntimeMethod* method) 
 {
 	int16_t V_0 = 0;
@@ -24412,7 +24412,7 @@ IL2CPP_EXTERN_C  int16_t JsonDeserializationContext_1_ContinueVisitation_mBBA83E
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mBBA83E938EB99309365A89077F66CA6756E1494B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int16_t JsonDeserializationContext_1_ContinueVisitation_mADFB4541D40025973EA7D06D3BC5AC484AD78B08_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int16_t V_0 = 0;
@@ -24450,7 +24450,7 @@ IL2CPP_EXTERN_C  int16_t JsonDeserializationContext_1_ContinueVisitation_mADFB45
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mADFB4541D40025973EA7D06D3BC5AC484AD78B08(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mAA5178D129C67F09ED393E682BE1FE1848E1B3F8_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, int16_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -24473,7 +24473,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mAA5178D12
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mAA5178D129C67F09ED393E682BE1FE1848E1B3F8(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mED6B1A38F7D097288D8D8B0AB27EF444882995EA_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, int16_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -24497,7 +24497,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mED6B1A38F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mED6B1A38F7D097288D8D8B0AB27EF444882995EA(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int16_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m105DD3A1048D094013B03C4EB5842882600AA42B_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, const RuntimeMethod* method) 
 {
 	int16_t V_0 = 0;
@@ -24533,7 +24533,7 @@ IL2CPP_EXTERN_C  int16_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m105DD3A1048D094013B03C4EB5842882600AA42B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int16_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA42CB47DC7199DAE620D70C0C417A7692CA856FB_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int16_t V_0 = 0;
@@ -24570,7 +24570,7 @@ IL2CPP_EXTERN_C  int16_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA42CB47DC7199DAE620D70C0C417A7692CA856FB(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0B08A931036FEC5EAB6625D3E0658A0233A366FD_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, int16_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -24592,7 +24592,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0B08A931036FEC5EAB6625D3E0658A0233A366FD(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF5C27F5A72D6B1885CE590A7F6220559F865E87E_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, int16_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -24615,7 +24615,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF5C27F5A72D6B1885CE590A7F6220559F865E87E(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m9B71BC49932E013ED5FEEEAE7A58B224AC9DE47E_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24636,7 +24636,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m9B71BC49932E013ED5FEEEAE7A58B224AC9DE47E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mC24D282CF46BE5D7D8EE8F034BF41E81F66A4989_gshared (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24665,7 +24665,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mCAB0F8472457406606F49DA13DE56DC53F864F99_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24685,7 +24685,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mCAB0F8472457406606F49DA13DE56DC53F864F99(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m01587B47558440723DCDE22029DABED6273D5898_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, int32_t ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -24726,7 +24726,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m01587B47558440723DCDE2
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m01587B47558440723DCDE22029DABED6273D5898(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mA43D5A2BC9D37F82CC12747A09E58292CB3643F1_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24747,7 +24747,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mA43D5A2BC9D37F82CC12747A09E58292CB3643F1(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_GetInstance_mF35D959F118730D1B69999224521A30DE3258572_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, const RuntimeMethod* method) 
 {
 	{
@@ -24765,7 +24765,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_GetInstance_mF35D959F11873
 	_returnValue = JsonDeserializationContext_1_GetInstance_mF35D959F118730D1B69999224521A30DE3258572_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_ContinueVisitation_m3A8F6DB153A86959DC090BD9DCA2870BB8CD8498_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -24802,7 +24802,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_ContinueVisitation_m3A8F6D
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m3A8F6DB153A86959DC090BD9DCA2870BB8CD8498(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_ContinueVisitation_mC63E3C107ED0C7A6C0B3D3B68B90FF557EDCC40D_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -24840,7 +24840,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_ContinueVisitation_mC63E3C
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mC63E3C107ED0C7A6C0B3D3B68B90FF557EDCC40D(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mF1D099B5D448954B51E8BD25A1CC42D5C9F8AECD_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, int32_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -24863,7 +24863,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mF1D099B5D
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mF1D099B5D448954B51E8BD25A1CC42D5C9F8AECD(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m2C589930BE94EAB69F49EED314D286DBF023E025_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, int32_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -24887,7 +24887,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m2C589930B
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m2C589930BE94EAB69F49EED314D286DBF023E025(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD3C9F23D2735070BA9538CC26E7DED96F189C722_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -24923,7 +24923,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD3C9F23D2735070BA9538CC26E7DED96F189C722(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE216AFEAB86BB5A8A685ADB4AAD72D80F87FF907_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -24960,7 +24960,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE216AFEAB86BB5A8A685ADB4AAD72D80F87FF907(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7A31487CF44C1EBC3501DB0B1E0D5376574F288B_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, int32_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -24982,7 +24982,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7A31487CF44C1EBC3501DB0B1E0D5376574F288B(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m09F0D55A22E5290341DAF88F9632C013992971A5_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, int32_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -25005,7 +25005,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m09F0D55A22E5290341DAF88F9632C013992971A5(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m25F0211CCFB00357DFC6040117064D3C2B321F38_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25026,7 +25026,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m25F0211CCFB00357DFC6040117064D3C2B321F38(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m0A4D80F211007F742A8AC3AE9EA7E095DBF44110_gshared (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25055,7 +25055,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m366954C093DF0246ABDF44C3713222D5573D21ED_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25075,7 +25075,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m366954C093DF0246ABDF44C3713222D5573D21ED(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mDD2AD0DDAB92976585342C9362A05DB0029D1528_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, int32_t ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -25116,7 +25116,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mDD2AD0DDAB92976585342C
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mDD2AD0DDAB92976585342C9362A05DB0029D1528(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mE39040DCE19439CCB8DB7FBBD61336C98B99518B_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25137,7 +25137,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mE39040DCE19439CCB8DB7FBBD61336C98B99518B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_GetInstance_m08B1B3FF791F90225AD30382D9B707B16B3F3F53_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25155,7 +25155,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_GetInstance_m08B1B3FF791F9
 	_returnValue = JsonDeserializationContext_1_GetInstance_m08B1B3FF791F90225AD30382D9B707B16B3F3F53_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_ContinueVisitation_mE4C7C5931295973CDF3C6A34D756283956A7F992_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -25192,7 +25192,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_ContinueVisitation_mE4C7C5
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mE4C7C5931295973CDF3C6A34D756283956A7F992(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_ContinueVisitation_m14111CA6BAAEF5517967AF84DD3A50DCC65CB77B_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -25230,7 +25230,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_ContinueVisitation_m14111C
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m14111CA6BAAEF5517967AF84DD3A50DCC65CB77B(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m4DFE7B441E37BB64590DA3D6530153A9D1606183_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, int32_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -25253,7 +25253,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m4DFE7B441
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m4DFE7B441E37BB64590DA3D6530153A9D1606183(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mEBA1533985C0A82699F75A3EEE10C5DEBC75BCE6_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, int32_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -25277,7 +25277,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mEBA153398
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mEBA1533985C0A82699F75A3EEE10C5DEBC75BCE6(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m303C568A6D05BE44BF7CF4103D662484DB6648DF_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -25313,7 +25313,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m303C568A6D05BE44BF7CF4103D662484DB6648DF(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE4BA2F5F08589EBF01E7730157F85C1DD1973707_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
@@ -25350,7 +25350,7 @@ IL2CPP_EXTERN_C  int32_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE4BA2F5F08589EBF01E7730157F85C1DD1973707(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m4B376B9F89A52BA38AD864401EFD04A78EC85C08_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, int32_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -25372,7 +25372,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m4B376B9F89A52BA38AD864401EFD04A78EC85C08(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m52654A299F7C84F84AC82E2DF39E9A02443B2314_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, int32_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -25395,7 +25395,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m52654A299F7C84F84AC82E2DF39E9A02443B2314(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m8F3945752B12E2507B13C17B7E71C2BDE23EAB42_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25416,7 +25416,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m8F3945752B12E2507B13C17B7E71C2BDE23EAB42(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m899903A8D63B90A1002582C4D5DDC150708AB5BE_gshared (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25445,7 +25445,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m501301A3728CE2C479CF65EC8BC9C2EA7EC949A9_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25465,7 +25465,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m501301A3728CE2C479CF65EC8BC9C2EA7EC949A9(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mF86FC8C853AF2D01CAC5D0273A9DDE333B171F7E_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, int64_t ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -25506,7 +25506,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mF86FC8C853AF2D01CAC5D0
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mF86FC8C853AF2D01CAC5D0273A9DDE333B171F7E(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m12331E86401BE9B66B31C527B25500EBAC03D94C_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25527,7 +25527,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m12331E86401BE9B66B31C527B25500EBAC03D94C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t JsonDeserializationContext_1_GetInstance_m3E54E7C51756A25107C1F168560C85438C851228_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25545,7 +25545,7 @@ IL2CPP_EXTERN_C  int64_t JsonDeserializationContext_1_GetInstance_m3E54E7C51756A
 	_returnValue = JsonDeserializationContext_1_GetInstance_m3E54E7C51756A25107C1F168560C85438C851228_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t JsonDeserializationContext_1_ContinueVisitation_m6D06DA6FEF83AEFD9E4CF2195E7AC5CE5EB27665_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, const RuntimeMethod* method) 
 {
 	int64_t V_0 = 0;
@@ -25582,7 +25582,7 @@ IL2CPP_EXTERN_C  int64_t JsonDeserializationContext_1_ContinueVisitation_m6D06DA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m6D06DA6FEF83AEFD9E4CF2195E7AC5CE5EB27665(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t JsonDeserializationContext_1_ContinueVisitation_m8C44D532BFEE531B789C5897332B4DC84B27CDFD_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int64_t V_0 = 0;
@@ -25620,7 +25620,7 @@ IL2CPP_EXTERN_C  int64_t JsonDeserializationContext_1_ContinueVisitation_m8C44D5
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m8C44D532BFEE531B789C5897332B4DC84B27CDFD(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m4C99DB3CA7D51764A526D60C09E245E293C7889E_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, int64_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -25643,7 +25643,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m4C99DB3CA
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m4C99DB3CA7D51764A526D60C09E245E293C7889E(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m7F8FCBCCAE27C184A6D0407604E6CCF917A025FD_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, int64_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -25667,7 +25667,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m7F8FCBCCA
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m7F8FCBCCAE27C184A6D0407604E6CCF917A025FD(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m517F5E5B4CA895B69A71DF176917D035864D4879_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, const RuntimeMethod* method) 
 {
 	int64_t V_0 = 0;
@@ -25703,7 +25703,7 @@ IL2CPP_EXTERN_C  int64_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m517F5E5B4CA895B69A71DF176917D035864D4879(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m68BE56B298816B9887329216C903774F6E13F408_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int64_t V_0 = 0;
@@ -25740,7 +25740,7 @@ IL2CPP_EXTERN_C  int64_t JsonDeserializationContext_1_ContinueVisitationWithoutA
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m68BE56B298816B9887329216C903774F6E13F408(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m835AE513E7BCE57FF08B1C83DFA14C6A7C494137_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, int64_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -25762,7 +25762,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m835AE513E7BCE57FF08B1C83DFA14C6A7C494137(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m74401CA146392636679063E6AEFB9315E8415D1C_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, int64_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -25785,7 +25785,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m74401CA146392636679063E6AEFB9315E8415D1C(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m4314ECBBEAD6358B9305CDB3E051EBA190551F3E_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25806,7 +25806,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m4314ECBBEAD6358B9305CDB3E051EBA190551F3E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m5C80C6FEC82E496147772DB694100F863409D23B_gshared (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25835,7 +25835,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mA54306A5CD7060E79C09BA1F466DF3168F3E4088_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25855,7 +25855,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mA54306A5CD7060E79C09BA1F466DF3168F3E4088(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mCA85918A4FAAECB76C6B761D36AE27FC5AFF6BDF_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -25896,7 +25896,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mCA85918A4FAAECB76C6B76
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mCA85918A4FAAECB76C6B761D36AE27FC5AFF6BDF(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m4515BE4D76D735C952677D50CA0604F91AB1529C_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25917,7 +25917,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m4515BE4D76D735C952677D50CA0604F91AB1529C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializationContext_1_GetInstance_m75EE3F9C821B65F882F127AC91C3FDB701807CBC_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25935,7 +25935,7 @@ IL2CPP_EXTERN_C  Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_GetInstance_m75EE3F9C821B65F882F127AC91C3FDB701807CBC_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializationContext_1_ContinueVisitation_mB61C0C2F47513805E05CEB0F5EA138E5D26977CB_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, const RuntimeMethod* method) 
 {
 	Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 V_0;
@@ -25974,7 +25974,7 @@ IL2CPP_EXTERN_C  Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mB61C0C2F47513805E05CEB0F5EA138E5D26977CB(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializationContext_1_ContinueVisitation_m79F860B08C26D951334FDA1F11FEB0913BE1A144_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 V_0;
@@ -26014,7 +26014,7 @@ IL2CPP_EXTERN_C  Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m79F860B08C26D951334FDA1F11FEB0913BE1A144(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m9C0A06A094E1272312F614B223F35AD8FAF76562_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -26037,7 +26037,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m9C0A06A09
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m9C0A06A094E1272312F614B223F35AD8FAF76562(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m94E42DFD4DF31DEEE92E11EDC5F8CFE3903FC33C_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -26061,7 +26061,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m94E42DFD4
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m94E42DFD4DF31DEEE92E11EDC5F8CFE3903FC33C(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF506D7B81F33BAEA93E10011F83FFF166A6B0BAE_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, const RuntimeMethod* method) 
 {
 	Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 V_0;
@@ -26099,7 +26099,7 @@ IL2CPP_EXTERN_C  Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF506D7B81F33BAEA93E10011F83FFF166A6B0BAE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD91A85398FF3F2DE3B2A030AFD17151F327EC898_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 V_0;
@@ -26138,7 +26138,7 @@ IL2CPP_EXTERN_C  Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD91A85398FF3F2DE3B2A030AFD17151F327EC898(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m69186E4A1E8D6A1DDBAF1748A8DC818580A45912_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -26160,7 +26160,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m69186E4A1E8D6A1DDBAF1748A8DC818580A45912(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEBFEE83BEEC8B1E456646B788E775790C76568BD_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -26183,7 +26183,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEBFEE83BEEC8B1E456646B788E775790C76568BD(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mC4BB20FCFCDEA54945FF06B57729DD89150A12CC_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26204,7 +26204,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mC4BB20FCFCDEA54945FF06B57729DD89150A12CC(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mADD08E1D1EFC2568842E56850EEB0E5075DC4351_gshared (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26233,7 +26233,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m55BDBED700EE4F807FA189F8434B610E354D6064_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26253,7 +26253,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m55BDBED700EE4F807FA189F8434B610E354D6064(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m7FE33AD0CC31F47BAEF07507F151C9B1F8C131E0_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, RuntimeObject* ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -26295,7 +26295,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m7FE33AD0CC31F47BAEF075
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m7FE33AD0CC31F47BAEF07507F151C9B1F8C131E0(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mF3026F1F29827067702F58BE5220F7BBADF47FC0_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26314,7 +26314,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mF3026F1F29827067702F58BE5220F7BBADF47FC0(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_GetInstance_m140521B66D41F758BC6ACAD67FFBDC6F59231959_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26332,7 +26332,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_GetInstance_m140521
 	_returnValue = JsonDeserializationContext_1_GetInstance_m140521B66D41F758BC6ACAD67FFBDC6F59231959_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_ContinueVisitation_m5614D1E6718CF97C7AD781EE667892C585642C11_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, const RuntimeMethod* method) 
 {
 	RuntimeObject* V_0 = NULL;
@@ -26369,7 +26369,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_ContinueVisitation_
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m5614D1E6718CF97C7AD781EE667892C585642C11(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_ContinueVisitation_mB4E91A5A983E6F16EDD2CA535E0375AE0D2FD05B_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	RuntimeObject* V_0 = NULL;
@@ -26407,7 +26407,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_ContinueVisitation_
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mB4E91A5A983E6F16EDD2CA535E0375AE0D2FD05B(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m53C495809A26E07292570E88DF9CAD903C0CBA5E_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, RuntimeObject** ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -26430,7 +26430,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m53C495809
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m53C495809A26E07292570E88DF9CAD903C0CBA5E(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m9D5DB194210C8D7973907E79083CFC6087BD901D_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, RuntimeObject** ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -26454,7 +26454,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m9D5DB1942
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m9D5DB194210C8D7973907E79083CFC6087BD901D(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA5A11EE06F53FFD061CC458B6C5F0FFF48FC3312_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, const RuntimeMethod* method) 
 {
 	RuntimeObject* V_0 = NULL;
@@ -26490,7 +26490,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_ContinueVisitationW
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA5A11EE06F53FFD061CC458B6C5F0FFF48FC3312(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m16A48A7EBF2A7901458CDE5A3B62D4F7D1A1AC2E_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	RuntimeObject* V_0 = NULL;
@@ -26527,7 +26527,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_ContinueVisitationW
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m16A48A7EBF2A7901458CDE5A3B62D4F7D1A1AC2E(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mC9AE22D906D6FA37CAE5864023A5B4AA33891D9A_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, RuntimeObject** ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -26549,7 +26549,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mC9AE22D906D6FA37CAE5864023A5B4AA33891D9A(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mFCD04C47EE0EA676ACA89B6D7628A642005EB459_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, RuntimeObject** ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -26572,7 +26572,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mFCD04C47EE0EA676ACA89B6D7628A642005EB459(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m156E32312806826792EE1743C7A1292C9C7BAD23_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26591,7 +26591,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m156E32312806826792EE1743C7A1292C9C7BAD23(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mC916F36C45EBD6F51F34F56DC312940E321F8747_gshared (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26618,7 +26618,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m1E0C571783A83825EE2440ECAE111EADDA8B52E9_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26638,7 +26638,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m1E0C571783A83825EE2440ECAE111EADDA8B52E9(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m483D71893016BFB8F8B74A66940EBA9A9DBE7639_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -26679,7 +26679,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m483D71893016BFB8F8B74A
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m483D71893016BFB8F8B74A66940EBA9A9DBE7639(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFB15DAA427F604C51ADA67123C9EBFEEA9520ED6_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26700,7 +26700,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFB15DAA427F604C51ADA67123C9EBFEEA9520ED6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializationContext_1_GetInstance_m2042D1820D1F7DC709400068FAA716885367AC52_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26718,7 +26718,7 @@ IL2CPP_EXTERN_C  Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_GetInstance_m2042D1820D1F7DC709400068FAA716885367AC52_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializationContext_1_ContinueVisitation_m8BE937BEE573EE5B07E793068A2CBA66D7EA71D1_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, const RuntimeMethod* method) 
 {
 	Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 V_0;
@@ -26757,7 +26757,7 @@ IL2CPP_EXTERN_C  Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m8BE937BEE573EE5B07E793068A2CBA66D7EA71D1(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializationContext_1_ContinueVisitation_m863A2CC815ACEB7F502AD42374130A8C51234835_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 V_0;
@@ -26797,7 +26797,7 @@ IL2CPP_EXTERN_C  Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m863A2CC815ACEB7F502AD42374130A8C51234835(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mD5D0FCB53EBBD38B5C1613258A0735213201A3DB_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -26820,7 +26820,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mD5D0FCB53
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mD5D0FCB53EBBD38B5C1613258A0735213201A3DB(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m76926B8F69D4C64AFA139BA00E99B5B04044966B_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -26844,7 +26844,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m76926B8F6
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m76926B8F69D4C64AFA139BA00E99B5B04044966B(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8EF6B8D4D057943B3D3CB08C2A274BF1C6A7B558_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, const RuntimeMethod* method) 
 {
 	Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 V_0;
@@ -26882,7 +26882,7 @@ IL2CPP_EXTERN_C  Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8EF6B8D4D057943B3D3CB08C2A274BF1C6A7B558(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2E8125087C83D67F6E615D3FBFC3E19A20CC5E28_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 V_0;
@@ -26921,7 +26921,7 @@ IL2CPP_EXTERN_C  Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializ
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2E8125087C83D67F6E615D3FBFC3E19A20CC5E28(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7C3C486DDA8229C48D8F234A5A10FD36C6816A1B_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -26943,7 +26943,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7C3C486DDA8229C48D8F234A5A10FD36C6816A1B(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1F2F2676532D02BC900ED9E8A621E4235DBFC999_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -26966,7 +26966,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1F2F2676532D02BC900ED9E8A621E4235DBFC999(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m50B16AFB8FD850EBB6CB1BC72DEEF45041A21A61_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, const RuntimeMethod* method) 
 {
 	{
@@ -26987,7 +26987,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m50B16AFB8FD850EBB6CB1BC72DEEF45041A21A61(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mF3320FECE796695180FECE9DA7BA395B123CB102_gshared (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27016,7 +27016,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m048759310D9986DE02CCCAFDB092C219BF238B53_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27036,7 +27036,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m048759310D9986DE02CCCAFDB092C219BF238B53(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mE015CB2A94D45342E38E67F29A69C10777A4F1DA_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, int8_t ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -27077,7 +27077,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mE015CB2A94D45342E38E67
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mE015CB2A94D45342E38E67F29A69C10777A4F1DA(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFAD94E8E5097D79B99B62750C9A33C0DBC3DEAC6_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27098,7 +27098,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mFAD94E8E5097D79B99B62750C9A33C0DBC3DEAC6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int8_t JsonDeserializationContext_1_GetInstance_m136DABDCCBF942F32C3AC4A23A96BD32C4B16C79_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27116,7 +27116,7 @@ IL2CPP_EXTERN_C  int8_t JsonDeserializationContext_1_GetInstance_m136DABDCCBF942
 	_returnValue = JsonDeserializationContext_1_GetInstance_m136DABDCCBF942F32C3AC4A23A96BD32C4B16C79_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int8_t JsonDeserializationContext_1_ContinueVisitation_mBB9B1A54A10111C5E9A1F9901CE673DA358FA169_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, const RuntimeMethod* method) 
 {
 	int8_t V_0 = 0x0;
@@ -27153,7 +27153,7 @@ IL2CPP_EXTERN_C  int8_t JsonDeserializationContext_1_ContinueVisitation_mBB9B1A5
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mBB9B1A54A10111C5E9A1F9901CE673DA358FA169(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int8_t JsonDeserializationContext_1_ContinueVisitation_mCC08E0874868BAE9D85A78228F455F4916D43BDF_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int8_t V_0 = 0x0;
@@ -27191,7 +27191,7 @@ IL2CPP_EXTERN_C  int8_t JsonDeserializationContext_1_ContinueVisitation_mCC08E08
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mCC08E0874868BAE9D85A78228F455F4916D43BDF(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m56E1E1ABA668ACA8063E2B2C01F6B275CC00AF72_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, int8_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -27214,7 +27214,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m56E1E1ABA
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m56E1E1ABA668ACA8063E2B2C01F6B275CC00AF72(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mCBB9A64E2071EF10BCB811E65C0170EC700D3071_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, int8_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -27238,7 +27238,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mCBB9A64E2
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mCBB9A64E2071EF10BCB811E65C0170EC700D3071(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int8_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA9BCFF62A6EAC937AB097399CAB7C4395336E48D_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, const RuntimeMethod* method) 
 {
 	int8_t V_0 = 0x0;
@@ -27274,7 +27274,7 @@ IL2CPP_EXTERN_C  int8_t JsonDeserializationContext_1_ContinueVisitationWithoutAd
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA9BCFF62A6EAC937AB097399CAB7C4395336E48D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int8_t JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA76FC247A39870B67624FC0CD1FBBD2AE1C38674_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	int8_t V_0 = 0x0;
@@ -27311,7 +27311,7 @@ IL2CPP_EXTERN_C  int8_t JsonDeserializationContext_1_ContinueVisitationWithoutAd
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA76FC247A39870B67624FC0CD1FBBD2AE1C38674(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5FE9C14522AA5F92F40F0860D027F37FFDF24C5A_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, int8_t* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -27333,7 +27333,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5FE9C14522AA5F92F40F0860D027F37FFDF24C5A(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5B5EB39B21A90B520E9ED8C4438B85F96B7ADB40_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, int8_t* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -27356,7 +27356,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5B5EB39B21A90B520E9ED8C4438B85F96B7ADB40(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mFFF2C962B5A5F496403126A0130FD05393013FD5_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27377,7 +27377,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mFFF2C962B5A5F496403126A0130FD05393013FD5(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mB5531A3C2D75A444F617414883AB92C475A874F4_gshared (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27406,7 +27406,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mC102B8ACB49022AD5239C63C6728BFB97681F375_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27426,7 +27426,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mC102B8ACB49022AD5239C63C6728BFB97681F375(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m785A8131ABACE6EFAD2992F0B7AAAA753479C712_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -27467,7 +27467,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m785A8131ABACE6EFAD2992
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m785A8131ABACE6EFAD2992F0B7AAAA753479C712(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m29D58272D647E72E52D6E45B44AA9D844922B088_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27488,7 +27488,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m29D58272D647E72E52D6E45B44AA9D844922B088(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializationContext_1_GetInstance_m3000DA2F3A932A8D7E8C474470205607DC981FD1_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27506,7 +27506,7 @@ IL2CPP_EXTERN_C  Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_GetInstance_m3000DA2F3A932A8D7E8C474470205607DC981FD1_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializationContext_1_ContinueVisitation_mE5830891A5680EAE876161DAF9238C1F4728F759_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, const RuntimeMethod* method) 
 {
 	Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 V_0;
@@ -27545,7 +27545,7 @@ IL2CPP_EXTERN_C  Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mE5830891A5680EAE876161DAF9238C1F4728F759(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializationContext_1_ContinueVisitation_mA1A3CC4CCB4F244E7DFCA0C7C3DD4A5862F29FF3_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 V_0;
@@ -27585,7 +27585,7 @@ IL2CPP_EXTERN_C  Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mA1A3CC4CCB4F244E7DFCA0C7C3DD4A5862F29FF3(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m5D34C28837511EFCF8BD3B9CC90A8CB6F2E73E88_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -27608,7 +27608,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m5D34C2883
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m5D34C28837511EFCF8BD3B9CC90A8CB6F2E73E88(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mD5479F7F3D9B9F8B15CE3C9553E89B4A0E7A2649_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -27632,7 +27632,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mD5479F7F3
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mD5479F7F3D9B9F8B15CE3C9553E89B4A0E7A2649(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6776193218C8D06E2006E02411CB81F1D852D790_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, const RuntimeMethod* method) 
 {
 	Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 V_0;
@@ -27670,7 +27670,7 @@ IL2CPP_EXTERN_C  Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6776193218C8D06E2006E02411CB81F1D852D790(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m976A835F4BB38B941ABBDD4ADDA22C4266B0894D_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 V_0;
@@ -27709,7 +27709,7 @@ IL2CPP_EXTERN_C  Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializa
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m976A835F4BB38B941ABBDD4ADDA22C4266B0894D(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE8DB0425F6F495F77062F75B7F5E7B412AEDE73D_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -27731,7 +27731,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE8DB0425F6F495F77062F75B7F5E7B412AEDE73D(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE25ED2B8599960F8073F632379B842518F9B5539_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -27754,7 +27754,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE25ED2B8599960F8073F632379B842518F9B5539(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mB0635E01FC67C0B8357166FE5665C2C4A28813D4_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27775,7 +27775,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mB0635E01FC67C0B8357166FE5665C2C4A28813D4(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mFE9374F7AF5D532764A7A2FC9063FCC85ABF7C9D_gshared (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27804,7 +27804,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m25B129CAEC8215BFBC2F4993EE9CBD2252727946_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27824,7 +27824,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m25B129CAEC8215BFBC2F4993EE9CBD2252727946(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mE5A69FCF8562F025D87E90488825B372F8959AAE_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -27865,7 +27865,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mE5A69FCF8562F025D87E90
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mE5A69FCF8562F025D87E90488825B372F8959AAE(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mA5617F20FD9838D9D16991F35615488DFAAC041E_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27886,7 +27886,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mA5617F20FD9838D9D16991F35615488DFAAC041E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 JsonDeserializationContext_1_GetInstance_mAB474A5BFCCBB991A7EE645C755642C6067F7558_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, const RuntimeMethod* method) 
 {
 	{
@@ -27904,7 +27904,7 @@ IL2CPP_EXTERN_C  SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 J
 	_returnValue = JsonDeserializationContext_1_GetInstance_mAB474A5BFCCBB991A7EE645C755642C6067F7558_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 JsonDeserializationContext_1_ContinueVisitation_mDA1747296089097A4D660BB284574DE1F2F1CBC5_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, const RuntimeMethod* method) 
 {
 	SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 V_0;
@@ -27943,7 +27943,7 @@ IL2CPP_EXTERN_C  SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mDA1747296089097A4D660BB284574DE1F2F1CBC5(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 JsonDeserializationContext_1_ContinueVisitation_mD6E5AC38847A021253AD053E5CCF74E157295ED8_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 V_0;
@@ -27983,7 +27983,7 @@ IL2CPP_EXTERN_C  SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mD6E5AC38847A021253AD053E5CCF74E157295ED8(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m1D8AC9322F06E38612E88CF25F6177083F592393_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -28006,7 +28006,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m1D8AC9322
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m1D8AC9322F06E38612E88CF25F6177083F592393(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m3228945847B7AD5087576F3A4682FF83E83A794B_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -28030,7 +28030,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m322894584
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m3228945847B7AD5087576F3A4682FF83E83A794B(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m825EA791A619A67792FCEC621F2CCBA3600662BC_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, const RuntimeMethod* method) 
 {
 	SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 V_0;
@@ -28068,7 +28068,7 @@ IL2CPP_EXTERN_C  SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m825EA791A619A67792FCEC621F2CCBA3600662BC(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m642A0120F3946FAA79EDDF00325DF2709E183FE0_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 V_0;
@@ -28107,7 +28107,7 @@ IL2CPP_EXTERN_C  SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m642A0120F3946FAA79EDDF00325DF2709E183FE0(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m476919441D071366680AB7DFEABAF7933DC83896_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -28129,7 +28129,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m476919441D071366680AB7DFEABAF7933DC83896(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8EB795AAB7791208CBD2570DD25859A3F8C58896_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -28152,7 +28152,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8EB795AAB7791208CBD2570DD25859A3F8C58896(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mCE1E0D5F6EBF7AA9EA235B8DE4DF0CE03AE73A48_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28173,7 +28173,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mCE1E0D5F6EBF7AA9EA235B8DE4DF0CE03AE73A48(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m61782923FE02C0A7617B714A5B048BB4A1742919_gshared (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28202,7 +28202,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mE4E9F1FE19C8D14A296DECCFF6014E511F90D8A9_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28222,7 +28222,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mE4E9F1FE19C8D14A296DECCFF6014E511F90D8A9(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m47DDEA462FB2522BBA6F24A9119D9D6B14E1614F_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -28263,7 +28263,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m47DDEA462FB2522BBA6F24
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m47DDEA462FB2522BBA6F24A9119D9D6B14E1614F(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m36B1D50592E679666435CE1285761F09EF35B2B4_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28284,7 +28284,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m36B1D50592E679666435CE1285761F09EF35B2B4(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 JsonDeserializationContext_1_GetInstance_mB8B3027882850663F73AD32A4F519188A975A018_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28302,7 +28302,7 @@ IL2CPP_EXTERN_C  SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 
 	_returnValue = JsonDeserializationContext_1_GetInstance_mB8B3027882850663F73AD32A4F519188A975A018_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 JsonDeserializationContext_1_ContinueVisitation_mF05A6EAA379CE4819EF47DBC945090AD3427C28E_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, const RuntimeMethod* method) 
 {
 	SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 V_0;
@@ -28341,7 +28341,7 @@ IL2CPP_EXTERN_C  SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mF05A6EAA379CE4819EF47DBC945090AD3427C28E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 JsonDeserializationContext_1_ContinueVisitation_m30878B942E2510E98BAF135508E9B9B6A3466C5F_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 V_0;
@@ -28381,7 +28381,7 @@ IL2CPP_EXTERN_C  SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m30878B942E2510E98BAF135508E9B9B6A3466C5F(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m9F0D77EF3750E462D4F2F6984E47CB46EC3990BC_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -28404,7 +28404,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m9F0D77EF3
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m9F0D77EF3750E462D4F2F6984E47CB46EC3990BC(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m89D763D01799D00BFBE02B684D721F2003D7878C_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -28428,7 +28428,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m89D763D01
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m89D763D01799D00BFBE02B684D721F2003D7878C(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5843D4605C1FF4CCE6A7220BAE38B0E2830B135F_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, const RuntimeMethod* method) 
 {
 	SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 V_0;
@@ -28466,7 +28466,7 @@ IL2CPP_EXTERN_C  SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5843D4605C1FF4CCE6A7220BAE38B0E2830B135F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5CA1A86A20AED1D24BDC41D2AC89A61703ABDBCA_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 V_0;
@@ -28505,7 +28505,7 @@ IL2CPP_EXTERN_C  SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5CA1A86A20AED1D24BDC41D2AC89A61703ABDBCA(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0FE83D65440DE0DBD087DB6116C0D2751968C9E7_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -28527,7 +28527,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0FE83D65440DE0DBD087DB6116C0D2751968C9E7(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0D10B4F6AC1C1DFB66CEDF33276AC48F3748125A_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -28550,7 +28550,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0D10B4F6AC1C1DFB66CEDF33276AC48F3748125A(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mB2D97CB131889D8169E9386096EF4E791FBC5A9B_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28571,7 +28571,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mB2D97CB131889D8169E9386096EF4E791FBC5A9B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m2B871FE2364CD9DD3378868C98A5DF19CCE4E8BB_gshared (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28600,7 +28600,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mDA6897682F000C08E93E4DF9A6416A88583927A5_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28620,7 +28620,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mDA6897682F000C08E93E4DF9A6416A88583927A5(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m1C8EF85D3140D0FE9DBA2EE7F0397E64A3E09F34_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -28661,7 +28661,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m1C8EF85D3140D0FE9DBA2E
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m1C8EF85D3140D0FE9DBA2EE7F0397E64A3E09F34(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mF5ED8C7E00AF6D98AB6D77E2A1030D5B6BD0E71D_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28682,7 +28682,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mF5ED8C7E00AF6D98AB6D77E2A1030D5B6BD0E71D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_GetInstance_mD33A01CC3D43D612AEEDAA6E26E47E37BE11A195_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28700,7 +28700,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_GetInstance_mD33A01CC3D43D612AEEDAA6E26E47E37BE11A195_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_ContinueVisitation_m350E7225B748537DD38A5E5BC5FCCA37870038BD_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, const RuntimeMethod* method) 
 {
 	SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC V_0;
@@ -28739,7 +28739,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m350E7225B748537DD38A5E5BC5FCCA37870038BD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_ContinueVisitation_m2561C455984A0A853A885DFE814F8E64688BFB5E_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC V_0;
@@ -28779,7 +28779,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m2561C455984A0A853A885DFE814F8E64688BFB5E(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mD65E9B8DD51A899B4BEEF888B1735AB64BB15372_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -28802,7 +28802,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mD65E9B8DD
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mD65E9B8DD51A899B4BEEF888B1735AB64BB15372(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m047006C1D1833A1A40EA95CF1FB30BD32B9FF26B_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -28826,7 +28826,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m047006C1D
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m047006C1D1833A1A40EA95CF1FB30BD32B9FF26B(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA863BB1F457C4444460A2F9C276DFFF1F7CD4CEC_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, const RuntimeMethod* method) 
 {
 	SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC V_0;
@@ -28864,7 +28864,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA863BB1F457C4444460A2F9C276DFFF1F7CD4CEC(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m25627A1B66F6CDA7175262CE8C1EADAF6A0537C7_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC V_0;
@@ -28903,7 +28903,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m25627A1B66F6CDA7175262CE8C1EADAF6A0537C7(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBA13CCEF2C6697B153A510FEAEE6AEB792A00836_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -28925,7 +28925,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBA13CCEF2C6697B153A510FEAEE6AEB792A00836(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF2364DB52CB23E96AB8DFD9EE4C44F1F7F66ADFA_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -28948,7 +28948,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF2364DB52CB23E96AB8DFD9EE4C44F1F7F66ADFA(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m3426185897C3636FC2CAC086ED0C223499E8AEE7_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28969,7 +28969,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m3426185897C3636FC2CAC086ED0C223499E8AEE7(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m381AD4C9849EA8EA2582EDBBCD4D567BE278EDE9_gshared (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -28998,7 +28998,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mCE7C4992328A7D18268861B54D9239A5A5B9097F_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29018,7 +29018,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mCE7C4992328A7D18268861B54D9239A5A5B9097F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m0876EF7CCD387FC5B11E988CF088E9C84B9C8E19_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, float ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -29059,7 +29059,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m0876EF7CCD387FC5B11E98
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m0876EF7CCD387FC5B11E988CF088E9C84B9C8E19(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m7AD72547B2CA99602D15B6C9508D1B64FCAD848E_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29080,7 +29080,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m7AD72547B2CA99602D15B6C9508D1B64FCAD848E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float JsonDeserializationContext_1_GetInstance_m3F8D0D6B6BF2E2CB2A7CEC5F8AFFB536E22ACA8A_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29098,7 +29098,7 @@ IL2CPP_EXTERN_C  float JsonDeserializationContext_1_GetInstance_m3F8D0D6B6BF2E2C
 	_returnValue = JsonDeserializationContext_1_GetInstance_m3F8D0D6B6BF2E2CB2A7CEC5F8AFFB536E22ACA8A_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float JsonDeserializationContext_1_ContinueVisitation_mC7FBA81BD360B20AEB7B6B8B34A90548BB3E81F2_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, const RuntimeMethod* method) 
 {
 	float V_0 = 0.0f;
@@ -29135,7 +29135,7 @@ IL2CPP_EXTERN_C  float JsonDeserializationContext_1_ContinueVisitation_mC7FBA81B
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mC7FBA81BD360B20AEB7B6B8B34A90548BB3E81F2(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float JsonDeserializationContext_1_ContinueVisitation_mCC5BA3CB3F1E190E9753CB134BACA162F4C64E9A_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	float V_0 = 0.0f;
@@ -29173,7 +29173,7 @@ IL2CPP_EXTERN_C  float JsonDeserializationContext_1_ContinueVisitation_mCC5BA3CB
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mCC5BA3CB3F1E190E9753CB134BACA162F4C64E9A(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m9550FE62FD6EF7C64CD756987131024A11D69A42_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, float* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -29196,7 +29196,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m9550FE62F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m9550FE62FD6EF7C64CD756987131024A11D69A42(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mBB525C3BFDDBFF22CA4F04A0F4E32ED7216DB6D7_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, float* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -29220,7 +29220,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mBB525C3BF
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mBB525C3BFDDBFF22CA4F04A0F4E32ED7216DB6D7(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1D6BE120EB65D29E817423D7DC9159C005C0AAFC_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, const RuntimeMethod* method) 
 {
 	float V_0 = 0.0f;
@@ -29256,7 +29256,7 @@ IL2CPP_EXTERN_C  float JsonDeserializationContext_1_ContinueVisitationWithoutAda
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1D6BE120EB65D29E817423D7DC9159C005C0AAFC(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2332684F6D879754CB19468A24B1060B83E0F43A_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	float V_0 = 0.0f;
@@ -29293,7 +29293,7 @@ IL2CPP_EXTERN_C  float JsonDeserializationContext_1_ContinueVisitationWithoutAda
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2332684F6D879754CB19468A24B1060B83E0F43A(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m58F99934750BDE800F0490A53C43E48F139F705B_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, float* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -29315,7 +29315,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m58F99934750BDE800F0490A53C43E48F139F705B(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7593F16181074AF998F3CC3B827138A875054382_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, float* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -29338,7 +29338,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7593F16181074AF998F3CC3B827138A875054382(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m1EC0A21D89B369D74B621A0FBEE35472DF7A2C9B_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29359,7 +29359,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m1EC0A21D89B369D74B621A0FBEE35472DF7A2C9B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m3ACDD26E372BCF82FD31F5F99015B5EB618793DB_gshared (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29388,7 +29388,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m03862F1033E5A36F2ADE7E482D1D6437BB9B816F_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29408,7 +29408,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m03862F1033E5A36F2ADE7E482D1D6437BB9B816F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mE0661AE15BFD37D2D76055D65B0338F4BAD375DB_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -29459,7 +29459,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mE0661AE15BFD37D2D76055
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mE0661AE15BFD37D2D76055D65B0338F4BAD375DB(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mF22717F6040FD26EF45B3D681A61614432328A57_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29480,7 +29480,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mF22717F6040FD26EF45B3D681A61614432328A57(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonDeserializationContext_1_GetInstance_m0FFB8D1A059009C140351AF33F3A76B238186401_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29498,7 +29498,7 @@ IL2CPP_EXTERN_C  StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonD
 	_returnValue = JsonDeserializationContext_1_GetInstance_m0FFB8D1A059009C140351AF33F3A76B238186401_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonDeserializationContext_1_ContinueVisitation_m24C874049CCFDDA834F2FC4F9DF6612BC3C7EBAA_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, const RuntimeMethod* method) 
 {
 	StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B V_0;
@@ -29537,7 +29537,7 @@ IL2CPP_EXTERN_C  StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonD
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m24C874049CCFDDA834F2FC4F9DF6612BC3C7EBAA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonDeserializationContext_1_ContinueVisitation_mE7F850CBEDC05D35D935E384C2C370F81ED6FA73_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B V_0;
@@ -29577,7 +29577,7 @@ IL2CPP_EXTERN_C  StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonD
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mE7F850CBEDC05D35D935E384C2C370F81ED6FA73(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m418F3DAC82B89E48748403901B870DBAD2DDA4CE_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -29600,7 +29600,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m418F3DAC8
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m418F3DAC82B89E48748403901B870DBAD2DDA4CE(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m1B354172F7DB4343DCA34535D497A2049752D355_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -29624,7 +29624,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m1B354172F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m1B354172F7DB4343DCA34535D497A2049752D355(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5D97A34A0886DC96355488C89AF97337D442DBBB_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, const RuntimeMethod* method) 
 {
 	StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B V_0;
@@ -29662,7 +29662,7 @@ IL2CPP_EXTERN_C  StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonD
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5D97A34A0886DC96355488C89AF97337D442DBBB(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m56392F2A036A3129D81A33E47099AE45609FD658_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B V_0;
@@ -29701,7 +29701,7 @@ IL2CPP_EXTERN_C  StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonD
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m56392F2A036A3129D81A33E47099AE45609FD658(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m54D71A4807C7AABBEB9FADB679BB7744218F5EFD_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -29723,7 +29723,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m54D71A4807C7AABBEB9FADB679BB7744218F5EFD(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB1B88A34904FC117CEEC219A9153E91ABB0C9529_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -29746,7 +29746,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB1B88A34904FC117CEEC219A9153E91ABB0C9529(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m0DC48F068AC0C573622524274FF65C75F7E2741F_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29767,7 +29767,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m0DC48F068AC0C573622524274FF65C75F7E2741F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m345CAB5AA1630C7BCBBE6BF96491CD9BB420D629_gshared (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29796,7 +29796,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mFFF7E044B279DC1AF1410895EB8A1A2C812C8678_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29816,7 +29816,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mFFF7E044B279DC1AF1410895EB8A1A2C812C8678(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mFAFFF203D9F7BDCFD02EB048FE765E7FA08AF9BD_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -29857,7 +29857,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mFAFFF203D9F7BDCFD02EB0
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mFAFFF203D9F7BDCFD02EB048FE765E7FA08AF9BD(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m8290A65D381243CC7BAF2D4022EE9AF8A2AD0FBA_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29878,7 +29878,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m8290A65D381243CC7BAF2D4022EE9AF8A2AD0FBA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 JsonDeserializationContext_1_GetInstance_m4CFE7183B3C467CF2DC9C6549069D5240BC230DA_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29896,7 +29896,7 @@ IL2CPP_EXTERN_C  StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3
 	_returnValue = JsonDeserializationContext_1_GetInstance_m4CFE7183B3C467CF2DC9C6549069D5240BC230DA_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 JsonDeserializationContext_1_ContinueVisitation_m120AFC1019C52ED080FBB358C06A2A0BF4A83FFA_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, const RuntimeMethod* method) 
 {
 	StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 V_0;
@@ -29935,7 +29935,7 @@ IL2CPP_EXTERN_C  StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m120AFC1019C52ED080FBB358C06A2A0BF4A83FFA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 JsonDeserializationContext_1_ContinueVisitation_mED684298600A8087F8FE8BB7EBEBA102B2609680_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 V_0;
@@ -29975,7 +29975,7 @@ IL2CPP_EXTERN_C  StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mED684298600A8087F8FE8BB7EBEBA102B2609680(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m27107D1D2B2821A3285B1776FCD94100A65B3A75_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -29998,7 +29998,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m27107D1D2
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m27107D1D2B2821A3285B1776FCD94100A65B3A75(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m47CEE7ED12F443C6EF5445A0970E6636FB3DD330_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -30022,7 +30022,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m47CEE7ED1
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m47CEE7ED12F443C6EF5445A0970E6636FB3DD330(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3AF738C739EE09FBA7308E6DB02F7E5E1B2B3DC3_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, const RuntimeMethod* method) 
 {
 	StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 V_0;
@@ -30060,7 +30060,7 @@ IL2CPP_EXTERN_C  StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3AF738C739EE09FBA7308E6DB02F7E5E1B2B3DC3(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m50C73636511CA854792E2F6420E5FD90327C8247_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 V_0;
@@ -30099,7 +30099,7 @@ IL2CPP_EXTERN_C  StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m50C73636511CA854792E2F6420E5FD90327C8247(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF4910669E0682C320951700F3B7D51B4279F6251_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -30121,7 +30121,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF4910669E0682C320951700F3B7D51B4279F6251(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA85D08AA7546C179F21AAA0EF7010C9DDE300D97_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -30144,7 +30144,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA85D08AA7546C179F21AAA0EF7010C9DDE300D97(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m3C9971EF6E76835FA96C896775EB27B9EA8FA63B_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30165,7 +30165,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m3C9971EF6E76835FA96C896775EB27B9EA8FA63B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m08EF42236D1F9E9E9A2972A0F2A149AF260EF837_gshared (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30194,7 +30194,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m2BAA90B55D94B02E61F050518D7CA9E9AA9BFCA6_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30214,7 +30214,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m2BAA90B55D94B02E61F050518D7CA9E9AA9BFCA6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m9A9DB74B92D8032C182F993C200F06CDEBE3471A_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -30255,7 +30255,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m9A9DB74B92D8032C182F99
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m9A9DB74B92D8032C182F993C200F06CDEBE3471A(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mE95DD02CCEC7321879C6A8583FF9B2161F59E9AC_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30276,7 +30276,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mE95DD02CCEC7321879C6A8583FF9B2161F59E9AC(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 JsonDeserializationContext_1_GetInstance_m8FBD45A0A2350DFFD18EC6B739CA67D460C0DDCA_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30294,7 +30294,7 @@ IL2CPP_EXTERN_C  StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866
 	_returnValue = JsonDeserializationContext_1_GetInstance_m8FBD45A0A2350DFFD18EC6B739CA67D460C0DDCA_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 JsonDeserializationContext_1_ContinueVisitation_m76CD5F78BA8B73391897BE19040CC9F89FDDEC15_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, const RuntimeMethod* method) 
 {
 	StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 V_0;
@@ -30333,7 +30333,7 @@ IL2CPP_EXTERN_C  StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m76CD5F78BA8B73391897BE19040CC9F89FDDEC15(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 JsonDeserializationContext_1_ContinueVisitation_m67416E3CC0D0AEB0428D510645A4D7A86B06601D_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 V_0;
@@ -30373,7 +30373,7 @@ IL2CPP_EXTERN_C  StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m67416E3CC0D0AEB0428D510645A4D7A86B06601D(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m207BAC29B6287E63632467F43587DC101A79963D_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -30396,7 +30396,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m207BAC29B
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m207BAC29B6287E63632467F43587DC101A79963D(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m342CA1FDD8E46419586187619D2C75A424D7A9F7_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -30420,7 +30420,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m342CA1FDD
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m342CA1FDD8E46419586187619D2C75A424D7A9F7(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7BFDBA68B3399D123F47C2AED19A6B6AEA69C7F2_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, const RuntimeMethod* method) 
 {
 	StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 V_0;
@@ -30458,7 +30458,7 @@ IL2CPP_EXTERN_C  StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7BFDBA68B3399D123F47C2AED19A6B6AEA69C7F2(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m67A9D1FE6DF46C951FAD158BF8D4D891D0B20662_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 V_0;
@@ -30497,7 +30497,7 @@ IL2CPP_EXTERN_C  StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m67A9D1FE6DF46C951FAD158BF8D4D891D0B20662(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6D009DF57B799F4E51FA8F83FDCA610B6C0F1B75_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -30519,7 +30519,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6D009DF57B799F4E51FA8F83FDCA610B6C0F1B75(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1DCD9295A54C41B6F7A96CAE3DA586AD5492DAD8_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -30542,7 +30542,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1DCD9295A54C41B6F7A96CAE3DA586AD5492DAD8(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mDD834BBD1718BCC735183EA1C70DFB539B2ED2D6_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30563,7 +30563,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mDD834BBD1718BCC735183EA1C70DFB539B2ED2D6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mA08606548615588F5B8BAE3B1F83FC2940FE6C1C_gshared (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30592,7 +30592,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m512FE74193A713CF7CF726401ECCFF66B08F01C3_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30612,7 +30612,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m512FE74193A713CF7CF726401ECCFF66B08F01C3(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m064DFD82CC7C48BD04E14528AE1DC87E895641DF_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -30653,7 +30653,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m064DFD82CC7C48BD04E145
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m064DFD82CC7C48BD04E14528AE1DC87E895641DF(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m1ADCB0BB8BA355B297F52507D93C384E21ADD097_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30674,7 +30674,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m1ADCB0BB8BA355B297F52507D93C384E21ADD097(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 JsonDeserializationContext_1_GetInstance_m7CD388ADA7A5011A21B600A502CAEB02E6DE0794_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30692,7 +30692,7 @@ IL2CPP_EXTERN_C  StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 J
 	_returnValue = JsonDeserializationContext_1_GetInstance_m7CD388ADA7A5011A21B600A502CAEB02E6DE0794_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 JsonDeserializationContext_1_ContinueVisitation_m88312FEDCF95092BB608CA037D4143996883B3FD_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, const RuntimeMethod* method) 
 {
 	StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 V_0;
@@ -30731,7 +30731,7 @@ IL2CPP_EXTERN_C  StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m88312FEDCF95092BB608CA037D4143996883B3FD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 JsonDeserializationContext_1_ContinueVisitation_m4CCE136CFFACA10445BF7956BAF04CC64C438770_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 V_0;
@@ -30771,7 +30771,7 @@ IL2CPP_EXTERN_C  StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m4CCE136CFFACA10445BF7956BAF04CC64C438770(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mD98402445BCD3186368AA2A40B5D975B088A9F01_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -30794,7 +30794,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mD98402445
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mD98402445BCD3186368AA2A40B5D975B088A9F01(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m1739AE2EAEFC387BC918F1EDAEF6A851746F980C_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -30818,7 +30818,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m1739AE2EA
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m1739AE2EAEFC387BC918F1EDAEF6A851746F980C(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF5883515115A64D3E01228599BF033B05EA17D4C_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, const RuntimeMethod* method) 
 {
 	StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 V_0;
@@ -30856,7 +30856,7 @@ IL2CPP_EXTERN_C  StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF5883515115A64D3E01228599BF033B05EA17D4C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDCAE4E7C0C7DC37A4EACD96069C0ED98911BB17C_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 V_0;
@@ -30895,7 +30895,7 @@ IL2CPP_EXTERN_C  StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDCAE4E7C0C7DC37A4EACD96069C0ED98911BB17C(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE74A2188A38DBCFA9C0AE5FDB452ECBF7903BDA3_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -30917,7 +30917,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE74A2188A38DBCFA9C0AE5FDB452ECBF7903BDA3(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m54CB6D34487CC69F4F8569389E8BD9B3A33E12B9_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -30940,7 +30940,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m54CB6D34487CC69F4F8569389E8BD9B3A33E12B9(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mE517F11C7DF0AC5ACFE04C888AE1D9F963CFD199_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30961,7 +30961,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mE517F11C7DF0AC5ACFE04C888AE1D9F963CFD199(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m4CF325B8A362B2C2BAB10732A21D9D5970BA6613_gshared (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, const RuntimeMethod* method) 
 {
 	{
@@ -30990,7 +30990,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m9E676B06E0D5705081621A299ADAF02BB85C901C_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31010,7 +31010,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m9E676B06E0D5705081621A299ADAF02BB85C901C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mC6123E025B19519DDD6B52DC44733A8D5D917258_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -31051,7 +31051,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mC6123E025B19519DDD6B52
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mC6123E025B19519DDD6B52DC44733A8D5D917258(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m50A9E664596D0BB0F2BCBE14D30AD0D481E4BE26_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31072,7 +31072,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m50A9E664596D0BB0F2BCBE14D30AD0D481E4BE26(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeserializationContext_1_GetInstance_mB6E3FC04635C3EA36C83054DEDFD67F7292BDC04_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31090,7 +31090,7 @@ IL2CPP_EXTERN_C  StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_GetInstance_mB6E3FC04635C3EA36C83054DEDFD67F7292BDC04_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeserializationContext_1_ContinueVisitation_mCBBAFF7CED8DF1F09E477A4CFC28619A97E50138_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, const RuntimeMethod* method) 
 {
 	StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 V_0;
@@ -31129,7 +31129,7 @@ IL2CPP_EXTERN_C  StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mCBBAFF7CED8DF1F09E477A4CFC28619A97E50138(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeserializationContext_1_ContinueVisitation_mE3B8B186F544238988762F2338A8E77B156F9373_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 V_0;
@@ -31169,7 +31169,7 @@ IL2CPP_EXTERN_C  StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mE3B8B186F544238988762F2338A8E77B156F9373(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mF6314EEC85A9D82E0A11A0BECC994BDFB8D3C946_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -31192,7 +31192,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mF6314EEC8
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mF6314EEC85A9D82E0A11A0BECC994BDFB8D3C946(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m78BD921C7D3AF6B08DDB75AECE16D3CE08DE4219_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -31216,7 +31216,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m78BD921C7
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m78BD921C7D3AF6B08DDB75AECE16D3CE08DE4219(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE61240438430E43B20DEAC8A5874224E18AE1C8D_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, const RuntimeMethod* method) 
 {
 	StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 V_0;
@@ -31254,7 +31254,7 @@ IL2CPP_EXTERN_C  StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE61240438430E43B20DEAC8A5874224E18AE1C8D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6AC55A88737FC79605588CE025C82539FA11B9C9_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 V_0;
@@ -31293,7 +31293,7 @@ IL2CPP_EXTERN_C  StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m6AC55A88737FC79605588CE025C82539FA11B9C9(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB56B8F30BA52E06C99BC77AAFB9C204E75FF43D7_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -31315,7 +31315,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB56B8F30BA52E06C99BC77AAFB9C204E75FF43D7(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3C92CB44A8F0CDFF0D4C93E058AB128894045600_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -31338,7 +31338,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3C92CB44A8F0CDFF0D4C93E058AB128894045600(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m6757E898D5C165434B49751096BDA15A34BEC0BD_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31359,7 +31359,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m6757E898D5C165434B49751096BDA15A34BEC0BD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mB77E26C6DEA6ACDD23BC58EBDED038F441FF0438_gshared (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31388,7 +31388,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mB14BA560D3C19CC6E33D2EFA187E489AA1F4E239_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31408,7 +31408,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mB14BA560D3C19CC6E33D2EFA187E489AA1F4E239(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m151ECEE81DAF86DA3A091254CD7B749164C9CC8F_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -31450,7 +31450,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m151ECEE81DAF86DA3A0912
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m151ECEE81DAF86DA3A091254CD7B749164C9CC8F(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m0E641429300418AF59CF4AB17E27553D79A53F21_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31471,7 +31471,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m0E641429300418AF59CF4AB17E27553D79A53F21(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeserializationContext_1_GetInstance_mDF227FAB5A131306A902386C40B85DD706963E8F_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31489,7 +31489,7 @@ IL2CPP_EXTERN_C  StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeser
 	_returnValue = JsonDeserializationContext_1_GetInstance_mDF227FAB5A131306A902386C40B85DD706963E8F_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeserializationContext_1_ContinueVisitation_m4F4E8D8B5E28334FFEBFFCED3E06257924307A07_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, const RuntimeMethod* method) 
 {
 	StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 V_0;
@@ -31528,7 +31528,7 @@ IL2CPP_EXTERN_C  StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m4F4E8D8B5E28334FFEBFFCED3E06257924307A07(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeserializationContext_1_ContinueVisitation_mAD8098BC463843A30C34D83ACF0C8D05BB1DBD36_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 V_0;
@@ -31568,7 +31568,7 @@ IL2CPP_EXTERN_C  StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mAD8098BC463843A30C34D83ACF0C8D05BB1DBD36(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mC86501EA56D2D69A38D1C696536C46DCAEB95C8F_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -31591,7 +31591,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mC86501EA5
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mC86501EA56D2D69A38D1C696536C46DCAEB95C8F(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m58CBA258B99A21493F33E7FAF8305488EAC34D8F_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -31615,7 +31615,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m58CBA258B
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m58CBA258B99A21493F33E7FAF8305488EAC34D8F(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m53FCABEA2D296E124E395011C04A85AC77498067_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, const RuntimeMethod* method) 
 {
 	StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 V_0;
@@ -31653,7 +31653,7 @@ IL2CPP_EXTERN_C  StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m53FCABEA2D296E124E395011C04A85AC77498067(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1963D3749DD52843EC13549B0B19C097C61271F4_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 V_0;
@@ -31692,7 +31692,7 @@ IL2CPP_EXTERN_C  StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1963D3749DD52843EC13549B0B19C097C61271F4(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF11B4A56CF8E2F411EAD555ABB1F444FC834F542_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -31714,7 +31714,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF11B4A56CF8E2F411EAD555ABB1F444FC834F542(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0491E633B06748E198BB95AE37B7E2E42A09CE19_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -31737,7 +31737,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m0491E633B06748E198BB95AE37B7E2E42A09CE19(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m4CCD00AAEE548021E6F250B75FC354AC61D7F742_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31758,7 +31758,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m4CCD00AAEE548021E6F250B75FC354AC61D7F742(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mBCE1DB0400B7E6C7E1931B34A014D8BF16EDD362_gshared (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31787,7 +31787,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m0925C0FAB302AD72317387400683091F0361DBA6_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31807,7 +31807,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m0925C0FAB302AD72317387400683091F0361DBA6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mC594DC1CFDB4DC1DC26ADB9E3C07BA282C8755DB_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -31848,7 +31848,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mC594DC1CFDB4DC1DC26ADB
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mC594DC1CFDB4DC1DC26ADB9E3C07BA282C8755DB(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mB6B849B60200E0638EEB71EBD16A973EC109CEEB_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31869,7 +31869,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mB6B849B60200E0638EEB71EBD16A973EC109CEEB(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeserializationContext_1_GetInstance_mDD979CED8F90EC06D351E5D57FB3E2DBF0EC0594_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -31887,7 +31887,7 @@ IL2CPP_EXTERN_C  StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_GetInstance_mDD979CED8F90EC06D351E5D57FB3E2DBF0EC0594_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeserializationContext_1_ContinueVisitation_mF5CF3699B066E2A7E274B715EE7F0F8CF73BB187_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, const RuntimeMethod* method) 
 {
 	StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 V_0;
@@ -31926,7 +31926,7 @@ IL2CPP_EXTERN_C  StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mF5CF3699B066E2A7E274B715EE7F0F8CF73BB187(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeserializationContext_1_ContinueVisitation_m59F5B9CE263088DB8385B0449C1DAE2ECF9F489A_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 V_0;
@@ -31966,7 +31966,7 @@ IL2CPP_EXTERN_C  StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m59F5B9CE263088DB8385B0449C1DAE2ECF9F489A(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mBB0B70731B66AE3CD61A9C1FFCB455D14E7C8B8B_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -31989,7 +31989,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mBB0B70731
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mBB0B70731B66AE3CD61A9C1FFCB455D14E7C8B8B(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mEC4DA1B22623E3D8B427860F9457E34A66DD7577_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -32013,7 +32013,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mEC4DA1B22
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mEC4DA1B22623E3D8B427860F9457E34A66DD7577(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m826CB947B19DAAF225192C06EEBDE8C33E433FDD_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, const RuntimeMethod* method) 
 {
 	StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 V_0;
@@ -32051,7 +32051,7 @@ IL2CPP_EXTERN_C  StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m826CB947B19DAAF225192C06EEBDE8C33E433FDD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBA9093CBB0C7F8C29A8F8C801517F699383F7933_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 V_0;
@@ -32090,7 +32090,7 @@ IL2CPP_EXTERN_C  StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBA9093CBB0C7F8C29A8F8C801517F699383F7933(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5194EA4C02C2351FD181FD2B7F72279009A47A6A_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -32112,7 +32112,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m5194EA4C02C2351FD181FD2B7F72279009A47A6A(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7062A7B72C4DAF2F12701F40AFC9214E5EA569CE_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -32135,7 +32135,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7062A7B72C4DAF2F12701F40AFC9214E5EA569CE(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m043A338673B83E95A2379C25ADF21B5E05FF8035_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32156,7 +32156,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m043A338673B83E95A2379C25ADF21B5E05FF8035(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mE36DA252A1FDDD470A5FCA8EF41E6C28F1A045F7_gshared (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32185,7 +32185,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m0BCB32CA7D63C3F8CF230202979F4E4D5684B04C_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32205,7 +32205,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m0BCB32CA7D63C3F8CF230202979F4E4D5684B04C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m17A83B6F8A5A47A968D240E9F003DBB760A8FCDA_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -32247,7 +32247,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m17A83B6F8A5A47A968D240
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m17A83B6F8A5A47A968D240E9F003DBB760A8FCDA(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m7454CEB7437051670781BA2F1FA22911D14F625F_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32268,7 +32268,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m7454CEB7437051670781BA2F1FA22911D14F625F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeserializationContext_1_GetInstance_m1159289FEBAD85FD9D470675CC04703AD27BBF14_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32286,7 +32286,7 @@ IL2CPP_EXTERN_C  StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeseria
 	_returnValue = JsonDeserializationContext_1_GetInstance_m1159289FEBAD85FD9D470675CC04703AD27BBF14_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeserializationContext_1_ContinueVisitation_m3BB1D8CA06FA17538A5697CF771C07705E630A5A_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, const RuntimeMethod* method) 
 {
 	StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C V_0;
@@ -32325,7 +32325,7 @@ IL2CPP_EXTERN_C  StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeseria
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m3BB1D8CA06FA17538A5697CF771C07705E630A5A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeserializationContext_1_ContinueVisitation_mEC1219B1A7C460CDF871AA84AB4529C091EA35E6_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C V_0;
@@ -32365,7 +32365,7 @@ IL2CPP_EXTERN_C  StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeseria
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mEC1219B1A7C460CDF871AA84AB4529C091EA35E6(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m5D9C8781E4FC83823C958C86A44064B26EAB5108_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -32388,7 +32388,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m5D9C8781E
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m5D9C8781E4FC83823C958C86A44064B26EAB5108(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mBF634E9426240045DE167A28E7899E96C2928CCF_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -32412,7 +32412,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mBF634E942
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mBF634E9426240045DE167A28E7899E96C2928CCF(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2078D27DFC06B7C9341AE90F99D1B6E72D9F79DA_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, const RuntimeMethod* method) 
 {
 	StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C V_0;
@@ -32450,7 +32450,7 @@ IL2CPP_EXTERN_C  StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeseria
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2078D27DFC06B7C9341AE90F99D1B6E72D9F79DA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m088AA689159BADCDB50AC2725AEF9781F301DBBA_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C V_0;
@@ -32489,7 +32489,7 @@ IL2CPP_EXTERN_C  StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeseria
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m088AA689159BADCDB50AC2725AEF9781F301DBBA(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m47A488A2D50483E220D7606A6AB0BC4F78BBD20F_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -32511,7 +32511,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m47A488A2D50483E220D7606A6AB0BC4F78BBD20F(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mCD53E8CC88722353BFE3249A3B1831C4448A0BAA_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -32534,7 +32534,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mCD53E8CC88722353BFE3249A3B1831C4448A0BAA(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mCF70A03DE36AAC15738883DD9C7A7FC86AD4F770_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32555,7 +32555,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mCF70A03DE36AAC15738883DD9C7A7FC86AD4F770(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m9D6B865C1CE1E40210BD3CB2CC0DFB6B6B60C14F_gshared (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32584,7 +32584,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m5B3BC34D9D1D411B4A75F6CF4207138239613890_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32604,7 +32604,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m5B3BC34D9D1D411B4A75F6CF4207138239613890(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m1E1AF1F60EEC21DD36E40811E7001478F1E1F057_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -32649,7 +32649,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m1E1AF1F60EEC21DD36E408
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m1E1AF1F60EEC21DD36E40811E7001478F1E1F057(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m80E3C8B668D119A6BB685CCD3804B054BA0BC10D_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32670,7 +32670,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m80E3C8B668D119A6BB685CCD3804B054BA0BC10D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 JsonDeserializationContext_1_GetInstance_mD6645D2BA4CAC7846C06F02DEC08A4E5F167E8B1_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32688,7 +32688,7 @@ IL2CPP_EXTERN_C  StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 J
 	_returnValue = JsonDeserializationContext_1_GetInstance_mD6645D2BA4CAC7846C06F02DEC08A4E5F167E8B1_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 JsonDeserializationContext_1_ContinueVisitation_mD60EBC1B6010899B0B0AD6751A8D8E41B7F7F9FD_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, const RuntimeMethod* method) 
 {
 	StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 V_0;
@@ -32727,7 +32727,7 @@ IL2CPP_EXTERN_C  StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mD60EBC1B6010899B0B0AD6751A8D8E41B7F7F9FD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 JsonDeserializationContext_1_ContinueVisitation_mC2C5D190F44C9E0421F3A75D94B5C97AB78F5798_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 V_0;
@@ -32767,7 +32767,7 @@ IL2CPP_EXTERN_C  StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mC2C5D190F44C9E0421F3A75D94B5C97AB78F5798(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m7036C2FE1706DCA651F06EBA9A3A74E4914D5323_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -32790,7 +32790,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m7036C2FE1
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m7036C2FE1706DCA651F06EBA9A3A74E4914D5323(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mEC7C0988DA95CFB2DF61D4F4552494A41BB1F2AD_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -32814,7 +32814,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mEC7C0988D
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mEC7C0988DA95CFB2DF61D4F4552494A41BB1F2AD(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mCB5FF4A1511BF89A71C55B8A1E1089BC6F75E8BC_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, const RuntimeMethod* method) 
 {
 	StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 V_0;
@@ -32852,7 +32852,7 @@ IL2CPP_EXTERN_C  StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mCB5FF4A1511BF89A71C55B8A1E1089BC6F75E8BC(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m84BF0BB2F98404C4238887C08F3902E33748406B_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 V_0;
@@ -32891,7 +32891,7 @@ IL2CPP_EXTERN_C  StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 J
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m84BF0BB2F98404C4238887C08F3902E33748406B(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m9FBAD2F357F18489E80CD2E8B8BD734498A67F17_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -32913,7 +32913,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m9FBAD2F357F18489E80CD2E8B8BD734498A67F17(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDD3161215C49108385CADD09DC8EB84B93C009DF_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -32936,7 +32936,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDD3161215C49108385CADD09DC8EB84B93C009DF(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m661822E9DD7024063618890AD22473A8D6632FED_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32957,7 +32957,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m661822E9DD7024063618890AD22473A8D6632FED(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mEB2B368E6087C0EAF5C5D33A396E67EFBB63BEE3_gshared (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -32986,7 +32986,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mED3A44850DDC597008928505B33B5595C6C6C212_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33006,7 +33006,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mED3A44850DDC597008928505B33B5595C6C6C212(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m52E8FBF62DFC0BCC14D2953AA6F8C9652885DDE8_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -33047,7 +33047,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m52E8FBF62DFC0BCC14D295
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m52E8FBF62DFC0BCC14D2953AA6F8C9652885DDE8(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m9A25946AED20C8C6F233241A4227564920028A04_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33068,7 +33068,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m9A25946AED20C8C6F233241A4227564920028A04(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserializationContext_1_GetInstance_m5543F80E8AC46C9B04981D9A7F0EF8AF5FF5494D_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33086,7 +33086,7 @@ IL2CPP_EXTERN_C  StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_GetInstance_m5543F80E8AC46C9B04981D9A7F0EF8AF5FF5494D_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserializationContext_1_ContinueVisitation_m014D053CD554AE5F2CBCA835710C777A44EA2ECF_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, const RuntimeMethod* method) 
 {
 	StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D V_0;
@@ -33125,7 +33125,7 @@ IL2CPP_EXTERN_C  StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m014D053CD554AE5F2CBCA835710C777A44EA2ECF(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserializationContext_1_ContinueVisitation_mCDA39E271524E86AB1F226EE4D84C5830F9D4C63_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D V_0;
@@ -33165,7 +33165,7 @@ IL2CPP_EXTERN_C  StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mCDA39E271524E86AB1F226EE4D84C5830F9D4C63(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m08F505B1FBB6F1558097E49675B40E06384D8177_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -33188,7 +33188,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m08F505B1F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m08F505B1FBB6F1558097E49675B40E06384D8177(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m8B2EE4A0F2446F047D8D442F0691C4ADD28EA4C9_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -33212,7 +33212,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m8B2EE4A0F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m8B2EE4A0F2446F047D8D442F0691C4ADD28EA4C9(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m124C4DFE56C3AB0726E7E1642869EA5920D48796_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, const RuntimeMethod* method) 
 {
 	StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D V_0;
@@ -33250,7 +33250,7 @@ IL2CPP_EXTERN_C  StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m124C4DFE56C3AB0726E7E1642869EA5920D48796(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m28C0A970C0D57C18DE92F0D9BDD251C2FA15B3FA_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D V_0;
@@ -33289,7 +33289,7 @@ IL2CPP_EXTERN_C  StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m28C0A970C0D57C18DE92F0D9BDD251C2FA15B3FA(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m105F212E4C4EE8A330BF696A89E15A1F59F5790F_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -33311,7 +33311,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m105F212E4C4EE8A330BF696A89E15A1F59F5790F(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF200C3DD577CCFFB0853F395FEAD81CD2997E949_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -33334,7 +33334,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF200C3DD577CCFFB0853F395FEAD81CD2997E949(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mF277644E07771680C9A738578DE603B481610F85_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33355,7 +33355,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mF277644E07771680C9A738578DE603B481610F85(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mC35D8BF7F39AC414BD92FCA897C77CBD5CFEDA19_gshared (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33384,7 +33384,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m80D96127AC2894ABB8A1279003605E4FD64E4099_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33404,7 +33404,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m80D96127AC2894ABB8A1279003605E4FD64E4099(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m00A3A42F88C0EAC70ACDD299CCBE3933F29FD95A_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -33445,7 +33445,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m00A3A42F88C0EAC70ACDD2
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m00A3A42F88C0EAC70ACDD299CCBE3933F29FD95A(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mA5E16B219B221233A503400DC1228881BAE2FF5E_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33466,7 +33466,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mA5E16B219B221233A503400DC1228881BAE2FF5E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeserializationContext_1_GetInstance_m7390BE33A9551398BEF44CBDE46F12FE58CFD44C_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33484,7 +33484,7 @@ IL2CPP_EXTERN_C  StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeser
 	_returnValue = JsonDeserializationContext_1_GetInstance_m7390BE33A9551398BEF44CBDE46F12FE58CFD44C_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeserializationContext_1_ContinueVisitation_mA872376880F6403BCCF5F519ABD69F02DF8F808D_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, const RuntimeMethod* method) 
 {
 	StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 V_0;
@@ -33523,7 +33523,7 @@ IL2CPP_EXTERN_C  StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mA872376880F6403BCCF5F519ABD69F02DF8F808D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeserializationContext_1_ContinueVisitation_mBE891910A0366BFAAFC85F91A497C33B34FEDCDD_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 V_0;
@@ -33563,7 +33563,7 @@ IL2CPP_EXTERN_C  StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mBE891910A0366BFAAFC85F91A497C33B34FEDCDD(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mAEEDA8FC08F36754B84A18AD65751434806B68B7_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -33586,7 +33586,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mAEEDA8FC0
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mAEEDA8FC08F36754B84A18AD65751434806B68B7(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m3311419EA42E93DB85930EF7BBC0EA106B81CF07_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -33610,7 +33610,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m3311419EA
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m3311419EA42E93DB85930EF7BBC0EA106B81CF07(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3D68C065FBBBF420F7F1C873905C5D19EF7AFB13_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, const RuntimeMethod* method) 
 {
 	StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 V_0;
@@ -33648,7 +33648,7 @@ IL2CPP_EXTERN_C  StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3D68C065FBBBF420F7F1C873905C5D19EF7AFB13(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF8CADA8890C5DD12AE88D32343C88ACD4BE93232_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 V_0;
@@ -33687,7 +33687,7 @@ IL2CPP_EXTERN_C  StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF8CADA8890C5DD12AE88D32343C88ACD4BE93232(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1F1434EA7CCDC74AED1331705FC90D686B532983_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -33709,7 +33709,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1F1434EA7CCDC74AED1331705FC90D686B532983(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m356CDC43137317504070D7764D2779A04F8DA804_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -33732,7 +33732,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m356CDC43137317504070D7764D2779A04F8DA804(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m21A1CFE485688A4187145C2A3855B8CD0101D1EA_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33753,7 +33753,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m21A1CFE485688A4187145C2A3855B8CD0101D1EA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m3C04670DFB7A62CA488A099825F7C742617F89FC_gshared (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33782,7 +33782,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m47F2F58978D9DB2661B105298CE3D2DACCEDDF75_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33802,7 +33802,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m47F2F58978D9DB2661B105298CE3D2DACCEDDF75(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mF8110F167AE7E8A8B81F7E5D7172F8A58209F9B4_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -33844,7 +33844,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mF8110F167AE7E8A8B81F7E
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mF8110F167AE7E8A8B81F7E5D7172F8A58209F9B4(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m217E50A872B4AEF7FE201AECA1768DC4E5D300A0_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33865,7 +33865,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m217E50A872B4AEF7FE201AECA1768DC4E5D300A0(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF JsonDeserializationContext_1_GetInstance_m6DB6AF804BD261904BC0A07164D58193755E171C_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, const RuntimeMethod* method) 
 {
 	{
@@ -33883,7 +33883,7 @@ IL2CPP_EXTERN_C  StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF Jso
 	_returnValue = JsonDeserializationContext_1_GetInstance_m6DB6AF804BD261904BC0A07164D58193755E171C_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF JsonDeserializationContext_1_ContinueVisitation_m037F619800FF956501C9BC328FB1EC28AB73F0F5_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, const RuntimeMethod* method) 
 {
 	StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF V_0;
@@ -33922,7 +33922,7 @@ IL2CPP_EXTERN_C  StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF Jso
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m037F619800FF956501C9BC328FB1EC28AB73F0F5(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF JsonDeserializationContext_1_ContinueVisitation_m27885786F7DF538427EF54B8F1890B96BB502620_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF V_0;
@@ -33962,7 +33962,7 @@ IL2CPP_EXTERN_C  StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF Jso
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m27885786F7DF538427EF54B8F1890B96BB502620(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m410829DA99F306DB116744BED25B11EA56D44FF7_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -33985,7 +33985,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m410829DA9
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m410829DA99F306DB116744BED25B11EA56D44FF7(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mFFA4CC5D6672938E5D20C751EE1617795B539BF2_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -34009,7 +34009,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mFFA4CC5D6
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mFFA4CC5D6672938E5D20C751EE1617795B539BF2(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDE4EB09A356D303B808BC7B1FEB49B40BB12F682_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, const RuntimeMethod* method) 
 {
 	StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF V_0;
@@ -34047,7 +34047,7 @@ IL2CPP_EXTERN_C  StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF Jso
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDE4EB09A356D303B808BC7B1FEB49B40BB12F682(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m77E83DEFA957CA945BDE5D32A27E87321DB9F4A3_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF V_0;
@@ -34086,7 +34086,7 @@ IL2CPP_EXTERN_C  StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF Jso
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m77E83DEFA957CA945BDE5D32A27E87321DB9F4A3(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2DACD9DD49D82D1426C4B8FE7E953A0F0BEE9473_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -34108,7 +34108,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2DACD9DD49D82D1426C4B8FE7E953A0F0BEE9473(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8DA3A28A7FB58849782E2601F9E16872DA7DF80C_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -34131,7 +34131,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8DA3A28A7FB58849782E2601F9E16872DA7DF80C(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mF0B70B7168EA0EC72EBA6AEDE5401E9DC1D29E56_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34152,7 +34152,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mF0B70B7168EA0EC72EBA6AEDE5401E9DC1D29E56(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mE418CC6EB550301CEE3EFC55AC80D1C3323CB867_gshared (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34181,7 +34181,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m44095D5B9F6A98061E9EF7427BE73E70A613501B_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34201,7 +34201,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m44095D5B9F6A98061E9EF7427BE73E70A613501B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m8EFF90210402C840D980031AAACAE8D9E2B705B4_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -34242,7 +34242,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m8EFF90210402C840D98003
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m8EFF90210402C840D980031AAACAE8D9E2B705B4(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mCA59F92934C3AB5C9740A517D2D0BE900ACD380A_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34263,7 +34263,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mCA59F92934C3AB5C9740A517D2D0BE900ACD380A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeserializationContext_1_GetInstance_mD63210672AAC8D708667AE72E2CD470DA4EC2D39_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34281,7 +34281,7 @@ IL2CPP_EXTERN_C  StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeser
 	_returnValue = JsonDeserializationContext_1_GetInstance_mD63210672AAC8D708667AE72E2CD470DA4EC2D39_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeserializationContext_1_ContinueVisitation_m76A9F7A34AA830E95D4CBDDD2A57D38A950251BF_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, const RuntimeMethod* method) 
 {
 	StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B V_0;
@@ -34320,7 +34320,7 @@ IL2CPP_EXTERN_C  StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m76A9F7A34AA830E95D4CBDDD2A57D38A950251BF(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeserializationContext_1_ContinueVisitation_m344C9F3EF851AF2D5EFFD41D5713C3B907CB9AD4_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B V_0;
@@ -34360,7 +34360,7 @@ IL2CPP_EXTERN_C  StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m344C9F3EF851AF2D5EFFD41D5713C3B907CB9AD4(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m74721D6279A542B2CF38233309E5D5DD8F5EC234_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -34383,7 +34383,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m74721D627
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m74721D6279A542B2CF38233309E5D5DD8F5EC234(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m36E56C08A85848DCF3A1004A968B698B64F41A65_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -34407,7 +34407,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m36E56C08A
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m36E56C08A85848DCF3A1004A968B698B64F41A65(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF12AB3BFE0FBB8CFDED536C32BD37DB31EA684CD_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, const RuntimeMethod* method) 
 {
 	StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B V_0;
@@ -34445,7 +34445,7 @@ IL2CPP_EXTERN_C  StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF12AB3BFE0FBB8CFDED536C32BD37DB31EA684CD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE1DE7A0BF1BD02401E00F9BFA13E28F772E96F35_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B V_0;
@@ -34484,7 +34484,7 @@ IL2CPP_EXTERN_C  StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeser
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE1DE7A0BF1BD02401E00F9BFA13E28F772E96F35(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB385DE9AFA66655CC55896A6D263DC342433217C_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -34506,7 +34506,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB385DE9AFA66655CC55896A6D263DC342433217C(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF213D862353BDE140E4EA85BB543FED289707176_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -34529,7 +34529,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mF213D862353BDE140E4EA85BB543FED289707176(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m329AF4E2C8810D82C5B4D0DC5DA25F8E435F6053_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34550,7 +34550,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m329AF4E2C8810D82C5B4D0DC5DA25F8E435F6053(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mFA8E7EFE2CAC8E6D0150B87BD847458B7A58CB37_gshared (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34579,7 +34579,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mD2D730D70DDB3D066CEF5EE6FB95C9D663A7C490_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34599,7 +34599,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mD2D730D70DDB3D066CEF5EE6FB95C9D663A7C490(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m1C94365CA739D0E13BECCE05D6D51FA0B3B7084C_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -34640,7 +34640,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m1C94365CA739D0E13BECCE
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m1C94365CA739D0E13BECCE05D6D51FA0B3B7084C(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m04AD22FF94A4FEACDF3AFD1A7B38AA56A6D0025C_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34661,7 +34661,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m04AD22FF94A4FEACDF3AFD1A7B38AA56A6D0025C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeserializationContext_1_GetInstance_m1F06100F6E3CAC8A748D76A3247BFEB7C6BED82F_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34679,7 +34679,7 @@ IL2CPP_EXTERN_C  StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeseri
 	_returnValue = JsonDeserializationContext_1_GetInstance_m1F06100F6E3CAC8A748D76A3247BFEB7C6BED82F_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeserializationContext_1_ContinueVisitation_mD832D060939003B4D5E4A1BCA5AF223192809E4E_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, const RuntimeMethod* method) 
 {
 	StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC V_0;
@@ -34718,7 +34718,7 @@ IL2CPP_EXTERN_C  StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mD832D060939003B4D5E4A1BCA5AF223192809E4E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeserializationContext_1_ContinueVisitation_m71253DE29A98E95D56748D9B2B3B125CC857F231_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC V_0;
@@ -34758,7 +34758,7 @@ IL2CPP_EXTERN_C  StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m71253DE29A98E95D56748D9B2B3B125CC857F231(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m41773436AD11E808852196FDE6F4235A08891235_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -34781,7 +34781,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m41773436A
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m41773436AD11E808852196FDE6F4235A08891235(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mA3B526315A3B924A1DE9F1F349DA37E002313D1C_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -34805,7 +34805,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mA3B526315
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mA3B526315A3B924A1DE9F1F349DA37E002313D1C(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA54B07245D825F55038D6E5E0D7DACDB5CCD5963_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, const RuntimeMethod* method) 
 {
 	StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC V_0;
@@ -34843,7 +34843,7 @@ IL2CPP_EXTERN_C  StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA54B07245D825F55038D6E5E0D7DACDB5CCD5963(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1324729BB0DD278721BFC504F9DBB6310A6ECDC3_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC V_0;
@@ -34882,7 +34882,7 @@ IL2CPP_EXTERN_C  StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m1324729BB0DD278721BFC504F9DBB6310A6ECDC3(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m995E59F7C91B29E5DAE6948D0ACA2E52E5E069B5_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -34904,7 +34904,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m995E59F7C91B29E5DAE6948D0ACA2E52E5E069B5(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE4AFDEBE400964270A45353A5AEE36A2A3FF4D26_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -34927,7 +34927,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mE4AFDEBE400964270A45353A5AEE36A2A3FF4D26(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mDF132759C709F5C70BDDD30FAA3C0849B36D7655_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34948,7 +34948,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mDF132759C709F5C70BDDD30FAA3C0849B36D7655(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m72A6D1438FA7B582F760D11C807EC0102760A0F6_gshared (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34977,7 +34977,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m62EC13B6B0B5D62F19C88E91C12033CA073F5D9F_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, const RuntimeMethod* method) 
 {
 	{
@@ -34997,7 +34997,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m62EC13B6B0B5D62F19C88E91C12033CA073F5D9F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mBC506788780E6BB59776D78130A55962CDDF6B1D_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -35038,7 +35038,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mBC506788780E6BB59776D7
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mBC506788780E6BB59776D78130A55962CDDF6B1D(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mF132A5E85160A210AEDEA8712E9061C92F6E937D_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35059,7 +35059,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_mF132A5E85160A210AEDEA8712E9061C92F6E937D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A JsonDeserializationContext_1_GetInstance_mF0DDC839B28E664FA18E6F725D512BEB026E46A5_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35077,7 +35077,7 @@ IL2CPP_EXTERN_C  StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A Jso
 	_returnValue = JsonDeserializationContext_1_GetInstance_mF0DDC839B28E664FA18E6F725D512BEB026E46A5_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A JsonDeserializationContext_1_ContinueVisitation_m15FD07717FF8C1DB95FA90F96E90EDB6221E9945_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, const RuntimeMethod* method) 
 {
 	StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A V_0;
@@ -35116,7 +35116,7 @@ IL2CPP_EXTERN_C  StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A Jso
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m15FD07717FF8C1DB95FA90F96E90EDB6221E9945(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A JsonDeserializationContext_1_ContinueVisitation_m17DF797BA351BA284F311E1C683DA4D8CF1B6BD4_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A V_0;
@@ -35156,7 +35156,7 @@ IL2CPP_EXTERN_C  StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A Jso
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m17DF797BA351BA284F311E1C683DA4D8CF1B6BD4(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m8D6998F14FD070F7A525C6C859FA2C08C93C5640_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -35179,7 +35179,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m8D6998F14
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m8D6998F14FD070F7A525C6C859FA2C08C93C5640(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m8B1F445F063E58D3714936674FF6FF9E49632CBC_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -35203,7 +35203,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m8B1F445F0
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m8B1F445F063E58D3714936674FF6FF9E49632CBC(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA843D61A67E437474AA1C57596269F02AA1C26BD_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, const RuntimeMethod* method) 
 {
 	StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A V_0;
@@ -35241,7 +35241,7 @@ IL2CPP_EXTERN_C  StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A Jso
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA843D61A67E437474AA1C57596269F02AA1C26BD(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3CA380F0922D18D4A13D7D182AF1A06CCC7D0ABF_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A V_0;
@@ -35280,7 +35280,7 @@ IL2CPP_EXTERN_C  StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A Jso
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m3CA380F0922D18D4A13D7D182AF1A06CCC7D0ABF(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mC07001C1FC492FE456DC6FC064031DAC99B3A2A6_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -35302,7 +35302,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mC07001C1FC492FE456DC6FC064031DAC99B3A2A6(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m099BBFBE3D209FD2629800D1045DA04F032CCB2E_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -35325,7 +35325,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m099BBFBE3D209FD2629800D1045DA04F032CCB2E(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m27A16CC92F845B46AB9A407BC6BC40F0D60F3E8D_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35346,7 +35346,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m27A16CC92F845B46AB9A407BC6BC40F0D60F3E8D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m8F4CD3C1E95F5C4B7CC445136D18F482D268F022_gshared (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35375,7 +35375,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mEFA779B6AC6D124EDD54813E99204048E11A36E6_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35395,7 +35395,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mEFA779B6AC6D124EDD54813E99204048E11A36E6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mD833174B316B4E990B756747F9B0977C8452FC52_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -35436,7 +35436,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mD833174B316B4E990B7567
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mD833174B316B4E990B756747F9B0977C8452FC52(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m2D8FB8EE7D34E98F18006871D97728B93485F6D9_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35457,7 +35457,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m2D8FB8EE7D34E98F18006871D97728B93485F6D9(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonDeserializationContext_1_GetInstance_m8F055CB6E86641D01E8974C7F9B641D21AEE39F3_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35475,7 +35475,7 @@ IL2CPP_EXTERN_C  StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonD
 	_returnValue = JsonDeserializationContext_1_GetInstance_m8F055CB6E86641D01E8974C7F9B641D21AEE39F3_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonDeserializationContext_1_ContinueVisitation_mA34B57F49EF05E9A3E37FD7985AD6BF6A493159A_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, const RuntimeMethod* method) 
 {
 	StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 V_0;
@@ -35514,7 +35514,7 @@ IL2CPP_EXTERN_C  StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonD
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mA34B57F49EF05E9A3E37FD7985AD6BF6A493159A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonDeserializationContext_1_ContinueVisitation_mE1138A34BFE558CFD26BEC5922EBFD53882766B9_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 V_0;
@@ -35554,7 +35554,7 @@ IL2CPP_EXTERN_C  StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonD
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mE1138A34BFE558CFD26BEC5922EBFD53882766B9(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m73C2C18DB9029DD3DC40D22D5888F8354F474C98_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -35577,7 +35577,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m73C2C18DB
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m73C2C18DB9029DD3DC40D22D5888F8354F474C98(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m16598F455F77CAF6ED7FCD305841F3C18260A425_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -35601,7 +35601,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m16598F455
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m16598F455F77CAF6ED7FCD305841F3C18260A425(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7C2B7904EF551E33DC56A5068B39A2CE7A4EEEA8_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, const RuntimeMethod* method) 
 {
 	StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 V_0;
@@ -35639,7 +35639,7 @@ IL2CPP_EXTERN_C  StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonD
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m7C2B7904EF551E33DC56A5068B39A2CE7A4EEEA8(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD9A3094A869A2D9834C75BCD6A9F398CC561E80C_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 V_0;
@@ -35678,7 +35678,7 @@ IL2CPP_EXTERN_C  StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonD
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD9A3094A869A2D9834C75BCD6A9F398CC561E80C(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m36C045F91A09058D6AEA1D7D38E1A35B34EFFBA0_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -35700,7 +35700,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m36C045F91A09058D6AEA1D7D38E1A35B34EFFBA0(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD5C26CA4C6C4CBD83E371F8AA07688F9C6A05242_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -35723,7 +35723,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mD5C26CA4C6C4CBD83E371F8AA07688F9C6A05242(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m16BA4069CA7CF091A139086A66254716B7A76DAE_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35744,7 +35744,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m16BA4069CA7CF091A139086A66254716B7A76DAE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m8D3F6534E64DB6623ACC88145C1B5FECFCBBF7F3_gshared (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35773,7 +35773,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m6C5A61185732AC13992D2272D0D6659577027F9C_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35793,7 +35793,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m6C5A61185732AC13992D2272D0D6659577027F9C(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m5DEA6A95275382CF1EC9035AEC645D629B7EF74F_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -35834,7 +35834,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m5DEA6A95275382CF1EC903
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m5DEA6A95275382CF1EC9035AEC645D629B7EF74F(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m3305A03B5CD01B15BD13FA8E7C572950E44E8A74_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35855,7 +35855,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m3305A03B5CD01B15BD13FA8E7C572950E44E8A74(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 JsonDeserializationContext_1_GetInstance_m16707D926ED21B6F2A163B149D11F999C2236B6E_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -35873,7 +35873,7 @@ IL2CPP_EXTERN_C  StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 
 	_returnValue = JsonDeserializationContext_1_GetInstance_m16707D926ED21B6F2A163B149D11F999C2236B6E_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 JsonDeserializationContext_1_ContinueVisitation_m56F880A9297CC897440248EAED72CA86AB356F67_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, const RuntimeMethod* method) 
 {
 	StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 V_0;
@@ -35912,7 +35912,7 @@ IL2CPP_EXTERN_C  StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m56F880A9297CC897440248EAED72CA86AB356F67(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 JsonDeserializationContext_1_ContinueVisitation_m2008E9C2A9BF3BF59F11C92528A6D77F2FF7C5E8_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 V_0;
@@ -35952,7 +35952,7 @@ IL2CPP_EXTERN_C  StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m2008E9C2A9BF3BF59F11C92528A6D77F2FF7C5E8(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m9720AFAEF1129324EB01C59C205C9ACA7C5B2F4B_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -35975,7 +35975,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m9720AFAEF
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m9720AFAEF1129324EB01C59C205C9ACA7C5B2F4B(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mE664D003C6C2A02265F2393E17197F588B046A40_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -35999,7 +35999,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mE664D003C
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mE664D003C6C2A02265F2393E17197F588B046A40(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8EA1F04BEE2C917B8B1B81C632063C4FEFAD2443_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, const RuntimeMethod* method) 
 {
 	StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 V_0;
@@ -36037,7 +36037,7 @@ IL2CPP_EXTERN_C  StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8EA1F04BEE2C917B8B1B81C632063C4FEFAD2443(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m34BEBBA8A7D6FD10C2DAA4E4C9C162EDC413C89A_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 V_0;
@@ -36076,7 +36076,7 @@ IL2CPP_EXTERN_C  StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m34BEBBA8A7D6FD10C2DAA4E4C9C162EDC413C89A(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8A92082EC2E3ABE0A8528B90F80C24BF0F58B895_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -36098,7 +36098,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m8A92082EC2E3ABE0A8528B90F80C24BF0F58B895(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m9B9C48A9221FB1D33CF28CB22617E03B6434F0F0_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -36121,7 +36121,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m9B9C48A9221FB1D33CF28CB22617E03B6434F0F0(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m6121F053A95C8780728B30D69C59A896BD700A56_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36142,7 +36142,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m6121F053A95C8780728B30D69C59A896BD700A56(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mF7B3BEC61ED5720693D246A4B43CC30FB1189CDE_gshared (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36171,7 +36171,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m92FAC5AD79E37217B138B6C246B6DD574E95F99D_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36191,7 +36191,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m92FAC5AD79E37217B138B6C246B6DD574E95F99D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mB9F985AAE350425158BFCD3C9BF01E36DF0A92FE_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -36232,7 +36232,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mB9F985AAE350425158BFCD
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mB9F985AAE350425158BFCD3C9BF01E36DF0A92FE(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m3C092FC76A8DA127316BEF30A1FD6AD93FFF8BF3_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36253,7 +36253,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m3C092FC76A8DA127316BEF30A1FD6AD93FFF8BF3(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDeserializationContext_1_GetInstance_mE34D548FFC6CD9F71AF7FA7216325327BF955E7F_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36271,7 +36271,7 @@ IL2CPP_EXTERN_C  StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDe
 	_returnValue = JsonDeserializationContext_1_GetInstance_mE34D548FFC6CD9F71AF7FA7216325327BF955E7F_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDeserializationContext_1_ContinueVisitation_mEDB0B54EEF8DC19EFEEA78ACE5F49459CE824AE6_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, const RuntimeMethod* method) 
 {
 	StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 V_0;
@@ -36310,7 +36310,7 @@ IL2CPP_EXTERN_C  StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mEDB0B54EEF8DC19EFEEA78ACE5F49459CE824AE6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDeserializationContext_1_ContinueVisitation_m7375F0E4C7144B2E010FACF5BA81BAEE635B2610_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 V_0;
@@ -36350,7 +36350,7 @@ IL2CPP_EXTERN_C  StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m7375F0E4C7144B2E010FACF5BA81BAEE635B2610(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mCDE4F39EF612DFD30CD4F286867F4DAA586094BB_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -36373,7 +36373,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mCDE4F39EF
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mCDE4F39EF612DFD30CD4F286867F4DAA586094BB(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mEBD1A4C5F7B0C1CF226703E4D660B9942EE8FFEB_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -36397,7 +36397,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mEBD1A4C5F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mEBD1A4C5F7B0C1CF226703E4D660B9942EE8FFEB(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA29C5D55FF4575957E467995F8E9DF2E4FB70E53_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, const RuntimeMethod* method) 
 {
 	StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 V_0;
@@ -36435,7 +36435,7 @@ IL2CPP_EXTERN_C  StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mA29C5D55FF4575957E467995F8E9DF2E4FB70E53(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB799E4358CF52B1CCF0F53045F67D344C99C0859_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 V_0;
@@ -36474,7 +36474,7 @@ IL2CPP_EXTERN_C  StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDe
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mB799E4358CF52B1CCF0F53045F67D344C99C0859(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m82E7C6391D77D7634BAEEA1E6C2B13E807814C4B_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -36496,7 +36496,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m82E7C6391D77D7634BAEEA1E6C2B13E807814C4B(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEBEF9F38AEE035AA861821112FD4226A94B45572_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -36519,7 +36519,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mEBEF9F38AEE035AA861821112FD4226A94B45572(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m2AFFC1BD83BA019D364B9E23C1D7CCFC63BEF67A_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36540,7 +36540,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m2AFFC1BD83BA019D364B9E23C1D7CCFC63BEF67A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m3D7C8471A3881E3EECB58D1B1BFA91A34D560E36_gshared (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36569,7 +36569,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_m320A259033E1C4E539353C6F07C2CEA53B65887D_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36589,7 +36589,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_m320A259033E1C4E539353C6F07C2CEA53B65887D(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mC9798B63C9942A90E3EA750BEAFBD323E4B28559_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -36630,7 +36630,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mC9798B63C9942A90E3EA75
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mC9798B63C9942A90E3EA750BEAFBD323E4B28559(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m258C69810CA2A8A655E65EDEE37BA51A4B8B292B_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36651,7 +36651,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m258C69810CA2A8A655E65EDEE37BA51A4B8B292B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDeserializationContext_1_GetInstance_mB03698498724C3BB2152CFCEA5D1E43F9952CDB3_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36669,7 +36669,7 @@ IL2CPP_EXTERN_C  TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDese
 	_returnValue = JsonDeserializationContext_1_GetInstance_mB03698498724C3BB2152CFCEA5D1E43F9952CDB3_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDeserializationContext_1_ContinueVisitation_mEFF7B3993512AE9AE2431CED7066E577ED2854AE_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, const RuntimeMethod* method) 
 {
 	TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A V_0;
@@ -36708,7 +36708,7 @@ IL2CPP_EXTERN_C  TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDese
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mEFF7B3993512AE9AE2431CED7066E577ED2854AE(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDeserializationContext_1_ContinueVisitation_m68723BDDC14709DCF99E61DEAD92C8183E27E8A6_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A V_0;
@@ -36748,7 +36748,7 @@ IL2CPP_EXTERN_C  TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDese
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m68723BDDC14709DCF99E61DEAD92C8183E27E8A6(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m4C2A3D480BE706560E27C52869A4D3CFFA7E2F35_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -36771,7 +36771,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m4C2A3D480
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m4C2A3D480BE706560E27C52869A4D3CFFA7E2F35(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m2AAED9566EC2F0D436B0E82DBDA2CFC128313A4A_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -36795,7 +36795,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m2AAED9566
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m2AAED9566EC2F0D436B0E82DBDA2CFC128313A4A(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m521E87FB256A1329F074AB38144B84D52F14DD98_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, const RuntimeMethod* method) 
 {
 	TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A V_0;
@@ -36833,7 +36833,7 @@ IL2CPP_EXTERN_C  TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDese
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m521E87FB256A1329F074AB38144B84D52F14DD98(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m28ED276BCAA9E6427783439E768A575EACA427DE_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A V_0;
@@ -36872,7 +36872,7 @@ IL2CPP_EXTERN_C  TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDese
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m28ED276BCAA9E6427783439E768A575EACA427DE(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m046533D997286DC308E3739AF320CF741CC6A810_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -36894,7 +36894,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m046533D997286DC308E3739AF320CF741CC6A810(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDA46CECF6A5E72ABB038BB613B447F2B5C42EC3F_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -36917,7 +36917,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDA46CECF6A5E72ABB038BB613B447F2B5C42EC3F(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m6826C618BFC2BC47C476105466B04B51046C7866_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36938,7 +36938,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m6826C618BFC2BC47C476105466B04B51046C7866(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m317AF12DC878B2934B61241D5B5C591062E9C868_gshared (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36967,7 +36967,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mB2797D0BF963BEA3E2005472604F63474385BA86_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -36987,7 +36987,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mB2797D0BF963BEA3E2005472604F63474385BA86(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_mCB62F08A7203B0F82D168FA064A3D7B6A14A6381_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -37028,7 +37028,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_mCB62F08A7203B0F82D168F
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_mCB62F08A7203B0F82D168FA064A3D7B6A14A6381(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m5C40148C218495683616A6B8C1C711727771248A_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37049,7 +37049,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m5C40148C218495683616A6B8C1C711727771248A(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeserializationContext_1_GetInstance_m079C2D4F636BFB8A0E4F082F31C79E6AE713D4B7_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37067,7 +37067,7 @@ IL2CPP_EXTERN_C  TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_GetInstance_m079C2D4F636BFB8A0E4F082F31C79E6AE713D4B7_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeserializationContext_1_ContinueVisitation_m901A08536A127EAF05411804BFA29BFC9464F58E_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, const RuntimeMethod* method) 
 {
 	TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 V_0;
@@ -37106,7 +37106,7 @@ IL2CPP_EXTERN_C  TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m901A08536A127EAF05411804BFA29BFC9464F58E(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeserializationContext_1_ContinueVisitation_mA3EF0C54AC1CB033C2C859AE6754AC37F0D63179_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 V_0;
@@ -37146,7 +37146,7 @@ IL2CPP_EXTERN_C  TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_mA3EF0C54AC1CB033C2C859AE6754AC37F0D63179(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m396E2BEADC59D2E52537C1CA2FE5001342A876FA_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -37169,7 +37169,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m396E2BEAD
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m396E2BEADC59D2E52537C1CA2FE5001342A876FA(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m4DF74B6EA537BA6C6DCE3B502C1D600D8059C30A_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -37193,7 +37193,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m4DF74B6EA
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m4DF74B6EA537BA6C6DCE3B502C1D600D8059C30A(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m457DDDC1123F6D8770E8A293926AFE045C36C8C1_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, const RuntimeMethod* method) 
 {
 	TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 V_0;
@@ -37231,7 +37231,7 @@ IL2CPP_EXTERN_C  TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m457DDDC1123F6D8770E8A293926AFE045C36C8C1(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDA9DE4E47D6F2E6E1BBF7A832A88856F7F5507B7_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 V_0;
@@ -37270,7 +37270,7 @@ IL2CPP_EXTERN_C  TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeseri
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mDA9DE4E47D6F2E6E1BBF7A832A88856F7F5507B7(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mFAB0A9266A540485E56B74DB17F897D8EFF27343_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -37292,7 +37292,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mFAB0A9266A540485E56B74DB17F897D8EFF27343(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBB612EABA53BC99D744B50B0FE960863DB7B5CE6_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -37315,7 +37315,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_mBB612EABA53BC99D744B50B0FE960863DB7B5CE6(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mAA3363A1D0E4A1125EE70C4F6BA2168270F7CD38_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37336,7 +37336,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_mAA3363A1D0E4A1125EE70C4F6BA2168270F7CD38(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_mED2B9399CFC51FA69E54FA04176CCB92136FCC8C_gshared (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37365,7 +37365,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 76698
+// Method Definition Index: 76761
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_get_SerializedValue_mA2E8B105F614F60CD3A36DCC014B95A661B2C961_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37385,7 +37385,7 @@ IL2CPP_EXTERN_C  SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC J
 	_returnValue = JsonDeserializationContext_1_get_SerializedValue_mA2E8B105F614F60CD3A36DCC014B95A661B2C961(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76699
+// Method Definition Index: 76762
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1__ctor_m62F481DFA282EE0D6B80237CE3EB8C121BED3530_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* ___0_visitor, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___1_adapters, TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A ___2_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___3_view, bool ___4_isRoot, const RuntimeMethod* method) 
 {
 	{
@@ -37426,7 +37426,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1__ctor_m62F481DFA282EE0D6B8023
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4*>(__this + _offset);
 	JsonDeserializationContext_1__ctor_m62F481DFA282EE0D6B80237CE3EB8C121BED3530(_thisAdjusted, ___0_visitor, ___1_adapters, ___2_value, ___3_view, ___4_isRoot, method);
 }
-// Method Definition Index: 76700
+// Method Definition Index: 76763
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m1CF67A2A687635C3704CE25946A3F9E9137BAA51_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37447,7 +37447,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_GetInstance_m1CF67A2A687635C3704CE25946A3F9E9137BAA51(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserializationContext_1_GetInstance_m0B15A3129D946AC1B0990CCE2D60A25F4462EFB6_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37465,7 +37465,7 @@ IL2CPP_EXTERN_C  TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserial
 	_returnValue = JsonDeserializationContext_1_GetInstance_m0B15A3129D946AC1B0990CCE2D60A25F4462EFB6_inline(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76702
+// Method Definition Index: 76765
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserializationContext_1_ContinueVisitation_m1AD361D08EFE84D2B7B9772250F9474BD54439BA_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, const RuntimeMethod* method) 
 {
 	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A V_0;
@@ -37504,7 +37504,7 @@ IL2CPP_EXTERN_C  TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m1AD361D08EFE84D2B7B9772250F9474BD54439BA(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76703
+// Method Definition Index: 76766
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserializationContext_1_ContinueVisitation_m94B666832B376958C62997946B3B87416C780644_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A V_0;
@@ -37544,7 +37544,7 @@ IL2CPP_EXTERN_C  TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitation_m94B666832B376958C62997946B3B87416C780644(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76704
+// Method Definition Index: 76767
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_mFA3CAC4A51A0ECF495295883AA341BCC8B72E4C6_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -37567,7 +37567,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_mFA3CAC4A5
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_mFA3CAC4A51A0ECF495295883AA341BCC8B72E4C6(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76705
+// Method Definition Index: 76768
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitation_m052433E870678C1449DFE2AE3778F00AFAE07F04_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -37591,7 +37591,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitation_m052433E87
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitation_m052433E870678C1449DFE2AE3778F00AFAE07F04(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76706
+// Method Definition Index: 76769
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m01AADDE35F6DAAF16E6FB98D50C802A976C8D0C6_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, const RuntimeMethod* method) 
 {
 	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A V_0;
@@ -37629,7 +37629,7 @@ IL2CPP_EXTERN_C  TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m01AADDE35F6DAAF16E6FB98D50C802A976C8D0C6(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76707
+// Method Definition Index: 76770
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m708FEFA85BE1357D6E8D67FF05C359D59A6190E8_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___0_view, const RuntimeMethod* method) 
 {
 	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A V_0;
@@ -37668,7 +37668,7 @@ IL2CPP_EXTERN_C  TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserial
 	_returnValue = JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m708FEFA85BE1357D6E8D67FF05C359D59A6190E8(_thisAdjusted, ___0_view, method);
 	return _returnValue;
 }
-// Method Definition Index: 76708
+// Method Definition Index: 76771
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2B5D0B0CEED7BA015B1AC69C0A44633C1BC7131D_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -37690,7 +37690,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m2B5D0B0CEED7BA015B1AC69C0A44633C1BC7131D(_thisAdjusted, ___0_value, method);
 }
-// Method Definition Index: 76709
+// Method Definition Index: 76772
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m002E6C81F9AE9E064C3C45698A4D247613210EF4_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A* ___0_value, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC ___1_view, const RuntimeMethod* method) 
 {
 	{
@@ -37713,7 +37713,7 @@ IL2CPP_EXTERN_C  void JsonDeserializationContext_1_ContinueVisitationWithoutAdap
 	_thisAdjusted = reinterpret_cast<JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4*>(__this + _offset);
 	JsonDeserializationContext_1_ContinueVisitationWithoutAdapters_m002E6C81F9AE9E064C3C45698A4D247613210EF4(_thisAdjusted, ___0_value, ___1_view, method);
 }
-// Method Definition Index: 76710
+// Method Definition Index: 76773
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m1B5D1C5BBD974D7DAA52C7FD2674E5741087414B_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37734,7 +37734,7 @@ IL2CPP_EXTERN_C  RuntimeObject* JsonDeserializationContext_1_Unity_Serialization
 	_returnValue = JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitation_m1B5D1C5BBD974D7DAA52C7FD2674E5741087414B(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 76711
+// Method Definition Index: 76774
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_Unity_Serialization_Json_IJsonDeserializationContext_ContinueVisitationWithoutAdapters_m1D281FB4A10C5D54675B510CCB04CE1C9C9657E0_gshared (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37767,7 +37767,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool IntPtr_op_Equality_m7D9CDCDE
 		return (bool)((((intptr_t)L_0) == ((intptr_t)L_1))? 1 : 0);
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 JsonDeserializationContext_1_GetInstance_m0977C8532507536029939E0256E76D6A075ACC29_gshared_inline (JsonDeserializationContext_1_tE1B37E551E31D1D5DEE7A60C7A491D597264FAA9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37776,7 +37776,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR KeyValuePair_2_tFC32D250721629385
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC JsonDeserializationContext_1_GetInstance_m27F6C8FE2C996D2593D3110CCB0C66CC55E8B69A_gshared_inline (JsonDeserializationContext_1_tC41F31C279F71BC8CF8CAB1995E32E7609795439* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37785,7 +37785,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleEnum_1_t3DD2EBD4E359AFE77C29
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F JsonDeserializationContext_1_GetInstance_m9FC00F6D79B791746064199D7DBC76C598859A31_gshared_inline (JsonDeserializationContext_1_tBC208F97F9ED463E69625EBA1689A595CE86FF2E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37794,7 +37794,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleList_1_t5D2FA4535A553635ADCE
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C JsonDeserializationContext_1_GetInstance_m808FFE71FCA6BBBE6CB8861F9702EC3BF1225DF6_gshared_inline (JsonDeserializationContext_1_t0DA615D7F8F7D7614D934E78A91C3FD46F819B52* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37803,7 +37803,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleList_1_tABF3DD9EB70CDF598299
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4 JsonDeserializationContext_1_GetInstance_m42DC3F39D63205F716C25645206E453D6ED4231A_gshared_inline (JsonDeserializationContext_1_tF6B6836E5ED122DAE00A1B2DED43C535AA7948E0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37812,7 +37812,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleList_1_t15E0FB58274532956EB6
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC JsonDeserializationContext_1_GetInstance_mCBD670D738697583EDD56C1DB3B22A480662D1D5_gshared_inline (JsonDeserializationContext_1_t98E0E3C0471FF871A21BF55D797DA0C87851D893* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37821,7 +37821,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Angle_t0229F612898D65B3CC646C40A3
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8 JsonDeserializationContext_1_GetInstance_mD2C8A0576D0785580978A1C1E69E499CA2C18924_gshared_inline (JsonDeserializationContext_1_tDCFF0AC38027B4990967B85F652CD68EF5FCED45* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37830,7 +37830,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Background_t3C720DED4FAF016332D29
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56 JsonDeserializationContext_1_GetInstance_mCD4F758F2D25561811A19B6038D93923D0B0BED2_gshared_inline (JsonDeserializationContext_1_t5B3CFB0048CBF3CF82AB1E32BD35FF7956595B4E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37839,7 +37839,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR BackgroundPosition_tF0822B29FC27A
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F JsonDeserializationContext_1_GetInstance_mAF06056A22B762F63AAF470960ADC6F8B306C351_gshared_inline (JsonDeserializationContext_1_t8338D8106A0D501ACDB906BFC40ACF5BC8444601* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37848,7 +37848,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR BackgroundRepeat_t446EC7315DED2C6
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7 JsonDeserializationContext_1_GetInstance_mDF80241A0E818A09FDCB797C355D614A8297FBE7_gshared_inline (JsonDeserializationContext_1_t4B81B10F04E3ED0E2F7ABDFB8688F98285AC25D3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37857,7 +37857,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR BackgroundSize_t809883E2D7BB1D8D8
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool JsonDeserializationContext_1_GetInstance_mFB2A9BACA86351A6B076D1C1DEEC8E002D7E5A7C_gshared_inline (JsonDeserializationContext_1_tF7876B23C6742706A92C03166C394559B776E6B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37866,7 +37866,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool JsonDeserializationContext_1
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR uint8_t JsonDeserializationContext_1_GetInstance_m9D873064DBADC2E3EBF246254D01B2BF28F13EBE_gshared_inline (JsonDeserializationContext_1_tD69CA54C1F8E2B36F2E87453E4916919DEB29E72* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37875,7 +37875,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR uint8_t JsonDeserializationContex
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Il2CppChar JsonDeserializationContext_1_GetInstance_m8172700DD5892492B5EDCF439635AD78F3ADA855_gshared_inline (JsonDeserializationContext_1_t412369F097A8627005E832C542366086A5F6D40B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37884,7 +37884,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Il2CppChar JsonDeserializationCon
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F JsonDeserializationContext_1_GetInstance_m19DE7AACED2E130AA3E38060393DAE29DAC91A0A_gshared_inline (JsonDeserializationContext_1_t069EAFC4EAEB4611AC403C56CA722B41EF52861C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37893,7 +37893,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED02
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82 JsonDeserializationContext_1_GetInstance_m0CEBA3DCB99AA492DA9D01C61BF65235A43B2D91_gshared_inline (JsonDeserializationContext_1_tE0C2066D3CC7191A7F55503AE8E26B9ABE9A2D1C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37902,7 +37902,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Cursor_t24C3B5095F65B86794C4F7EA1
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D JsonDeserializationContext_1_GetInstance_m785D4A8654B4771C72721E4BD8B49E48573627BE_gshared_inline (JsonDeserializationContext_1_t5C90326D0A93B8E4429C28746A9D65B6BD2A1CD9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37911,7 +37911,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR DateTime_t66193957C73913903DDAD89
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR double JsonDeserializationContext_1_GetInstance_mC1EAC78CCDE6962F8F704BB5387AA48E2917E8AB_gshared_inline (JsonDeserializationContext_1_t835EBCAC08860A7156089E93EF57849E8347F1A2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37920,7 +37920,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR double JsonDeserializationContext
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR EasingFunction_t5197D3B06056326A8B5C96032CDEBD5D3BDCA7A4 JsonDeserializationContext_1_GetInstance_mA4A645BCA1BD9DEC2B4969BFB7309AC87D9A62DF_gshared_inline (JsonDeserializationContext_1_t5499B3DB339A9370257493802B9CEA3F6790BB46* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37929,7 +37929,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR EasingFunction_t5197D3B06056326A8
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR EntityGuid_tAB9B163B73754C5D863D5E88B8E5A1D239433877 JsonDeserializationContext_1_GetInstance_m52D32BD08AD4CC672022CDC4E061CE2271336118_gshared_inline (JsonDeserializationContext_1_t04523A4EADC160B469BDB3D0A0DE2A53418AF1B1* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37938,7 +37938,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR EntityGuid_tAB9B163B73754C5D863D5
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30C6D842951A4E6F09AC58677F1952 JsonDeserializationContext_1_GetInstance_m78EB5A60007BFBF4C89918FCDC5A7C0E461ED2A3_gshared_inline (JsonDeserializationContext_1_t8894E1A7ACB8F98CF883FF62C7A9F4E053DD3A75* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37947,7 +37947,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString128Bytes_tEBC488E0CC30
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString32Bytes_t0FB200DC482825CC1EF24B4640201CC039631824 JsonDeserializationContext_1_GetInstance_m3C3D9C28FC6C5DB8DF970B46971D0C621005178A_gshared_inline (JsonDeserializationContext_1_t29A3F590268B30818BBD651F27A01D16E9365CEB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37956,7 +37956,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString32Bytes_t0FB200DC48282
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString4096Bytes_t0F6BC703C749C343D1A18E09973BEE0AF0CDFC21 JsonDeserializationContext_1_GetInstance_mEF0F6C233BF78216C21FCDBE34EFE5163EFEBAB5_gshared_inline (JsonDeserializationContext_1_t842F92F20F7FFE8C17EC33F9C170377166151B3A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37965,7 +37965,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString4096Bytes_t0F6BC703C74
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString512Bytes_t0C425B0F2C07FEA1642C32BF8559116DF2BFF50E JsonDeserializationContext_1_GetInstance_mA343CE2D47C36763C75B054400037A7EACCD84E8_gshared_inline (JsonDeserializationContext_1_t5253AD23F16AFEE38065E26487C9D09007828091* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37974,7 +37974,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString512Bytes_t0C425B0F2C07
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString64Bytes_t0F1B6FFAFD8C15898CD77D91A79AB36AA078E0A5 JsonDeserializationContext_1_GetInstance_mB31EB1747B3241693874BE642F9317D4B03D23ED_gshared_inline (JsonDeserializationContext_1_t0C3F1C66177F423BC005D44BA911430006D62C7F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37983,7 +37983,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FixedString64Bytes_t0F1B6FFAFD8C1
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FontDefinition_t65281B0E106365C28AD3F2525DE148719AEEA30C JsonDeserializationContext_1_GetInstance_m6E00F6E0513A9ED4DB360F98D66F151E9BE3DF1A_gshared_inline (JsonDeserializationContext_1_t1939126267362462D46BD34BD26E51D0A812F0B8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -37992,7 +37992,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR FontDefinition_t65281B0E106365C28
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Guid_t JsonDeserializationContext_1_GetInstance_mFB61E66054BD886D198224CEA5DF7103AC86DF71_gshared_inline (JsonDeserializationContext_1_tF431942E276818F79B3F2B11C06213A79652C28C* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38001,7 +38001,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Guid_t JsonDeserializationContext
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Hash128_t2EA8F45F10BC2DF40B0CE9AE04F222072EB1345B JsonDeserializationContext_1_GetInstance_m58D1563976765BE7D935148CD9036550F45A14F7_gshared_inline (JsonDeserializationContext_1_tB0F7BB2CACF7CDBD900A6FE8A56887CB408BA50B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38010,7 +38010,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Hash128_t2EA8F45F10BC2DF40B0CE9AE
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int16_t JsonDeserializationContext_1_GetInstance_mB4087877599CE1C1CBDA1C11CC6A59061F5113BB_gshared_inline (JsonDeserializationContext_1_tEE3EC1413BF9E3B73445FC0EBE581D510D3F0133* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38019,7 +38019,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int16_t JsonDeserializationContex
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_GetInstance_mF35D959F118730D1B69999224521A30DE3258572_gshared_inline (JsonDeserializationContext_1_tBD946DF8AD561EB44441E78C258ACF8BF6386255* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38028,7 +38028,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t JsonDeserializationContex
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t JsonDeserializationContext_1_GetInstance_m08B1B3FF791F90225AD30382D9B707B16B3F3F53_gshared_inline (JsonDeserializationContext_1_t25AE4843CB474D2ECB87CA849020A20425B233BE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38037,7 +38037,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t JsonDeserializationContex
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int64_t JsonDeserializationContext_1_GetInstance_m3E54E7C51756A25107C1F168560C85438C851228_gshared_inline (JsonDeserializationContext_1_tEFCC949049375747A83AF1F3D99350B31D99AD60* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38046,7 +38046,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int64_t JsonDeserializationContex
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256 JsonDeserializationContext_1_GetInstance_m75EE3F9C821B65F882F127AC91C3FDB701807CBC_gshared_inline (JsonDeserializationContext_1_t3C71FAEF6FBE0936D4EEE18A7C2EC92F876FFFE3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38055,7 +38055,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Length_t90BB06D47DD6DB461ED21BD3E
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializationContext_1_GetInstance_m140521B66D41F758BC6ACAD67FFBDC6F59231959_gshared_inline (JsonDeserializationContext_1_t4A13E23B702649A76A55C7E25DEB6A3C48A8BB99* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38064,7 +38064,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* JsonDeserializatio
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7 JsonDeserializationContext_1_GetInstance_m2042D1820D1F7DC709400068FAA716885367AC52_gshared_inline (JsonDeserializationContext_1_t6D599F3C2AE757931F5DE3C067E66C49D013D154* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38073,7 +38073,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Rotate_tE965CA0281A547AB38B881A34
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int8_t JsonDeserializationContext_1_GetInstance_m136DABDCCBF942F32C3AC4A23A96BD32C4B16C79_gshared_inline (JsonDeserializationContext_1_t16DC1B36AE77469D9DFA26240CC2ED724C892B54* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38082,7 +38082,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int8_t JsonDeserializationContext
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7 JsonDeserializationContext_1_GetInstance_m3000DA2F3A932A8D7E8C474470205607DC981FD1_gshared_inline (JsonDeserializationContext_1_t98D1A08B0FBB589FA0C5A2C65B88C455C9FF2EB5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38091,7 +38091,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Scale_t5594C69C1AC9398B57ABF6C4FA
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6 JsonDeserializationContext_1_GetInstance_mAB474A5BFCCBB991A7EE645C755642C6067F7558_gshared_inline (JsonDeserializationContext_1_t2F5EF4F914B49E2EE02B842DE0DD24E08629A320* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38100,7 +38100,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR SerializedArrayView_t811E52198172
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561 JsonDeserializationContext_1_GetInstance_mB8B3027882850663F73AD32A4F519188A975A018_gshared_inline (JsonDeserializationContext_1_t5137DDFDE7138EFEF4381E09706D195FBC2B5942* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38109,7 +38109,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR SerializedObjectView_t3371CA1D296
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC JsonDeserializationContext_1_GetInstance_mD33A01CC3D43D612AEEDAA6E26E47E37BE11A195_gshared_inline (JsonDeserializationContext_1_tDC39B263AE8CA164AE59ED30E180F8F891E41FBA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38118,7 +38118,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR SerializedValueView_t132982877F69
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float JsonDeserializationContext_1_GetInstance_m3F8D0D6B6BF2E2CB2A7CEC5F8AFFB536E22ACA8A_gshared_inline (JsonDeserializationContext_1_tA7A4660CFDE95282E22FA42C140C423DDF3ADA9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38127,7 +38127,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float JsonDeserializationContext_
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B JsonDeserializationContext_1_GetInstance_m0FFB8D1A059009C140351AF33F3A76B238186401_gshared_inline (JsonDeserializationContext_1_tDB529AA8FAF893E4F5470EF583EF00C6A9642AEA* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38136,7 +38136,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleBackground_t28A4439F46056BAF
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3 JsonDeserializationContext_1_GetInstance_m4CFE7183B3C467CF2DC9C6549069D5240BC230DA_gshared_inline (JsonDeserializationContext_1_t35BAA1C3028B91402F781451435B95FBCC9264B3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38145,7 +38145,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleBackgroundPosition_t707AF9D6
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866 JsonDeserializationContext_1_GetInstance_m8FBD45A0A2350DFFD18EC6B739CA67D460C0DDCA_gshared_inline (JsonDeserializationContext_1_tDA0141D08280F7F48453393E476F4A828C73F0E6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38154,7 +38154,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleBackgroundRepeat_t38B84958D5
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008 JsonDeserializationContext_1_GetInstance_m7CD388ADA7A5011A21B600A502CAEB02E6DE0794_gshared_inline (JsonDeserializationContext_1_t7A3FBFAA7047781513214ABE5AB352D986ADF245* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38163,7 +38163,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleBackgroundSize_t0904929E2E23
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910 JsonDeserializationContext_1_GetInstance_mB6E3FC04635C3EA36C83054DEDFD67F7292BDC04_gshared_inline (JsonDeserializationContext_1_t3114091D1292D73EA63F744A460D147535541D1A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38172,7 +38172,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleColor_tFC32BA34A15742AC48D6A
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610 JsonDeserializationContext_1_GetInstance_mDF227FAB5A131306A902386C40B85DD706963E8F_gshared_inline (JsonDeserializationContext_1_t0F826EAC5B6EAAB4FD93B5E30C627C29D4A3CACC* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38181,7 +38181,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleCursor_tE485E9D7E54AC3A3D514
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841 JsonDeserializationContext_1_GetInstance_mDD979CED8F90EC06D351E5D57FB3E2DBF0EC0594_gshared_inline (JsonDeserializationContext_1_t767D45998EDF19DB2F6C13E831ECDCD826E75A9A* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38190,7 +38190,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleFloat_t4A100BCCDC275C2302517
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C JsonDeserializationContext_1_GetInstance_m1159289FEBAD85FD9D470675CC04703AD27BBF14_gshared_inline (JsonDeserializationContext_1_tDB6FE9BEE05F49A0C73C5D748203B771B7EF9FCD* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38199,7 +38199,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleFont_t9D8A6F3E224B60FD8BA152
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4 JsonDeserializationContext_1_GetInstance_mD6645D2BA4CAC7846C06F02DEC08A4E5F167E8B1_gshared_inline (JsonDeserializationContext_1_tE83C4559AACCB56C37CA0BA16D4DD142C26C08AE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38208,7 +38208,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleFontDefinition_t0E1130277B32
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D JsonDeserializationContext_1_GetInstance_m5543F80E8AC46C9B04981D9A7F0EF8AF5FF5494D_gshared_inline (JsonDeserializationContext_1_t699393325A4A5C5D79E2A3A1CF3B8417FED919EF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38217,7 +38217,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleInt_tDC5B2FE9B1ABA54EEF85A77
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8 JsonDeserializationContext_1_GetInstance_m7390BE33A9551398BEF44CBDE46F12FE58CFD44C_gshared_inline (JsonDeserializationContext_1_tA6E2E0E53904C8463C4C38425A0B035A828F47DB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38226,7 +38226,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleLength_tF02B24735FC88BE29BEB
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF JsonDeserializationContext_1_GetInstance_m6DB6AF804BD261904BC0A07164D58193755E171C_gshared_inline (JsonDeserializationContext_1_t0229DD93F96B42535BFE072CE656700E64804029* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38235,7 +38235,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StylePropertyName_tCBE2B561C69053
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B JsonDeserializationContext_1_GetInstance_mD63210672AAC8D708667AE72E2CD470DA4EC2D39_gshared_inline (JsonDeserializationContext_1_t979E5D09573980AA09A1DBF3A18C9EF3EFB02DAF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38244,7 +38244,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleRotate_t59305F0FBB44EA70AE33
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC JsonDeserializationContext_1_GetInstance_m1F06100F6E3CAC8A748D76A3247BFEB7C6BED82F_gshared_inline (JsonDeserializationContext_1_tE1FB621A408A1ACECCA60A498D1206DC283D0CC4* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38253,7 +38253,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleScale_t45D687B313B39CD6FB368
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A JsonDeserializationContext_1_GetInstance_mF0DDC839B28E664FA18E6F725D512BEB026E46A5_gshared_inline (JsonDeserializationContext_1_t6AEAC1E7B619D831E7664DFBF9622015029A0A43* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38262,7 +38262,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleTextAutoSize_t1F33415D18D97D
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252 JsonDeserializationContext_1_GetInstance_m8F055CB6E86641D01E8974C7F9B641D21AEE39F3_gshared_inline (JsonDeserializationContext_1_t58BEB691BFE31E7D61060919A3A8E6A35ED0BA12* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38271,7 +38271,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleTextShadow_tCDDF1FE733ADBAA5
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6 JsonDeserializationContext_1_GetInstance_m16707D926ED21B6F2A163B149D11F999C2236B6E_gshared_inline (JsonDeserializationContext_1_tC529E46B3C1DC3B356F458E0923A0497EC1534B5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38280,7 +38280,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleTransformOrigin_t708B2E73541
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089 JsonDeserializationContext_1_GetInstance_mE34D548FFC6CD9F71AF7FA7216325327BF955E7F_gshared_inline (JsonDeserializationContext_1_t6523A410FF9F83D293A107ADA083F7E3894F191B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38289,7 +38289,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR StyleTranslate_tF9528CA4B45EE4EB2
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A JsonDeserializationContext_1_GetInstance_mB03698498724C3BB2152CFCEA5D1E43F9952CDB3_gshared_inline (JsonDeserializationContext_1_t039FE13918A19E8CEBAD461813F996BB169C66D2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38298,7 +38298,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR TextAutoSize_t8B7DB1DB1B1C9EF3DE8
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05 JsonDeserializationContext_1_GetInstance_m079C2D4F636BFB8A0E4F082F31C79E6AE713D4B7_gshared_inline (JsonDeserializationContext_1_t19265A6BF672E1F797A507BC543A35B0A60EB4D5* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38307,7 +38307,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR TextShadow_t6BADF37AB90ABCB63859A
 		return L_0;
 	}
 }
-// Method Definition Index: 76701
+// Method Definition Index: 76764
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A JsonDeserializationContext_1_GetInstance_m0B15A3129D946AC1B0990CCE2D60A25F4462EFB6_gshared_inline (JsonDeserializationContext_1_t5296861129EA79B07EC81851A76E478E892C61B4* __this, const RuntimeMethod* method) 
 {
 	{

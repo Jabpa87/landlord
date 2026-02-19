@@ -54,15 +54,31 @@ public class TileDetailsCardUI : MonoBehaviour
     public Sprite groupG6;
     public Sprite groupG7;
     public Sprite groupG8;
+
+    [Header("Group Sprites (Color Names)")]
+    public Sprite groupBrown;
+    public Sprite groupLightBlue;
+    public Sprite groupPink;
+    public Sprite groupOrange;
+    public Sprite groupRed;
+    public Sprite groupYellow;
+    public Sprite groupGreen;
+    public Sprite groupDarkBlue;
+
     public Sprite transportationSprite;
     public Sprite utilitySprite;
     public Sprite defaultSprite;
+
+    private TileInfo _currentTile;
+    private Color _propertyColorBarBaseColor = Color.white;
 
     void Awake()
     {
         Instance = this;
         if (cardRoot == null) cardRoot = gameObject;
         if (cardRect == null) cardRect = GetComponent<RectTransform>();
+        if (propertyColorBar != null)
+            _propertyColorBarBaseColor = propertyColorBar.color;
         if (closeButton == null)
         {
             // Try to auto-find a Close button in children
@@ -93,6 +109,7 @@ public class TileDetailsCardUI : MonoBehaviour
     public void Show(TileInfo tile)
     {
         if (tile == null) return;
+        _currentTile = tile;
         if (cardRoot != null) cardRoot.SetActive(true);
         _ignoreOutsideClicksUntilFrame = Time.frameCount + 1;
 
@@ -105,11 +122,19 @@ public class TileDetailsCardUI : MonoBehaviour
         Property prop = tile.property;
         if (titleText != null) titleText.text = prop.propertyName.ToUpperInvariant();
 
-        // Property image by group/type
+        // Group visuals (independent from ownership marker layer)
+        Sprite groupSprite = GetGroupSprite(prop);
+
         if (propertyImage != null)
         {
-            propertyImage.sprite = GetGroupSprite(prop);
+            propertyImage.sprite = groupSprite;
             propertyImage.enabled = propertyImage.sprite != null;
+        }
+        if (propertyColorBar != null)
+        {
+            propertyColorBar.sprite = groupSprite;
+            propertyColorBar.color = _propertyColorBarBaseColor;
+            propertyColorBar.enabled = propertyColorBar.sprite != null;
         }
 
         if (baseRentText != null)
@@ -153,6 +178,16 @@ public class TileDetailsCardUI : MonoBehaviour
     public void Hide()
     {
         if (cardRoot != null) cardRoot.SetActive(false);
+    }
+
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus) RefreshGroupStripIfVisible();
+    }
+
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (!pauseStatus) RefreshGroupStripIfVisible();
     }
 
     void Update()
@@ -205,6 +240,8 @@ public class TileDetailsCardUI : MonoBehaviour
     private void SetEmpty(string title)
     {
         if (titleText != null) titleText.text = title.ToUpperInvariant();
+        if (propertyImage != null) propertyImage.enabled = false;
+        if (propertyColorBar != null) propertyColorBar.enabled = false;
         SetRentText(baseRentText, 0, true);
         SetRentText(rent1HouseText, 0, true);
         SetRentText(rent2HouseText, 0, true);
@@ -228,23 +265,54 @@ public class TileDetailsCardUI : MonoBehaviour
 
     private Sprite GetGroupSprite(Property prop)
     {
+        if (prop == null) return defaultSprite;
         if (prop.propertyType == PropertyType.Transportation)
             return transportationSprite != null ? transportationSprite : defaultSprite;
         if (prop.propertyType == PropertyType.Utility)
             return utilitySprite != null ? utilitySprite : defaultSprite;
 
-        switch (prop.groupId)
+        string gid = NormalizeGroupId(prop.groupId);
+        switch (gid)
         {
-            case "G1": return groupG1 != null ? groupG1 : defaultSprite;
-            case "G2": return groupG2 != null ? groupG2 : defaultSprite;
-            case "G3": return groupG3 != null ? groupG3 : defaultSprite;
-            case "G4": return groupG4 != null ? groupG4 : defaultSprite;
-            case "G5": return groupG5 != null ? groupG5 : defaultSprite;
-            case "G6": return groupG6 != null ? groupG6 : defaultSprite;
-            case "G7": return groupG7 != null ? groupG7 : defaultSprite;
-            case "G8": return groupG8 != null ? groupG8 : defaultSprite;
-            default: return defaultSprite;
+            case "BROWN":
+            case "G1":
+                return groupBrown != null ? groupBrown : (groupG1 != null ? groupG1 : defaultSprite);
+            case "LIGHTBLUE":
+            case "G2":
+                return groupLightBlue != null ? groupLightBlue : (groupG2 != null ? groupG2 : defaultSprite);
+            case "PINK":
+            case "G3":
+                return groupPink != null ? groupPink : (groupG3 != null ? groupG3 : defaultSprite);
+            case "ORANGE":
+            case "G4":
+                return groupOrange != null ? groupOrange : (groupG4 != null ? groupG4 : defaultSprite);
+            case "RED":
+            case "G5":
+                return groupRed != null ? groupRed : (groupG5 != null ? groupG5 : defaultSprite);
+            case "YELLOW":
+            case "G6":
+                return groupYellow != null ? groupYellow : (groupG6 != null ? groupG6 : defaultSprite);
+            case "GREEN":
+            case "G7":
+                return groupGreen != null ? groupGreen : (groupG7 != null ? groupG7 : defaultSprite);
+            case "DARKBLUE":
+            case "G8":
+                return groupDarkBlue != null ? groupDarkBlue : (groupG8 != null ? groupG8 : defaultSprite);
+            default:
+                return defaultSprite;
         }
+    }
+
+    private static string NormalizeGroupId(string groupId)
+    {
+        if (string.IsNullOrWhiteSpace(groupId)) return "";
+        return groupId.Trim().ToUpperInvariant().Replace(" ", "").Replace("_", "").Replace("-", "");
+    }
+
+    private void RefreshGroupStripIfVisible()
+    {
+        if (_currentTile == null || cardRoot == null || !cardRoot.activeSelf) return;
+        Show(_currentTile);
     }
 
     private string FormatMoney(int amount)

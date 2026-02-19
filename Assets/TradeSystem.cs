@@ -30,6 +30,7 @@ public class TradeSystem : MonoBehaviour
     private int player2OfferingMoney = 0;
     private bool tradeInProgress = false;
     private List<Player> availableTradeTargets = new List<Player>();
+    private bool _tradeViewBoardMode = false;
 
     private class PendingTrade
     {
@@ -45,6 +46,9 @@ public class TradeSystem : MonoBehaviour
     }
 
     private readonly List<PendingTrade> pendingTrades = new List<PendingTrade>();
+
+    /// <summary>True while a trade session is active. Used to prevent starting auction during trade.</summary>
+    public bool IsTradeInProgress() => tradeInProgress;
     
     // UI Elements (accessed through UIDocumentManager)
     // No need to store references - use uiManager properties
@@ -100,15 +104,8 @@ public class TradeSystem : MonoBehaviour
             uiManager.TradeShowBoardButton.clicked += OnShowBoardClicked;
         }
         
-        // Target player selection
-        if (uiManager != null && uiManager.TradeTargetDropdown != null)
-        {
-            uiManager.TradeTargetDropdown.RegisterValueChangedCallback(evt =>
-            {
-                SelectTradeTarget(evt.newValue);
-            });
-        }
-        
+        // Target player selection is done via TradeTargetButtons (name buttons) in PopulateTradeTargets()
+
         // Money fields (offer/expect)
         if (uiManager != null && uiManager.Player1MoneyField != null)
         {
@@ -139,7 +136,11 @@ public class TradeSystem : MonoBehaviour
             Debug.LogWarning("TradeSystem: Trade already in progress!");
             return;
         }
-        
+        if (turnManager != null && turnManager.auctionSystem != null && turnManager.auctionSystem.IsAuctionInProgress())
+        {
+            Debug.LogWarning("TradeSystem: Cannot start trade while an auction is in progress.");
+            return;
+        }
         if (initiator == null)
         {
             Debug.LogWarning("TradeSystem: Cannot start trade - invalid initiator!");
@@ -184,6 +185,8 @@ public class TradeSystem : MonoBehaviour
     public void StartTradeByAI(Player aiInitiator, Player humanTarget)
     {
         if (tradeInProgress) return;
+        if (turnManager != null && turnManager.auctionSystem != null && turnManager.auctionSystem.IsAuctionInProgress())
+            return; // Do not open trade panel while auction is active
         if (aiInitiator == null || !aiInitiator.isAI || humanTarget == null || humanTarget.isAI)
         {
             Debug.LogWarning("TradeSystem: StartTradeByAI requires AI initiator and human target.");
@@ -210,7 +213,7 @@ public class TradeSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Populate dropdown with available trade targets.
+    /// Populate trade target row with one button per available player (by name). If only one target, auto-select.
     /// </summary>
     void PopulateTradeTargets()
     {
@@ -225,17 +228,37 @@ public class TradeSystem : MonoBehaviour
             }
         }
 
-        if (uiManager != null && uiManager.TradeTargetDropdown != null)
+        var buttonsContainer = uiManager != null ? uiManager.TradeTargetButtons : null;
+        if (buttonsContainer == null) return;
+
+        buttonsContainer.Clear();
+
+        // If only one target, auto-select and show single button
+        if (availableTradeTargets.Count == 1)
         {
-            List<string> options = new List<string>();
-            options.Add("Select Player");
-            foreach (Player p in availableTradeTargets)
-            {
-                options.Add(p.playerName);
-            }
-            uiManager.TradeTargetDropdown.choices = options;
-            uiManager.TradeTargetDropdown.value = targetPlayer != null ? targetPlayer.playerName : "Select Player";
+            targetPlayer = availableTradeTargets[0];
+            var btn = new Button(() => {}) { text = targetPlayer.playerName };
+            btn.AddToClassList("monopoly-btn");
+            btn.AddToClassList("trade-target-btn");
+            btn.AddToClassList("selected");
+            buttonsContainer.Add(btn);
+            UpdateTradeUI();
+            return;
         }
+
+        foreach (Player p in availableTradeTargets)
+        {
+            var btn = new Button(() => SelectTradeTarget(p.playerName)) { text = p.playerName };
+            btn.AddToClassList("monopoly-btn");
+            btn.AddToClassList("trade-target-btn");
+            if (targetPlayer == p)
+                btn.AddToClassList("selected");
+            buttonsContainer.Add(btn);
+        }
+
+        if (targetPlayer != null && !availableTradeTargets.Contains(targetPlayer))
+            targetPlayer = null;
+        UpdateTradeUI();
     }
 
     /// <summary>
@@ -612,6 +635,12 @@ public class TradeSystem : MonoBehaviour
     {
         if (uiManager == null) return;
         
+        _tradeViewBoardMode = false;
+        if (uiManager.TradePanel != null)
+            uiManager.TradePanel.style.opacity = 1f;
+        if (uiManager.TradeShowBoardButton != null)
+            uiManager.TradeShowBoardButton.text = "VIEW BOARD";
+        
         uiManager.ShowTradePanel();
         UpdateTradeUI();
         
@@ -638,6 +667,21 @@ public class TradeSystem : MonoBehaviour
     void UpdateTradeUI()
     {
         if (uiManager == null || !tradeInProgress) return;
+
+        // Sync selected state on trade target name buttons
+        if (uiManager.TradeTargetButtons != null)
+        {
+            foreach (var child in uiManager.TradeTargetButtons.Children())
+            {
+                if (child is Button btn)
+                {
+                    if (targetPlayer != null && btn.text == targetPlayer.playerName)
+                        btn.AddToClassList("selected");
+                    else
+                        btn.RemoveFromClassList("selected");
+                }
+            }
+        }
         
         // Update header: "[Player Name] OFFERS"
         if (uiManager.TradeTitleText != null && initiatingPlayer != null)
@@ -646,6 +690,7 @@ public class TradeSystem : MonoBehaviour
         }
 
         bool hasTarget = targetPlayer != null;
+        bool hasOffer = player1OfferingMoney > 0 || player1OfferingProperties.Count > 0 || player1OfferingCards.Count > 0;
 
         // Update property lists (only when target is selected)
         if (hasTarget)
@@ -680,6 +725,11 @@ public class TradeSystem : MonoBehaviour
                 uiManager.TradeStatusText.text = "Select a player to trade with.";
                 uiManager.TradeStatusText.style.display = DisplayStyle.Flex;
             }
+            else if (!hasOffer)
+            {
+                uiManager.TradeStatusText.text = "You must offer something in exchange.";
+                uiManager.TradeStatusText.style.display = DisplayStyle.Flex;
+            }
             else
             {
                 uiManager.TradeStatusText.text = $"{initiatingPlayer.playerName} is offering a trade to {targetPlayer.playerName}";
@@ -687,9 +737,9 @@ public class TradeSystem : MonoBehaviour
             }
         }
 
-        // Buttons
+        // Buttons: Offer only when target selected and initiator offers at least one asset
         if (uiManager.TradeOfferButton != null)
-            uiManager.TradeOfferButton.SetEnabled(hasTarget);
+            uiManager.TradeOfferButton.SetEnabled(hasTarget && hasOffer);
 
         // Update card lists
         if (hasTarget)
@@ -797,12 +847,12 @@ public class TradeSystem : MonoBehaviour
     /// </summary>
     void OnShowBoardClicked()
     {
-        // Hide trade panel temporarily to show board
-        if (uiManager != null)
-        {
-            uiManager.HideTradePanel();
-            // Could add a coroutine to show it again after a delay, or add a "Back to Trade" button
-        }
+        if (uiManager == null) return;
+        _tradeViewBoardMode = !_tradeViewBoardMode;
+        if (uiManager.TradePanel != null)
+            uiManager.TradePanel.style.opacity = _tradeViewBoardMode ? 0.7f : 1f;
+        if (uiManager.TradeShowBoardButton != null)
+            uiManager.TradeShowBoardButton.text = _tradeViewBoardMode ? "BACK TO TRADE" : "VIEW BOARD";
     }
     
     void UpdatePropertyList(ScrollView list, List<Property> offeringProperties, Player player, bool isInitiator)

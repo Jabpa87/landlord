@@ -3137,7 +3137,7 @@ inline void List_1_AddWithResize_mD7AAF620712FD385F684907728D673DD87AF969E (List
 {
 	((  void (*) (List_1_tF6569F82810E13CBD9F2E55455C088EC63B69967*, DeserializationEvent_t2239A02D0C2B02D1E2F8FB330FCC1C42051F62AE, const RuntimeMethod*))List_1_AddWithResize_mD7AAF620712FD385F684907728D673DD87AF969E_gshared)(__this, ___0_item, method);
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisInt16_tB8EF286A9C33492FA6E6D6E67320BE93E794A175_m88A758DBFA96620059C621F75896B8A42428C22A_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, int16_t* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -3341,7 +3341,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_mEFE4779B22DC917798A9C3F7B6CB750A08528A48_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, int32_t* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -3545,7 +3545,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisInt32Enum_tCBAC8BA2BFF3A845FA599F303093BBBA374B6F0C_mCEBBE2212C5B4D078588AD75D6AFF1FF27584978_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, int32_t* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -3749,7 +3749,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisInt64_t092CFB123BE63C28ACDAF65C68F21A526050DBA3_mAC7690D82FD040D8D141320D2E58D9A0FA7011F3_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, int64_t* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -3953,7 +3953,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisLength_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256_mDB7705677F3D1D4C5207C0740323513243171466_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Length_t90BB06D47DD6DB461ED21BD3E3241FAB6C824256* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -4157,7 +4157,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisRuntimeObject_m75D927633049400231E47176874E39B22A28C2BB_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, RuntimeObject** ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -4363,7 +4363,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisRotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7_m9A23227E53B5855356BC80F4AC6166E06E0AD0B9_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Rotate_tE965CA0281A547AB38B881A3416FF97756D3F4D7* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -4567,7 +4567,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisSByte_tFEFFEF5D2FEBF5207950AE6FAC150FC53B668DB5_m67639B5AB923F87FA22CE64EEC9CA34747A0766A_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, int8_t* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -4771,7 +4771,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisScale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7_m9A05CE8D967FD39765BEC093ECD22A23A80710A0_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Scale_t5594C69C1AC9398B57ABF6C4FA0D4E791B7A4DC7* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -4975,7 +4975,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisSerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6_m45426AF6659F8144F65802731D02B8DE7CF3BB9B_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, SerializedArrayView_t811E52198172559E69CE9093CCE7C7970D3A46D6* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -5179,7 +5179,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisSerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561_m39F97C60CBC35598E9F5FAA542032DC71F7057BA_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, SerializedObjectView_t3371CA1D296BF0161DBD7A002673B96D76927561* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -5383,7 +5383,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisSerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC_m2782123B6938B8C779BF416F4C578F325DAAF4C3_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, SerializedValueView_t132982877F69EB6A5B24A9B8EB004A6B80D087DC* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -5587,7 +5587,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_mBE21249C9BA68C039D5985B1ACD17F27940DD705_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, float* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -5791,7 +5791,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B_m3D71F146F20B24702ABE85EA50FCC4818AAF8958_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleBackground_t28A4439F46056BAFA6F4450CD1DE8F333571C97B* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -6015,7 +6015,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3_m70A878DDB6D691E20EE6DEC2CA84585FB41F4E57_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleBackgroundPosition_t707AF9D66EF808C1B1DE174CAB623D97A653C3F3* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -6219,7 +6219,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866_mA390D70D7177657333CB8FB5E6E7626906670D4D_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleBackgroundRepeat_t38B84958D5608FAA86B06F513716444EA06DB866* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -6423,7 +6423,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008_m6D62DAC9FD94F3FF09F41CF5753584E5A00FBE35_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleBackgroundSize_t0904929E2E236696CEC8DBD4B1082E8313F84008* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -6627,7 +6627,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910_m9026DC34206A9AB57B16F56A2BF96DF42F3894C9_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleColor_tFC32BA34A15742AC48D6AACF8A137A6F71F04910* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -6831,7 +6831,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610_m861C4004685B788C01BACBF9C8F9748D66722AAC_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleCursor_tE485E9D7E54AC3A3D514CD63313D77F75BD8C610* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -7037,7 +7037,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841_m304F09D8941E74771A01DFB681E90342EBAB9418_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleFloat_t4A100BCCDC275C2302517C5858C9BE9EC43D4841* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -7241,7 +7241,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C_mE7E605D4684A055AF514B47A8D92D97F2351A4DF_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleFont_t9D8A6F3E224B60FD8BA1522CE8AB0E2E8BE8B77C* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -7447,7 +7447,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4_m7C1C3500F4B9CE6F34DD8BFE5A604E3B30AC6F80_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleFontDefinition_t0E1130277B322724A677D489018D219F014070F4* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -7659,7 +7659,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D_mBE0C7542459C8ADEEB885ABC6C6EEECAE4825278_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleInt_tDC5B2FE9B1ABA54EEF85A7798F321F40BDC8B25D* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -7863,7 +7863,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8_m4F1AF8BF7D63579C3EBD5AA625F3118BFDFA688D_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleLength_tF02B24735FC88BE29BEB36F7A87709CA28AF72D8* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -8067,7 +8067,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF_mB8A81E83E9DC6472B5452A65177B0B1A4057D0BD_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StylePropertyName_tCBE2B561C690538C8514BF56426AC486DC35B6FF* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -8273,7 +8273,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B_m63B903A5FB0BAFD3B81946FA581AD0EE7FC116C3_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleRotate_t59305F0FBB44EA70AE332ECF9279C270B3F2283B* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -8477,7 +8477,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC_m1186FDDEDFBBC01718B185C960886605B3F2AB0C_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleScale_t45D687B313B39CD6FB3686ED44DECDDA402923BC* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -8681,7 +8681,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A_mFDE53680C6126804EEE9BFD2DE27DD403705EA43_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleTextAutoSize_t1F33415D18D97D0242C4C2C450BEF0B475253F4A* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -8885,7 +8885,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252_m13197EDE289F29F53BB582DF0F562EC07166E635_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleTextShadow_tCDDF1FE733ADBAA5ACA3B74620D4728E83F54252* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -9089,7 +9089,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6_m79D6801332C82F31157710D7B47C6342014572E8_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleTransformOrigin_t708B2E73541ECAE23D286FE68D6BC2CCFAAB84A6* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -9293,7 +9293,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisStyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089_m67050A67E5CCD6AD0FB6145FD454B66F7D3BE633_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleTranslate_tF9528CA4B45EE4EB2C4D294336A83D88DB6AF089* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -9497,7 +9497,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisTextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A_m33607D6C5388A9B6FE3E81A399AC8F7765C1D5C8_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, TextAutoSize_t8B7DB1DB1B1C9EF3DE876BB4D487CB00DBE3207A* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -9701,7 +9701,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisTextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05_mC6F1F1D3CC97080DE2AD296B63EC8DB846290BC1_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, TextShadow_t6BADF37AB90ABCB63859A225B58AC5A580950A05* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -9905,7 +9905,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisTimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A_mB0F7482071AC1EC7F95C460F2597EAE8C65B1344_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -10109,7 +10109,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisTimeValue_t45AE43B219493F9459363F32C79E8986B5F82E0E_m635B1691A0CABABE72EBE314E52FB047D4BA8D2D_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, TimeValue_t45AE43B219493F9459363F32C79E8986B5F82E0E* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -10313,7 +10313,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisTransformOrigin_tD11A368A96C0771398EBB4E6D435318AC0EF8502_m0BF1251A2E488AAA42F8875BB74D438612A56C3D_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, TransformOrigin_tD11A368A96C0771398EBB4E6D435318AC0EF8502* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -10517,7 +10517,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisTranslate_t494F6E802F8A640D67819C9D26BE62DED1218A8E_m4B0CDAF21FEB6694DEFC59ACC18B8744A33ADFC5_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Translate_t494F6E802F8A640D67819C9D26BE62DED1218A8E* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -10721,7 +10721,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisUInt16_tF4C148C876015C212FD72652D0B6ED8CC247A455_m1EA91754A05424BA62CB49C9EFAB84FE3E74DF92_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, uint16_t* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -10925,7 +10925,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisUInt32_t1833D51FFA667B18A5AA4B8D34DE284F8495D29B_m2B4000ED4C8DF5512994B6A08AB282166996E054_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, uint32_t* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -11129,7 +11129,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisUInt64_t8F12534CC8FC4B5860F2A2CD1EE79D322E7A41AF_m3A7366348535D0A5E9B9CB4088B737866B343F52_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, uint64_t* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -11333,7 +11333,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisVector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_m864F2888C6E9DA8207F9CE630BC6ECB6FD884E5C_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -11537,7 +11537,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisVector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_mCB3FCDF057A62F691EF39E37534AF64E69A0BBE6_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -11741,7 +11741,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisVector3Int_t65CB06F557251D18A37BD71F3655BA836A357376_m8CA5A3D4B71D0DE9126EC0D93B1E7BB4F78A0344_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Vector3Int_t65CB06F557251D18A37BD71F3655BA836A357376* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -11945,7 +11945,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77132
+// Method Definition Index: 77195
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithAdapters_TisIl2CppFullySharedGenericAny_mD7E4D40EB4B8A0921AD0C1E241B04AC8F5347598_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Il2CppFullySharedGenericAny* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352 ___2_adapters, bool ___3_isRoot, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -12158,7 +12158,7 @@ IL_00dc:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisKeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230_mAB544C4DD758DA9378E0108CF7CC68E5108E6DF3_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -12951,7 +12951,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisStyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC_m9E39ED161E8AF606357FB53DDBD00987DECD5FD7_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleEnum_1_t3DD2EBD4E359AFE77C2974ECAA1DEE50E0FACEDC* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -13736,7 +13736,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisStyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F_m619083B1FC0B73C826CB97CD0DD3F9742C733C39_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleList_1_t5D2FA4535A553635ADCE6E1E3758E1FA02160E6F* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -14523,7 +14523,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisStyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C_m74B414BB50457E2189F2A97A23707DAEC75B5EBF_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleList_1_tABF3DD9EB70CDF59829924CBA26ACDD1FBDD4C3C* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -15310,7 +15310,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisStyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4_m91D371FEF586B959D618EB81305AB6203E24D2EB_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, StyleList_1_t15E0FB58274532956EB643D58F1F7B95BED5B7C4* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -16097,7 +16097,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisAngle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC_m826AB7BE06B6D50D9A17F194ADEF1E228C10B170_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Angle_t0229F612898D65B3CC646C40A32D93D8A33C1DFC* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -16882,7 +16882,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisBackground_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8_m46CAEFF996651E35B38F52D939EE634836C4DFF7_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Background_t3C720DED4FAF016332D29FB86C9BE8D5D0D8F0C8* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -17687,7 +17687,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisBackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56_m0EAC1E1101C4190642A6851A7148689C6DB54A79_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, BackgroundPosition_tF0822B29FC27A67205A9893EBE03D03B799B8B56* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -18472,7 +18472,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisBackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F_m4434766CC135FE19DF26C9EC6D4193E4313759E0_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, BackgroundRepeat_t446EC7315DED2C6822F1047B7587C3018BFB277F* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -19257,7 +19257,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisBackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7_mAEA50D3A76E275AB4DC9E1EC71EB4961AB2D03A9_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, BackgroundSize_t809883E2D7BB1D8D85B4C3E1DBE189F187DB25E7* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -20042,7 +20042,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_mB9E72C63CCDF421D7D7BFAF2235E37F1AF52635C_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, bool* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -20827,7 +20827,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_m4C975763598866D9698F0732DF60AA711945A970_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, uint8_t* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -21612,7 +21612,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisChar_t521A6F19B456D956AF452D926C32709DC03D6B17_m82D2EB91BE82B9213347F912A14CAA146FE04365_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Il2CppChar* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -22397,7 +22397,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_m3442318EFA04464209C664D900E924AFFD621A5E_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -23182,7 +23182,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisCursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82_mD3B50B68BCC667F499FE8761B853D124D394E91A_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, Cursor_t24C3B5095F65B86794C4F7EA168E324DFDA9EE82* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -23969,7 +23969,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisDateTime_t66193957C73913903DDAD89FEDC46139BCA5802D_m2A62B8BA7151CDF967668A3180CDE2D06422598D_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -24754,7 +24754,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 77133
+// Method Definition Index: 77196
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonPropertyReader_ReadValueWithoutAdapters_TisDouble_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F_m14E847A038997B46DE444466EC776E2EEF3D88CC_gshared (JsonPropertyReader_t8B4B535106EE2E4B7BE370CDA741E56D4CA1CF0B* __this, double* ___0_value, UnsafeValueView_tCD606B53AEB275B5AC69CB248B949E3EE5A5BB6A ___1_view, bool ___2_isRoot, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -25539,7 +25539,7 @@ IL_03d6:
 		return;
 	}
 }
-// Method Definition Index: 76669
+// Method Definition Index: 76732
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* Enumerator_get_Current_m3FEDFFD8C25367B0B76FCD8CA463A5509DC47819_inline (Enumerator_t82D5896624E1877909C027635EBFDBCFA5836352* __this, const RuntimeMethod* method) 
 {
 	{
@@ -25586,7 +25586,7 @@ IL_0034:
 		return;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m357DD5A4A72963822075D8B2E27BE4379CF6459D_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25595,7 +25595,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m5EA84A592B56A306D28B846C21CC12559BA4CDAE_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25604,7 +25604,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m630719698F10B8640E63B26B8C340B75691E006C_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25613,7 +25613,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m11D7E8B4C823B630ED20F0E75432C5996FE48E6D_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25622,7 +25622,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m5EFFFAEF08EC503A54B99FBA3BAA7F695FCEBB23_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25631,7 +25631,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m0BDF66310EFFDBE6B38C3D5EBAAB3883EEFE2E01_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25640,7 +25640,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m6C23695500B282AE368980D1DCF0686E59454C96_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25649,7 +25649,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m2CA124C0653C50664D9E4775B6E234872AB224E7_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25658,7 +25658,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_mF77AC3EFD10A72FEF994A436EADA9CA391585738_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25667,7 +25667,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_mA77541F44F33DE7E582EA2C4AF171E312D1CE0FC_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25676,7 +25676,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_mA68BB6D24517D897F18AD363DB890EF2AFC85E5A_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25685,7 +25685,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m26584085F47C1DAA7B1C2189A8CF213ED83F7DE0_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25694,7 +25694,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_mF7E4DB8222219D854088F161C37717C82728C8A4_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25703,7 +25703,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_mAF9286C2697C18455BF170F1A515F68C1B124004_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25712,7 +25712,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_mE2164580E76ACCD675F26F7BC95C6447B1E78E0D_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25721,7 +25721,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m45AEB4E7BE4085A755C94FC39C69CE844CC214A4_gshared_inline (const RuntimeMethod* method) 
 {
 	{
@@ -25730,7 +25730,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_
 		return L_0;
 	}
 }
-// Method Definition Index: 78793
+// Method Definition Index: 78856
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TypeTraits_1_get_IsNullable_m66060C07D160ECA6F68F1BBD30442E260BF5319C_gshared_inline (const RuntimeMethod* method) 
 {
 	{

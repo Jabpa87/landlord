@@ -233,6 +233,13 @@ public class TurnManager : MonoBehaviour
                 uiManager.TradeButton.Clicked -= OnTradeButtonClicked; // Remove if already connected
                 uiManager.TradeButton.Clicked += OnTradeButtonClicked;
             }
+
+            // Menu button -> in-game Settings panel (text size Small/Medium/Large)
+            if (uiManager.MenuButton != null)
+            {
+                uiManager.MenuButton.Clicked -= OnMenuButtonClicked;
+                uiManager.MenuButton.Clicked += OnMenuButtonClicked;
+            }
         }
         else
         {
@@ -773,6 +780,9 @@ public class TurnManager : MonoBehaviour
         if (p.isAI)
         {
             yield return ResolveAIChoice(p);
+            // Wait for auction to finish if AI declined to buy and started one (avoid overlap with trade)
+            while (auctionSystem != null && auctionSystem.IsAuctionInProgress())
+                yield return null;
             TransitionState(GameStateMachine.State.ResolvingTile);
         }
         else
@@ -1233,6 +1243,22 @@ public class TurnManager : MonoBehaviour
         }
 
         uiManager.SetActivePlayerIndicator(currentIndex);
+
+        if (diceRoller != null)
+        {
+            bool canRoll = CanHumanRoll(current);
+            diceRoller.SetActiveTurn(canRoll);
+        }
+    }
+
+    private bool CanHumanRoll(Player p)
+    {
+        if (p == null) return false;
+        if (p.isAI) return false;
+        if (turnInProgress) return false;
+        if (p.IsAwaitingChoice) return false;
+        if (auctionSystem != null && auctionSystem.IsAuctionInProgress()) return false;
+        return true;
     }
 
     void UpdateHUD(int dice, int dice1 = 0, int dice2 = 0, Player p = null)
@@ -1576,6 +1602,8 @@ public class TurnManager : MonoBehaviour
     void TryAITradeOffer(Player aiPlayer)
     {
         if (tradeSystem == null || aiPlayer == null || !aiPlayer.isAI) return;
+        if (auctionSystem != null && auctionSystem.IsAuctionInProgress())
+            return; // Never open trade while auction UI is active
         if (players == null || players.Count == 0) return;
         Player human = null;
         foreach (Player pl in players)
@@ -1668,6 +1696,15 @@ public class TurnManager : MonoBehaviour
         TileInfo tile = p.GetCurrentTileInfo();
         if (tile != null && tile.property != null && tile.property.owner == null)
         {
+            if (string.IsNullOrWhiteSpace(tile.property.propertyName) || tile.property.price <= 0)
+            {
+                Debug.LogWarning($"[AI] {p.playerName} landed on invalid property data at tile '{tile.gameObject.name}'. " +
+                                 $"name='{tile.property.propertyName}', price={tile.property.price}. Skipping purchase flow.");
+                GameLogger.Log($"AI_SKIP_INVALID_PROPERTY | player={p.playerName} tile={tile.gameObject.name}");
+                p.IsAwaitingChoice = false;
+            }
+            else
+            {
             if (p.CanAfford(tile.property.price))
             {
                 GameLogger.Log($"AI_BUY | player={p.playerName} property={tile.property.propertyName}");
@@ -1677,6 +1714,7 @@ public class TurnManager : MonoBehaviour
             {
                 GameLogger.Log($"AI_SKIP | player={p.playerName} property={tile.property.propertyName}");
                 p.SkipAction();
+            }
             }
         }
 
@@ -1733,6 +1771,12 @@ public class TurnManager : MonoBehaviour
     {
         if (gameController != null) gameController.RequestEndTurn();
         else EndTurn();
+    }
+
+    void OnMenuButtonClicked()
+    {
+        if (gameController != null) gameController.RequestMenu();
+        if (uiManager != null) uiManager.ShowSettingsPanel();
     }
 
     void OnPayBailButtonClicked()

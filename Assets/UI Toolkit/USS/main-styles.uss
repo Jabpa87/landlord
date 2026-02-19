@@ -56,13 +56,13 @@
 }
 
 .main-hud-supply-text {
-    font-size: 14px;
+    font-size: 17px;
     color: rgba(255, 255, 255, 0.75);
     -unity-text-align: middle-left;
 }
 
 .main-hud-doubles-text {
-    font-size: 14px;
+    font-size: 17px;
     color: #FFD700;
     -unity-font-style: bold;
     -unity-text-align: middle-left;
@@ -117,7 +117,7 @@
 }
 
 .main-hud-player-name {
-    font-size: 14px;
+    font-size: 17px;
     color: white;
     -unity-font-style: normal;
     -unity-text-align: middle-left;
@@ -198,7 +198,7 @@
 .main-hud-action-btn {
     height: 45px;
     min-width: 100px;
-    font-size: 14px;
+    font-size: 17px;
     background-color: rgb(50, 170, 70);
     color: white;
     border-radius: 8px;
@@ -331,6 +331,29 @@
     background-color: #555;
     border-width: 2px;
     border-color: white;
+}
+
+/* Card Panel: center on board */
+#CardOverlay {
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+}
+
+#CardPanel,
+.card-panel-center {
+    position: relative;
+    left: 0;
+    right: 0;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-overlay-center {
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
 }
 
 /* Card Panel Specific */
@@ -650,12 +673,12 @@
 
 .tile-details-kv-key {
     color: rgba(255, 255, 255, 0.85);
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .tile-details-kv-value {
     color: white;
-    font-size: 13px;
+    font-size: 16px;
     -unity-font-style: bold;
 }
 
@@ -664,7 +687,7 @@
     border-radius: 10px;
     background-color: rgb(20, 120, 190);
     color: white;
-    font-size: 14px;
+    font-size: 17px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
     margin-bottom: 8px;
@@ -684,7 +707,7 @@
 
 .tile-details-section-title {
     color: white;
-    font-size: 14px;
+    font-size: 17px;
     -unity-font-style: bold;
     margin-bottom: 6px;
     flex-shrink: 0;
@@ -746,11 +769,14 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    padding: 14px 18px;
+    gap: 12px;
 }
 
 .tile-details-footer-btn {
-    min-height: 44px;
-    font-size: 13px;
+    min-height: 58px;
+    font-size: 22px;
+    -unity-font-style: bold;
 }
 
 .tile-details-footer-column {
@@ -859,7 +885,7 @@
 }
 
 .property-title-modern {
-    font-size: 38px;
+    font-size: 48px;
     color: white;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
@@ -871,9 +897,10 @@
 }
 
 .property-text-modern {
-    font-size: 30px;
+    font-size: 42px;
     color: white;
     -unity-text-align: middle-left;
+    -unity-font-style: normal;
 }
 
 .property-footer-modern {
@@ -883,12 +910,12 @@
 }
 
 .property-btn {
-    height: 68px;
+    height: 72px;
     min-width: 240px;
     border-radius: 10px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
-    font-size: 22px;
+    font-size: 28px;
 }
 
 .property-btn-primary {
@@ -958,6 +985,8 @@
 .monopoly-text {
     font-size: 30px;
     color: white;
+    white-space: normal;
+    overflow: visible;
 }
 
 .card-icon {
@@ -1180,7 +1209,7 @@
 
 .player-label-modern {
     min-width: 70px;
-    font-size: 14px;
+    font-size: 17px;
     color: rgba(255, 255, 255, 0.8);
     -unity-text-align: middle-left;
 }
@@ -1210,6 +1239,38 @@
 
 .player-input-modern:focus .unity-text-input {
     color: rgb(232, 244, 255);
+}
+
+/* Player slot name field: dark green, yellow border and text, comfortable height */
+.player-slot-name-input {
+    flex-grow: 1;
+    min-width: 200px;
+    min-height: 48px;
+    height: 48px;
+    padding: 12px 14px;
+    background-color: rgb(18, 45, 28);
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: rgb(198, 164, 79);
+    color: rgb(255, 220, 100);
+    font-size: 20px;
+}
+
+.player-slot-name-input .unity-text-input {
+    color: rgb(255, 220, 100);
+    font-size: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    -unity-font-style: normal;
+}
+
+.player-slot-name-input:focus {
+    background-color: rgb(22, 55, 35);
+    border-color: rgb(218, 184, 99);
+}
+
+.player-slot-name-input:focus .unity-text-input {
+    color: rgb(255, 235, 120);
 }
 
 .avatar-options-modern,
@@ -1252,7 +1313,7 @@
     background-color: rgb(35, 120, 60);
     color: white;
     -unity-font-style: bold;
-    font-size: 12px;
+    font-size: 16px;
     -unity-text-align: middle-center;
     border-width: 2px;
     border-color: rgba(255, 255, 255, 0.7);
@@ -1524,7 +1585,7 @@
 }
 
 .mainmenu-character-backstory {
-    font-size: 14px;
+    font-size: 17px;
     color: rgb(70, 50, 30);
     white-space: normal;
 }
@@ -1640,8 +1701,8 @@
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
-    padding: 12px 16px;
-    gap: 10px;
+    padding: 16px 21px;
+    gap: 13px;
     flex-shrink: 0;
     background-color: rgba(220, 230, 245, 0.95);
     border-bottom-width: 2px;
@@ -1654,8 +1715,8 @@
     align-items: stretch;
     justify-content: center;
     flex-wrap: nowrap;
-    gap: 12px;
-    padding: 12px 16px;
+    gap: 16px;
+    padding: 16px 21px;
     flex-shrink: 0;
 }
 
@@ -1663,8 +1724,8 @@
 .gameplay-hud-player-in-row {
     position: relative;
     flex: 1 1 0;
-    min-width: 180px;
-    max-width: 280px;
+    min-width: 234px;
+    max-width: 364px;
     width: auto;
 }
 
@@ -1673,8 +1734,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 160px;
-    margin-bottom: 8px;
+    min-height: 208px;
+    margin-bottom: 10px;
 }
 
 /* Player panels: dark green felt, gold border, corners. Size: width 100%, min 20%, max 30%, height auto (per main HUD layout). */
@@ -1687,9 +1748,9 @@
     min-width: 20%;
     max-width: 30%;
     min-height: auto;
-    padding: 12px 14px;
+    padding: 16px 18px;
     background-color: rgb(18, 55, 28);
-    border-radius: 14px;
+    border-radius: 18px;
     border-width: 2px;
     border-color: rgb(198, 164, 79);
 }
@@ -1702,15 +1763,15 @@
     top: auto;
     bottom: auto;
     width: auto;
-    min-width: 180px;
-    max-width: 280px;
+    min-width: 234px;
+    max-width: 364px;
     flex: 1 1 0;
 }
 
 .gameplay-hud-player-top-row {
     flex-direction: row;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
 }
 
 .gameplay-hud-player-bottom-row {
@@ -1720,39 +1781,39 @@
 }
 
 .gameplay-hud-player-tl {
-    left: 16px;
-    top: 16px;
+    left: 21px;
+    top: 21px;
 }
 
 .gameplay-hud-player-tr {
-    right: 16px;
-    top: 16px;
+    right: 21px;
+    top: 21px;
     left: auto;
 }
 
 .gameplay-hud-player-bl {
-    left: 16px;
-    bottom: 16px;
+    left: 21px;
+    bottom: 21px;
     top: auto;
 }
 
 .gameplay-hud-player-br {
-    right: 16px;
-    bottom: 16px;
+    right: 21px;
+    bottom: 21px;
     left: auto;
     top: auto;
 }
 
 .gameplay-hud-avatar {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    min-height: 44px;
-    border-radius: 8px;
+    width: 57px;
+    height: 57px;
+    min-width: 57px;
+    min-height: 57px;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.2);
     border-width: 1px;
     border-color: rgba(198, 164, 79, 0.6);
-    margin-right: 10px;
+    margin-right: 13px;
 }
 
 .gameplay-hud-avatar-circle {
@@ -1769,31 +1830,31 @@
 }
 
 .gameplay-hud-player-name {
-    font-size: 16px;
+    font-size: 31px;
     color: rgb(255, 215, 0);
     -unity-font-style: bold;
     -unity-text-align: middle-left;
 }
 
 .gameplay-hud-player-title {
-    font-size: 13px;
+    font-size: 29px;
     color: white;
     -unity-text-align: middle-left;
-    margin-top: 2px;
+    margin-top: 3px;
 }
 
 .gameplay-hud-player-money {
-    font-size: 15px;
+    font-size: 29px;
     color: white;
     -unity-font-style: bold;
     -unity-text-align: middle-left;
-    margin-top: 2px;
+    margin-top: 3px;
 }
 
 .gameplay-hud-more-btn {
-    height: 32px;
-    min-width: 70px;
-    font-size: 14px;
+    height: 42px;
+    min-width: 91px;
+    font-size: 27px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
     color: white;
@@ -1808,10 +1869,10 @@
 }
 
 .gameplay-hud-indicator-bar {
-    width: 36px;
-    height: 10px;
-    margin-left: 4px;
-    border-radius: 4px;
+    width: 47px;
+    height: 13px;
+    margin-left: 5px;
+    border-radius: 5px;
     background-color: rgba(80, 80, 80, 0.8);
     border-width: 1px;
     border-color: rgba(255, 255, 255, 0.15);
@@ -1826,10 +1887,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 280px;
-    padding: 20px;
+    min-width: 364px;
+    padding: 26px;
     background-color: rgba(18, 40, 25, 0.85);
-    border-radius: 16px;
+    border-radius: 21px;
     border-width: 2px;
     border-color: rgb(198, 164, 79);
 }
@@ -1845,41 +1906,39 @@
 }
 
 .gameplay-hud-current-label {
-    font-size: 18px;
+    font-size: 29px;
     color: rgb(255, 215, 0);
     -unity-font-style: bold;
     -unity-text-align: middle-center;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .gameplay-hud-dice-label {
-    font-size: 24px;
+    font-size: 42px;
     color: white;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .gameplay-hud-wallet-label {
-    font-size: 18px;
+    font-size: 29px;
     color: rgb(76, 175, 80);
     -unity-font-style: bold;
     -unity-text-align: middle-center;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .gameplay-hud-roll-btn {
-    height: 140px;
-    min-width: 360px;
-    margin-bottom: 12px;
-    font-size: 22px;
-    -unity-font-style: bold;
-    font-size: 22px;
+    height: 195px;
+    min-width: 494px;
+    margin-bottom: 16px;
+    font-size: 39px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
     background-color: rgb(30, 120, 50);
     color: white;
-    border-radius: 12px;
+    border-radius: 16px;
     border-width: 2px;
     border-color: rgb(198, 164, 79);
 }
@@ -1896,18 +1955,18 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .gameplay-hud-action-btn {
-    height: 44px;
-    min-width: 90px;
-    margin-left: 6px;
-    margin-right: 6px;
-    font-size: 16px;
+    height: 73px;
+    min-width: 140px;
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 31px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
-    border-radius: 10px;
+    border-radius: 13px;
     border-width: 2px;
 }
 
@@ -1933,10 +1992,10 @@
 
 .gameplay-hud-supply-label,
 .gameplay-hud-doubles-label {
-    font-size: 12px;
+    font-size: 31px;
     color: rgba(255, 255, 255, 0.8);
     -unity-text-align: middle-center;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
 /* Landlord / news feed section (UI Toolkit) - fixed strip at bottom of screen, does not overlay center HUD */
@@ -1946,13 +2005,13 @@
     right: 0;
     bottom: 0;
     height: 36%;
-    min-height: 300px;
+    min-height: 390px;
     max-height: 45%;
     flex-direction: column;
     background-color: rgba(20, 35, 25, 0.94);
     border-top-width: 2px;
     border-top-color: rgb(198, 164, 79);
-    padding: 10px;
+    padding: 13px;
     flex-shrink: 0;
 }
 
@@ -1972,27 +2031,27 @@
 .news-feed-item {
     flex-direction: row;
     align-items: flex-start;
-    padding: 10px 12px;
-    margin-bottom: 6px;
-    margin-left: 4px;
-    margin-right: 4px;
+    padding: 13px 16px;
+    margin-bottom: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
     background-color: rgba(25, 45, 30, 0.95);
-    border-radius: 12px;
+    border-radius: 16px;
     border-width: 1px;
     border-color: rgba(198, 164, 79, 0.4);
-    min-height: 52px;
+    min-height: 68px;
     flex-shrink: 0;
     width: 100%;
     box-sizing: border-box;
 }
 
 .news-item-avatar {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
     border-radius: 50%;
-    margin-right: 12px;
+    margin-right: 16px;
     flex-shrink: 0;
     border-width: 2px;
     border-color: rgba(255, 255, 255, 0.5);
@@ -2007,18 +2066,18 @@
 }
 
 .news-item-username {
-    font-size: 26px;
+    font-size: 39px;
     -unity-font-style: bold;
     color: rgb(255, 215, 0);
     -unity-text-align: middle-left;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .news-item-message {
-    font-size: 26px;
+    font-size: 39px;
     -unity-font-style: bold;
     color: rgba(255, 255, 255, 0.92);
     -unity-text-align: middle-left;
@@ -2036,12 +2095,12 @@
     right: 0;
     bottom: auto;
     height: 20%;
-    min-height: 150px;
+    min-height: 195px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 6px 10px;
-    gap: 6px;
+    padding: 8px 13px;
+    gap: 8px;
     overflow: hidden;
     background-color: rgba(12, 38, 24, 0.35);
     border-top-width: 2px;
@@ -2051,10 +2110,10 @@
 }
 
 .gameplay-hud-button-bar {
-    min-height: 48px;
-    padding: 6px 8px;
-    gap: 8px;
-    border-radius: 14px;
+    min-height: 98px;
+    padding: 14px 18px;
+    gap: 16px;
+    border-radius: 20px;
     background-color: rgba(20, 70, 40, 0.55);
     border-width: 1px;
     border-color: rgba(198, 164, 79, 0.7);
@@ -2062,9 +2121,9 @@
 }
 
 .gameplay-hud-button-bar .gameplay-hud-action-btn {
-    min-width: 122px;
-    height: 40px;
-    font-size: 14px;
+    min-width: 220px;
+    height: 78px;
+    font-size: 40px;
     margin-left: 0;
     margin-right: 0;
 }
@@ -2072,16 +2131,17 @@
 .gameplay-hud-status-row {
     flex-direction: row;
     align-items: center;
-    gap: 10px;
-    padding: 4px 10px;
-    border-radius: 12px;
+    gap: 16px;
+    padding: 12px 18px;
+    min-height: 56px;
+    border-radius: 18px;
     background-color: rgba(12, 38, 24, 0.72);
     border-width: 1px;
     border-color: rgba(198, 164, 79, 0.4);
 }
 
 .gameplay-hud-status-label {
-    font-size: 12px;
+    font-size: 40px;
     color: rgba(242, 248, 242, 0.9);
     -unity-text-align: middle-left;
 }
@@ -2102,11 +2162,11 @@
 
 .gameplay-hud-profiles-row {
     background-color: rgba(18, 55, 28, 0.45);
-    border-radius: 14px;
+    border-radius: 18px;
     border-width: 1px;
     border-color: rgba(198, 164, 79, 0.45);
-    padding: 8px 10px;
-    gap: 8px;
+    padding: 10px 13px;
+    gap: 10px;
 }
 
 .gameplay-hud-profiles-row .gameplay-hud-player-panel {
@@ -2116,34 +2176,34 @@
     top: auto;
     bottom: auto;
     width: auto;
-    min-width: 172px;
-    max-width: 360px;
+    min-width: 224px;
+    max-width: 468px;
     flex: 1 1 0;
     background-color: rgba(18, 55, 28, 0.92);
     border-color: rgba(198, 164, 79, 0.95);
-    padding: 8px 10px;
-    border-radius: 12px;
-    min-height: 84px;
+    padding: 10px 13px;
+    border-radius: 16px;
+    min-height: 109px;
 }
 
 .gameplay-hud-profiles-row .gameplay-hud-avatar {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    min-height: 38px;
-    margin-right: 8px;
+    width: 57px;
+    height: 57px;
+    min-width: 57px;
+    min-height: 57px;
+    margin-right: 10px;
 }
 
 .gameplay-hud-profiles-row .gameplay-hud-player-name {
-    font-size: 14px;
+    font-size: 26px;
 }
 
 .gameplay-hud-profiles-row .gameplay-hud-player-title {
-    font-size: 12px;
+    font-size: 25px;
 }
 
 .gameplay-hud-profiles-row .gameplay-hud-player-money {
-    font-size: 14px;
+    font-size: 25px;
 }
 
 .gameplay-hud-player-top-row {
@@ -2152,21 +2212,21 @@
 
 .gameplay-hud-money-lane {
     min-height: 0;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
 /* Pinned perk mini-card on each player profile */
 .hud-perk-card-root {
     position: absolute;
-    right: 4px;
-    top: -20px;
-    min-width: 148px;
-    max-width: 220px;
-    min-height: 52px;
-    padding: 6px 8px;
+    right: 5px;
+    top: -26px;
+    min-width: 192px;
+    max-width: 286px;
+    min-height: 68px;
+    padding: 8px 10px;
     flex-direction: row;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: rgba(34, 22, 10, 0.96);
     border-width: 1px;
     border-color: rgba(226, 194, 106, 0.92);
@@ -2174,12 +2234,12 @@
 }
 
 .hud-perk-card-icon {
-    width: 26px;
-    height: 26px;
-    min-width: 26px;
-    min-height: 26px;
-    margin-right: 6px;
-    border-radius: 4px;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+    margin-right: 8px;
+    border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.14);
     -unity-background-scale-mode: scale-to-fit;
 }
@@ -2193,7 +2253,7 @@
 }
 
 .hud-perk-card-name {
-    font-size: 11px;
+    font-size: 14px;
     -unity-font-style: bold;
     color: rgb(255, 230, 145);
     white-space: nowrap;
@@ -2204,52 +2264,52 @@
 
 .hud-perk-card-uses {
     margin-top: 1px;
-    font-size: 10px;
+    font-size: 13px;
     color: rgba(245, 245, 245, 0.9);
     white-space: nowrap;
 }
 
 .gameplay-hud-roll-floating {
     position: absolute;
-    right: 18px;
-    bottom: 10px;
+    right: 23px;
+    bottom: 13px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    border-radius: 12px;
+    padding: 13px;
+    border-radius: 16px;
     background-color: rgba(10, 35, 22, 0.7);
     border-width: 1px;
     border-color: rgba(198, 164, 79, 0.7);
-    min-width: 150px;
+    min-width: 195px;
 }
 
 .gameplay-hud-roll-floating .gameplay-hud-dice-label {
-    margin-bottom: 6px;
-    font-size: 18px;
+    margin-bottom: 8px;
+    font-size: 36px;
 }
 
 .gameplay-hud-roll-floating .gameplay-hud-roll-btn {
-    min-width: 140px;
-    height: 48px;
+    min-width: 218px;
+    height: 73px;
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 36px;
 }
 
 .gameplay-hud-feed-section {
-    left: 12px;
-    right: 12px;
+    left: 16px;
+    right: 16px;
     top: 70%;
-    bottom: 6px;
+    bottom: 8px;
     height: auto;
-    min-height: 160px;
+    min-height: 208px;
     max-height: none;
     background-color: rgba(10, 28, 20, 0.9);
     border-top-width: 0;
     border-width: 1px;
     border-color: rgba(198, 164, 79, 0.6);
-    border-radius: 14px;
-    padding: 8px;
+    border-radius: 18px;
+    padding: 10px;
 }
 
 .gameplay-hud-feed-scroll {
@@ -2262,19 +2322,21 @@
 }
 
 .news-item-username {
-    font-size: 16px;
+    font-size: 26px;
     color: rgb(255, 224, 122);
 }
 
 .news-item-message {
-    font-size: 14px;
+    font-size: 27px;
     color: rgba(245, 250, 245, 0.96);
     -unity-font-style: normal;
+    white-space: normal;
+    overflow: visible;
 }
 
 .gameplay-hud-log-button-row {
     position: absolute;
-    right: 16px;
+    right: 21px;
     top: 84%;
     z-index: 10;
     flex-direction: row;
@@ -2283,8 +2345,9 @@
 }
 
 .gameplay-hud-log-button {
-    min-width: 132px;
-    height: 40px;
+    min-width: 172px;
+    height: 57px;
+    font-size: 29px;
     background-color: rgb(28, 110, 56);
     color: white;
 }
@@ -2303,14 +2366,14 @@
 
 .gameplay-hud-log-panel {
     width: 88%;
-    max-width: 980px;
+    max-width: 1274px;
     height: 76%;
-    max-height: 760px;
+    max-height: 988px;
     background-color: rgb(15, 34, 24);
     border-width: 2px;
     border-color: rgb(198, 164, 79);
-    border-radius: 14px;
-    padding: 14px;
+    border-radius: 18px;
+    padding: 18px;
     flex-direction: column;
 }
 
@@ -2318,11 +2381,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
 }
 
 .gameplay-hud-log-title {
-    font-size: 22px;
+    font-size: 39px;
     -unity-font-style: bold;
     color: rgb(246, 250, 246);
 }
@@ -2330,12 +2393,13 @@
 .gameplay-hud-log-actions {
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .gameplay-hud-log-action-btn {
-    min-width: 90px;
-    height: 36px;
+    min-width: 130px;
+    height: 57px;
+    font-size: 29px;
     background-color: rgb(31, 98, 53);
     color: rgb(242, 247, 242);
     border-width: 1px;
@@ -2348,39 +2412,42 @@
 
 .gameplay-hud-log-scroll {
     flex-grow: 1;
-    min-height: 200px;
+    min-height: 260px;
 }
 
 .gameplay-hud-log-scroll .unity-label {
+    font-size: 23px;
     color: rgb(236, 244, 236);
+    white-space: normal;
+    overflow: visible;
 }
 
 /* ========== Scrollbar Themes (HUD/feed/log) ========== */
 /* Default active theme: dark emerald + gold accent (blends with current dark skin) */
 .gameplay-hud-feed-scroll .unity-scroll-view__vertical-scroller,
 .gameplay-hud-log-scroll .unity-scroll-view__vertical-scroller {
-    width: 12px;
-    min-width: 12px;
+    width: 16px;
+    min-width: 16px;
     background-color: rgba(8, 22, 16, 0.78);
     border-left-width: 1px;
     border-left-color: rgba(198, 164, 79, 0.35);
-    border-radius: 8px;
-    margin-left: 6px;
+    border-radius: 10px;
+    margin-left: 8px;
 }
 
 .gameplay-hud-feed-scroll .unity-base-slider__tracker,
 .gameplay-hud-log-scroll .unity-base-slider__tracker {
     background-color: rgba(22, 62, 40, 0.85);
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .gameplay-hud-feed-scroll .unity-base-slider__dragger,
 .gameplay-hud-log-scroll .unity-base-slider__dragger {
     background-color: rgba(198, 164, 79, 0.96);
-    border-radius: 8px;
+    border-radius: 10px;
     border-width: 1px;
     border-color: rgba(255, 225, 145, 0.95);
-    min-height: 34px;
+    min-height: 44px;
 }
 
 .gameplay-hud-feed-scroll .unity-base-slider__dragger:hover,
@@ -2448,10 +2515,10 @@
 
 .pm-card {
     width: 48%;
-    min-width: 300px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
+    min-width: 320px;
+    margin-right: 12px;
+    margin-bottom: 14px;
+    padding: 14px;
     border-radius: 12px;
     border-width: 2px;
     border-color: rgba(198, 164, 79, 0.9);
@@ -2459,7 +2526,8 @@
 }
 
 .pm-card-title {
-    font-size: 22px;
+    font-size: 20px;
+    min-height: 28px;
     color: rgb(255, 248, 227);
     -unity-font-style: bold;
     -unity-text-align: middle-left;
@@ -2467,25 +2535,29 @@
 
 .pm-card-subtitle {
     margin-top: 4px;
-    margin-bottom: 8px;
-    font-size: 15px;
+    margin-bottom: 10px;
+    font-size: 17px;
     color: rgb(194, 210, 221);
     -unity-text-align: middle-left;
+    white-space: normal;
 }
 
 .pm-actions {
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     align-items: flex-start;
+    gap: 8px;
 }
 
 .pm-action-item {
-    width: 24%;
+    width: 48%;
+    min-width: 140px;
 }
 
 .pm-action-button {
-    height: 102px;
-    padding: 4px;
+    height: 110px;
+    padding: 6px;
     border-radius: 10px;
     border-width: 2px;
     border-color: rgba(138, 157, 170, 0.85);
@@ -2496,17 +2568,26 @@
 }
 
 .pm-action-icon {
-    width: 26px;
-    height: 26px;
-    border-radius: 6px;
-    border-width: 2px;
-    border-color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    bottom: -8px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 8px;
+    border-width: 0;
+    border-color: transparent;
     background-color: rgba(255, 255, 255, 0.18);
-    margin-bottom: 3px;
+    margin-bottom: 4px;
+    margin-top: 2px;
+    padding-top: 2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .pm-action-title {
-    font-size: 13px;
+    font-size: 16px;
     -unity-font-style: bold;
     color: rgb(246, 249, 252);
     -unity-text-align: middle-center;
@@ -2514,7 +2595,7 @@
 
 .pm-action-cost {
     margin-top: 2px;
-    font-size: 12px;
+    font-size: 16px;
     color: rgb(220, 228, 236);
     -unity-text-align: middle-center;
 }
@@ -2574,7 +2655,7 @@
 }
 
 .behavior-meta-line {
-    font-size: 14px;
+    font-size: 17px;
     color: rgba(255, 255, 255, 0.88);
 }
 
@@ -2634,18 +2715,18 @@
     border-radius: 10px;
     background-color: rgba(14, 89, 155, 0.75);
     color: #ffffff;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .behavior-card-counter {
     margin-top: 5px;
-    font-size: 12px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.84);
 }
 
 .behavior-empty {
     color: rgba(255, 255, 255, 0.72);
-    font-size: 13px;
+    font-size: 16px;
     margin-bottom: 8px;
 }
 
@@ -2692,7 +2773,7 @@
 .char-setup-perks,
 .char-setup-faults {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 13px;
+    font-size: 16px;
     margin-bottom: 3px;
 }
 
@@ -2705,7 +2786,7 @@
 .char-setup-timing-label {
     min-width: 110px;
     color: rgba(255, 255, 255, 0.9);
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .char-setup-timing-dropdown {
@@ -2731,6 +2812,12 @@
     padding-top: 200px;
 }
 
+/* Manage Properties panel: position lower so it doesn't cover the board */
+.property-manager-overlay {
+    padding-top: 12%;
+    justify-content: flex-start;
+}
+
 .popup-overlay-blocker {
     position: absolute;
     left: 0;
@@ -2740,6 +2827,37 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.001);
+}
+
+/* Rent payment panel: card-panel size and style */
+.rent-payment-panel-card-style {
+    max-width: 92%;
+}
+.rent-payment-header {
+    width: 90%;
+}
+.rent-payment-message {
+    color: rgb(240, 240, 240);
+}
+.rent-payment-details {
+    color: rgb(220, 220, 220);
+    white-space: normal;
+    overflow: visible;
+}
+.rent-payment-message {
+    white-space: normal;
+    overflow: visible;
+}
+.rent-payment-ok-btn {
+    min-height: 56px;
+    min-width: 200px;
+}
+
+/* Player statistics: large tappable CLOSE button */
+#StatisticsCloseButton {
+    min-height: 56px;
+    min-width: 220px;
+    font-size: 22px;
 }
 
 .popup-shell {
@@ -2762,6 +2880,29 @@
     align-self: center;
 }
 
+.popup-body Label,
+.popup-body .unity-label {
+    white-space: normal;
+    overflow: visible;
+}
+
+/* Settings panel: font size button selected state */
+.settings-font-btn.settings-font-selected {
+    background-color: rgba(198, 164, 79, 0.5);
+    border-width: 2px;
+    border-color: rgb(218, 184, 99);
+}
+
+.monopoly-toggle .unity-toggle__input {
+    min-width: 44px;
+    min-height: 24px;
+}
+
+.monopoly-toggle .unity-label {
+    font-size: 18px;
+    color: rgb(255, 248, 227);
+}
+
 .popup-footer {
     width: 90%;
     align-self: center;
@@ -2774,6 +2915,59 @@
 
 .popup-body-text {
     font-size: 20px;
+}
+
+/* Trade panel: money input visibility (dark bg, white text, larger font) */
+.trade-money-field .unity-base-field__input,
+.trade-money-field .unity-integer-field__input {
+    background-color: rgba(15, 45, 28, 0.98);
+    border-width: 2px;
+    border-color: rgba(198, 164, 79, 0.6);
+    border-radius: 6px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    -unity-font-style: bold;
+    min-height: 44px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.trade-money-field .unity-label {
+    color: rgb(238, 220, 180);
+    font-size: 17px;
+    -unity-font-style: bold;
+}
+
+.trade-view-board-btn {
+    min-width: 120px;
+}
+
+.trade-target-btn {
+    min-width: 100px;
+    font-size: 17px;
+}
+
+.trade-target-btn.selected {
+    border-color: rgb(238, 200, 93);
+    border-width: 3px;
+    background-color: rgba(40, 90, 50, 0.95);
+}
+
+/* Trade panel: compact action buttons so VIEW BOARD, OFFER, CANCEL fit on one row */
+#TradeActionButtons .monopoly-btn,
+#TradeActionButtons .trade-view-board-btn {
+    min-width: 100px;
+    height: 52px;
+    font-size: 17px;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+#TradeResponseButtons .monopoly-btn {
+    min-width: 100px;
+    height: 52px;
+    font-size: 17px;
+    flex-grow: 0;
+    flex-shrink: 1;
 }
 
 .auction-header-title-hidden {
@@ -2859,7 +3053,7 @@
 }
 
 .profile-details-line {
-    font-size: 14px;
+    font-size: 17px;
     -unity-font-style: bold;
     color: #ffffff;
     white-space: normal;
@@ -2867,7 +3061,7 @@
 }
 
 .profile-backstory {
-    font-size: 14px;
+    font-size: 17px;
     color: rgba(255, 255, 255, 0.72);
     white-space: normal;
     overflow: hidden;
