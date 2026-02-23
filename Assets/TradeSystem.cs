@@ -14,14 +14,19 @@ public class TradeSystem : MonoBehaviour
     
     [Tooltip("Reference to UIDocumentManager for UI access")]
     public UIDocumentManager uiManager;
+
+[Header("UGUI Trade Panel")]
+public bool useUGUITradePanel = true;
+public TradePanelUGUI tradePanelUGUI;
+public TradePanelUITKController tradePanelUITK;
     
     [Header("Trade Settings")]
     [Tooltip("Minimum trade amount (to prevent accidental trades)")]
     public int minTradeAmount = 1000;
     
     // Current trade state
-    private Player initiatingPlayer;
-    private Player targetPlayer;
+private Player initiatingPlayer;
+private Player targetPlayer;
     private List<Property> player1OfferingProperties = new List<Property>();
     private List<Property> player2OfferingProperties = new List<Property>();
     private List<PerkCardInstance> player1OfferingCards = new List<PerkCardInstance>();
@@ -30,7 +35,21 @@ public class TradeSystem : MonoBehaviour
     private int player2OfferingMoney = 0;
     private bool tradeInProgress = false;
     private List<Player> availableTradeTargets = new List<Player>();
-    private bool _tradeViewBoardMode = false;
+private bool _tradeViewBoardMode = false;
+
+public Player InitiatingPlayer => initiatingPlayer;
+public Player TargetPlayer => targetPlayer;
+public List<Property> Player1OfferingProperties => player1OfferingProperties;
+public List<Property> Player2OfferingProperties => player2OfferingProperties;
+public List<PerkCardInstance> Player1OfferingCards => player1OfferingCards;
+public List<PerkCardInstance> Player2OfferingCards => player2OfferingCards;
+
+public bool HasAnyOffer()
+{
+    return player1OfferingMoney > 0 || player2OfferingMoney > 0 ||
+           player1OfferingProperties.Count > 0 || player2OfferingProperties.Count > 0 ||
+           player1OfferingCards.Count > 0 || player2OfferingCards.Count > 0;
+}
 
     private class PendingTrade
     {
@@ -60,6 +79,15 @@ public class TradeSystem : MonoBehaviour
         
         if (uiManager == null)
             uiManager = FindFirstObjectByType<UIDocumentManager>();
+
+        if (useUGUITradePanel && tradePanelUGUI == null)
+            tradePanelUGUI = FindFirstObjectByType<TradePanelUGUI>();
+        
+        if (!useUGUITradePanel && tradePanelUITK == null)
+            tradePanelUITK = FindFirstObjectByType<TradePanelUITKController>();
+        
+        if (tradePanelUITK != null && uiManager != null)
+            tradePanelUITK.Bind(uiManager, this);
         
         InitializeTradeUI();
     }
@@ -100,30 +128,13 @@ public class TradeSystem : MonoBehaviour
         
         if (uiManager != null && uiManager.TradeShowBoardButton != null)
         {
-            uiManager.TradeShowBoardButton.clicked -= OnShowBoardClicked;
-            uiManager.TradeShowBoardButton.clicked += OnShowBoardClicked;
+            uiManager.TradeShowBoardButton.clicked -= ResetTradeOffers;
+            uiManager.TradeShowBoardButton.clicked += ResetTradeOffers;
         }
         
         // Target player selection is done via TradeTargetButtons (name buttons) in PopulateTradeTargets()
 
-        // Money fields (offer/expect)
-        if (uiManager != null && uiManager.Player1MoneyField != null)
-        {
-            uiManager.Player1MoneyField.RegisterValueChangedCallback(evt => 
-            {
-                if (tradeInProgress && initiatingPlayer != null)
-                    SetMoneyOffer(evt.newValue, true);
-            });
-        }
-        
-        if (uiManager != null && uiManager.Player2MoneyField != null)
-        {
-            uiManager.Player2MoneyField.RegisterValueChangedCallback(evt => 
-            {
-                if (tradeInProgress && targetPlayer != null)
-                    SetMoneyOffer(evt.newValue, false);
-            });
-        }
+        // Money fields are handled by TradePanelUITKController for UITK panel.
     }
     
     /// <summary>
@@ -200,7 +211,7 @@ public class TradeSystem : MonoBehaviour
         player2OfferingCards.Clear();
         player1OfferingMoney = 0;
         player2OfferingMoney = 0;
-        List<Property> aiTradeable = GetTradeableProperties(aiInitiator);
+        List<Property> aiTradeable = GetTradeablePropertiesPublic(aiInitiator);
         if (aiTradeable.Count == 0) return;
         Property prop = aiTradeable[Random.Range(0, aiTradeable.Count)];
         player1OfferingProperties.Add(prop);
@@ -229,9 +240,21 @@ public class TradeSystem : MonoBehaviour
         }
 
         var buttonsContainer = uiManager != null ? uiManager.TradeTargetButtons : null;
-        if (buttonsContainer == null) return;
+        if (buttonsContainer == null)
+        {
+            if (useUGUITradePanel)
+            {
+                if (targetPlayer == null && availableTradeTargets.Count > 0)
+                    targetPlayer = availableTradeTargets[0];
+                UpdateTradeUI();
+            }
+            return;
+        }
 
         buttonsContainer.Clear();
+
+        if (useUGUITradePanel && targetPlayer == null && availableTradeTargets.Count > 0)
+            targetPlayer = availableTradeTargets[0];
 
         // If only one target, auto-select and show single button
         if (availableTradeTargets.Count == 1)
@@ -402,6 +425,7 @@ public class TradeSystem : MonoBehaviour
     public void ConfirmTrade()
     {
         if (!tradeInProgress) return;
+        if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick();
         
         // Validate trade
         if (player1OfferingProperties.Count == 0 && player2OfferingProperties.Count == 0 && 
@@ -473,6 +497,7 @@ public class TradeSystem : MonoBehaviour
     public void AcceptTrade()
     {
         if (!tradeInProgress) return;
+        if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick();
         
         Debug.Log($"=== TRADE ACCEPTED ===");
         Debug.Log($"{initiatingPlayer.playerName} receives:");
@@ -535,8 +560,10 @@ public class TradeSystem : MonoBehaviour
     public void RejectTrade()
     {
         if (!tradeInProgress) return;
+        if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick();
         
         Debug.Log($"Trade rejected by {targetPlayer.playerName}");
+        if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayTradeFailed();
         EndTrade();
     }
     
@@ -546,8 +573,10 @@ public class TradeSystem : MonoBehaviour
     public void CancelTrade()
     {
         if (!tradeInProgress) return;
+        if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick();
         
         Debug.Log($"Trade cancelled by {initiatingPlayer.playerName}");
+        if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayTradeFailed();
         EndTrade();
     }
     
@@ -633,6 +662,13 @@ public class TradeSystem : MonoBehaviour
     
     void ShowTradeUI()
     {
+        if (useUGUITradePanel && tradePanelUGUI != null)
+        {
+            tradePanelUGUI.Bind(this);
+            tradePanelUGUI.Show();
+            UpdateTradeUI();
+            return;
+        }
         if (uiManager == null) return;
         
         _tradeViewBoardMode = false;
@@ -660,13 +696,34 @@ public class TradeSystem : MonoBehaviour
     
     void HideTradeUI()
     {
+        if (useUGUITradePanel && tradePanelUGUI != null)
+        {
+            tradePanelUGUI.Hide();
+            return;
+        }
         if (uiManager == null) return;
         uiManager.HideTradePanel();
     }
     
     void UpdateTradeUI()
     {
-        if (uiManager == null || !tradeInProgress) return;
+        if (!tradeInProgress) return;
+
+        if (useUGUITradePanel && tradePanelUGUI != null)
+        {
+            bool hasTargetUGUI = targetPlayer != null;
+            bool hasOfferUGUI = player1OfferingMoney > 0 || player1OfferingProperties.Count > 0 || player1OfferingCards.Count > 0;
+            tradePanelUGUI.Refresh(initiatingPlayer, targetPlayer, hasTargetUGUI, hasOfferUGUI, player1OfferingMoney, player2OfferingMoney);
+            return;
+        }
+
+        if (uiManager == null) return;
+
+        if (tradePanelUITK != null)
+        {
+            tradePanelUITK.Refresh();
+            return;
+        }
 
         // Sync selected state on trade target name buttons
         if (uiManager.TradeTargetButtons != null)
@@ -692,30 +749,7 @@ public class TradeSystem : MonoBehaviour
         bool hasTarget = targetPlayer != null;
         bool hasOffer = player1OfferingMoney > 0 || player1OfferingProperties.Count > 0 || player1OfferingCards.Count > 0;
 
-        // Update property lists (only when target is selected)
-        if (hasTarget)
-        {
-            UpdatePropertyList(uiManager.Player1PropertiesList, player1OfferingProperties, initiatingPlayer, true);
-            UpdatePropertyList(uiManager.Player2PropertiesList, player2OfferingProperties, targetPlayer, false);
-        }
-        else
-        {
-            if (uiManager.Player1PropertiesList != null) uiManager.Player1PropertiesList.Clear();
-            if (uiManager.Player2PropertiesList != null) uiManager.Player2PropertiesList.Clear();
-        }
-
-        // Update money fields
-        if (uiManager.Player1MoneyField != null)
-        {
-            uiManager.Player1MoneyField.value = player1OfferingMoney;
-            uiManager.Player1MoneyField.SetEnabled(hasTarget);
-        }
-
-        if (uiManager.Player2MoneyField != null)
-        {
-            uiManager.Player2MoneyField.value = player2OfferingMoney;
-            uiManager.Player2MoneyField.SetEnabled(hasTarget);
-        }
+        // UITK panel handles paged lists + money fields.
 
         // Status text
         if (uiManager.TradeStatusText != null)
@@ -741,17 +775,7 @@ public class TradeSystem : MonoBehaviour
         if (uiManager.TradeOfferButton != null)
             uiManager.TradeOfferButton.SetEnabled(hasTarget && hasOffer);
 
-        // Update card lists
-        if (hasTarget)
-        {
-            UpdateCardList(uiManager.Player1CardsList, player1OfferingCards, initiatingPlayer, true);
-            UpdateCardList(uiManager.Player2CardsList, player2OfferingCards, targetPlayer, false);
-        }
-        else
-        {
-            if (uiManager.Player1CardsList != null) uiManager.Player1CardsList.Clear();
-            if (uiManager.Player2CardsList != null) uiManager.Player2CardsList.Clear();
-        }
+        // UITK panel handles paged lists + cards.
     }
     
     
@@ -760,24 +784,61 @@ public class TradeSystem : MonoBehaviour
     /// </summary>
     Color GetPropertyHeaderColor(Property prop)
     {
-        // Color based on tier label
+        if (prop == null) return new Color(0.5f, 0.5f, 0.8f);
+
+        string groupId = NormalizeGroupId(prop.groupId);
+        switch (groupId)
+        {
+            case "G1":
+            case "BROWN":
+                return new Color32(112, 69, 44, 255);
+            case "G2":
+            case "LIGHTBLUE":
+                return new Color32(149, 207, 226, 255);
+            case "G3":
+            case "PINK":
+                return new Color32(218, 135, 196, 255);
+            case "G4":
+            case "ORANGE":
+                return new Color32(244, 146, 64, 255);
+            case "G5":
+            case "RED":
+                return new Color32(215, 62, 51, 255);
+            case "G6":
+            case "YELLOW":
+                return new Color32(245, 214, 74, 255);
+            case "G7":
+            case "GREEN":
+                return new Color32(74, 157, 95, 255);
+            case "G8":
+            case "BLUE":
+            case "DARKBLUE":
+                return new Color32(60, 90, 186, 255);
+        }
+
+        // Fallback to tier label when groupId is unknown
         if (!string.IsNullOrEmpty(prop.tierLabel))
         {
             switch (prop.tierLabel.ToLower())
             {
                 case "satellite":
-                    return new Color(0.8f, 0.2f, 0.2f); // Red
+                    return new Color32(215, 62, 51, 255); // Red
                 case "mid":
-                    return new Color(1f, 0.84f, 0f); // Yellow/Gold
+                    return new Color32(245, 214, 74, 255); // Yellow
                 case "prime":
-                    return new Color(0.2f, 0.6f, 0.2f); // Green
+                    return new Color32(74, 157, 95, 255); // Green
                 default:
-                    return new Color(0.3f, 0.3f, 0.8f); // Blue
+                    return new Color32(60, 90, 186, 255); // Blue
             }
         }
-        
-        // Default colors based on group
-        return new Color(0.5f, 0.5f, 0.8f); // Light blue
+
+        return new Color(0.5f, 0.5f, 0.8f);
+    }
+
+    static string NormalizeGroupId(string groupId)
+    {
+        if (string.IsNullOrWhiteSpace(groupId)) return "";
+        return groupId.Trim().ToUpperInvariant().Replace(" ", "").Replace("_", "").Replace("-", "");
     }
     
     /// <summary>
@@ -847,12 +908,46 @@ public class TradeSystem : MonoBehaviour
     /// </summary>
     void OnShowBoardClicked()
     {
-        if (uiManager == null) return;
+        if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick();
         _tradeViewBoardMode = !_tradeViewBoardMode;
+
+        if (useUGUITradePanel && tradePanelUGUI != null)
+        {
+            tradePanelUGUI.ToggleBoardView(_tradeViewBoardMode);
+            return;
+        }
+
+        if (uiManager == null) return;
         if (uiManager.TradePanel != null)
             uiManager.TradePanel.style.opacity = _tradeViewBoardMode ? 0.7f : 1f;
         if (uiManager.TradeShowBoardButton != null)
             uiManager.TradeShowBoardButton.text = _tradeViewBoardMode ? "BACK TO TRADE" : "VIEW BOARD";
+    }
+
+    public void OnShowBoardClickedPublic()
+    {
+        OnShowBoardClicked();
+    }
+
+    public void CycleTradeTargetPublic()
+    {
+        CycleTradeTarget();
+    }
+
+    void CycleTradeTarget()
+    {
+        if (availableTradeTargets == null || availableTradeTargets.Count == 0) return;
+        if (targetPlayer == null)
+        {
+            targetPlayer = availableTradeTargets[0];
+        }
+        else
+        {
+            int idx = availableTradeTargets.IndexOf(targetPlayer);
+            idx = (idx + 1) % availableTradeTargets.Count;
+            targetPlayer = availableTradeTargets[idx];
+        }
+        UpdateTradeUI();
     }
     
     void UpdatePropertyList(ScrollView list, List<Property> offeringProperties, Player player, bool isInitiator)
@@ -974,6 +1069,11 @@ public class TradeSystem : MonoBehaviour
     
     void ShowTradeForAcceptance()
     {
+        if (useUGUITradePanel && tradePanelUGUI != null)
+        {
+            tradePanelUGUI.ShowForAcceptance(targetPlayer);
+            return;
+        }
         if (uiManager == null) return;
         
         if (uiManager.TradeOfferButton != null)
@@ -1004,30 +1104,100 @@ public class TradeSystem : MonoBehaviour
         UpdateTradeUI();
     }
     
-    /// <summary>
-    /// Get all properties owned by a player that can be traded.
-    /// </summary>
-    List<Property> GetTradeableProperties(Player player)
+    public bool IsPropertyOffered(Property prop, bool isInitiator)
     {
-        List<Property> properties = new List<Property>();
-        
-        if (player == null) return properties;
-        
+        if (prop == null) return false;
+        return isInitiator ? player1OfferingProperties.Contains(prop) : player2OfferingProperties.Contains(prop);
+    }
+
+    public void TogglePropertyOffer(Property prop, bool isInitiator)
+    {
+        if (prop == null) return;
+        if (isInitiator)
+        {
+            if (player1OfferingProperties.Contains(prop)) RemovePropertyFromOffer(prop, true);
+            else AddPropertyToOffer(prop, true);
+        }
+        else
+        {
+            if (player2OfferingProperties.Contains(prop)) RemovePropertyFromOffer(prop, false);
+            else AddPropertyToOffer(prop, false);
+        }
+        UpdateTradeUI();
+    }
+
+    public void ToggleCardOffer(PerkCardInstance card, bool isInitiator)
+    {
+        if (card == null) return;
+        if (isInitiator)
+        {
+            if (player1OfferingCards.Contains(card)) player1OfferingCards.Remove(card);
+            else player1OfferingCards.Add(card);
+        }
+        else
+        {
+            if (player2OfferingCards.Contains(card)) player2OfferingCards.Remove(card);
+            else player2OfferingCards.Add(card);
+        }
+        UpdateTradeUI();
+    }
+
+    public void ResetTradeOffers()
+    {
+        player1OfferingProperties.Clear();
+        player2OfferingProperties.Clear();
+        player1OfferingCards.Clear();
+        player2OfferingCards.Clear();
+        player1OfferingMoney = 0;
+        player2OfferingMoney = 0;
+        UpdateTradeUI();
+    }
+
+    public List<Property> GetTradeablePropertiesPublic(Player player)
+    {
+        var results = new List<Property>();
+        if (player == null) return results;
+
         TileInfo[] allTiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
         foreach (TileInfo tile in allTiles)
         {
-            if (tile.tileType == TileType.Property && 
-                tile.property != null && 
+            if (tile.tileType == TileType.Property &&
+                tile.property != null &&
                 tile.property.owner == player &&
                 (!tile.property.isMortgaged || player.HasCharacterEffect(CharacterEffectKeys.MarketTradeMortgagedAllowed)) &&
                 tile.property.houses == 0 &&
                 !tile.property.hasHotel)
             {
-                properties.Add(tile.property);
+                results.Add(tile.property);
             }
         }
-        
-        return properties;
+        return results;
+    }
+
+    public Color GetPropertyGroupColorPublic(Property prop)
+    {
+        return GetPropertyHeaderColor(prop);
+    }
+
+    public void SetMoneyOfferPublic(int amount, bool isInitiator)
+    {
+        SetMoneyOffer(amount, isInitiator);
+    }
+
+    public int GetOfferMoney(bool isInitiator)
+    {
+        return isInitiator ? player1OfferingMoney : player2OfferingMoney;
+    }
+
+    public TileInfo FindTileForProperty(Property prop)
+    {
+        if (prop == null) return null;
+        TileInfo[] allTiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        foreach (TileInfo t in allTiles)
+        {
+            if (t != null && t.property == prop) return t;
+        }
+        return null;
     }
 
     public void ProcessPendingTrades()
@@ -1142,7 +1312,10 @@ public class TradeSystem : MonoBehaviour
         }
         
         if (GameSoundManager.Instance != null)
+        {
             GameSoundManager.Instance.NotifyActivity();
+            GameSoundManager.Instance.PlayTradeSuccess();
+        }
     }
 
     bool ShouldDelayTrade()
