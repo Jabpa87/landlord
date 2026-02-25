@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 #if ENABLE_INPUT_SYSTEM
@@ -12,6 +13,26 @@ using UnityEngine.InputSystem;
 public class TileDetailsCardUI : MonoBehaviour
 {
     public static TileDetailsCardUI Instance { get; private set; }
+    public static TileDetailsCardUI GetOrFindInstance()
+    {
+        if (Instance != null) return Instance;
+
+        // Find inactive instances in loaded scenes (avoid prefab assets).
+        var all = Resources.FindObjectsOfTypeAll<TileDetailsCardUI>();
+        for (int i = 0; i < all.Length; i++)
+        {
+            var candidate = all[i];
+            if (candidate == null) continue;
+            var scene = candidate.gameObject.scene;
+            if (scene.IsValid() && scene.isLoaded)
+            {
+                Instance = candidate;
+                return Instance;
+            }
+        }
+
+        return null;
+    }
 
     [Header("Root")]
     public GameObject cardRoot;
@@ -74,7 +95,8 @@ public class TileDetailsCardUI : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
         if (cardRoot == null) cardRoot = gameObject;
         if (cardRect == null) cardRect = GetComponent<RectTransform>();
         if (propertyColorBar != null)
@@ -98,11 +120,11 @@ public class TileDetailsCardUI : MonoBehaviour
 
     void Start()
     {
-        Hide();
+        // Do not auto-hide here; the card may be shown during the same frame it initializes.
         if (closeButton != null)
         {
-            closeButton.onClick.RemoveListener(Hide);
-            closeButton.onClick.AddListener(Hide);
+            closeButton.onClick.RemoveListener(OnCloseClicked);
+            closeButton.onClick.AddListener(OnCloseClicked);
         }
     }
 
@@ -110,8 +132,23 @@ public class TileDetailsCardUI : MonoBehaviour
     {
         if (tile == null) return;
         _currentTile = tile;
-        if (cardRoot != null) cardRoot.SetActive(true);
+        if (cardRoot == null) cardRoot = gameObject;
+        if (cardRoot != null)
+        {
+            // Ensure all parents are active so the card is visible at runtime.
+            Transform t = cardRoot.transform;
+            while (t != null)
+            {
+                if (!t.gameObject.activeSelf)
+                    t.gameObject.SetActive(true);
+                t = t.parent;
+            }
+            Canvas c = cardRoot.GetComponentInParent<Canvas>(true);
+            if (c != null) c.enabled = true;
+            cardRoot.SetActive(true);
+        }
         _ignoreOutsideClicksUntilFrame = Time.frameCount + 1;
+        Debug.Log($"[TileDetailsCardUI] Show called for {tile.name}. Root activeInHierarchy={cardRoot != null && cardRoot.activeInHierarchy}");
 
         if (tile.property == null)
         {
@@ -178,6 +215,13 @@ public class TileDetailsCardUI : MonoBehaviour
     public void Hide()
     {
         if (cardRoot != null) cardRoot.SetActive(false);
+        Debug.Log("[TileDetailsCardUI] Hide called.");
+    }
+
+    private void OnCloseClicked()
+    {
+        if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick();
+        Hide();
     }
 
     void OnApplicationFocus(bool hasFocus)

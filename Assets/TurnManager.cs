@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class TurnManager : MonoBehaviour
 {
@@ -73,6 +75,17 @@ public class TurnManager : MonoBehaviour
     public float aiDecisionDelay = 0.6f;
     [Tooltip("Max seconds to allow an AI turn before forcing end turn.")]
     public float aiMaxTurnDuration = 20f;
+    [Header("AI Strategy")]
+    [Tooltip("Minimum cash AI tries to keep after purchases/builds.")]
+    public int aiCashReserve = 200000;
+    [Tooltip("Minimum cash AI keeps when a buy completes a monopoly.")]
+    public int aiCashReserveForMonopoly = 100000;
+    [Tooltip("Minimum score required to buy a property (higher = more selective).")]
+    public float aiBuyScoreThreshold = 22f;
+    [Tooltip("Minimum rent-to-cost ROI (delta rent / build cost) to build on a monopoly.")]
+    public float aiBuildMinROI = 0.12f;
+    [Tooltip("Max builds per AI turn.")]
+    public int aiMaxBuildsPerTurn = 1;
     [Tooltip("If dice animation callback is not received within this time, use a fallback roll so the turn doesn't hang.")]
     public float diceCallbackTimeoutSeconds = 15f;
 
@@ -87,10 +100,31 @@ public class TurnManager : MonoBehaviour
     private Coroutine aiTurnRoutine;
     private Coroutine aiWatchdogRoutine;
     private float aiTurnStartTime;
+    private bool aiAwaitingBonusRoll = false;
+    private Player pendingDebtPlayer;
+    private Player pendingDebtCreditor;
+    private int pendingDebtAmount;
     private bool _diceRollProcessedForTurn = false;
     private int _activeDiceRollToken = 0;
     private Coroutine _diceFallbackRoutine;
     private bool _hasShownPreGameCharacterSetup;
+
+    public int CurrentPlayerIndex => currentPlayerIndex;
+
+    public void SetCurrentPlayerIndex(int index)
+    {
+        if (players == null || players.Count == 0) { currentPlayerIndex = 0; return; }
+        currentPlayerIndex = Mathf.Clamp(index, 0, players.Count - 1);
+    }
+
+    public void ResumeAfterLoad()
+    {
+        turnInProgress = false;
+        aiTurnInProgress = false;
+        aiAwaitingBonusRoll = false;
+        _diceRollProcessedForTurn = false;
+        StartTurn();
+    }
 
     void Start()
     {
@@ -206,6 +240,16 @@ public class TurnManager : MonoBehaviour
                 uiManager.WaitButton.clicked -= OnWaitInJailButtonClicked;
                 uiManager.WaitButton.clicked += OnWaitInJailButtonClicked;
             }
+
+            if (uiManager.TryGetJailPanelUGUI(out JailPanelUGUI jailPanelUGUI))
+            {
+                jailPanelUGUI.PayBailClicked -= OnPayBailButtonClicked;
+                jailPanelUGUI.PayBailClicked += OnPayBailButtonClicked;
+                jailPanelUGUI.UseCardClicked -= OnUseJailCardButtonClicked;
+                jailPanelUGUI.UseCardClicked += OnUseJailCardButtonClicked;
+                jailPanelUGUI.WaitClicked -= OnWaitInJailButtonClicked;
+                jailPanelUGUI.WaitClicked += OnWaitInJailButtonClicked;
+            }
             
             // Property panel buttons (BUY, SKIP) - handled by TurnManager to ensure current player is called
             if (uiManager.BuyButton != null)
@@ -218,6 +262,16 @@ public class TurnManager : MonoBehaviour
             {
                 uiManager.SkipButton.clicked -= OnSkipButtonClicked; // Remove if already connected
                 uiManager.SkipButton.clicked += OnSkipButtonClicked;
+            }
+
+            if (uiManager.TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI propertyPanelUGUI))
+            {
+                propertyPanelUGUI.BuyClicked -= OnBuyButtonClicked;
+                propertyPanelUGUI.BuyClicked += OnBuyButtonClicked;
+                propertyPanelUGUI.AuctionClicked -= OnAuctionButtonClicked;
+                propertyPanelUGUI.AuctionClicked += OnAuctionButtonClicked;
+                propertyPanelUGUI.SkipClicked -= OnSkipButtonClicked;
+                propertyPanelUGUI.SkipClicked += OnSkipButtonClicked;
             }
             
             // Manage Properties (opens panel)
@@ -335,8 +389,8 @@ public class TurnManager : MonoBehaviour
                 // Apply visual settings (color to SpriteRenderer)
                 players[i].ApplyVisualSettings();
                 
-                // Token scale: 60% of original size so tokens are not too big on the board
-                players[i].transform.localScale = new Vector3(0.08397443f, 0.08397443f, 0.3836679f);
+                // Token scale: reduce by 40% so tokens fit within tiles
+                players[i].transform.localScale = new Vector3(0.05038466f, 0.05038466f, 0.23020074f);
             }
         }
 
@@ -626,6 +680,11 @@ public class TurnManager : MonoBehaviour
             Debug.LogError($"[GameMechanics] AI should be taking its turn but did not. Current player: {p.playerName} (index {p.playerIndex}). Roll ignored - human cannot roll for AI.");
             return;
         }
+        if (p.isAI && aiAwaitingBonusRoll)
+        {
+            aiAwaitingBonusRoll = false;
+            aiTurnStartTime = Time.time;
+        }
 
         // If player is still resolving a UI choice, block rolling.
         if (p.IsAwaitingChoice)
@@ -636,6 +695,9 @@ public class TurnManager : MonoBehaviour
 
         if (GameSoundManager.Instance != null)
             GameSoundManager.Instance.NotifyActivity();
+
+        if (GameSoundManager.Instance != null)
+            GameSoundManager.Instance.PlayDiceRoll();
 
         turnInProgress = true;
         if (p.isAI)
@@ -717,6 +779,8 @@ public class TurnManager : MonoBehaviour
 
         int total = dice1 + dice2;
         bool isDoubles = (dice1 == dice2);
+        if (isDoubles && GameSoundManager.Instance != null)
+            GameSoundManager.Instance.PlayDoubles();
         
         // Handle doubles tracking
         if (isDoubles && !p.IsInJail)
@@ -742,6 +806,13 @@ public class TurnManager : MonoBehaviour
                     }
                     if (uiManager.RollButton != null)
                         uiManager.RollButton.Enabled = false;
+                }
+                if (p.isAI)
+                {
+                    aiAwaitingBonusRoll = false;
+                    // Ensure EndTurn runs for AI after jail-on-doubles.
+                    turnInProgress = true;
+                    EndTurn();
                 }
                 return;
             }
@@ -783,26 +854,31 @@ public class TurnManager : MonoBehaviour
             // Wait for auction to finish if AI declined to buy and started one (avoid overlap with trade)
             while (auctionSystem != null && auctionSystem.IsAuctionInProgress())
                 yield return null;
+            TryAIBuild(p);
             TransitionState(GameStateMachine.State.ResolvingTile);
         }
         else
         {
             TransitionState(GameStateMachine.State.AwaitingHumanDecision);
             // Wait until any property UI choice is completed (Buy/Skip/Build).
-            // Add timeout to prevent infinite waiting
-            float timeout = 30f; // 30 second timeout
+            // Guard against stuck UI: only force-exit if panel is no longer visible for a long time.
+            float timeout = 60f;
             float elapsed = 0f;
-            while (p.IsAwaitingChoice && elapsed < timeout)
+            while (p.IsAwaitingChoice)
             {
                 yield return null;
                 elapsed += Time.deltaTime;
-            }
-            
-            // Safety check: if still awaiting choice after timeout, force it to false
-            if (p.IsAwaitingChoice)
-            {
-                Debug.LogWarning($"DoMoveAndWait: Timeout reached while waiting for player choice. Forcing IsAwaitingChoice to false.");
-                p.IsAwaitingChoice = false;
+                if (elapsed >= timeout)
+                {
+                    if (!IsPropertyDecisionPanelVisible())
+                    {
+                        Debug.LogWarning("DoMoveAndWait: Timeout reached and property panel not visible. Forcing IsAwaitingChoice=false.");
+                        p.IsAwaitingChoice = false;
+                        break;
+                    }
+                    // Panel still visible, reset timer and keep waiting.
+                    elapsed = 0f;
+                }
             }
             TransitionState(GameStateMachine.State.ResolvingTile);
         }
@@ -812,19 +888,37 @@ public class TurnManager : MonoBehaviour
         {
             Debug.Log("Doubles! Roll again!");
             turnInProgress = false; // Allow another roll
+            TransitionState(GameStateMachine.State.AwaitingRoll);
+            TurnDebugState.InputEnabled = "Roll";
             
             // Re-enable roll button
             if (uiManager != null && uiManager.RollButton != null)
             {
-                uiManager.RollButton.SetEnabled(true);
+                uiManager.RollButton.Enabled = true;
+            }
+            if (uiManager != null)
+                uiManager.SetRollButtonVisible(true);
+
+            // Re-enable dice UI (primary input)
+            if (diceRoller != null)
+            {
+                diceRoller.SetActiveTurn(true);
+                diceRoller.ForceDiceVisible();
             }
             
             if (uiManager != null && uiManager.EndTurnButton != null)
             {
                 uiManager.EndTurnButton.Enabled = false;
             }
-            
-            // Don't end turn - player can roll again
+            if (uiManager != null)
+                RefreshHUDButtonsForCurrentPhase();
+            if (p.isAI)
+            {
+                aiAwaitingBonusRoll = true;
+                StartCoroutine(AIRollAgainAfterDoubles(p));
+                yield break;
+            }
+            // Human: don't end turn - player can roll again
             yield break;
         }
         
@@ -1003,6 +1097,7 @@ public class TurnManager : MonoBehaviour
         }
         StartTurn();
         TurnDebugState.LogTurnAction("EndTurnComplete", $"nextPlayer={GetCurrentPlayer()?.playerName}", setPhase: "AwaitRoll", setActivePlayer: GetCurrentPlayer()?.playerName ?? "null");
+        LocalSaveManager.Save(this);
     }
     
     // Move to next active (non-eliminated) player
@@ -1154,19 +1249,148 @@ public class TurnManager : MonoBehaviour
         }
         else
         {
-            // Player can pay by selling assets (for now, just eliminate them)
-            // TODO: In future, could add option to sell houses/properties to pay debt
+            // Player has assets: allow recovery path (mortgage/sell) before elimination.
             Debug.LogWarning($"{bankruptPlayer.playerName} has assets worth ₦{bankruptPlayer.GetNetWorth():N0} but can't pay immediately.");
-            Debug.LogWarning("For now, player is eliminated. Future: Add option to sell assets.");
-            bankruptPlayer.Eliminate(creditor);
-            UpdateAllPlayersUI();
-            
-            if (GetCurrentPlayer() == bankruptPlayer)
+            pendingDebtPlayer = bankruptPlayer;
+            pendingDebtCreditor = creditor;
+            pendingDebtAmount = debtAmount;
+            bankruptPlayer.IsAwaitingChoice = true;
+
+            if (bankruptPlayer.isAI)
             {
-                MoveToNextPlayer();
+                AutoLiquidateForDebt(bankruptPlayer, debtAmount);
+                if (TryResolvePendingDebt())
+                {
+                    return;
+                }
+                // If still not resolved, eliminate
+                bankruptPlayer.Eliminate(creditor);
+                UpdateAllPlayersUI();
+                if (GetCurrentPlayer() == bankruptPlayer) MoveToNextPlayer();
+                CheckWinCondition();
+                return;
             }
-            
-            CheckWinCondition();
+
+            if (uiManager != null)
+            {
+                uiManager.ShowChoiceCard(
+                    "Low Cash",
+                    $"You owe ₦{debtAmount:N0}. You still have assets. Do you want to declare bankruptcy or manage assets (sell/mortgage) to pay?",
+                    "DECLARE BANKRUPT",
+                    "MANAGE ASSETS",
+                    () =>
+                    {
+                        uiManager.HideCardPanel();
+                        bankruptPlayer.IsAwaitingChoice = false;
+                        bankruptPlayer.Eliminate(creditor);
+                        UpdateAllPlayersUI();
+                        if (GetCurrentPlayer() == bankruptPlayer) MoveToNextPlayer();
+                        CheckWinCondition();
+                    },
+                    () =>
+                    {
+                        uiManager.HideCardPanel();
+                        uiManager.OpenPropertyManagerPanel(null);
+                    }
+                );
+            }
+        }
+    }
+
+    public bool TryResolvePendingDebt()
+    {
+        if (pendingDebtPlayer == null || pendingDebtPlayer.IsEliminated) return false;
+        if (pendingDebtAmount <= 0) return false;
+
+        if (pendingDebtPlayer.Money >= pendingDebtAmount)
+        {
+            if (pendingDebtPlayer.TrySpend(pendingDebtAmount, "Debt payment"))
+            {
+                if (pendingDebtCreditor != null)
+                {
+                    pendingDebtCreditor.AddMoney(pendingDebtAmount, "Debt received");
+                }
+                else
+                {
+                    // Treat as tax/fee to bank (goes to Free Parking pool)
+                    freeParkingPool += pendingDebtAmount;
+                }
+
+                pendingDebtPlayer.IsAwaitingChoice = false;
+                pendingDebtPlayer = null;
+                pendingDebtCreditor = null;
+                pendingDebtAmount = 0;
+                if (uiManager != null)
+                {
+                    uiManager.HideBankruptcyPanel();
+                    uiManager.HideCardPanel();
+                }
+                UpdateAllPlayersUI();
+                return true;
+            }
+        }
+
+        // Still cannot pay; prompt again for humans
+        if (uiManager != null && pendingDebtPlayer != null && !pendingDebtPlayer.isAI)
+        {
+            uiManager.ShowChoiceCard(
+                "Still Owing",
+                $"You still owe ₦{pendingDebtAmount:N0}. Declare bankruptcy or manage assets?",
+                "DECLARE BANKRUPT",
+                "MANAGE ASSETS",
+                () =>
+                {
+                    uiManager.HideCardPanel();
+                    pendingDebtPlayer.IsAwaitingChoice = false;
+                    pendingDebtPlayer.Eliminate(pendingDebtCreditor);
+                    UpdateAllPlayersUI();
+                    if (GetCurrentPlayer() == pendingDebtPlayer) MoveToNextPlayer();
+                    CheckWinCondition();
+                },
+                () =>
+                {
+                    uiManager.HideCardPanel();
+                    uiManager.OpenPropertyManagerPanel(null);
+                }
+            );
+        }
+
+        return false;
+    }
+
+    void AutoLiquidateForDebt(Player p, int debtAmount)
+    {
+        if (p == null) return;
+        var owned = GetAllOwnedProperties(p);
+        if (owned.Count == 0) return;
+
+        // Sell buildings first
+        bool sold = true;
+        int safety = 0;
+        while (p.Money < debtAmount && sold && safety < 50)
+        {
+            sold = false;
+            foreach (Property prop in owned)
+            {
+                if (prop == null || prop.owner != p) continue;
+                if (prop.propertyType != PropertyType.Regular) continue;
+                if (prop.hasHotel || prop.houses > 0)
+                {
+                    p.ShowSellUI(prop);
+                    sold = true;
+                    if (p.Money >= debtAmount) break;
+                }
+            }
+            safety++;
+        }
+
+        // Mortgage properties
+        foreach (Property prop in owned)
+        {
+            if (p.Money >= debtAmount) break;
+            if (prop == null || prop.owner != p) continue;
+            if (prop.isMortgaged) continue;
+            p.MortgageProperty(prop);
         }
     }
     
@@ -1336,29 +1560,35 @@ public class TurnManager : MonoBehaviour
     {
         if (p == null || p.isAI) return;
         TransitionState(GameStateMachine.State.AwaitingHumanDecision);
-        if (uiManager != null)
-            uiManager.ShowJailPanel();
-        
-        if (uiManager != null && uiManager.JailStatusText != null)
+        string status = $"In Jail - Turn {p.TurnsInJail}/3\n";
+        if (p.TurnsInJail >= 3)
+            status += "Must pay bail!";
+        else
+            status += "Roll doubles to get out, or pay ₦50,000";
+
+        if (uiManager != null && uiManager.TryGetJailPanelUGUI(out JailPanelUGUI jailPanelUGUI))
         {
-            string status = $"In Jail - Turn {p.TurnsInJail}/3\n";
-            if (p.TurnsInJail >= 3)
-                status += "Must pay bail!";
-            else
-                status += "Roll doubles to get out, or pay ₦50,000";
-            
-            uiManager.JailStatusText.text = status;
+            jailPanelUGUI.Show(
+                p,
+                status,
+                p.CanAfford(p.jailBailCost),
+                p.HasGetOutOfJailFreeCard,
+                p.TurnsInJail < 3);
         }
-        
-        // Enable/disable buttons
-        if (uiManager != null)
+        else if (uiManager != null)
         {
+            uiManager.ShowJailPanel();
+
+            if (uiManager.JailStatusText != null)
+                uiManager.JailStatusText.text = status;
+
+            // Enable/disable buttons
             if (uiManager.PayBailButton != null)
                 uiManager.PayBailButton.SetEnabled(p.CanAfford(p.jailBailCost));
-            
+
             if (uiManager.UseCardButton != null)
                 uiManager.UseCardButton.SetEnabled(p.HasGetOutOfJailFreeCard);
-            
+
             if (uiManager.WaitButton != null)
                 uiManager.WaitButton.SetEnabled(p.TurnsInJail < 3); // Can only wait if not forced to pay
         }
@@ -1476,8 +1706,9 @@ public class TurnManager : MonoBehaviour
             return;
         }
         Player p = GetCurrentPlayer();
-        // Only handle click for the human player who is awaiting choice (avoids AI "buying" when human clicked)
-        if (p == null || p.isAI || !p.IsAwaitingChoice)
+        if (p == null || p.isAI) return;
+        // If player waited too long and IsAwaitingChoice was cleared, still allow if panel is visible.
+        if (!p.IsAwaitingChoice && !IsPropertyDecisionPanelVisible())
             return;
         p.BuyProperty();
     }
@@ -1490,9 +1721,33 @@ public class TurnManager : MonoBehaviour
             return;
         }
         Player p = GetCurrentPlayer();
-        if (p == null || p.isAI || !p.IsAwaitingChoice)
+        if (p == null || p.isAI) return;
+        if (!p.IsAwaitingChoice && !IsPropertyDecisionPanelVisible())
             return;
         p.SkipAction();
+    }
+
+    void OnAuctionButtonClicked()
+    {
+        // For now auction follows the same gameplay path as decline-to-buy.
+        // SkipAction closes panel and starts auction when appropriate.
+        OnSkipButtonClicked();
+    }
+
+    bool IsPropertyDecisionPanelVisible()
+    {
+        if (uiManager == null) return false;
+        if (uiManager.TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui))
+        {
+            if (ugui == null) return false;
+            GameObject root = ugui.panelRoot != null ? ugui.panelRoot : ugui.gameObject;
+            return root != null && root.activeInHierarchy;
+        }
+        if (uiManager.propertyPanelDocument != null && uiManager.propertyPanelDocument.rootVisualElement != null)
+        {
+            return uiManager.propertyPanelDocument.rootVisualElement.style.display == DisplayStyle.Flex;
+        }
+        return false;
     }
 
     void OnManagePropertiesClicked()
@@ -1536,6 +1791,7 @@ public class TurnManager : MonoBehaviour
             bool endOn = turnInProgress;
             if (uiManager.RollButton != null) { uiManager.RollButton.Enabled = rollOn; if (rollOn) Debug.Log("HUD: Roll enabled by RefreshForPhase"); }
             if (uiManager.EndTurnButton != null) { uiManager.EndTurnButton.Enabled = endOn; if (endOn) Debug.Log("HUD: EndTurn enabled by RefreshForPhase"); }
+            if (rollOn) uiManager.SetRollButtonVisible(true);
         }
     }
 
@@ -1544,6 +1800,7 @@ public class TurnManager : MonoBehaviour
         Player p = GetCurrentPlayer();
         if (p != null)
         {
+            if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayBuildHouse();
             p.BuildHouse();
             // Update buttons after building
             p.UpdateActionButtons();
@@ -1555,6 +1812,7 @@ public class TurnManager : MonoBehaviour
         Player p = GetCurrentPlayer();
         if (p != null)
         {
+            if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlaySellHouse();
             p.ShowSellUI();
             // Update buttons after selling
             p.UpdateActionButtons();
@@ -1585,6 +1843,7 @@ public class TurnManager : MonoBehaviour
         Player p = GetCurrentPlayer();
         if (p != null)
         {
+            if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayRedeem();
             TileInfo selectedTile = uiManager != null ? uiManager.CurrentTileDetails : null;
             if (selectedTile != null && selectedTile.property != null)
             {
@@ -1655,6 +1914,16 @@ public class TurnManager : MonoBehaviour
         yield return new WaitForSeconds(aiRollDelay);
         if (p == null || p.IsEliminated) yield break;
         if (GetCurrentPlayer() != p) yield break;
+        if (aiAwaitingBonusRoll) yield break;
+        RollDice();
+    }
+
+    IEnumerator AIRollAgainAfterDoubles(Player p)
+    {
+        yield return new WaitForSeconds(aiDecisionDelay);
+        if (p == null || p.IsEliminated) yield break;
+        if (GetCurrentPlayer() != p) yield break;
+        if (!p.isAI) yield break;
         RollDice();
     }
 
@@ -1705,16 +1974,16 @@ public class TurnManager : MonoBehaviour
             }
             else
             {
-            if (p.CanAfford(tile.property.price))
-            {
-                GameLogger.Log($"AI_BUY | player={p.playerName} property={tile.property.propertyName}");
-                p.BuyProperty();
-            }
-            else
-            {
-                GameLogger.Log($"AI_SKIP | player={p.playerName} property={tile.property.propertyName}");
-                p.SkipAction();
-            }
+                if (p.CanAfford(tile.property.price) && ShouldAIBuyProperty(p, tile.property))
+                {
+                    GameLogger.Log($"AI_BUY | player={p.playerName} property={tile.property.propertyName}");
+                    p.BuyProperty();
+                }
+                else
+                {
+                    GameLogger.Log($"AI_SKIP | player={p.playerName} property={tile.property.propertyName}");
+                    p.SkipAction();
+                }
             }
         }
 
@@ -1726,6 +1995,238 @@ public class TurnManager : MonoBehaviour
         }
         if (p.IsAwaitingChoice)
             p.IsAwaitingChoice = false;
+    }
+
+    bool ShouldAIBuyProperty(Player p, Property prop)
+    {
+        if (p == null || prop == null) return false;
+        int price = Mathf.Max(0, prop.price);
+        if (price <= 0) return false;
+
+        string groupId = GetGroupIdForProperty(prop);
+        List<Property> group = GetGroupProperties(groupId);
+        int groupSize = group.Count;
+        int ownedByAI = CountOwnedInGroup(p, group);
+        int ownedByOthers = CountOwnedByOthersInGroup(p, group);
+        bool wouldComplete = groupSize > 0 && (ownedByAI + 1) >= groupSize;
+
+        int reserve = wouldComplete ? aiCashReserveForMonopoly : aiCashReserve;
+        int moneyAfter = p.Money - price;
+        if (moneyAfter < reserve)
+        {
+            if (!wouldComplete) return false;
+            if (moneyAfter < aiCashReserveForMonopoly) return false;
+        }
+
+        float score = EvaluatePropertyScore(p, prop, group, ownedByAI, ownedByOthers, wouldComplete);
+        return score >= aiBuyScoreThreshold || wouldComplete;
+    }
+
+    float EvaluatePropertyScore(Player p, Property prop, List<Property> group, int ownedByAI, int ownedByOthers, bool wouldComplete)
+    {
+        float score = 0f;
+
+        // Base ROI: base rent vs price
+        float baseRent = (prop.rentByLevel != null && prop.rentByLevel.Length > 0) ? prop.rentByLevel[0] : 0f;
+        float roi = (prop.price > 0) ? (baseRent / prop.price) * 100f : 0f;
+        score += roi * 3.0f;
+
+        // Type bias
+        switch (prop.propertyType)
+        {
+            case PropertyType.Regular: score += 8f; break;
+            case PropertyType.Transportation:
+                score += 6f;
+                if (ownedByAI > 0) score += 8f;
+                break;
+            case PropertyType.Utility:
+                score += 4f;
+                if (ownedByAI > 0) score += 6f;
+                break;
+        }
+
+        // Group completion / blocking
+        if (ownedByAI > 0) score += 10f + ownedByAI * 3f;
+        if (ownedByOthers > 0) score += 8f + ownedByOthers * 2f;
+        if (wouldComplete) score += 35f;
+
+        bool blocksOpponentMonopoly = WouldBlockOpponentMonopoly(p, group);
+        if (blocksOpponentMonopoly) score += 18f;
+
+        // Tier bonus (location proxy)
+        string tier = string.IsNullOrEmpty(prop.tierLabel) ? "" : prop.tierLabel.ToLowerInvariant();
+        if (tier.Contains("prime")) score += 10f;
+        else if (tier.Contains("mid")) score += 6f;
+        else if (tier.Contains("satellite")) score += 2f;
+
+        return score;
+    }
+
+    bool WouldBlockOpponentMonopoly(Player aiPlayer, List<Property> group)
+    {
+        if (aiPlayer == null || group == null || group.Count == 0) return false;
+        foreach (Player pl in players)
+        {
+            if (pl == null || pl == aiPlayer || pl.IsEliminated) continue;
+            int owned = 0;
+            foreach (Property gp in group)
+            {
+                if (gp != null && gp.owner == pl) owned++;
+            }
+            if (owned >= group.Count - 1) return true;
+        }
+        return false;
+    }
+
+    void TryAIBuild(Player p)
+    {
+        if (p == null || !p.isAI || p.IsEliminated) return;
+        if (p.Money <= aiCashReserve) return;
+        if (buildingSupplyManager == null)
+            buildingSupplyManager = FindFirstObjectByType<BuildingSupplyManager>();
+
+        List<Property> owned = GetAllOwnedProperties(p);
+        if (owned.Count == 0) return;
+
+        int builds = 0;
+        while (builds < aiMaxBuildsPerTurn)
+        {
+            Property best = null;
+            float bestScore = 0f;
+            int bestCost = 0;
+            bool bestIsHotel = false;
+
+            foreach (Property prop in owned)
+            {
+                if (prop == null || prop.propertyType != PropertyType.Regular) continue;
+                if (prop.isMortgaged) continue;
+
+                string groupId = GetGroupIdForProperty(prop);
+                List<Property> group = GetGroupProperties(groupId);
+                if (!OwnsFullGroup(p, group)) continue;
+
+                bool canBuildHotel = (prop.houses >= 4 && !prop.hasHotel && (buildingSupplyManager == null || buildingSupplyManager.CanBuildHotel()));
+                bool canBuildHouse = (!prop.hasHotel && prop.houses < 4 && (buildingSupplyManager == null || buildingSupplyManager.CanBuildHouse()));
+                if (!canBuildHotel && !canBuildHouse) continue;
+                if (!CanBuildEvenlyAI(prop, group)) continue;
+
+                bool buildHotel = canBuildHotel;
+                int cost = buildHotel ? prop.hotelCost : prop.houseCost;
+                if (cost <= 0) continue;
+                if (p.Money - cost < aiCashReserve) continue;
+
+                int currentLevel = prop.hasHotel ? 5 : prop.houses;
+                int nextLevel = buildHotel ? 5 : Mathf.Clamp(prop.houses + 1, 0, 4);
+                int[] rent = prop.rentByLevel;
+                if (rent == null || rent.Length < 6) continue;
+                int curRent = rent[Mathf.Clamp(currentLevel, 0, 5)];
+                int nextRent = rent[Mathf.Clamp(nextLevel, 0, 5)];
+                float delta = Mathf.Max(0, nextRent - curRent);
+                float roi = (cost > 0) ? (delta / cost) : 0f;
+                float score = roi;
+
+                if (score > bestScore && roi >= aiBuildMinROI)
+                {
+                    best = prop;
+                    bestScore = score;
+                    bestCost = cost;
+                    bestIsHotel = buildHotel;
+                }
+            }
+
+            if (best == null) break;
+
+            p.BuildHouse(best);
+            GameLogger.Log($"AI_BUILD | player={p.playerName} property={best.propertyName} type={(bestIsHotel ? "HOTEL" : "HOUSE")} cost={bestCost}");
+            builds++;
+        }
+    }
+
+    string GetGroupIdForProperty(Property prop)
+    {
+        if (prop == null) return "";
+        if (!string.IsNullOrEmpty(prop.groupId)) return prop.groupId;
+        if (prop.propertyType == PropertyType.Utility) return "UTILITY";
+        if (prop.propertyType == PropertyType.Transportation) return "TRANSPORTATION";
+        return "";
+    }
+
+    List<Property> GetGroupProperties(string groupId)
+    {
+        List<Property> list = new List<Property>();
+        if (string.IsNullOrEmpty(groupId)) return list;
+        TileInfo[] tiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        foreach (TileInfo tile in tiles)
+        {
+            if (tile == null || tile.property == null) continue;
+            if (string.Equals(GetGroupIdForProperty(tile.property), groupId, StringComparison.OrdinalIgnoreCase))
+                list.Add(tile.property);
+        }
+        return list;
+    }
+
+    List<Property> GetAllOwnedProperties(Player p)
+    {
+        List<Property> list = new List<Property>();
+        if (p == null) return list;
+        TileInfo[] tiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        foreach (TileInfo tile in tiles)
+        {
+            if (tile == null || tile.property == null) continue;
+            if (tile.property.owner == p)
+                list.Add(tile.property);
+        }
+        return list;
+    }
+
+    int CountOwnedInGroup(Player p, List<Property> group)
+    {
+        if (p == null || group == null) return 0;
+        int count = 0;
+        foreach (Property prop in group)
+        {
+            if (prop != null && prop.owner == p) count++;
+        }
+        return count;
+    }
+
+    int CountOwnedByOthersInGroup(Player p, List<Property> group)
+    {
+        if (p == null || group == null) return 0;
+        int count = 0;
+        foreach (Property prop in group)
+        {
+            if (prop != null && prop.owner != null && prop.owner != p) count++;
+        }
+        return count;
+    }
+
+    bool OwnsFullGroup(Player p, List<Property> group)
+    {
+        if (p == null || group == null || group.Count == 0) return false;
+        foreach (Property prop in group)
+        {
+            if (prop == null || prop.owner != p) return false;
+        }
+        return true;
+    }
+
+    bool CanBuildEvenlyAI(Property targetProp, List<Property> group)
+    {
+        if (targetProp == null || group == null || group.Count == 0) return false;
+        int minHouses = int.MaxValue;
+        int maxHouses = int.MinValue;
+        foreach (Property prop in group)
+        {
+            if (prop == null) continue;
+            int count = prop.hasHotel ? 5 : prop.houses;
+            if (count < minHouses) minHouses = count;
+            if (count > maxHouses) maxHouses = count;
+        }
+        int targetCount = targetProp.hasHotel ? 5 : targetProp.houses;
+        if (targetCount == minHouses) return true;
+        if (targetCount == maxHouses && (maxHouses - minHouses) <= 1) return true;
+        return false;
     }
 
     IEnumerator ResolveAIJailChoice(Player p)
@@ -1776,7 +2277,18 @@ public class TurnManager : MonoBehaviour
     void OnMenuButtonClicked()
     {
         if (gameController != null) gameController.RequestMenu();
-        if (uiManager != null) uiManager.ShowSettingsPanel();
+        LocalSaveManager.Save(this);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("StartPage", UnityEngine.SceneManagement.LoadSceneMode.Single);
+    }
+
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus) LocalSaveManager.Save(this);
+    }
+
+    void OnApplicationQuit()
+    {
+        LocalSaveManager.Save(this);
     }
 
     void OnPayBailButtonClicked()

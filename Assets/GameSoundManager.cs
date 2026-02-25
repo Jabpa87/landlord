@@ -26,6 +26,7 @@ public class GameSoundManager : MonoBehaviour
     public AudioClip policeClip;
     public AudioClip clickClip;
     public AudioClip diceRollClip;
+    public AudioClip doublesClip;
     public AudioClip tradeSuccessClip;
     public AudioClip tradeFailedClip;
     public AudioClip redeemClip;
@@ -134,6 +135,7 @@ public class GameSoundManager : MonoBehaviour
         if (m.policeClip != null) count++;
         if (m.clickClip != null) count++;
         if (m.diceRollClip != null) count++;
+        if (m.doublesClip != null) count++;
         if (m.tradeSuccessClip != null) count++;
         if (m.tradeFailedClip != null) count++;
         if (m.redeemClip != null) count++;
@@ -168,6 +170,7 @@ public class GameSoundManager : MonoBehaviour
         if (dst.policeClip == null) dst.policeClip = src.policeClip;
         if (dst.clickClip == null) dst.clickClip = src.clickClip;
         if (dst.diceRollClip == null) dst.diceRollClip = src.diceRollClip;
+        if (dst.doublesClip == null) dst.doublesClip = src.doublesClip;
         if (dst.tradeSuccessClip == null) dst.tradeSuccessClip = src.tradeSuccessClip;
         if (dst.tradeFailedClip == null) dst.tradeFailedClip = src.tradeFailedClip;
         if (dst.redeemClip == null) dst.redeemClip = src.redeemClip;
@@ -206,6 +209,7 @@ public class GameSoundManager : MonoBehaviour
         if (policeClip == null) policeClip = Resources.Load<AudioClip>("Sounds/police");
         if (clickClip == null) clickClip = Resources.Load<AudioClip>("Sounds/click");
         if (diceRollClip == null) diceRollClip = Resources.Load<AudioClip>("Sounds/diceroll");
+        if (doublesClip == null) doublesClip = Resources.Load<AudioClip>("Sounds/doubles");
         if (tradeSuccessClip == null) tradeSuccessClip = Resources.Load<AudioClip>("Sounds/trade sucess");
         if (tradeFailedClip == null) tradeFailedClip = Resources.Load<AudioClip>("Sounds/Trade Failed");
         if (redeemClip == null) redeemClip = Resources.Load<AudioClip>("Sounds/Redeem");
@@ -225,6 +229,7 @@ public class GameSoundManager : MonoBehaviour
         if (policeClip == null) policeClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/police.mp3");
         if (clickClip == null) clickClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/click.mp3");
         if (diceRollClip == null) diceRollClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/diceroll.mp3");
+        if (doublesClip == null) doublesClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/doubles.mp3");
         if (tradeSuccessClip == null) tradeSuccessClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/trade sucess.mp3");
         if (tradeFailedClip == null) tradeFailedClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Trade Failed.mp3");
         if (redeemClip == null) redeemClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Redeem.mp3");
@@ -482,6 +487,11 @@ public class GameSoundManager : MonoBehaviour
     public void PlayDiceRoll()
     {
         if (sfxEnabled && diceRollClip != null) _oneShotSource.PlayOneShot(diceRollClip);
+    }
+
+    public void PlayDoubles()
+    {
+        if (sfxEnabled && doublesClip != null) _oneShotSource.PlayOneShot(doublesClip);
     }
 
     public void PlayTradeSuccess()

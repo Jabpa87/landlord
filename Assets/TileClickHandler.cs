@@ -124,9 +124,10 @@ public class TileClickHandler : MonoBehaviour
             return;
         }
 
-        if (TileDetailsCardUI.Instance != null)
+        var detailsUi = TileDetailsCardUI.GetOrFindInstance();
+        if (detailsUi != null)
         {
-            TileDetailsCardUI.Instance.Show(tileInfo);
+            detailsUi.Show(tileInfo);
             return;
         }
 

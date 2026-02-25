@@ -96,10 +96,10 @@ public class MainHUDController : MonoBehaviour
 
     void Start()
     {
-        if (player1ProfileButton != null) player1ProfileButton.onClick.AddListener(() => NotifyProfileClicked(0));
-        if (player2ProfileButton != null) player2ProfileButton.onClick.AddListener(() => NotifyProfileClicked(1));
-        if (player3ProfileButton != null) player3ProfileButton.onClick.AddListener(() => NotifyProfileClicked(2));
-        if (player4ProfileButton != null) player4ProfileButton.onClick.AddListener(() => NotifyProfileClicked(3));
+        if (player1ProfileButton != null) player1ProfileButton.onClick.AddListener(() => { if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick(); NotifyProfileClicked(0); });
+        if (player2ProfileButton != null) player2ProfileButton.onClick.AddListener(() => { if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick(); NotifyProfileClicked(1); });
+        if (player3ProfileButton != null) player3ProfileButton.onClick.AddListener(() => { if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick(); NotifyProfileClicked(2); });
+        if (player4ProfileButton != null) player4ProfileButton.onClick.AddListener(() => { if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick(); NotifyProfileClicked(3); });
     }
 
     /// <summary>Call when a player profile row is clicked; opens profile detail (UIDocumentManager shows UI Toolkit panel).</summary>
@@ -148,6 +148,32 @@ public class MainHUDController : MonoBehaviour
     public Button GameLogClearButton => gameLogClearButton;
     public Toggle FeedSoundToggle => feedSoundToggle;
     public TMP_Text FeedItemPrefab => feedItemPrefab;
+
+    public RectTransform GetPlayerMoneyRect(int playerIndex)
+    {
+        TMP_Text t = null;
+        switch (playerIndex)
+        {
+            case 0: t = player1Money; break;
+            case 1: t = player2Money; break;
+            case 2: t = player3Money; break;
+            case 3: t = player4Money; break;
+        }
+        return t != null ? t.GetComponent<RectTransform>() : null;
+    }
+
+    public RectTransform GetPlayerProfileRect(int playerIndex)
+    {
+        Button b = null;
+        switch (playerIndex)
+        {
+            case 0: b = player1ProfileButton; break;
+            case 1: b = player2ProfileButton; break;
+            case 2: b = player3ProfileButton; break;
+            case 3: b = player4ProfileButton; break;
+        }
+        return b != null ? b.GetComponent<RectTransform>() : null;
+    }
 
     /// <summary>Bind feed sound toggle to GameSoundManager (if present).</summary>
     public void BindFeedSoundToggle()

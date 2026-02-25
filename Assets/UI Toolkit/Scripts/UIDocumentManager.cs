@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using TMPro;
 
 /// <summary>
 /// Manages all UI Toolkit documents and provides easy access to UI elements.
@@ -19,12 +20,18 @@ public class UIDocumentManager : MonoBehaviour
     [Header("Hybrid: uGUI Main HUD")]
     [Tooltip("When set, Main HUD uses uGUI (old Canvas). To use the new UI Toolkit Gameplay HUD, leave this EMPTY and assign Main HUD Document to a UIDocument with GameplayHUD.uxml.")]
     public MainHUDController mainHUDController;
+    [Tooltip("Cash collect animation manager (uGUI). Assign the CashCollectManager under Main HUD (uGUI).")]
+    public CashCollectManager cashCollectManager;
     
     [Tooltip("Property panel document (shown when landing on property)")]
     public UIDocument propertyPanelDocument;
     
     [Tooltip("Jail panel document (shown when in jail)")]
     public UIDocument jailPanelDocument;
+    [Tooltip("Optional uGUI Jail Panel controller. When set (or instance found) and enabled below, UI Toolkit jail panel is disabled.")]
+    public JailPanelUGUI jailPanelUGUI;
+    [Tooltip("When enabled and JailPanelUGUI exists in scene, jail uses uGUI and UI Toolkit panel stays disabled.")]
+    public bool useUGUIJailPanel = true;
     
     [Tooltip("Card panel document (shown when drawing cards)")]
     public UIDocument cardPanelDocument;
@@ -310,6 +317,16 @@ public class UIDocumentManager : MonoBehaviour
     [Header("Tile Details Mode")]
     [Tooltip("When enabled and TileDetailsCardUI exists in scene, tile details use uGUI and UI Toolkit tile panel stays disabled.")]
     public bool useUGUITileDetailsCard = true;
+
+    [Header("Property Panel Mode")]
+    [Tooltip("Optional uGUI Buy Property panel. When enabled below and present, UI Toolkit PropertyPanel.uxml is temporarily disabled.")]
+    public BuyPropertyPanelUGUI propertyPanelUGUI;
+    [Tooltip("When enabled and BuyPropertyPanelUGUI exists in scene, buying properties uses uGUI panel and UI Toolkit property panel stays disabled.")]
+    public bool useUGUIPropertyPanel = true;
+    [Tooltip("Optional uGUI Bought Property notification panel (auto-hides).")]
+    public BoughtPropertyPanelUGUI boughtPropertyPanelUGUI;
+    [Tooltip("When enabled and BoughtPropertyPanelUGUI exists in scene, property purchase notifications use uGUI panel.")]
+    public bool useUGUIBoughtPropertyPanel = true;
     
     void Awake()
     {
@@ -342,6 +359,8 @@ public class UIDocumentManager : MonoBehaviour
     
     void Start()
     {
+        GameSoundManager.EnsureInitialized();
+
         // #region agent log
         try {
             File.AppendAllText(@"c:\Users\DELL\bizgame\Assets\.cursor\debug.log", 
@@ -399,6 +418,7 @@ public class UIDocumentManager : MonoBehaviour
         InitializePlayerStatisticsPanel();
         InitializeCharacterSetupPanel();
         InitializeSettingsPanel();
+        StartCoroutine(EnsurePropertyManagerPanelHiddenAfterFrame());
         
         // Deactivate duplicate HUD documents - DISABLED per user request
         // DeactivateDuplicateHUDs();
@@ -785,12 +805,16 @@ public class UIDocumentManager : MonoBehaviour
             var bridge = mainHUDController.GetBridge();
             RollButton = bridge.RollButton;
             EndTurnButton = bridge.EndTurnButton;
-            BuildButton = bridge.BuildButton;
-            SellButton = bridge.SellButton;
             TradeButton = bridge.TradeButton;
             MenuButton = bridge.MenuButton;
+
+            // uGUI layout uses "Sell" slot as Manage Properties and hides Build/Sell.
+            ManagePropertiesButton = bridge.SellButton;
+            BuildButton = null;
+            SellButton = null;
             MortgageButton = bridge.MortgageButton;
             RedeemButton = bridge.RedeemButton;
+
             CurrentPlayerText = bridge.CurrentPlayerText;
             DiceText = bridge.DiceText;
             WalletText = bridge.WalletText;
@@ -1118,6 +1142,45 @@ public class UIDocumentManager : MonoBehaviour
         });
     }
 
+    /// <summary>Play cash collect animation for a player when money comes in.</summary>
+    public void TryPlayCashCollect(int playerIndex, int amount, int newBalance, bool isIncome)
+    {
+        if (amount <= 0) return;
+        if (cashCollectManager == null || mainHUDController == null) return;
+
+        RectTransform source = mainHUDController.GetPlayerMoneyRect(playerIndex);
+        RectTransform target = mainHUDController.GetPlayerProfileRect(playerIndex);
+        TMP_Text balance = null;
+        switch (playerIndex)
+        {
+            case 0: balance = mainHUDController.player1Money; break;
+            case 1: balance = mainHUDController.player2Money; break;
+            case 2: balance = mainHUDController.player3Money; break;
+            case 3: balance = mainHUDController.player4Money; break;
+        }
+
+        if (source == null && target == null) return;
+        if (source == null) source = target;
+        if (target == null) target = source;
+
+        string direction = isIncome ? "in" : "out";
+        Debug.Log($"[CashCollect] Play {direction} for player={playerIndex + 1} amount=₦{amount:N0}");
+        if (!isIncome)
+        {
+            RectTransform tmp = source;
+            source = target;
+            target = tmp;
+        }
+        cashCollectManager.PlayCashCollect(amount, source, target, balance, newBalance, isIncome);
+    }
+
+    /// <summary>Force visibility of the uGUI Roll button (hybrid HUD).</summary>
+    public void SetRollButtonVisible(bool visible)
+    {
+        if (mainHUDController != null && mainHUDController.rollButton != null)
+            mainHUDController.rollButton.gameObject.SetActive(visible);
+    }
+
     void InitializeMoneyToast()
     {
         if (mainHUDDocument != null && mainHUDDocument.rootVisualElement != null)
@@ -1278,6 +1341,19 @@ public class UIDocumentManager : MonoBehaviour
     
     void InitializePropertyPanel()
     {
+        bool useUGUI = TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui);
+        if (useUGUI)
+        {
+            if (propertyPanelDocument != null && propertyPanelDocument.rootVisualElement != null)
+                propertyPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            PropertyPanel = null;
+            PropertyText = null;
+            BuyButton = null;
+            SkipButton = null;
+            ugui.Hide();
+            return;
+        }
+
         if (propertyPanelDocument == null)
         {
             Debug.LogWarning("UIDocumentManager: Property Panel Document not assigned!");
@@ -1305,6 +1381,19 @@ public class UIDocumentManager : MonoBehaviour
     
     void InitializeJailPanel()
     {
+        if (TryGetJailPanelUGUI(out JailPanelUGUI ugui))
+        {
+            if (jailPanelDocument != null && jailPanelDocument.rootVisualElement != null)
+                jailPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            JailPanel = null;
+            JailStatusText = null;
+            PayBailButton = null;
+            UseCardButton = null;
+            WaitButton = null;
+            ugui.Hide();
+            return;
+        }
+
         if (jailPanelDocument == null)
         {
             Debug.LogWarning("UIDocumentManager: Jail Panel Document not assigned!");
@@ -1408,6 +1497,11 @@ public class UIDocumentManager : MonoBehaviour
     { 
         HidePlayerStatisticsPanel();
         HideTileDetailsPanel();
+        if (TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui))
+        {
+            ugui.Show(CurrentTileDetails, true, string.Empty);
+            return;
+        }
         if (propertyPanelDocument != null && propertyPanelDocument.rootVisualElement != null)
         {
             ApplyStandardPopupLayout(propertyPanelDocument, "PropertyPanel");
@@ -1419,12 +1513,105 @@ public class UIDocumentManager : MonoBehaviour
     
     public void HidePropertyPanel() 
     { 
+        if (TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui))
+        {
+            ugui.Hide();
+            return;
+        }
         if (propertyPanelDocument != null && propertyPanelDocument.rootVisualElement != null)
             propertyPanelDocument.rootVisualElement.style.display = DisplayStyle.None; 
+    }
+
+    public void ConfigurePropertyPanel(TileInfo tile, bool canAfford, string message)
+    {
+        CurrentTileDetails = tile;
+        if (TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui))
+        {
+            ugui.Show(tile, canAfford, message);
+            return;
+        }
+
+        if (PropertyText != null)
+            PropertyText.text = message ?? string.Empty;
+        if (BuyButton != null)
+        {
+            BuyButton.SetEnabled(canAfford);
+            BuyButton.text = "BUY PROPERTY";
+        }
+        if (SkipButton != null)
+            SkipButton.SetEnabled(true);
+    }
+
+    public void SetPropertyPanelMessage(string message)
+    {
+        if (TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui))
+        {
+            ugui.SetMessage(message);
+            return;
+        }
+        if (PropertyText != null)
+            PropertyText.text = message ?? string.Empty;
+    }
+
+    public void SetPropertyPanelBuyEnabled(bool enabled)
+    {
+        if (TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui))
+        {
+            ugui.SetBuyEnabled(enabled);
+            return;
+        }
+        if (BuyButton != null)
+            BuyButton.SetEnabled(enabled);
+    }
+
+    public void SetPropertyPanelSkipEnabled(bool enabled)
+    {
+        if (TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui))
+        {
+            ugui.SetSkipEnabled(enabled);
+            return;
+        }
+        if (SkipButton != null)
+            SkipButton.SetEnabled(enabled);
+    }
+
+    public bool TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui)
+    {
+        ugui = propertyPanelUGUI != null ? propertyPanelUGUI : (BuyPropertyPanelUGUI.Instance != null ? BuyPropertyPanelUGUI.Instance : FindFirstObjectByType<BuyPropertyPanelUGUI>());
+        if (!useUGUIPropertyPanel || ugui == null)
+            return false;
+        if (propertyPanelUGUI == null)
+            propertyPanelUGUI = ugui;
+        return true;
+    }
+
+    public bool TryGetBoughtPropertyPanelUGUI(out BoughtPropertyPanelUGUI ugui)
+    {
+        ugui = boughtPropertyPanelUGUI != null ? boughtPropertyPanelUGUI : (BoughtPropertyPanelUGUI.Instance != null ? BoughtPropertyPanelUGUI.Instance : FindFirstObjectByType<BoughtPropertyPanelUGUI>());
+        if (!useUGUIBoughtPropertyPanel || ugui == null)
+            return false;
+        if (boughtPropertyPanelUGUI == null)
+            boughtPropertyPanelUGUI = ugui;
+        return true;
+    }
+
+    public void ShowBoughtPropertyPanel(Player player, TileInfo tile, int price, float autoCloseSeconds = 1.6f)
+    {
+        if (TryGetBoughtPropertyPanelUGUI(out BoughtPropertyPanelUGUI ugui))
+        {
+            ugui.Show(player, tile, price, autoCloseSeconds);
+            return;
+        }
+        ShowResultNotification($"{player?.playerName ?? "Player"} purchased {tile?.property?.propertyName ?? "property"}.\nPrice: ₦{price:N0}", autoCloseSeconds);
     }
     
     public void ShowJailPanel() 
     { 
+        if (TryGetJailPanelUGUI(out JailPanelUGUI ugui))
+        {
+            ugui.Show(turnManager != null ? turnManager.GetCurrentPlayer() : null, "", false, false, false);
+            return;
+        }
         HidePlayerStatisticsPanel();
         HideTileDetailsPanel();
         if (jailPanelDocument != null && jailPanelDocument.rootVisualElement != null)
@@ -1436,6 +1623,11 @@ public class UIDocumentManager : MonoBehaviour
     
     public void HideJailPanel() 
     { 
+        if (TryGetJailPanelUGUI(out JailPanelUGUI ugui))
+        {
+            ugui.Hide();
+            return;
+        }
         if (jailPanelDocument != null && jailPanelDocument.rootVisualElement != null)
             jailPanelDocument.rootVisualElement.style.display = DisplayStyle.None; 
     }
@@ -1770,6 +1962,7 @@ public class UIDocumentManager : MonoBehaviour
         }
         
         var root = gameOverPanelDocument.rootVisualElement;
+        if (root == null) return;
         GameOverPanel = root.Q<VisualElement>("GameOverPanel");
         WinnerNameText = root.Q<Label>("WinnerNameText");
         WinnerStatsText = root.Q<Label>("WinnerStatsText");
@@ -1821,13 +2014,20 @@ public class UIDocumentManager : MonoBehaviour
     
     void InitializeTradePanel()
     {
-        if (tradePanelDocument == null)
+        var doc = ResolveTradePanelDocument();
+        if (doc == null)
         {
             Debug.LogWarning("UIDocumentManager: Trade Panel Document not assigned!");
             return;
         }
-        
-        var root = tradePanelDocument.rootVisualElement;
+
+        EnsureDocumentActive(doc);
+        var root = doc.rootVisualElement;
+        if (root == null)
+        {
+            Debug.LogWarning("TradePanel root not found!");
+            return;
+        }
         TradePanel = root.Q<VisualElement>("TradePanel");
         TradeTitleText = root.Q<Label>("TradeTitleText");
         TradeStatusText = root.Q<Label>("TradeStatusText");
@@ -1851,10 +2051,10 @@ public class UIDocumentManager : MonoBehaviour
         TradeConfirmButton = TradeOfferButton;
         
         // Hide entire document root by default
-        if (root != null)
-            root.style.display = DisplayStyle.None;
-        else
-            Debug.LogWarning("TradePanel root not found!");
+        root.style.display = DisplayStyle.None;
+        var overlay = root.Q<VisualElement>("TradeOverlay");
+        if (overlay != null)
+            overlay.style.display = DisplayStyle.None;
     }
     
     void InitializeBankruptcyPanel()
@@ -1866,6 +2066,11 @@ public class UIDocumentManager : MonoBehaviour
         }
         
         var root = bankruptcyPanelDocument.rootVisualElement;
+        if (root == null)
+        {
+            Debug.LogWarning("UIDocumentManager: Bankruptcy Panel rootVisualElement is null!");
+            return;
+        }
         BankruptcyPanel = root.Q<VisualElement>("BankruptcyPanel");
         BankruptcyTitleText = root.Q<Label>("BankruptcyTitleText");
         BankruptcyMessageText = root.Q<Label>("BankruptcyMessageText");
@@ -1875,27 +2080,37 @@ public class UIDocumentManager : MonoBehaviour
         ApplyHeaderGloss(root, "BankruptcyHeader");
         
         // Hide entire document root by default
-        if (root != null)
-            root.style.display = DisplayStyle.None;
-        else
-            Debug.LogWarning("BankruptcyPanel root not found!");
+        root.style.display = DisplayStyle.None;
     }
     
     public void ShowTradePanel()
     {
-        if (tradePanelDocument != null && tradePanelDocument.rootVisualElement != null)
+        var doc = ResolveTradePanelDocument();
+        if (doc == null) return;
+        EnsureDocumentActive(doc);
+        if (doc.rootVisualElement == null)
         {
-            var tradePanel = TradePanel != null ? TradePanel : tradePanelDocument.rootVisualElement.Q<VisualElement>("TradePanel");
-            if (tradePanel != null)
-                ApplyPropertyPanelPositioning(tradePanelDocument, tradePanel, TradePopupTopPadding);
-            tradePanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+            Debug.LogWarning("ShowTradePanel: rootVisualElement is null (UIDocument not initialized yet).");
+            return;
         }
+        var tradePanel = TradePanel != null ? TradePanel : doc.rootVisualElement.Q<VisualElement>("TradePanel");
+        if (tradePanel != null)
+            ApplyPropertyPanelPositioning(doc, tradePanel, TradePopupTopPadding);
+        doc.rootVisualElement.style.display = DisplayStyle.Flex;
+        var overlay = doc.rootVisualElement.Q<VisualElement>("TradeOverlay");
+        if (overlay != null)
+            overlay.style.display = DisplayStyle.Flex;
     }
     
     public void HideTradePanel()
     {
         if (tradePanelDocument != null && tradePanelDocument.rootVisualElement != null)
+        {
             tradePanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            var overlay = tradePanelDocument.rootVisualElement.Q<VisualElement>("TradeOverlay");
+            if (overlay != null)
+                overlay.style.display = DisplayStyle.None;
+        }
     }
     
     /// <summary>
@@ -1995,48 +2210,25 @@ public class UIDocumentManager : MonoBehaviour
     {
         if (payer == null || owner == null || property == null) return;
 
-        if (TryGetRentPaymentUGUI(out RentPaymentPanelUGUI ugui))
+        // Lightweight transaction feedback (non-blocking)
+        if (TransactionUIController.Instance != null)
         {
-            ugui.Show(payer, owner, property, rentAmount);
-            TurnDebugState.LogTurnAction("DecisionShown", $"type=RentAck payer={payer.playerName} owner={owner.playerName} amount={rentAmount}", setPhase: "AwaitAck", setInputEnabled: "OK");
-            Debug.Log($"💰 {payer.playerName} paid ₦{rentAmount:N0} rent to {owner.playerName} for {property.propertyName}");
-            return;
+            Sprite payerSprite = PlayerVisualManager.Instance != null
+                ? PlayerVisualManager.Instance.GetTokenSprite(payer.tokenSpriteIndex)
+                : PlayerVisualManager.GetOrCreateFallbackTokenSprite();
+            Sprite ownerSprite = PlayerVisualManager.Instance != null
+                ? PlayerVisualManager.Instance.GetTokenSprite(owner.tokenSpriteIndex)
+                : PlayerVisualManager.GetOrCreateFallbackTokenSprite();
+            TransactionUIController.Instance.ShowTransaction(
+                payerSprite,
+                payer.playerName,
+                ownerSprite,
+                owner.playerName,
+                rentAmount,
+                "RENT PAID");
         }
-
-        if (rentPaymentPanelDocument == null) return;
-        
-        HidePlayerStatisticsPanel();
-        HideTileDetailsPanel();
-        
-        if (rentPaymentPanelDocument.rootVisualElement != null)
-        {
-            ApplyStandardPopupLayout(rentPaymentPanelDocument, "RentPaymentPanel");
-            rentPaymentPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
-            if (rentPaymentPanelDocument.transform != null)
-                rentPaymentPanelDocument.transform.SetAsLastSibling();
-        }
-        
-        if (RentPaymentMessageText != null)
-        {
-            RentPaymentMessageText.text = $"{payer.playerName} paid rent";
-        }
-        
-        if (RentPaymentDetailsText != null)
-        {
-            string details = $"Property: {property.propertyName}\n";
-            details += $"Rent: ₦{rentAmount:N0}\n";
-            details += $"Paid to: {owner.playerName}";
-            RentPaymentDetailsText.text = details;
-        }
-        
-        if (RentPaymentOkButton != null)
-        {
-            RentPaymentOkButton.clicked -= HideRentPaymentPanel; // Remove if already connected
-            RentPaymentOkButton.clicked += HideRentPaymentPanel;
-        }
-        
-        TurnDebugState.LogTurnAction("DecisionShown", $"type=RentAck payer={payer.playerName} owner={owner.playerName} amount={rentAmount}", setPhase: "AwaitAck", setInputEnabled: "OK");
         Debug.Log($"💰 {payer.playerName} paid ₦{rentAmount:N0} rent to {owner.playerName} for {property.propertyName}");
+        return;
     }
     
     public void HideRentPaymentPanel()
@@ -2056,10 +2248,20 @@ public class UIDocumentManager : MonoBehaviour
         ugui = rentPaymentPanelUGUI != null ? rentPaymentPanelUGUI : RentPaymentPanelUGUI.Instance;
         return useUGUIRentPaymentPanel && ugui != null;
     }
+
+    public bool TryGetJailPanelUGUI(out JailPanelUGUI ugui)
+    {
+        ugui = jailPanelUGUI != null ? jailPanelUGUI : (JailPanelUGUI.Instance != null ? JailPanelUGUI.Instance : FindFirstObjectByType<JailPanelUGUI>());
+        if (!useUGUIJailPanel || ugui == null)
+            return false;
+        if (jailPanelUGUI == null)
+            jailPanelUGUI = ugui;
+        return true;
+    }
     
     void InitializeTileDetailsPanel()
     {
-        bool useUGUI = useUGUITileDetailsCard && TileDetailsCardUI.Instance != null;
+        bool useUGUI = useUGUITileDetailsCard && TileDetailsCardUI.GetOrFindInstance() != null;
         if (useUGUI)
         {
             if (tileDetailsPanelDocument != null && tileDetailsPanelDocument.rootVisualElement != null)
@@ -2134,11 +2336,11 @@ public class UIDocumentManager : MonoBehaviour
         }
 
         CurrentTileDetails = tile;
-        bool useUGUI = useUGUITileDetailsCard && TileDetailsCardUI.Instance != null;
+        bool useUGUI = useUGUITileDetailsCard && TileDetailsCardUI.GetOrFindInstance() != null;
         if (useUGUI)
         {
             HideTileDetailsPanel();
-            TileDetailsCardUI.Instance.Show(tile);
+            TileDetailsCardUI.GetOrFindInstance()?.Show(tile);
             return;
         }
         
@@ -2307,8 +2509,7 @@ public class UIDocumentManager : MonoBehaviour
     {
         if (tileDetailsPanelDocument != null && tileDetailsPanelDocument.rootVisualElement != null)
             tileDetailsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
-        if (TileDetailsCardUI.Instance != null)
-            TileDetailsCardUI.Instance.Hide();
+        TileDetailsCardUI.GetOrFindInstance()?.Hide();
 
         CurrentTileDetails = null;
         UpdateTileDetailsMortgageButtons(null);
@@ -2328,9 +2529,13 @@ public class UIDocumentManager : MonoBehaviour
 
     void InitializePropertyManagerPanel()
     {
-        if (propertyManagerPanelDocument == null || propertyManagerPanelDocument.rootVisualElement == null) return;
-        var root = propertyManagerPanelDocument.rootVisualElement;
+        var doc = ResolvePropertyManagerDocument();
+        if (doc == null || doc.rootVisualElement == null) return;
+        var root = doc.rootVisualElement;
+        var overlay = root.Q<VisualElement>("PropertyManagerOverlay");
         root.style.display = DisplayStyle.None;
+        if (overlay != null)
+            overlay.style.display = DisplayStyle.None;
         var closeBtn = root.Q<Button>("PropertyManagerCloseButton");
         if (closeBtn != null)
         {
@@ -2370,45 +2575,120 @@ public class UIDocumentManager : MonoBehaviour
         }
     }
 
+    UIDocument ResolvePropertyManagerDocument()
+    {
+        UIDocument doc = propertyManagerPanelDocument;
+        if (doc != null)
+        {
+            if (doc.rootVisualElement != null)
+            {
+                if (doc.rootVisualElement.Q<ScrollView>("PropertyManagerList") != null)
+                    return doc;
+            }
+            if (doc.visualTreeAsset != null &&
+                doc.visualTreeAsset.name.IndexOf("PropertyManagerPanel", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                return doc;
+            }
+        }
+
+        var allDocs = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
+        foreach (var d in allDocs)
+        {
+            if (d == null || d.visualTreeAsset == null || d.rootVisualElement == null) continue;
+            if (d.visualTreeAsset.name.IndexOf("PropertyManagerPanel", StringComparison.OrdinalIgnoreCase) < 0) continue;
+            if (d.rootVisualElement.Q<ScrollView>("PropertyManagerList") == null) continue;
+            propertyManagerPanelDocument = d;
+            return d;
+        }
+
+        return null;
+    }
+
+    UIDocument ResolveTradePanelDocument()
+    {
+        UIDocument doc = tradePanelDocument;
+        if (doc != null)
+        {
+            if (doc.rootVisualElement != null)
+            {
+                if (doc.rootVisualElement.Q<VisualElement>("TradePanel") != null)
+                    return doc;
+            }
+            if (doc.visualTreeAsset != null &&
+                doc.visualTreeAsset.name.IndexOf("TradePanel", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                return doc;
+            }
+        }
+
+        var allDocs = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
+        foreach (var d in allDocs)
+        {
+            if (d == null || d.visualTreeAsset == null || d.rootVisualElement == null) continue;
+            if (d.visualTreeAsset.name.IndexOf("TradePanel", StringComparison.OrdinalIgnoreCase) < 0) continue;
+            if (d.rootVisualElement.Q<VisualElement>("TradePanel") == null) continue;
+            tradePanelDocument = d;
+            return d;
+        }
+
+        return null;
+    }
+
+    void EnsureDocumentActive(UIDocument doc)
+    {
+        if (doc == null) return;
+        if (!doc.gameObject.activeSelf)
+            doc.gameObject.SetActive(true);
+        if (!doc.enabled)
+            doc.enabled = true;
+    }
+
+    IEnumerator EnsurePropertyManagerPanelHiddenAfterFrame()
+    {
+        // Resolve so we find the document even if not assigned in Inspector
+        UIDocument doc = ResolvePropertyManagerDocument();
+        if (doc == null) yield break;
+        propertyManagerPanelDocument = doc;
+        // Wait for UIDocument to build its rootVisualElement
+        for (int i = 0; i < 10 && doc.rootVisualElement == null; i++)
+            yield return null;
+        if (doc.rootVisualElement == null) yield break;
+        // Re-run init to wire close button and force hidden state
+        InitializePropertyManagerPanel();
+        if (!IsPropertyManagerPanelOpen)
+        {
+            doc.rootVisualElement.style.display = DisplayStyle.None;
+            var overlay = doc.rootVisualElement.Q<VisualElement>("PropertyManagerOverlay");
+            if (overlay != null) overlay.style.display = DisplayStyle.None;
+        }
+    }
+
     /// <summary>Open the Property Manager panel. Optionally focus the row for the given tile. Disables Roll and End Turn while open.</summary>
     public void OpenPropertyManagerPanel(TileInfo focusTile = null)
     {
         // Resolve the correct document: must have PropertyManagerList (Manage Properties panel), not Buy/Skip panel
-        UIDocument doc = propertyManagerPanelDocument;
-        if (doc == null || doc.rootVisualElement == null)
+        UIDocument doc = ResolvePropertyManagerDocument();
+        if (doc == null)
         {
             Debug.LogWarning("OpenPropertyManagerPanel: Property Manager Panel Document is not assigned. Assign a UIDocument with PropertyManagerPanel.uxml to the 'Property Manager Panel Document' slot on UIDocumentManager.");
             return;
         }
-        var list = doc.rootVisualElement.Q<ScrollView>("PropertyManagerList");
-        if (list == null)
+        EnsureDocumentActive(doc);
+        if (doc.rootVisualElement == null)
         {
-            // Wrong document assigned (e.g. PropertyPanel.uxml). Try to find PropertyManagerPanel in the scene.
-            doc = null;
-            var allDocs = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
-            foreach (var d in allDocs)
-            {
-                if (d == null || d.visualTreeAsset == null || d.rootVisualElement == null) continue;
-                if (d.visualTreeAsset.name.IndexOf("PropertyManagerPanel", StringComparison.OrdinalIgnoreCase) < 0) continue;
-                if (d.rootVisualElement.Q<ScrollView>("PropertyManagerList") != null)
-                {
-                    doc = d;
-                    propertyManagerPanelDocument = d;
-                    InitializePropertyManagerPanel();
-                    break;
-                }
-            }
-            if (doc == null)
-            {
-                Debug.LogWarning("OpenPropertyManagerPanel: Assigned document is not the Manage Properties panel (missing PropertyManagerList). Assign PropertyManagerPanel.uxml to 'Property Manager Panel Document', or add a UIDocument with PropertyManagerPanel.uxml to the scene.");
-                return;
-            }
+            Debug.LogWarning("OpenPropertyManagerPanel: rootVisualElement is null (UIDocument not initialized yet).");
+            return;
         }
+        InitializePropertyManagerPanel();
         _propertyManagerFocusTile = focusTile;
         _propertyManagerFilter = PropertyManagerFilter.All;
         Debug.Log("ManageMode: Enter Panel");
         ApplyStandardPopupLayout(doc, "PropertyManagerPanel");
         doc.rootVisualElement.style.display = DisplayStyle.Flex;
+        var overlay = doc.rootVisualElement.Q<VisualElement>("PropertyManagerOverlay");
+        if (overlay != null)
+            overlay.style.display = DisplayStyle.Flex;
         doc.rootVisualElement.Focus();
         IsPropertyManagerPanelOpen = true;
         if (RollButton != null) { RollButton.Enabled = false; Debug.Log("HUD: Roll disabled (Manage open)"); }
@@ -2420,8 +2700,17 @@ public class UIDocumentManager : MonoBehaviour
     public void ExitManageMode()
     {
         Debug.Log("ManageMode: ExitManageMode called");
-        if (propertyManagerPanelDocument != null && propertyManagerPanelDocument.rootVisualElement != null)
-            propertyManagerPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+        if (propertyManagerPanelDocument != null)
+        {
+            if (propertyManagerPanelDocument.rootVisualElement != null)
+            {
+                propertyManagerPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+                var overlay = propertyManagerPanelDocument.rootVisualElement.Q<VisualElement>("PropertyManagerOverlay");
+                if (overlay != null)
+                    overlay.style.display = DisplayStyle.None;
+            }
+            propertyManagerPanelDocument.gameObject.SetActive(false);
+        }
         IsPropertyManagerPanelOpen = false;
         _propertyManagerFocusTile = null;
         TileClickHandler[] allHandlers = FindObjectsByType<TileClickHandler>(FindObjectsSortMode.None);
@@ -2429,6 +2718,8 @@ public class UIDocumentManager : MonoBehaviour
             handler.HideHighlight();
         if (turnManager != null)
             turnManager.RefreshHUDButtonsForCurrentPhase();
+        if (turnManager != null)
+            turnManager.TryResolvePendingDebt();
         Debug.Log("ManageMode: ExitManageMode HUD refresh done");
     }
 
@@ -3043,6 +3334,9 @@ public class UIDocumentManager : MonoBehaviour
         var fontLarge = root.Q<Button>("SettingsFontLarge");
         var blocker = root.Q<VisualElement>("SettingsOverlayBlocker");
         var musicToggle = root.Q<Toggle>("SettingsMusicToggle");
+        var musicVolumeSlider = root.Q<Slider>("SettingsMusicVolumeSlider");
+        var sfxToggle = root.Q<Toggle>("SettingsSfxToggle");
+        var sfxVolumeSlider = root.Q<Slider>("SettingsSfxVolumeSlider");
 
         if (closeBtn != null) closeBtn.clicked += HideSettingsPanel;
         if (blocker != null) blocker.RegisterCallback<ClickEvent>(evt => HideSettingsPanel());
@@ -3051,9 +3345,21 @@ public class UIDocumentManager : MonoBehaviour
         if (fontLarge != null) fontLarge.clicked += () => { ApplyFontSizeLevelFromSettings(2); RefreshSettingsPanelAppearance(); };
         if (musicToggle != null)
         {
-            bool musicOn = PlayerPrefs.GetInt("GameSound_MusicEnabled", 1) != 0;
-            musicToggle.SetValueWithoutNotify(musicOn);
             musicToggle.RegisterValueChangedCallback(evt => GameSoundManager.SetMusicEnabledFromSettings(evt.newValue));
+        }
+        if (musicVolumeSlider != null)
+        {
+            musicVolumeSlider.RegisterValueChangedCallback(evt =>
+                GameSoundManager.SetMusicVolumeFromSettings(Mathf.Clamp01(evt.newValue / 100f)));
+        }
+        if (sfxToggle != null)
+        {
+            sfxToggle.RegisterValueChangedCallback(evt => GameSoundManager.SetSfxEnabledFromSettings(evt.newValue));
+        }
+        if (sfxVolumeSlider != null)
+        {
+            sfxVolumeSlider.RegisterValueChangedCallback(evt =>
+                GameSoundManager.SetSfxVolumeFromSettings(Mathf.Clamp01(evt.newValue / 100f)));
         }
 
         RefreshSettingsPanelAppearance();
@@ -3074,9 +3380,22 @@ public class UIDocumentManager : MonoBehaviour
         }
         var selected = level == 0 ? fontSmall : (level == 1 ? fontMedium : fontLarge);
         if (selected != null) selected.AddToClassList("settings-font-selected");
+
         var musicToggle = root.Q<Toggle>("SettingsMusicToggle");
         if (musicToggle != null)
-            musicToggle.SetValueWithoutNotify(PlayerPrefs.GetInt("GameSound_MusicEnabled", 1) != 0);
+            musicToggle.SetValueWithoutNotify(GameSoundManager.GetMusicEnabledSetting());
+
+        var musicVolumeSlider = root.Q<Slider>("SettingsMusicVolumeSlider");
+        if (musicVolumeSlider != null)
+            musicVolumeSlider.SetValueWithoutNotify(Mathf.Round(GameSoundManager.GetMusicVolumeSetting() * 100f));
+
+        var sfxToggle = root.Q<Toggle>("SettingsSfxToggle");
+        if (sfxToggle != null)
+            sfxToggle.SetValueWithoutNotify(GameSoundManager.GetSfxEnabledSetting());
+
+        var sfxVolumeSlider = root.Q<Slider>("SettingsSfxVolumeSlider");
+        if (sfxVolumeSlider != null)
+            sfxVolumeSlider.SetValueWithoutNotify(Mathf.Round(GameSoundManager.GetSfxVolumeSetting() * 100f));
     }
 
     public void ShowSettingsPanel()
@@ -3139,7 +3458,13 @@ public class UIDocumentManager : MonoBehaviour
     public void ShowPlayerStatistics(Player player, int anchorPlayerIndex = -1)
     {
         if (player == null || playerStatisticsPanelDocument == null) return;
-        
+
+        // Ensure the document is active/enabled so rootVisualElement is valid.
+        if (!playerStatisticsPanelDocument.gameObject.activeInHierarchy)
+            playerStatisticsPanelDocument.gameObject.SetActive(true);
+        if (!playerStatisticsPanelDocument.enabled)
+            playerStatisticsPanelDocument.enabled = true;
+
         if (playerStatisticsPanelDocument.rootVisualElement != null)
         {
             playerStatisticsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
@@ -3147,6 +3472,7 @@ public class UIDocumentManager : MonoBehaviour
                 playerStatisticsPanelDocument.transform.SetAsLastSibling();
         }
         _lastStatisticsAnchorPlayerIndex = anchorPlayerIndex;
+        PositionStatisticsPanelNearProfile(anchorPlayerIndex);
         
         // Character from database (for image and text)
         Character c = null;

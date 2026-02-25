@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 using UnityEngine.UIElements;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -165,6 +166,9 @@ public class TileClickManager : MonoBehaviour
     /// <summary>Returns true if the pointer is over uGUI (Canvas) or UI Toolkit. Used to avoid treating UI clicks as tile clicks.</summary>
     static bool IsPointerOverUI(Vector2 screenPosition)
     {
+        if (IsPointerOverUGUI(screenPosition))
+            return true;
+
         // Do not early-block from EventSystem alone; fullscreen HUD roots can make this true
         // even when the click should still hit board tiles.
         var documents = FindObjectsByType<UIDocument>(FindObjectsSortMode.None);
@@ -178,6 +182,27 @@ public class TileClickManager : MonoBehaviour
             if (picked != null && IsInteractiveUIElement(picked, doc.rootVisualElement))
                 return true;
         }
+        return false;
+    }
+
+    static bool IsPointerOverUGUI(Vector2 screenPosition)
+    {
+        if (EventSystem.current == null) return false;
+
+        var eventData = new PointerEventData(EventSystem.current)
+        {
+            position = screenPosition
+        };
+
+        var results = new List<RaycastResult>(8);
+        EventSystem.current.RaycastAll(eventData, results);
+
+        for (int i = 0; i < results.Count; i++)
+        {
+            if (results[i].gameObject == null) continue;
+            return true;
+        }
+
         return false;
     }
 

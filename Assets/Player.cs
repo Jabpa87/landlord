@@ -584,6 +584,20 @@ public class Player : MonoBehaviour
     // Double dice tracking
     public int consecutiveDoubles = 0;
     public int ConsecutiveDoubles => consecutiveDoubles;
+
+    public void ApplyJailState(bool inJail, int turnsInJail)
+    {
+        IsInJail = inJail;
+        TurnsInJail = Mathf.Max(0, turnsInJail);
+        if (!IsInJail)
+            TurnsInJail = 0;
+    }
+
+    public void ApplyEliminatedState(bool eliminated)
+    {
+        IsEliminated = eliminated;
+        gameObject.SetActive(!eliminated);
+    }
     
     // Find jail tile index on the board
     int FindJailTileIndex()
@@ -762,7 +776,10 @@ public class Player : MonoBehaviour
         if (amount <= 0) return;
         UIDocumentManager ui = uiManager != null ? uiManager : (turnManager != null ? turnManager.uiManager : null);
         if (ui != null)
+        {
             ui.ShowMoneyChange(playerIndex, amount, isIncome, reason);
+            ui.TryPlayCashCollect(playerIndex, amount, wallet, isIncome);
+        }
     }
     
     // Check if player is bankrupt (can't pay debt even with all assets)
@@ -966,16 +983,11 @@ public class Player : MonoBehaviour
                 }
                 
                 string propertyTypeLabel = GetPropertyTypeLabel(prop.propertyType);
-                if (activeUIManager != null && activeUIManager.PropertyText != null)
-                {
-                    activeUIManager.PropertyText.text = $"Buy {prop.propertyName} ({propertyTypeLabel}) for ₦{prop.price:N0}?";
-                }
-                
-                if (activeUIManager != null && activeUIManager.BuyButton != null)
+                if (activeUIManager != null)
                 {
                     bool canAfford = CanAfford(prop.price);
-                    activeUIManager.BuyButton.SetEnabled(canAfford);
-                    activeUIManager.BuyButton.text = "BUY PROPERTY";
+                    string prompt = $"Buy {prop.propertyName} ({propertyTypeLabel}) for ₦{prop.price:N0}?";
+                    activeUIManager.ConfigurePropertyPanel(tile, canAfford, prompt);
                     Debug.Log($"Player {playerName}: Buy button set to interactable: {canAfford} (Can afford ₦{prop.price:N0}? {canAfford})");
                 }
                 else
@@ -983,9 +995,9 @@ public class Player : MonoBehaviour
                     Debug.LogError($"Player {playerName}: Buy button is NULL in HandlePropertyTile!");
                 }
                 
-                if (activeUIManager != null && activeUIManager.SkipButton != null)
+                if (activeUIManager != null)
                 {
-                    activeUIManager.SkipButton.SetEnabled(true);
+                    activeUIManager.SetPropertyPanelSkipEnabled(true);
                     Debug.Log($"Player {playerName}: Skip button enabled - player can skip property purchase");
                 }
             }
@@ -1327,17 +1339,12 @@ public class Player : MonoBehaviour
                 }
                 
                 // Update UI text
-                if (activeUIManager != null && activeUIManager.PropertyText != null)
-                {
-                    activeUIManager.PropertyText.text = $"✓ Bought {prop.propertyName}!\nMoney left: ₦{wallet:N0}";
-                }
+                if (activeUIManager != null)
+                    activeUIManager.SetPropertyPanelMessage($"✓ Bought {prop.propertyName}!\nMoney left: ₦{wallet:N0}");
                 if (activeUIManager != null)
                 {
                     activeUIManager.HidePropertyPanel();
-                    if (turnManager != null)
-                        turnManager.ShowResultMessage($"{playerName} purchased {prop.propertyName}.\nBalance: ₦{wallet:N0}", isAI ? 1.1f : 1.8f);
-                    else
-                        activeUIManager.ShowResultNotification($"{playerName} purchased {prop.propertyName}.\nBalance: ₦{wallet:N0}", isAI ? 1.1f : 1.8f);
+                    activeUIManager.ShowBoughtPropertyPanel(this, tile, prop.price, isAI ? 1.1f : 1.8f);
                 }
                 
                 // Update currentTile to match the tile we just bought (for consistency)
@@ -1347,19 +1354,15 @@ public class Player : MonoBehaviour
             else
             {
                 Debug.LogError($"Player {playerName}: TrySpend returned false even though CanAfford returned true!");
-                if (activeUIManager != null && activeUIManager.PropertyText != null)
-                {
-                    activeUIManager.PropertyText.text = $"Error: Could not complete purchase.";
-                }
+                if (activeUIManager != null)
+                    activeUIManager.SetPropertyPanelMessage("Error: Could not complete purchase.");
             }
         }
         else
         {
             Debug.Log($"Player {playerName}: Cannot afford {prop.propertyName} (₦{prop.price:N0}). Wallet: ₦{wallet:N0}");
-            if (activeUIManager != null && activeUIManager.PropertyText != null)
-            {
-                activeUIManager.PropertyText.text = $"Cannot afford {prop.propertyName} (₦{prop.price:N0}).\nWallet: ₦{wallet:N0}";
-            }
+            if (activeUIManager != null)
+                activeUIManager.SetPropertyPanelMessage($"Cannot afford {prop.propertyName} (₦{prop.price:N0}).\nWallet: ₦{wallet:N0}");
             // Don't hide panel if can't afford - let player see the message
         }
     }
@@ -1420,7 +1423,7 @@ public class Player : MonoBehaviour
                     turnManager.ShowResultMessage($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
                 else if (activeUIManager != null)
                     activeUIManager.ShowResultNotification($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
-                AuctionSystem auctionSystem = FindFirstObjectByType<AuctionSystem>();
+                AuctionSystem auctionSystem = FindFirstObjectByType<AuctionSystem>(FindObjectsInactive.Include);
                 if (auctionSystem != null)
                 {
                     Debug.Log($"Player {playerName} declined to buy {tile.property.propertyName} - starting auction");
