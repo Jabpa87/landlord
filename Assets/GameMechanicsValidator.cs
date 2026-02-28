@@ -62,11 +62,22 @@ public class GameMechanicsValidator : MonoBehaviour
         // Card panel on UIDocumentManager (for showing Chance/Community cards)
         if (uiManager != null)
         {
-            bool cardPanelRef = uiManager.CardPanel != null;
-            if (!cardPanelRef)
-                Debug.LogWarning("[GameMechanics] Card panel reference may be missing - Chance/Community card popup may not show.");
+            bool hasCardPanelPath =
+                uiManager.cardPanelUGUI != null ||
+                uiManager.cardPanelDocument != null ||
+                uiManager.CardPanel != null;
+            if (!hasCardPanelPath)
+                Debug.LogWarning("[GameMechanics] Card panel path missing (uGUI + UITK). Chance/Community popup may not show.");
             else
-                Debug.Log("[GameMechanics] OK: Card panel reference present.");
+                Debug.Log("[GameMechanics] OK: Card panel path present.");
+
+            bool hasChanceFallback =
+                uiManager.chanceFallbackIcon != null ||
+                (uiManager.cardIconCatalog != null && uiManager.cardIconCatalog.GetSprite(CardPanelMode.Chance) != null);
+            if (!hasChanceFallback)
+                Debug.LogWarning("[GameMechanics] Chance icon fallback missing. Chance cards may show empty icon.");
+            else
+                Debug.Log("[GameMechanics] OK: Chance icon fallback present.");
         }
 
         // Perk reveal
@@ -82,6 +93,29 @@ public class GameMechanicsValidator : MonoBehaviour
             Debug.LogError("[GameMechanics] FAIL: TurnManager not found.");
         else
             Debug.Log("[GameMechanics] OK: TurnManager found.");
+
+        // Auction wiring
+        var auctionSystem = FindFirstObjectByType<AuctionSystem>();
+        if (auctionSystem == null)
+        {
+            Debug.LogWarning("[GameMechanics] AuctionSystem not found.");
+        }
+        else
+        {
+            bool usingV2 = auctionSystem.useUGUIAuctionPanel && auctionSystem.useNewUGUIAuctionModule;
+            if (!usingV2)
+            {
+                Debug.LogWarning("[GameMechanics] Auction is not set to new uGUI v2 module.");
+            }
+            else if (auctionSystem.auctionPanelUGUIV2 == null && auctionSystem.auctionPanelUGUIV2Root == null)
+            {
+                Debug.LogWarning("[GameMechanics] Auction v2 controller/root is unassigned. Auction may fail to open.");
+            }
+            else
+            {
+                Debug.Log("[GameMechanics] OK: Auction v2 path appears wired.");
+            }
+        }
 
         Debug.Log("[GameMechanics] ========== End startup validation ==========");
     }
