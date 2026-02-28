@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 
 /// <summary>
 /// Represents a single Chance or Community Chest card.
@@ -68,6 +67,8 @@ public class CardSystem : MonoBehaviour
     [Header("Theme Override")]
     [Tooltip("When enabled, replaces loaded decks with the Nigerian-themed Chance/Community cards below.")]
     public bool useNigerianThemeDecks = true;
+    [Tooltip("Logs payout integrity for all money cards at startup (Chance + Community Chest).")]
+    public bool validateMoneyCardsOnStartup = true;
     
     private List<Card> chanceDiscardPile = new List<Card>();
     private List<Card> communityChestDiscardPile = new List<Card>();
@@ -101,6 +102,9 @@ public class CardSystem : MonoBehaviour
         // Shuffle both decks
         ShuffleDeck(CardDeckType.Chance);
         ShuffleDeck(CardDeckType.CommunityChest);
+
+        if (validateMoneyCardsOnStartup)
+            ValidateMoneyCardPayoutsOnStartup();
     }
 
     void ApplyNigerianThemeDecks()
@@ -321,5 +325,107 @@ public class CardSystem : MonoBehaviour
             else
                 InitializeCommunityChestDeck();
         }
+    }
+
+    void ValidateMoneyCardPayoutsOnStartup()
+    {
+        ValidateMoneyCardsForDeck(CardDeckType.Chance, chanceDeck);
+        ValidateMoneyCardsForDeck(CardDeckType.CommunityChest, communityChestDeck);
+    }
+
+    void ValidateMoneyCardsForDeck(CardDeckType deckType, List<Card> deck)
+    {
+        if (deck == null)
+        {
+            Debug.LogWarning($"[CardSystem][MoneyValidation] {deckType}: deck is null.");
+            return;
+        }
+
+        int moneyCardCount = 0;
+        int zeroAmountCount = 0;
+        int signMismatchCount = 0;
+
+        for (int i = 0; i < deck.Count; i++)
+        {
+            Card card = deck[i];
+            if (card == null || card.type != CardType.Money) continue;
+            moneyCardCount++;
+
+            int configured = card.moneyAmount;
+            int inferred = InferMoneyAmountFromCardText(card);
+
+            if (configured == 0)
+            {
+                zeroAmountCount++;
+                Debug.LogWarning($"[CardSystem][MoneyValidation] {deckType} | ZERO amount | \"{card.title}\" | inferred={inferred} | desc=\"{card.description}\"");
+                continue;
+            }
+
+            if (inferred != 0 && (configured > 0) != (inferred > 0))
+            {
+                signMismatchCount++;
+                Debug.LogWarning($"[CardSystem][MoneyValidation] {deckType} | SIGN mismatch | \"{card.title}\" | configured={configured} inferred={inferred}");
+            }
+            else
+            {
+                Debug.Log($"[CardSystem][MoneyValidation] {deckType} | OK | \"{card.title}\" | amount={configured}");
+            }
+        }
+
+        Debug.Log($"[CardSystem][MoneyValidation] {deckType} summary: moneyCards={moneyCardCount}, zeroAmount={zeroAmountCount}, signMismatch={signMismatchCount}");
+    }
+
+    int InferMoneyAmountFromCardText(Card card)
+    {
+        if (card == null) return 0;
+
+        string title = string.IsNullOrEmpty(card.title) ? string.Empty : card.title.ToLowerInvariant();
+        string description = string.IsNullOrEmpty(card.description) ? string.Empty : card.description.ToLowerInvariant();
+        string text = $"{title} {description}";
+
+        int bestValue = 0;
+        int current = 0;
+        bool inDigits = false;
+        for (int i = 0; i < text.Length; i++)
+        {
+            char ch = text[i];
+            if (ch >= '0' && ch <= '9')
+            {
+                inDigits = true;
+                int digit = ch - '0';
+                if (current <= (int.MaxValue - digit) / 10)
+                    current = current * 10 + digit;
+            }
+            else
+            {
+                if (inDigits)
+                {
+                    if (current > bestValue) bestValue = current;
+                    current = 0;
+                    inDigits = false;
+                }
+            }
+        }
+        if (inDigits && current > bestValue) bestValue = current;
+        if (bestValue <= 0) return 0;
+
+        bool isPositive =
+            text.Contains("collect") ||
+            text.Contains("receive") ||
+            text.Contains("credit") ||
+            text.Contains("refund") ||
+            text.Contains("dividend") ||
+            text.Contains("win");
+
+        bool isNegative =
+            text.Contains("pay") ||
+            text.Contains("bill") ||
+            text.Contains("levy") ||
+            text.Contains("fine") ||
+            text.Contains("repair");
+
+        if (isPositive && !isNegative) return bestValue;
+        if (isNegative && !isPositive) return -bestValue;
+        return bestValue;
     }
 }

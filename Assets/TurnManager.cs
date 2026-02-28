@@ -61,6 +61,11 @@ public class TurnManager : MonoBehaviour
     [Header("Trade System")]
     [Tooltip("Reference to TradeSystem component (handles player trading)")]
     public TradeSystem tradeSystem;
+    [Header("AI Trade Discipline")]
+    [Tooltip("How many turn cycles AI waits after acquiring a property before initiating cash-based trade offers.")]
+    public int aiTradeCooldownAfterPropertyGainTurns = 2;
+    [Tooltip("AI only opens cash-for-property offers when liquidity is under this amount (unless heavily mortgaged).")]
+    public int aiTradeLiquidityThreshold = 450000;
     
     [Header("Building Supply")]
     [Tooltip("Reference to BuildingSupplyManager (tracks house/hotel supply)")]
@@ -118,6 +123,8 @@ public class TurnManager : MonoBehaviour
     private int pendingDebtAmount;
     private bool _diceRollProcessedForTurn = false;
     private int _activeDiceRollToken = 0;
+    private int _turnSerial = 0;
+    private readonly Dictionary<int, int> _lastPropertyGainTurnByPlayer = new Dictionary<int, int>();
     private Coroutine _diceFallbackRoutine;
     private bool _hasShownPreGameCharacterSetup;
 
@@ -585,6 +592,7 @@ public class TurnManager : MonoBehaviour
 
     void StartTurn()
     {
+        _turnSerial++;
         turnInProgress = false;
         RecomputeAllCharacterRuntimeStates();
 
@@ -1563,7 +1571,19 @@ public class TurnManager : MonoBehaviour
         // Update dice text
         if (uiManager != null && uiManager.DiceText != null)
         {
-            if (dice1 > 0 && dice2 > 0)
+            bool auctionActive = auctionSystem != null && auctionSystem.IsAuctionInProgress();
+            bool showEndTurnPrompt =
+                p != null &&
+                !p.isAI &&
+                turnInProgress &&
+                !p.IsAwaitingChoice &&
+                !auctionActive;
+
+            if (showEndTurnPrompt)
+            {
+                uiManager.DiceText.Text = "<b>END TURN</b>";
+            }
+            else if (dice1 > 0 && dice2 > 0)
             {
                 bool isDoubles = (dice1 == dice2);
                 string doublesText = isDoubles ? " (Doubles!)" : "";
@@ -1928,6 +1948,23 @@ public class TurnManager : MonoBehaviour
         }
         if (human == null) return;
 
+        if (_lastPropertyGainTurnByPlayer.TryGetValue(aiPlayer.playerIndex, out int lastGainTurn))
+        {
+            int sinceGain = _turnSerial - lastGainTurn;
+            if (sinceGain <= Mathf.Max(0, aiTradeCooldownAfterPropertyGainTurns))
+            {
+                LogAIDecision("TRADE_SKIP_COOLDOWN", aiPlayer, $"sinceGainTurns={sinceGain} cooldown={aiTradeCooldownAfterPropertyGainTurns}");
+                return;
+            }
+        }
+
+        bool mortgagePressure = CountMortgagedProperties(aiPlayer) >= 2;
+        if (aiPlayer.Money >= Mathf.Max(0, aiTradeLiquidityThreshold) && !mortgagePressure)
+        {
+            LogAIDecision("TRADE_SKIP_LIQUIDITY_OK", aiPlayer, $"cash={aiPlayer.Money} threshold={aiTradeLiquidityThreshold} mortgaged={CountMortgagedProperties(aiPlayer)}");
+            return;
+        }
+
         AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(aiPlayer);
         float trade01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.trade) : 0.5f;
         float liquidity01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.liquidity) : 0.5f;
@@ -1947,6 +1984,28 @@ public class TurnManager : MonoBehaviour
 
         if (openTrade)
             tradeSystem.StartTradeByAI(aiPlayer, human);
+    }
+
+    int CountMortgagedProperties(Player owner)
+    {
+        if (owner == null) return 0;
+        int count = 0;
+        TileInfo[] allTiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        for (int i = 0; i < allTiles.Length; i++)
+        {
+            TileInfo tile = allTiles[i];
+            if (tile == null || tile.property == null) continue;
+            if (tile.property.owner == owner && tile.property.isMortgaged)
+                count++;
+        }
+        return count;
+    }
+
+    public void RegisterPropertyAcquired(Player player, string propertyName, string source)
+    {
+        if (player == null) return;
+        _lastPropertyGainTurnByPlayer[player.playerIndex] = _turnSerial;
+        LogAIDecision("PROPERTY_ACQUIRED", player, $"property={propertyName} source={source} turnSerial={_turnSerial}");
     }
 
     void LogAIDecision(string category, Player ai, string details)

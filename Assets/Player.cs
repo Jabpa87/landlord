@@ -1492,6 +1492,8 @@ public IEnumerator MoveSteps(int steps, int goSalary, int dice1 = 0, int dice2 =
                 Debug.Log($"Player {playerName}: ✓ Property owner set to: {prop.owner.name}");
                 Debug.Log($"Player {playerName}: ✓ Remaining wallet: ₦{wallet:N0}");
                 GameLogger.Log($"BUY_PROPERTY | player={playerName} property={prop.propertyName} price={prop.price} balance={wallet}");
+                if (turnManager != null)
+                    turnManager.RegisterPropertyAcquired(this, prop.propertyName, "BuyProperty");
                 
                 // Notify narrative manager
                 if (NarrativeManager.Instance != null)
@@ -2813,8 +2815,18 @@ public IEnumerator MoveSteps(int steps, int goSalary, int dice1 = 0, int dice2 =
     void ApplyMoneyCard(Card card, CardDeckType deckType)
     {
         int amount = card.moneyAmount;
-        int walletBefore = Money;
+        if (amount == 0)
+        {
+            int inferredAmount = InferMoneyAmountFromCardText(card);
+            if (inferredAmount != 0)
+            {
+                amount = inferredAmount;
+                Debug.LogWarning($"[Card Money] Inferred missing amount from text. card=\"{card.title}\" inferred={amount}");
+                GameLogger.Log($"CARD_MONEY_INFERRED | player={playerName} card=\"{card.title}\" inferred={amount}");
+            }
+        }
 
+        int walletBefore = Money;
         if (deckType == CardDeckType.CommunityChest && HasFaultEffect(CharacterEffectKeys.NoSafetyNet) && turnsTaken < 10 && amount > 0)
         {
             string blockedMsg = $"{playerName}: Community Chest reward blocked until Turn 10 (No Safety Net).";
@@ -2879,6 +2891,65 @@ public IEnumerator MoveSteps(int steps, int goSalary, int dice1 = 0, int dice2 =
         int walletAfter = Money;
         Debug.Log($"[Card Money] player={playerName} card=\"{card.title}\" amount={amount} walletBefore={walletBefore} walletAfter={walletAfter}");
         GameLogger.Log($"CARD_MONEY | player={playerName} card=\"{card.title}\" amount={amount} before={walletBefore} after={walletAfter}");
+        if (amount > 0 && walletAfter <= walletBefore)
+        {
+            Debug.LogError($"[Card Money] Positive payout did not increase wallet. player={playerName} card=\"{card.title}\" amount={amount} before={walletBefore} after={walletAfter}");
+            GameLogger.Log($"CARD_MONEY_ANOMALY | player={playerName} card=\"{card.title}\" amount={amount} before={walletBefore} after={walletAfter}");
+        }
+    }
+
+    int InferMoneyAmountFromCardText(Card card)
+    {
+        if (card == null) return 0;
+
+        string title = string.IsNullOrEmpty(card.title) ? string.Empty : card.title.ToLowerInvariant();
+        string description = string.IsNullOrEmpty(card.description) ? string.Empty : card.description.ToLowerInvariant();
+        string text = $"{title} {description}";
+
+        int bestValue = 0;
+        int current = 0;
+        bool inDigits = false;
+        for (int i = 0; i < text.Length; i++)
+        {
+            char ch = text[i];
+            if (ch >= '0' && ch <= '9')
+            {
+                inDigits = true;
+                int digit = ch - '0';
+                if (current <= (int.MaxValue - digit) / 10)
+                    current = current * 10 + digit;
+            }
+            else
+            {
+                if (inDigits)
+                {
+                    if (current > bestValue) bestValue = current;
+                    current = 0;
+                    inDigits = false;
+                }
+            }
+        }
+        if (inDigits && current > bestValue) bestValue = current;
+        if (bestValue <= 0) return 0;
+
+        bool isPositive =
+            text.Contains("collect") ||
+            text.Contains("receive") ||
+            text.Contains("credit") ||
+            text.Contains("refund") ||
+            text.Contains("dividend") ||
+            text.Contains("win");
+
+        bool isNegative =
+            text.Contains("pay") ||
+            text.Contains("bill") ||
+            text.Contains("levy") ||
+            text.Contains("fine") ||
+            text.Contains("repair");
+
+        if (isPositive && !isNegative) return bestValue;
+        if (isNegative && !isPositive) return -bestValue;
+        return bestValue;
     }
     
     IEnumerator ApplyMovementCard(Card card)

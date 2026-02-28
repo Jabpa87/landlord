@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,8 @@ public TradePanelUITKController tradePanelUITK;
     [Header("Trade Settings")]
     [Tooltip("Minimum trade amount (to prevent accidental trades)")]
     public int minTradeAmount = 1000;
+    [Tooltip("Enable detailed AI trade decision logs to Console + gameplay.log.")]
+    public bool enableAITradeDebugLogs = true;
     
     // Current trade state
 private Player initiatingPlayer;
@@ -211,16 +214,120 @@ public bool HasAnyOffer()
         player2OfferingCards.Clear();
         player1OfferingMoney = 0;
         player2OfferingMoney = 0;
-        List<Property> aiTradeable = GetTradeablePropertiesPublic(aiInitiator);
-        if (aiTradeable.Count == 0) return;
-        Property prop = aiTradeable[Random.Range(0, aiTradeable.Count)];
-        player1OfferingProperties.Add(prop);
-        player2OfferingMoney = Mathf.Max(minTradeAmount, prop.price * 80 / 100);
+
+        if (!BuildAITradeOffer(aiInitiator, humanTarget, out Property offeredProperty, out int requestedCash))
+            return;
+
+        player1OfferingProperties.Add(offeredProperty);
+        player2OfferingMoney = requestedCash;
+        LogAITradeDecision($"AI_OFFER_BUILT | initiator={aiInitiator.playerName} target={humanTarget.playerName} property={offeredProperty.propertyName} ask={requestedCash}");
+        if (NarrativeManager.Instance != null)
+            NarrativeManager.Instance.AddSystemMessage("AI Trade", $"{aiInitiator.playerName} offered {offeredProperty.propertyName} for ₦{requestedCash:N0} to {humanTarget.playerName}.");
+
         tradeInProgress = true;
         if (turnManager != null)
             turnManager.TransitionState(GameStateMachine.State.InTrade);
+        Debug.Log($"TradeSystem: StartTradeByAI opened. useUGUI={useUGUITradePanel} panel={(tradePanelUGUI != null ? tradePanelUGUI.name : "null")} initiator={aiInitiator.playerName} target={humanTarget.playerName}");
         ShowTradeUI();
         ShowTradeForAcceptance();
+        StartCoroutine(EnsureAcceptanceUIVisibleNextFrame());
+    }
+
+    IEnumerator EnsureAcceptanceUIVisibleNextFrame()
+    {
+        yield return null;
+        if (!tradeInProgress) yield break;
+        if (useUGUITradePanel && tradePanelUGUI != null)
+        {
+            tradePanelUGUI.Show();
+            tradePanelUGUI.ShowForAcceptance(targetPlayer);
+            tradePanelUGUI.ForceToFrontAndInteractable();
+        }
+        if (uiManager != null)
+        {
+            if (uiManager.RollButton != null) uiManager.RollButton.Enabled = false;
+            if (uiManager.EndTurnButton != null) uiManager.EndTurnButton.Enabled = false;
+        }
+    }
+
+    bool BuildAITradeOffer(Player aiInitiator, Player humanTarget, out Property offeredProperty, out int requestedCash)
+    {
+        offeredProperty = null;
+        requestedCash = 0;
+        if (aiInitiator == null || humanTarget == null) return false;
+        if (aiInitiator.Money > 500000)
+        {
+            LogAITradeDecision($"AI_OFFER_ABORT | initiator={aiInitiator.playerName} reason=liquidity_ok cash={aiInitiator.Money}");
+            return false;
+        }
+
+        AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(aiInitiator);
+        float risk01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.risk) : 0.5f;
+        float liquidity01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.liquidity) : 0.5f;
+        float trade01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.trade) : 0.5f;
+        float aggression01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.aggression) : 0.5f;
+        AIProfilePhase phase = AICharacterBehaviorProfiles.GetPhase(profile, aiInitiator.turnsTaken);
+
+        List<Property> aiTradeable = GetTradeablePropertiesPublic(aiInitiator);
+        if (aiTradeable.Count == 0) return false;
+
+        Property best = null;
+        float bestScore = float.NegativeInfinity;
+        for (int i = 0; i < aiTradeable.Count; i++)
+        {
+            Property candidate = aiTradeable[i];
+            if (candidate == null) continue;
+
+            // Prefer giving away low strategic value assets and avoid empowering opponent monopolies.
+            float aiKeepValue = EvaluateTradeBundleValue(aiInitiator, new List<Property> { candidate }, 0, profile);
+            float score = -aiKeepValue;
+            if (WouldBreakMonopolyIfGiven(aiInitiator, candidate))
+                score -= 140f;
+            if (WouldCompleteGroupWithProperty(humanTarget, candidate))
+                score -= 110f;
+
+            // If cash is tight, AI is more willing to liquidate larger properties.
+            if (aiInitiator.Money < 450000)
+                score += Mathf.Max(0f, candidate.price) * 0.00018f;
+
+            // Trade-oriented personalities are more willing to move properties.
+            score += Mathf.Lerp(-6f, 12f, trade01);
+
+            if (score > bestScore)
+            {
+                bestScore = score;
+                best = candidate;
+            }
+        }
+
+        if (best == null) return false;
+
+        float baseValue = Mathf.Max(minTradeAmount, best.price);
+        bool givesHumanMonopoly = WouldCompleteGroupWithProperty(humanTarget, best);
+        float askMultiplier =
+            Mathf.Lerp(0.9f, 1.35f, aggression01) *
+            Mathf.Lerp(1.05f, 0.9f, trade01) *
+            Mathf.Lerp(0.95f, 1.15f, 1f - liquidity01) *
+            Mathf.Lerp(0.95f, 1.12f, risk01);
+
+        if (phase == AIProfilePhase.Early) askMultiplier *= 0.94f; // close deals to accelerate board position
+        else if (phase == AIProfilePhase.Mid) askMultiplier *= 1.04f; // stronger negotiating stance
+        else askMultiplier *= 1.08f; // late game: preserve value and avoid cheap exits
+
+        if (givesHumanMonopoly) askMultiplier *= 1.28f;
+
+        // If human is weak, keep offer feasible rather than dead-on-arrival.
+        if (humanTarget.Money < 400000)
+            askMultiplier *= 0.82f;
+
+        int roundedAsk = Mathf.RoundToInt((baseValue * askMultiplier) / 10000f) * 10000;
+        int affordableCap = Mathf.Max(minTradeAmount, Mathf.FloorToInt(humanTarget.Money * 0.95f));
+        roundedAsk = Mathf.Clamp(roundedAsk, minTradeAmount, affordableCap);
+        if (roundedAsk <= 0 || roundedAsk > humanTarget.Money) return false;
+
+        offeredProperty = best;
+        requestedCash = roundedAsk;
+        return true;
     }
 
     /// <summary>
@@ -464,31 +571,192 @@ public bool HasAnyOffer()
     /// <summary>
     /// AI (target) evaluates the offer and returns true to accept, false to reject.
     /// </summary>
-    bool ResolveAITradeResponse()
+    bool ResolveAITradeResponse(out float tradeValueScoreOut, out float thresholdOut)
     {
+        tradeValueScoreOut = 0f;
+        thresholdOut = 0f;
         if (targetPlayer == null || !targetPlayer.isAI) return false;
-        int valueReceiving = player1OfferingMoney;
-        foreach (Property prop in player1OfferingProperties)
-            valueReceiving += prop != null ? prop.price : 0;
-        int valueGiving = player2OfferingMoney;
-        foreach (Property prop in player2OfferingProperties)
-            valueGiving += prop != null ? prop.price : 0;
-        return valueReceiving >= valueGiving * 85 / 100;
+        AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(targetPlayer);
+
+        float receiveValue = EvaluateTradeBundleValue(targetPlayer, player1OfferingProperties, player1OfferingMoney, profile);
+        float giveValue = EvaluateTradeBundleValue(targetPlayer, player2OfferingProperties, player2OfferingMoney, profile);
+
+        float monopolyGain = GetTradeMonopolyGainScore(targetPlayer, player1OfferingProperties);
+        float opponentWeakness = GetOpponentWeaknessScore(initiatingPlayer);
+
+        float risk01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.risk) : 0.5f;
+        float liquidity01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.liquidity) : 0.5f;
+        float trade01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.trade) : 0.5f;
+        AIProfilePhase phase = AICharacterBehaviorProfiles.GetPhase(profile, targetPlayer.turnsTaken);
+
+        int projectedCash = targetPlayer.Money + player1OfferingMoney - player2OfferingMoney;
+        int safetyBuffer = Mathf.RoundToInt(Mathf.Lerp(150000f, 900000f, liquidity01));
+        if (phase == AIProfilePhase.Late)
+            safetyBuffer = Mathf.RoundToInt(safetyBuffer * 1.12f);
+        float riskPenalty = projectedCash < safetyBuffer ? Mathf.InverseLerp(safetyBuffer, 0f, projectedCash) * 120f : 0f;
+
+        float rawEdge = receiveValue - giveValue;
+        float tradeValueScore = rawEdge + (monopolyGain * 2f) + opponentWeakness - riskPenalty;
+
+        // More flexible in mid/late for active traders; stricter for low-risk personalities.
+        float threshold = Mathf.Lerp(90f, -45f, trade01) + Mathf.Lerp(35f, -20f, risk01);
+        if (phase == AIProfilePhase.Early) threshold += 6f;    // avoid bad early liquidation
+        if (phase == AIProfilePhase.Mid) threshold -= 15f;      // most willing to transact
+        if (phase == AIProfilePhase.Late) threshold -= 8f;      // still willing, but with higher cash safety
+        tradeValueScoreOut = tradeValueScore;
+        thresholdOut = threshold;
+        LogAITradeDecision($"AI_TRADE_EVAL | target={targetPlayer.playerName} score={tradeValueScore:0.00} threshold={threshold:0.00} projectedCash={projectedCash} phase={phase} receive={receiveValue:0.00} give={giveValue:0.00}");
+
+        return tradeValueScore >= threshold;
+    }
+
+    float EvaluateTradeBundleValue(Player perspective, List<Property> properties, int money, AICharacterProfileData profile)
+    {
+        float total = Mathf.Max(0, money);
+        if (properties == null || properties.Count == 0) return total;
+
+        for (int i = 0; i < properties.Count; i++)
+        {
+            Property prop = properties[i];
+            if (prop == null) continue;
+
+            float value = Mathf.Max(0, prop.price);
+            float groupWeight = AICharacterBehaviorProfiles.GetGroupBiasWeight(profile, prop);
+            value *= groupWeight;
+
+            if (WouldCompleteGroupWithProperty(perspective, prop))
+                value *= 1.35f;
+
+            if (prop.isMortgaged)
+                value *= 0.72f;
+
+            total += value;
+        }
+
+        return total;
+    }
+
+    float GetTradeMonopolyGainScore(Player perspective, List<Property> incomingProperties)
+    {
+        if (perspective == null || incomingProperties == null || incomingProperties.Count == 0)
+            return 0f;
+
+        float score = 0f;
+        for (int i = 0; i < incomingProperties.Count; i++)
+        {
+            Property prop = incomingProperties[i];
+            if (prop == null) continue;
+            if (WouldCompleteGroupWithProperty(perspective, prop))
+                score += 55f;
+        }
+        return score;
+    }
+
+    float GetOpponentWeaknessScore(Player opponent)
+    {
+        if (opponent == null) return 0f;
+        float score = 0f;
+
+        if (opponent.Money < 400000) score += 20f;
+
+        int mortgages = 0;
+        TileInfo[] allTiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        for (int i = 0; i < allTiles.Length; i++)
+        {
+            TileInfo tile = allTiles[i];
+            if (tile == null || tile.property == null) continue;
+            Property prop = tile.property;
+            if (prop.owner != opponent) continue;
+            if (prop != null && prop.isMortgaged)
+                mortgages++;
+        }
+        if (mortgages >= 2) score += 22f;
+
+        return score;
+    }
+
+    bool WouldCompleteGroupWithProperty(Player player, Property incomingProperty)
+    {
+        if (player == null || incomingProperty == null) return false;
+
+        string groupId = incomingProperty.groupId;
+        if (string.IsNullOrWhiteSpace(groupId)) return false;
+
+        int totalInGroup = 0;
+        int ownedOrIncoming = 0;
+
+        TileInfo[] allTiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        for (int i = 0; i < allTiles.Length; i++)
+        {
+            TileInfo tile = allTiles[i];
+            if (tile == null || tile.property == null) continue;
+
+            Property p = tile.property;
+            if (!string.Equals(p.groupId, groupId, StringComparison.OrdinalIgnoreCase)) continue;
+
+            totalInGroup++;
+            if (p.owner == player || p == incomingProperty)
+                ownedOrIncoming++;
+        }
+
+        return totalInGroup > 0 && ownedOrIncoming >= totalInGroup;
+    }
+
+    bool WouldBreakMonopolyIfGiven(Player owner, Property outgoingProperty)
+    {
+        if (owner == null || outgoingProperty == null) return false;
+        string groupId = outgoingProperty.groupId;
+        if (string.IsNullOrWhiteSpace(groupId)) return false;
+
+        int totalInGroup = 0;
+        int ownedAfterTrade = 0;
+
+        TileInfo[] allTiles = FindObjectsByType<TileInfo>(FindObjectsSortMode.None);
+        for (int i = 0; i < allTiles.Length; i++)
+        {
+            TileInfo tile = allTiles[i];
+            if (tile == null || tile.property == null) continue;
+            Property p = tile.property;
+            if (!string.Equals(p.groupId, groupId, StringComparison.OrdinalIgnoreCase)) continue;
+
+            totalInGroup++;
+            if (p.owner == owner && p != outgoingProperty)
+                ownedAfterTrade++;
+        }
+
+        return totalInGroup > 0 && ownedAfterTrade < totalInGroup;
     }
     
     IEnumerator ResolveAITradeResponseCoroutine()
     {
         yield return new WaitForSeconds(1f);
         if (!tradeInProgress || targetPlayer == null) { EndTrade(); yield break; }
-        bool accept = ResolveAITradeResponse();
+        float score;
+        float threshold;
+        bool accept = ResolveAITradeResponse(out score, out threshold);
         if (uiManager != null)
-            uiManager.ShowResultNotification(accept ? $"{targetPlayer.playerName} accepted the trade." : $"{targetPlayer.playerName} rejected the trade.", 1.2f);
+            uiManager.ShowTradeResultNotification(
+                accept ? $"{targetPlayer.playerName} accepted the trade." : $"{targetPlayer.playerName} rejected the trade.",
+                accept ? TradeResultOutcome.Accepted : TradeResultOutcome.Rejected,
+                1.3f);
         if (uiManager != null && uiManager.TradeStatusText != null)
             uiManager.TradeStatusText.text = accept ? $"{targetPlayer.playerName} accepted the trade." : $"{targetPlayer.playerName} rejected the trade.";
+        LogAITradeDecision($"AI_TRADE_RESPONSE | target={targetPlayer.playerName} decision={(accept ? "ACCEPT" : "REJECT")} score={score:0.00} threshold={threshold:0.00}");
+        if (NarrativeManager.Instance != null)
+            NarrativeManager.Instance.AddSystemMessage("AI Trade", $"{targetPlayer.playerName} {(accept ? "accepted" : "rejected")} a trade from {initiatingPlayer.playerName}.");
+        if (!accept && GameSoundManager.Instance != null)
+            GameSoundManager.Instance.PlayTradeFailed();
         yield return new WaitForSeconds(1.5f);
         if (accept)
             ExecuteTrade();
         EndTrade();
+    }
+
+    void LogAITradeDecision(string message)
+    {
+        if (!enableAITradeDebugLogs) return;
+        Debug.Log($"[AI][Trade] {message}");
+        GameLogger.Log(message);
     }
     
     /// <summary>
@@ -496,7 +764,11 @@ public bool HasAnyOffer()
     /// </summary>
     public void AcceptTrade()
     {
-        if (!tradeInProgress) return;
+        if (!tradeInProgress)
+        {
+            Debug.LogWarning("TradeSystem: AcceptTrade ignored because no trade is in progress.");
+            return;
+        }
         if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick();
         
         Debug.Log($"=== TRADE ACCEPTED ===");
@@ -549,6 +821,9 @@ public bool HasAnyOffer()
             // Execute the trade
             ExecuteTrade();
         }
+
+        if (uiManager != null)
+            uiManager.ShowTradeResultNotification($"{targetPlayer.playerName} accepted the trade.", TradeResultOutcome.Accepted, 1.3f);
         
         // Clean up
         EndTrade();
@@ -559,10 +834,16 @@ public bool HasAnyOffer()
     /// </summary>
     public void RejectTrade()
     {
-        if (!tradeInProgress) return;
+        if (!tradeInProgress)
+        {
+            Debug.LogWarning("TradeSystem: RejectTrade ignored because no trade is in progress.");
+            return;
+        }
         if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayClick();
         
         Debug.Log($"Trade rejected by {targetPlayer.playerName}");
+        if (uiManager != null)
+            uiManager.ShowTradeResultNotification($"{targetPlayer.playerName} rejected the trade.", TradeResultOutcome.Rejected, 1.3f);
         if (GameSoundManager.Instance != null) GameSoundManager.Instance.PlayTradeFailed();
         EndTrade();
     }

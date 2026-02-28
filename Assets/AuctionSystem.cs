@@ -1307,6 +1307,8 @@ public void StartAuction(Property property, TileInfo tile, Player initiator)
             if (winner.TrySpend(finalBid))
             {
                 wonProperty.owner = winner;
+                if (turnManager != null)
+                    turnManager.RegisterPropertyAcquired(winner, wonProperty.propertyName, "Auction");
                 Debug.Log($"=== AUCTION ENDED ===");
                 Debug.Log($"Winner: {winner.playerName}");
                 Debug.Log($"Property: {wonProperty.propertyName}");
@@ -1534,6 +1536,19 @@ public void StartAuction(Property property, TileInfo tile, Player initiator)
         if (!auctionPanelUGUIV2.gameObject.activeInHierarchy)
             auctionPanelUGUIV2.gameObject.SetActive(true);
 
+        string resolvedLocalPlayerId = string.Empty;
+        for (int i = 0; i < auctionActivePlayers.Count; i++)
+        {
+            Player candidate = auctionActivePlayers[i];
+            if (candidate != null && !candidate.isAI)
+            {
+                resolvedLocalPlayerId = candidate.playerIndex.ToString();
+                break;
+            }
+        }
+        if (string.IsNullOrEmpty(resolvedLocalPlayerId) && initiator != null)
+            resolvedLocalPlayerId = initiator.playerIndex.ToString();
+
         var cfg = new Landlord.UI.Auction.AuctionSessionConfig
         {
             auctionId = $"auc_{Time.frameCount}",
@@ -1547,13 +1562,35 @@ public void StartAuction(Property property, TileInfo tile, Player initiator)
             minIncrement = Mathf.Max(1, bidIncrement),
             historyBufferMax = 30,
             auctionTimeoutSeconds = disableAuctionTimeoutForTurnBased ? 0f : Mathf.Max(0f, auctionTimeout),
-            localPlayerId = initiator != null ? initiator.playerIndex.ToString() : string.Empty
+            localPlayerId = resolvedLocalPlayerId,
+            // In 1v1 (Human vs AI), if one side places a valid bid and the other passes,
+            // that bidder should win. Requiring two distinct bidders causes false "no winner" results.
+            requireAtLeastTwoDistinctBiddersForWinner = false
         };
+
+        // Put local human first so AI-started auctions don't auto-pass before human can act.
+        if (!string.IsNullOrEmpty(resolvedLocalPlayerId))
+        {
+            Player local = FindAuctionPlayerById(resolvedLocalPlayerId);
+            if (local != null)
+            {
+                cfg.bidders.Add(new Landlord.UI.Auction.AuctionBidderConfig
+                {
+                    playerId = local.playerIndex.ToString(),
+                    playerName = local.playerName,
+                    playerColor = local.playerColor,
+                    wallet = local.Money,
+                    isAI = local.isAI,
+                    avatar = null
+                });
+            }
+        }
 
         for (int i = 0; i < auctionActivePlayers.Count; i++)
         {
             Player p = auctionActivePlayers[i];
             if (p == null) continue;
+            if (!string.IsNullOrEmpty(resolvedLocalPlayerId) && p.playerIndex.ToString() == resolvedLocalPlayerId) continue;
 
             cfg.bidders.Add(new Landlord.UI.Auction.AuctionBidderConfig
             {
