@@ -40,7 +40,7 @@ public class TurnManager : MonoBehaviour
 
     [Header("Economy")]
     [Tooltip("Salary paid when a player PASSES GO (wraps from last tile to index 0).")]
-    public int goSalary = 200000; // ₦200,000 per turn (passing GO)
+    public int goSalary = 300000; // ₦300,000 per turn (passing GO)
     
     [Header("Free Parking")]
     [Tooltip("Money pool collected from taxes and fees, awarded to player landing on Free Parking")]
@@ -51,6 +51,8 @@ public class TurnManager : MonoBehaviour
     public UIDocumentManager uiManager;
     [Tooltip("Optional: runs perk card reveal animation at game start. If set, StartTurn() runs after the sequence.")]
     public PerkRevealController perkRevealController;
+    [Tooltip("If enabled, shows the pre-game perk reveal sequence. Disable for streamlined start flow.")]
+    public bool usePreGamePerkReveal = false;
     
     [Header("Auction System")]
     [Tooltip("Reference to AuctionSystem component (handles property auctions)")]
@@ -75,6 +77,13 @@ public class TurnManager : MonoBehaviour
     public float aiDecisionDelay = 0.6f;
     [Tooltip("Max seconds to allow an AI turn before forcing end turn.")]
     public float aiMaxTurnDuration = 20f;
+    [Tooltip("Seconds without AI progress before emitting stall diagnostics and attempting auto-recovery once.")]
+    public float aiStallDetectSeconds = 6f;
+    [Header("AI Observability")]
+    [Tooltip("Enable detailed AI decision logs in Console and gameplay.log.")]
+    public bool enableAIDebugLogging = true;
+    [Tooltip("Post major AI decisions to News Feed.")]
+    public bool enableAIDecisionFeed = true;
     [Header("AI Strategy")]
     [Tooltip("Minimum cash AI tries to keep after purchases/builds.")]
     public int aiCashReserve = 200000;
@@ -100,7 +109,10 @@ public class TurnManager : MonoBehaviour
     private Coroutine aiTurnRoutine;
     private Coroutine aiWatchdogRoutine;
     private float aiTurnStartTime;
+    private float aiLastProgressTime;
     private bool aiAwaitingBonusRoll = false;
+    private bool aiInternalRollRequest = false;
+    private bool aiRecoveryAttemptedThisTurn = false;
     private Player pendingDebtPlayer;
     private Player pendingDebtCreditor;
     private int pendingDebtAmount;
@@ -268,8 +280,6 @@ public class TurnManager : MonoBehaviour
             {
                 propertyPanelUGUI.BuyClicked -= OnBuyButtonClicked;
                 propertyPanelUGUI.BuyClicked += OnBuyButtonClicked;
-                propertyPanelUGUI.AuctionClicked -= OnAuctionButtonClicked;
-                propertyPanelUGUI.AuctionClicked += OnAuctionButtonClicked;
                 propertyPanelUGUI.SkipClicked -= OnSkipButtonClicked;
                 propertyPanelUGUI.SkipClicked += OnSkipButtonClicked;
             }
@@ -426,12 +436,19 @@ public class TurnManager : MonoBehaviour
 
         AssignStartingAssets();
 
-        if (perkRevealController == null)
-            perkRevealController = FindFirstObjectByType<PerkRevealController>();
-        if (perkRevealController != null)
-            perkRevealController.RunPerkRevealSequence(players, ShowPreGameSetupThenStartTurn);
+        if (usePreGamePerkReveal)
+        {
+            if (perkRevealController == null)
+                perkRevealController = FindFirstObjectByType<PerkRevealController>();
+            if (perkRevealController != null)
+                perkRevealController.RunPerkRevealSequence(players, ShowPreGameSetupThenStartTurn);
+            else
+                ShowPreGameSetupThenStartTurn();
+        }
         else
+        {
             ShowPreGameSetupThenStartTurn();
+        }
     }
 
     System.Collections.IEnumerator ReapplyPlayerVisualsDelayed()
@@ -680,10 +697,21 @@ public class TurnManager : MonoBehaviour
             Debug.LogError($"[GameMechanics] AI should be taking its turn but did not. Current player: {p.playerName} (index {p.playerIndex}). Roll ignored - human cannot roll for AI.");
             return;
         }
+        if (p.isAI && !aiInternalRollRequest)
+        {
+            Debug.LogWarning($"[GameMechanics] Blocked non-AI roll input during AI turn. player={p.playerName} idx={p.playerIndex}");
+            return;
+        }
+        if (p.isAI)
+        {
+            aiInternalRollRequest = false;
+            MarkAIProgress("roll_started");
+        }
         if (p.isAI && aiAwaitingBonusRoll)
         {
             aiAwaitingBonusRoll = false;
             aiTurnStartTime = Time.time;
+            MarkAIProgress("bonus_roll_started");
         }
 
         // If player is still resolving a UI choice, block rolling.
@@ -831,10 +859,12 @@ public class TurnManager : MonoBehaviour
         // Check if player is in jail
         if (p.IsInJail)
         {
+            if (p.isAI) MarkAIProgress("jail_turn");
             StartCoroutine(DoJailTurn(p, dice1, dice2));
         }
         else
         {
+            if (p.isAI) MarkAIProgress("move_turn");
             StartCoroutine(DoMoveAndWait(p, dice1, dice2, isDoubles));
         }
     }
@@ -1090,6 +1120,7 @@ public class TurnManager : MonoBehaviour
         }
         
         aiTurnInProgress = false;
+        aiInternalRollRequest = false;
         if (aiWatchdogRoutine != null)
         {
             StopCoroutine(aiWatchdogRoutine);
@@ -1140,6 +1171,26 @@ public class TurnManager : MonoBehaviour
         Player p = GetCurrentPlayer();
         if (p != null)
             UpdateHUD(0, 0, 0, p);
+
+        // If auction ended during an AI turn, continue flow immediately instead of waiting for watchdog timeout.
+        if (p != null && p.isAI && aiTurnInProgress)
+        {
+            MarkAIProgress("auction_ended");
+            StartCoroutine(AutoEndAITurnAfterAuction(p));
+        }
+    }
+
+    IEnumerator AutoEndAITurnAfterAuction(Player p)
+    {
+        if (p == null) yield break;
+        yield return new WaitForSeconds(Mathf.Max(0.1f, aiDecisionDelay * 0.6f));
+        if (GetCurrentPlayer() != p) yield break;
+        if (auctionSystem != null && auctionSystem.IsAuctionInProgress()) yield break;
+
+        p.IsAwaitingChoice = false;
+        aiAwaitingBonusRoll = false;
+        turnInProgress = true;
+        EndTurn();
     }
 
     public Player GetCurrentPlayer()
@@ -1648,10 +1699,16 @@ public class TurnManager : MonoBehaviour
         if (bailCard != null && p.isAI)
         {
             int discounted = bailCard.fixedValue > 0 ? bailCard.fixedValue : p.jailBailCost;
-            p.ConsumePerkCard(bailCard);
-            GameLogger.Log($"PERK_BAIL_DISCOUNT | player={p.playerName} uses_left={bailCard.usesRemaining}");
-            Debug.Log(bailCard.sideJoke);
-            if (p.PayJailBailAmount(discounted))
+            int savings = Mathf.Max(0, p.jailBailCost - discounted);
+            bool useDiscount = p.ShouldAIUsePerkForDecision(CharacterEffectKeys.BailDiscount, savings);
+            if (useDiscount)
+            {
+                p.ConsumePerkCard(bailCard);
+                GameLogger.Log($"PERK_BAIL_DISCOUNT | player={p.playerName} uses_left={bailCard.usesRemaining}");
+                Debug.Log(bailCard.sideJoke);
+            }
+
+            if (useDiscount ? p.PayJailBailAmount(discounted) : p.PayJailBail())
             {
                 p.IsAwaitingChoice = false;
                 TurnDebugState.LogTurnAction("DecisionResolved", "type=JailChoice choice=PayBail player=" + p.playerName, setPhase: "Moving", setInputEnabled: "None");
@@ -1724,13 +1781,13 @@ public class TurnManager : MonoBehaviour
         if (p == null || p.isAI) return;
         if (!p.IsAwaitingChoice && !IsPropertyDecisionPanelVisible())
             return;
-        p.SkipAction();
+        p.SkipAction(true);
     }
 
     void OnAuctionButtonClicked()
     {
-        // For now auction follows the same gameplay path as decline-to-buy.
-        // SkipAction closes panel and starts auction when appropriate.
+        // Legacy path: auction button has been removed from buy panel.
+        // Keep this as a safe alias to Skip for existing scene wiring.
         OnSkipButtonClicked();
     }
 
@@ -1870,8 +1927,35 @@ public class TurnManager : MonoBehaviour
             if (pl != null && !pl.IsEliminated && !pl.isAI) { human = pl; break; }
         }
         if (human == null) return;
-        if (Random.value < 0.2f)
+
+        AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(aiPlayer);
+        float trade01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.trade) : 0.5f;
+        float liquidity01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.liquidity) : 0.5f;
+        float risk01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.risk) : 0.5f;
+        AIProfilePhase phase = AICharacterBehaviorProfiles.GetPhase(profile, aiPlayer.turnsTaken);
+
+        float tradeChance = Mathf.Lerp(0.08f, 0.42f, trade01);
+        tradeChance += Mathf.Lerp(-0.04f, 0.06f, risk01);
+        tradeChance += Mathf.Lerp(0.05f, -0.03f, liquidity01); // low-liquidity AIs seek cash trades
+        if (phase == AIProfilePhase.Mid) tradeChance += 0.06f;
+        else if (phase == AIProfilePhase.Late) tradeChance += 0.02f;
+        tradeChance = Mathf.Clamp01(tradeChance);
+
+        float roll = Random.value;
+        bool openTrade = roll < tradeChance;
+        LogAIDecision("TRADE_ATTEMPT", aiPlayer, $"phase={phase} chance={tradeChance:0.00} roll={roll:0.00} decision={(openTrade ? "OPEN" : "SKIP")}");
+
+        if (openTrade)
             tradeSystem.StartTradeByAI(aiPlayer, human);
+    }
+
+    void LogAIDecision(string category, Player ai, string details)
+    {
+        if (!enableAIDebugLogging) return;
+        string playerName = ai != null ? ai.playerName : "unknown";
+        string line = $"AI_{category} | player={playerName} {details}";
+        Debug.Log($"[AI] {line}");
+        GameLogger.Log(line);
     }
 
     void OnTradeButtonClicked()
@@ -1899,8 +1983,11 @@ public class TurnManager : MonoBehaviour
     {
         CloseInteractivePopupsForAI();
         aiTurnInProgress = true;
+        aiRecoveryAttemptedThisTurn = false;
+        aiInternalRollRequest = false;
         TurnDebugState.AIEnabled = true;
         aiTurnStartTime = Time.time;
+        MarkAIProgress("start_turn");
         if (aiTurnRoutine != null)
             StopCoroutine(aiTurnRoutine);
         aiTurnRoutine = StartCoroutine(AITurnRoutine(p));
@@ -1915,6 +2002,7 @@ public class TurnManager : MonoBehaviour
         if (p == null || p.IsEliminated) yield break;
         if (GetCurrentPlayer() != p) yield break;
         if (aiAwaitingBonusRoll) yield break;
+        aiInternalRollRequest = true;
         RollDice();
     }
 
@@ -1924,6 +2012,7 @@ public class TurnManager : MonoBehaviour
         if (p == null || p.IsEliminated) yield break;
         if (GetCurrentPlayer() != p) yield break;
         if (!p.isAI) yield break;
+        aiInternalRollRequest = true;
         RollDice();
     }
 
@@ -1931,6 +2020,37 @@ public class TurnManager : MonoBehaviour
     {
         while (aiTurnInProgress && p != null && GetCurrentPlayer() == p)
         {
+            // Auction flow can legitimately exceed normal AI turn timers.
+            // Keep watchdog alive but do not recover/timeout while auction is active.
+            if (auctionSystem != null && auctionSystem.IsAuctionInProgress())
+            {
+                aiLastProgressTime = Time.time;
+                aiTurnStartTime = Time.time;
+                yield return null;
+                continue;
+            }
+
+            float progressAge = Time.time - aiLastProgressTime;
+            if (progressAge > aiStallDetectSeconds && !aiRecoveryAttemptedThisTurn)
+            {
+                aiRecoveryAttemptedThisTurn = true;
+                Debug.LogWarning($"[GameMechanics] AI_STALL_DETECTED: player={p.playerName} idx={p.playerIndex} no_progress_for={progressAge:0.0}s turnInProgress={turnInProgress} awaitingChoice={p.IsAwaitingChoice} awaitingBonusRoll={aiAwaitingBonusRoll}");
+                GameLogger.Log($"AI_STALL | player={p.playerName} idx={p.playerIndex} no_progress_for={progressAge:0.0}s");
+
+                // Recovery attempt: close lingering popups and clear stale awaiting-choice.
+                CloseInteractivePopupsForAI();
+                if (p.IsAwaitingChoice)
+                    p.IsAwaitingChoice = false;
+
+                // If AI is idle waiting for a roll, try one internal roll.
+                if (!turnInProgress && !aiAwaitingBonusRoll)
+                {
+                    aiInternalRollRequest = true;
+                    MarkAIProgress("watchdog_recover_roll");
+                    RollDice();
+                }
+            }
+
             if (Time.time - aiTurnStartTime > aiMaxTurnDuration)
             {
                 Debug.LogWarning($"[GameMechanics] AI STUCK: player={p.playerName} idx={p.playerIndex} exceeded {aiMaxTurnDuration}s - forcing end turn.");
@@ -1950,6 +2070,14 @@ public class TurnManager : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    void MarkAIProgress(string reason)
+    {
+        aiLastProgressTime = Time.time;
+        if (!enableAIDebugLogging) return;
+        Player p = GetCurrentPlayer();
+        Debug.Log($"[AI] progress={reason} player={(p != null ? p.playerName : "null")} idx={(p != null ? p.playerIndex : -1)}");
     }
 
     IEnumerator ResolveAIChoice(Player p)
@@ -1974,14 +2102,28 @@ public class TurnManager : MonoBehaviour
             }
             else
             {
-                if (p.CanAfford(tile.property.price) && ShouldAIBuyProperty(p, tile.property))
+                bool canAfford = p.CanAfford(tile.property.price);
+                float buyScore = 0f;
+                float buyThreshold = aiBuyScoreThreshold;
+                string buyReason = canAfford ? "afford_check_pending" : "cannot_afford";
+                bool shouldBuy = canAfford && ShouldAIBuyProperty(p, tile.property, out buyScore, out buyThreshold, out buyReason);
+                LogAIDecision(
+                    "BUY_DECISION",
+                    p,
+                    $"property={tile.property.propertyName} price={tile.property.price} canAfford={canAfford} score={buyScore:0.00} threshold={buyThreshold:0.00} decision={(shouldBuy ? "BUY" : "SKIP")} reason={buyReason}");
+
+                if (shouldBuy)
                 {
                     GameLogger.Log($"AI_BUY | player={p.playerName} property={tile.property.propertyName}");
+                    if (enableAIDecisionFeed && NarrativeManager.Instance != null)
+                        NarrativeManager.Instance.AddSystemMessage("AI Decision", $"{p.playerName} chose to buy {tile.property.propertyName}.");
                     p.BuyProperty();
                 }
                 else
                 {
                     GameLogger.Log($"AI_SKIP | player={p.playerName} property={tile.property.propertyName}");
+                    if (enableAIDecisionFeed && NarrativeManager.Instance != null)
+                        NarrativeManager.Instance.AddSystemMessage("AI Decision", $"{p.playerName} skipped {tile.property.propertyName}.");
                     p.SkipAction();
                 }
             }
@@ -1997,11 +2139,19 @@ public class TurnManager : MonoBehaviour
             p.IsAwaitingChoice = false;
     }
 
-    bool ShouldAIBuyProperty(Player p, Property prop)
+    bool ShouldAIBuyProperty(Player p, Property prop, out float scoreOut, out float thresholdOut, out string reasonOut)
     {
+        scoreOut = 0f;
+        thresholdOut = aiBuyScoreThreshold;
+        reasonOut = "invalid_input";
         if (p == null || prop == null) return false;
         int price = Mathf.Max(0, prop.price);
-        if (price <= 0) return false;
+        if (price <= 0)
+        {
+            reasonOut = "invalid_price";
+            return false;
+        }
+        AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(p);
 
         string groupId = GetGroupIdForProperty(prop);
         List<Property> group = GetGroupProperties(groupId);
@@ -2010,19 +2160,43 @@ public class TurnManager : MonoBehaviour
         int ownedByOthers = CountOwnedByOthersInGroup(p, group);
         bool wouldComplete = groupSize > 0 && (ownedByAI + 1) >= groupSize;
 
-        int reserve = wouldComplete ? aiCashReserveForMonopoly : aiCashReserve;
+        float liquidity01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.liquidity) : 0.5f;
+        int reserveBase = wouldComplete ? aiCashReserveForMonopoly : aiCashReserve;
+        int reserve = Mathf.RoundToInt(reserveBase * Mathf.Lerp(0.65f, 1.55f, liquidity01));
         int moneyAfter = p.Money - price;
         if (moneyAfter < reserve)
         {
-            if (!wouldComplete) return false;
-            if (moneyAfter < aiCashReserveForMonopoly) return false;
+            if (!wouldComplete)
+            {
+                reasonOut = "reserve_block";
+                return false;
+            }
+            if (moneyAfter < aiCashReserveForMonopoly)
+            {
+                reasonOut = "monopoly_reserve_block";
+                return false;
+            }
         }
 
-        float score = EvaluatePropertyScore(p, prop, group, ownedByAI, ownedByOthers, wouldComplete);
-        return score >= aiBuyScoreThreshold || wouldComplete;
+        float score = EvaluatePropertyScore(p, prop, group, ownedByAI, ownedByOthers, wouldComplete, profile);
+        scoreOut = score;
+
+        float threshold = aiBuyScoreThreshold;
+        if (profile != null)
+        {
+            float aggression01 = AICharacterBehaviorProfiles.Stat01(profile.aggression);
+            float risk01 = AICharacterBehaviorProfiles.Stat01(profile.risk);
+            threshold += Mathf.Lerp(5f, -6f, aggression01);
+            threshold += Mathf.Lerp(4f, -3f, risk01);
+        }
+        thresholdOut = threshold;
+
+        bool decision = score >= threshold || wouldComplete;
+        reasonOut = wouldComplete ? "would_complete_group" : (decision ? "score_above_threshold" : "score_below_threshold");
+        return decision;
     }
 
-    float EvaluatePropertyScore(Player p, Property prop, List<Property> group, int ownedByAI, int ownedByOthers, bool wouldComplete)
+    float EvaluatePropertyScore(Player p, Property prop, List<Property> group, int ownedByAI, int ownedByOthers, bool wouldComplete, AICharacterProfileData profile)
     {
         float score = 0f;
 
@@ -2059,6 +2233,36 @@ public class TurnManager : MonoBehaviour
         else if (tier.Contains("mid")) score += 6f;
         else if (tier.Contains("satellite")) score += 2f;
 
+        if (profile != null)
+        {
+            float aggression01 = AICharacterBehaviorProfiles.Stat01(profile.aggression);
+            float liquidity01 = AICharacterBehaviorProfiles.Stat01(profile.liquidity);
+            float monopoly01 = AICharacterBehaviorProfiles.Stat01(profile.monopoly);
+            AIProfilePhase phase = AICharacterBehaviorProfiles.GetPhase(profile, p != null ? p.turnsTaken : 0);
+            float groupWeight = AICharacterBehaviorProfiles.GetGroupBiasWeight(profile, prop);
+
+            score += Mathf.Lerp(-6f, 8f, aggression01);
+            score += Mathf.Lerp(4f, -4f, liquidity01);
+
+            if (wouldComplete)
+                score += Mathf.Lerp(4f, 15f, monopoly01);
+
+            score *= groupWeight;
+
+            switch (phase)
+            {
+                case AIProfilePhase.Early:
+                    score *= Mathf.Lerp(0.92f, 1.16f, aggression01);
+                    break;
+                case AIProfilePhase.Mid:
+                    score *= Mathf.Lerp(0.96f, 1.2f, monopoly01);
+                    break;
+                case AIProfilePhase.Late:
+                    score *= Mathf.Lerp(1.08f, 0.95f, liquidity01);
+                    break;
+            }
+        }
+
         return score;
     }
 
@@ -2081,15 +2285,24 @@ public class TurnManager : MonoBehaviour
     void TryAIBuild(Player p)
     {
         if (p == null || !p.isAI || p.IsEliminated) return;
-        if (p.Money <= aiCashReserve) return;
+        AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(p);
+        float build01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.build) : 0.5f;
+        float liquidity01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.liquidity) : 0.5f;
+        int dynamicReserve = Mathf.RoundToInt(aiCashReserve * Mathf.Lerp(0.65f, 1.55f, liquidity01));
+        if (p.Money <= dynamicReserve) return;
         if (buildingSupplyManager == null)
             buildingSupplyManager = FindFirstObjectByType<BuildingSupplyManager>();
 
         List<Property> owned = GetAllOwnedProperties(p);
         if (owned.Count == 0) return;
 
+        int maxBuildsThisTurn = Mathf.Clamp(Mathf.RoundToInt(aiMaxBuildsPerTurn * Mathf.Lerp(0.8f, 2.4f, build01)), 1, 3);
+        float minRoi = aiBuildMinROI * Mathf.Lerp(1.4f, 0.55f, build01);
+        AIProfilePhase phase = AICharacterBehaviorProfiles.GetPhase(profile, p.turnsTaken);
+        float phaseMultiplier = phase == AIProfilePhase.Early ? 0.92f : (phase == AIProfilePhase.Mid ? 1f : 1.1f);
+
         int builds = 0;
-        while (builds < aiMaxBuildsPerTurn)
+        while (builds < maxBuildsThisTurn)
         {
             Property best = null;
             float bestScore = 0f;
@@ -2113,7 +2326,7 @@ public class TurnManager : MonoBehaviour
                 bool buildHotel = canBuildHotel;
                 int cost = buildHotel ? prop.hotelCost : prop.houseCost;
                 if (cost <= 0) continue;
-                if (p.Money - cost < aiCashReserve) continue;
+                if (p.Money - cost < dynamicReserve) continue;
 
                 int currentLevel = prop.hasHotel ? 5 : prop.houses;
                 int nextLevel = buildHotel ? 5 : Mathf.Clamp(prop.houses + 1, 0, 4);
@@ -2123,9 +2336,10 @@ public class TurnManager : MonoBehaviour
                 int nextRent = rent[Mathf.Clamp(nextLevel, 0, 5)];
                 float delta = Mathf.Max(0, nextRent - curRent);
                 float roi = (cost > 0) ? (delta / cost) : 0f;
-                float score = roi;
+                float groupWeight = AICharacterBehaviorProfiles.GetGroupBiasWeight(profile, prop);
+                float score = roi * Mathf.Lerp(0.9f, 1.6f, build01) * phaseMultiplier * groupWeight;
 
-                if (score > bestScore && roi >= aiBuildMinROI)
+                if (score > bestScore && roi >= minRoi)
                 {
                     best = prop;
                     bestScore = score;
@@ -2277,7 +2491,10 @@ public class TurnManager : MonoBehaviour
     void OnMenuButtonClicked()
     {
         if (gameController != null) gameController.RequestMenu();
+        LocalSaveManager.SaveProfileFromRuntime();
         LocalSaveManager.Save(this);
+        LocalSaveManager.ClearRuntimeSessionFlags();
+        MainMenuManager.SettingsToLoad = null;
         UnityEngine.SceneManagement.SceneManager.LoadScene("StartPage", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
 
@@ -2319,17 +2536,22 @@ public class TurnManager : MonoBehaviour
         if (stateMachine != null) stateMachine.SetTurnOwner(owner);
     }
 
-    void ShowResultNotification(string message, float durationSeconds = 1.2f)
+    void ShowResultNotification(string message, float durationSeconds = 1.2f, Sprite icon = null)
     {
         TransitionState(GameStateMachine.State.ShowingResult);
         if (uiManager != null)
-            uiManager.ShowResultNotification(message, durationSeconds);
+            uiManager.ShowResultNotification(message, durationSeconds, icon);
         StartCoroutine(ReturnFromResultStateAfterDelay(durationSeconds));
     }
 
     public void ShowResultMessage(string message, float durationSeconds = 1.2f)
     {
-        ShowResultNotification(message, durationSeconds);
+        ShowResultNotification(message, durationSeconds, null);
+    }
+
+    public void ShowResultMessage(string message, float durationSeconds, Sprite icon)
+    {
+        ShowResultNotification(message, durationSeconds, icon);
     }
 
     IEnumerator ReturnFromResultStateAfterDelay(float seconds)

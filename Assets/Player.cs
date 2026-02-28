@@ -45,6 +45,10 @@ public class Player : MonoBehaviour
     public bool legalShieldUsed = false;
     public bool bidPenaltyUsed = false;
     public int mortgagesThisTurn = 0;
+    private readonly Dictionary<string, int> perkLastUsedTurnByEffect = new Dictionary<string, int>(System.StringComparer.OrdinalIgnoreCase);
+    private static Sprite _justVisitingIconCache;
+    private static Sprite _chanceResultIconCache;
+    private static Sprite _communityResultIconCache;
     
     // Player elimination state
     public bool IsEliminated { get; private set; } = false;
@@ -153,6 +157,23 @@ public class Player : MonoBehaviour
     [SerializeField] private float highlightRotateSpeed = 90f;
     private Transform activeTurnHighlight;
     private Coroutine activeHighlightRoutine;
+
+    [Header("Token Movement Animation")]
+    [Tooltip("Duration of each tile-to-tile movement step.")]
+    public float tokenStepDuration = 0.16f;
+    [Tooltip("Vertical hop height per movement step.")]
+    public float tokenStepHopHeight = 0.16f;
+    [Tooltip("Small pause between steps for readability.")]
+    public float tokenStepPause = 0.01f;
+    [Tooltip("Scale pulse applied during each step (pin-like zoom).")]
+    public float tokenStepScalePulse = 0.07f;
+    [Tooltip("Landing settle animation duration after movement sequence.")]
+    public float tokenLandingSettleDuration = 0.08f;
+    [Tooltip("Landing settle max scale multiplier.")]
+    public float tokenLandingSettleScale = 1.06f;
+    [Tooltip("Step interpolation curve from start to end.")]
+    public AnimationCurve tokenStepCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+
 
     void Start()
     {
@@ -440,10 +461,116 @@ public class Player : MonoBehaviour
     {
         if (card == null) return;
         card.ConsumeUse();
+        string effectKey = GetEffectKeyForCard(card.type);
+        if (isAI && !string.IsNullOrWhiteSpace(effectKey))
+            perkLastUsedTurnByEffect[effectKey] = turnsTaken;
+
+        NotifyPerkActivated(card.name, effectKey, null, 0, card);
         if (card.usesRemaining <= 0)
         {
             Debug.Log($"[PerkCard] {playerName} used up card: {card.name}");
         }
+    }
+
+    string GetEffectKeyForCard(PerkCardType type)
+    {
+        switch (type)
+        {
+            case PerkCardType.SkipRent: return CharacterEffectKeys.SkipRent;
+            case PerkCardType.RentShield: return CharacterEffectKeys.RentShield;
+            case PerkCardType.GoBonus: return CharacterEffectKeys.GoBonusCard;
+            case PerkCardType.MortgageBoost: return CharacterEffectKeys.MortgageBoost;
+            case PerkCardType.AuctionEdge: return CharacterEffectKeys.AuctionEdge;
+            case PerkCardType.BailDiscount: return CharacterEffectKeys.BailDiscount;
+            case PerkCardType.BuildDiscount: return CharacterEffectKeys.BuildDiscount;
+            default: return string.Empty;
+        }
+    }
+
+    bool ShouldAIUsePerkRule(string effectKey, int strategicValue)
+    {
+        if (!isAI || string.IsNullOrWhiteSpace(effectKey))
+            return false;
+
+        AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(this);
+        float risk01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.risk) : 0.5f;
+        float liquidity01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.liquidity) : 0.5f;
+        AIProfilePhase phase = AICharacterBehaviorProfiles.GetPhase(profile, turnsTaken);
+        AIPerkUsageRuleData rule = AICharacterBehaviorProfiles.GetPerkUsageRule(profile, effectKey);
+        float weight = AICharacterBehaviorProfiles.GetPerkUseWeight(profile, effectKey);
+
+        int emergencyThreshold = rule != null ? Mathf.Max(0, rule.emergencyCashThreshold) : 350000;
+        int strategicThreshold = rule != null ? Mathf.Max(0, rule.strategicRentThreshold) : 120000;
+        int cooldown = rule != null ? Mathf.Max(0, rule.cooldownTurns) : 0;
+
+        if (phase == AIProfilePhase.Late)
+            emergencyThreshold = Mathf.RoundToInt(emergencyThreshold * 1.12f);
+        if (phase == AIProfilePhase.Early)
+            strategicThreshold = Mathf.RoundToInt(strategicThreshold * 1.08f);
+
+        if (cooldown > 0 && perkLastUsedTurnByEffect.TryGetValue(effectKey, out int lastTurn))
+        {
+            if ((turnsTaken - lastTurn) < cooldown)
+                return false;
+        }
+
+        bool emergency = Money <= emergencyThreshold;
+        bool strategic = strategicThreshold <= 0 ? strategicValue > 0 : strategicValue >= strategicThreshold;
+
+        if (emergency || strategic)
+            return true;
+
+        // Soft fallback to avoid dead perks when no explicit rule trigger fires.
+        float baseChance = Mathf.Lerp(0.12f, 0.42f, risk01);
+        baseChance += Mathf.Lerp(-0.06f, 0.07f, 1f - liquidity01);
+        if (phase == AIProfilePhase.Mid) baseChance += 0.05f;
+        baseChance *= Mathf.Clamp(weight, 0.5f, 1.8f);
+        baseChance = Mathf.Clamp01(baseChance);
+
+        return Random.value < baseChance;
+    }
+
+    public bool ShouldAIUsePerkForDecision(string effectKey, int strategicValue)
+    {
+        return ShouldAIUsePerkRule(effectKey, strategicValue);
+    }
+
+    void NotifyPerkActivated(string perkDisplayName, string effectKey, string context, int impactValue, PerkCardInstance activatedCard = null)
+    {
+        if (string.IsNullOrWhiteSpace(perkDisplayName))
+            return;
+
+        UIDocumentManager activeUIManager = GetActiveUIManager();
+        if (activeUIManager != null)
+        {
+            string ctx = string.IsNullOrWhiteSpace(context) ? "" : $" ({context})";
+            string usesSuffix = "";
+            if (activatedCard != null && activatedCard.maxUses > 1)
+                usesSuffix = $" [{Mathf.Max(0, activatedCard.usesRemaining)}/{activatedCard.maxUses}]";
+
+            string message = $"{playerName} activated {perkDisplayName}{ctx}.{usesSuffix}";
+            if (activatedCard != null)
+            {
+                activeUIManager.ShowPerkActivationNotification(
+                    message,
+                    activatedCard.type,
+                    activatedCard.maxUses,
+                    activatedCard.usesRemaining,
+                    1.4f
+                );
+            }
+            else
+            {
+                activeUIManager.ShowResultNotification(message, 1.4f);
+            }
+            if (activeUIManager.mainHUDController != null)
+            {
+                activeUIManager.mainHUDController.RefreshPerkOverlay(this);
+            }
+        }
+
+        if (NarrativeManager.Instance != null)
+            NarrativeManager.Instance.OnPerkUsed(this, perkDisplayName, context, impactValue);
     }
 
     UIDocumentManager GetActiveUIManager()
@@ -451,6 +578,44 @@ public class Player : MonoBehaviour
         if (uiManager != null) return uiManager;
         if (turnManager != null && turnManager.uiManager != null) return turnManager.uiManager;
         return null;
+    }
+
+    Sprite ResolveJustVisitingIcon()
+    {
+        if (_justVisitingIconCache != null) return _justVisitingIconCache;
+
+        if (NarrativeManager.Instance != null)
+        {
+            Sprite eventSprite = NarrativeManager.Instance.GetEventImageForType(FeedEventType.JustVisiting);
+            if (eventSprite != null)
+            {
+                _justVisitingIconCache = eventSprite;
+                return _justVisitingIconCache;
+            }
+        }
+
+#if UNITY_EDITOR
+        _justVisitingIconCache = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Icons/just visiting jail.png");
+#endif
+        return _justVisitingIconCache;
+    }
+
+    Sprite ResolveDeckResultIcon(CardDeckType deckType)
+    {
+        if (deckType == CardDeckType.Chance)
+        {
+            if (_chanceResultIconCache != null) return _chanceResultIconCache;
+#if UNITY_EDITOR
+            _chanceResultIconCache = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Cards/Chance_Card.png");
+#endif
+            return _chanceResultIconCache;
+        }
+
+        if (_communityResultIconCache != null) return _communityResultIconCache;
+#if UNITY_EDITOR
+        _communityResultIconCache = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Cards/Community_Card.png");
+#endif
+        return _communityResultIconCache;
     }
 
     void ShowPerkChoice(string title, string description, string okText, string altText, System.Action onOk, System.Action onAlt)
@@ -618,65 +783,54 @@ public class Player : MonoBehaviour
     // TurnManager calls this to move the player and apply "pass GO" salary.
     // - Triggers tile action only on final destination.
     // - Pays salary when passing GO (wrap-around from last index to 0).
-    public IEnumerator MoveSteps(int steps, int goSalary, int dice1 = 0, int dice2 = 0, bool isDoubles = false)
+public IEnumerator MoveSteps(int steps, int goSalary, int dice1 = 0, int dice2 = 0, bool isDoubles = false)
     {
         EnsureBoardPoints();
         Debug.Log($"[DEBUG] MoveSteps called: player={playerName}, steps={steps}, boardPoints={(boardPoints != null ? boardPoints.Length.ToString() : "null")}");
-        
+
         if (boardPoints == null || boardPoints.Length == 0)
         {
             Debug.LogError("MoveSteps: boardPoints not assigned or empty.");
             yield break;
         }
-        
-        // If player is in jail, they can't move normally (should use HandleJailTurn instead)
+
         if (IsInJail)
         {
             Debug.LogWarning("MoveSteps called while player is in jail! This shouldn't happen.");
             yield break;
         }
 
+        if (steps <= 0)
+            yield break;
+
         // Store dice roll values for utility rent calculation and doubles tracking
-        lastDice1 = dice1 > 0 ? dice1 : (steps > 0 ? Random.Range(1, 7) : 0);
-        lastDice2 = dice2 > 0 ? dice2 : (steps > 0 ? Random.Range(1, 7) : 0);
+        lastDice1 = dice1 > 0 ? dice1 : UnityEngine.Random.Range(1, 7);
+        lastDice2 = dice2 > 0 ? dice2 : UnityEngine.Random.Range(1, 7);
         lastDiceRoll = steps;
 
         if (GameSoundManager.Instance != null)
             GameSoundManager.Instance.NotifyActivity();
 
-        // Move step-by-step (no intermediate tile actions).
         for (int i = 0; i < steps; i++)
         {
-            // If the next step wraps around, we "pass GO".
             if (currentIndex == boardPoints.Length - 1)
             {
                 int salary = GetGoSalary(goSalary);
                 AddMoney(salary, "Salary");
                 Debug.Log($"Passed GO! Collected ₦{salary:N0}");
-                
-                // Notify narrative manager
+
                 if (NarrativeManager.Instance != null)
-                {
                     NarrativeManager.Instance.OnPlayerPassedGO(this, salary);
-                }
 
                 yield return HandleGoBonusPerk(goSalary);
             }
 
-    currentIndex++;
-    if (currentIndex >= boardPoints.Length)
-        currentIndex = 0;
-
-    transform.position = boardPoints[currentIndex].position;
-
-            if (GameSoundManager.Instance != null)
-                GameSoundManager.Instance.PlayStep();
-
-            // Small delay so movement is visible.
-            yield return new WaitForSeconds(0.15f);
+            int nextIndex = (currentIndex + 1) % boardPoints.Length;
+            yield return AnimateStepToIndex(nextIndex, tokenStepDuration, tokenStepHopHeight, true);
         }
 
-        // Trigger final tile action only.
+        yield return PlayLandingSettle();
+
         TileInfo finalTile = boardPoints[currentIndex].GetComponent<TileInfo>();
         if (finalTile != null)
         {
@@ -698,9 +852,12 @@ public class Player : MonoBehaviour
 
         if (isAI)
         {
-            AddMoney(bonusAmount);
-            ConsumePerkCard(card);
-            GameLogger.Log($"PERK_GO_BONUS | player={playerName} amount={bonusAmount} uses_left={card.usesRemaining}");
+            if (ShouldAIUsePerkRule(CharacterEffectKeys.GoBonusCard, bonusAmount))
+            {
+                AddMoney(bonusAmount);
+                ConsumePerkCard(card);
+                GameLogger.Log($"PERK_GO_BONUS | player={playerName} amount={bonusAmount} uses_left={card.usesRemaining}");
+            }
             yield break;
         }
 
@@ -885,6 +1042,14 @@ public class Player : MonoBehaviour
                 if (!IsInJail)
                 {
                     Debug.Log("Just visiting jail.");
+                    UIDocumentManager activeUIManager = GetActiveUIManager();
+                    if (activeUIManager != null)
+                    {
+                        string visitMsg = $"{playerName} don branch station side to greet comrades. No case, na just visiting.";
+                        activeUIManager.ShowResultNotification(visitMsg, 1.6f, ResolveJustVisitingIcon());
+                    }
+                    if (NarrativeManager.Instance != null)
+                        NarrativeManager.Instance.OnPlayerJustVisitingJail(this);
                 }
                 // If already in jail, this means we're still in jail
                 break;
@@ -1068,6 +1233,7 @@ public class Player : MonoBehaviour
                         () =>
                         {
                             legalShieldUsed = true;
+                            NotifyPerkActivated("Legal Shield", CharacterEffectKeys.CivilLegalShield, "Rent Defense", rent - reduced);
                             PayRent(prop, reduced);
                             GameLogger.Log($"PERK_LEGAL_SHIELD | player={playerName} reduced={rent - reduced}");
                         }
@@ -1078,7 +1244,7 @@ public class Player : MonoBehaviour
             {
                 if (isAI && skipCard != null)
                 {
-                    if (rent >= 100000)
+                    if (ShouldAIUsePerkRule(CharacterEffectKeys.SkipRent, rent))
                     {
                         ConsumePerkCard(skipCard);
                         GameLogger.Log($"PERK_SKIP_RENT | player={playerName} property={prop.propertyName} uses_left={skipCard.usesRemaining}");
@@ -1092,7 +1258,7 @@ public class Player : MonoBehaviour
                 else if (isAI && shieldCard != null)
                 {
                     int reduced = Mathf.Max(0, rent - Mathf.RoundToInt(rent * shieldCard.percentValue));
-                    if (rent >= 100000)
+                    if (ShouldAIUsePerkRule(CharacterEffectKeys.RentShield, rent - reduced))
                     {
                         ConsumePerkCard(shieldCard);
                         PayRent(prop, reduced);
@@ -1107,9 +1273,19 @@ public class Player : MonoBehaviour
                 else if (legalShieldAvailable)
                 {
                     int reduced = Mathf.Max(0, rent - Mathf.RoundToInt(rent * 0.25f));
-                    legalShieldUsed = true;
-                    PayRent(prop, reduced);
-                    GameLogger.Log($"PERK_LEGAL_SHIELD | player={playerName} reduced={rent - reduced}");
+                    if (!isAI || ShouldAIUsePerkRule(CharacterEffectKeys.CivilLegalShield, rent - reduced))
+                    {
+                        legalShieldUsed = true;
+                        if (isAI)
+                            perkLastUsedTurnByEffect[CharacterEffectKeys.CivilLegalShield] = turnsTaken;
+                        NotifyPerkActivated("Legal Shield", CharacterEffectKeys.CivilLegalShield, "Rent Defense", rent - reduced);
+                        PayRent(prop, reduced);
+                        GameLogger.Log($"PERK_LEGAL_SHIELD | player={playerName} reduced={rent - reduced}");
+                    }
+                    else
+                    {
+                        PayRent(prop, rent);
+                    }
                 }
                 else
                 {
@@ -1383,7 +1559,7 @@ public class Player : MonoBehaviour
         IsAwaitingChoice = false;
     }
     
-    public void SkipAction()
+    public void SkipAction(bool shouldStartAuction = true)
     {
         Debug.Log($"Player {playerName}: SkipAction called - skipping property purchase");
         GameLogger.Log($"SKIP_PROPERTY | player={playerName}");
@@ -1423,16 +1599,23 @@ public class Player : MonoBehaviour
                     turnManager.ShowResultMessage($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
                 else if (activeUIManager != null)
                     activeUIManager.ShowResultNotification($"{playerName} declined {tile.property.propertyName}.", isAI ? 1.0f : 1.5f);
-                AuctionSystem auctionSystem = FindFirstObjectByType<AuctionSystem>(FindObjectsInactive.Include);
-                if (auctionSystem != null)
+                if (shouldStartAuction)
                 {
-                    Debug.Log($"Player {playerName} declined to buy {tile.property.propertyName} - starting auction");
-                    auctionSystem.StartAuction(tile.property, tile, this);
-                    startedAuction = true;
+                    AuctionSystem auctionSystem = FindFirstObjectByType<AuctionSystem>(FindObjectsInactive.Include);
+                    if (auctionSystem != null)
+                    {
+                        Debug.Log($"Player {playerName} declined to buy {tile.property.propertyName} - starting auction");
+                        auctionSystem.StartAuction(tile.property, tile, this);
+                        startedAuction = true;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("AuctionSystem not found! Property will remain unsold.");
+                    }
                 }
                 else
                 {
-                    Debug.LogWarning("AuctionSystem not found! Property will remain unsold.");
+                    Debug.Log($"Player {playerName} skipped {tile.property.propertyName} without auction.");
                 }
             }
             else
@@ -1667,7 +1850,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (buildCard != null && isAI && normalCost >= 100000)
+        if (buildCard != null && isAI && ShouldAIUsePerkRule(CharacterEffectKeys.BuildDiscount, normalCost - discountedCost))
         {
             ConsumePerkCard(buildCard);
             GameLogger.Log($"PERK_BUILD_DISCOUNT | player={playerName} uses_left={buildCard.usesRemaining}");
@@ -1699,7 +1882,7 @@ public class Player : MonoBehaviour
                 () => { ConsumePerkCard(buildCard); GameLogger.Log($"PERK_BUILD_DISCOUNT | player={playerName}"); TryBuildHouseWithCost(prop, tile, discountedCost); });
             return;
         }
-        if (buildCard != null && isAI && normalCost >= 100000) { ConsumePerkCard(buildCard); TryBuildHouseWithCost(prop, tile, discountedCost); return; }
+        if (buildCard != null && isAI && ShouldAIUsePerkRule(CharacterEffectKeys.BuildDiscount, normalCost - discountedCost)) { ConsumePerkCard(buildCard); TryBuildHouseWithCost(prop, tile, discountedCost); return; }
         TryBuildHouseWithCost(prop, tile, normalCost);
     }
 
@@ -1737,7 +1920,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (buildCard != null && isAI && normalCost >= 150000)
+        if (buildCard != null && isAI && ShouldAIUsePerkRule(CharacterEffectKeys.BuildDiscount, normalCost - discountedCost))
         {
             ConsumePerkCard(buildCard);
             GameLogger.Log($"PERK_BUILD_DISCOUNT | player={playerName} uses_left={buildCard.usesRemaining}");
@@ -2223,7 +2406,7 @@ public class Player : MonoBehaviour
             return false;
         }
 
-        if (mortgageCard != null && isAI && baseValue >= 100000)
+        if (mortgageCard != null && isAI && ShouldAIUsePerkRule(CharacterEffectKeys.MortgageBoost, boostedValue - baseValue))
         {
             ConsumePerkCard(mortgageCard);
             GameLogger.Log($"PERK_MORTGAGE_BOOST | player={playerName} uses_left={mortgageCard.usesRemaining}");
@@ -2534,8 +2717,8 @@ public class Player : MonoBehaviour
         if (cardSystem == null)
         {
             Debug.LogError("[GameMechanics] FAIL: Community Chest card not shown - CardSystem not assigned to Player! Using fallback.");
-            AddMoney(200000);
-            Debug.Log("Bank error in your favor. Collect ₦200,000.");
+            AddMoney(300000);
+            Debug.Log("Bank make mistake credit you. Collect ₦300,000.");
             return;
         }
         
@@ -2551,10 +2734,11 @@ public class Player : MonoBehaviour
         if (isAI)
         {
             // AI never opens interactive card popups.
+            Sprite drawIcon = ResolveDeckResultIcon(deckType);
             if (turnManager != null)
-                turnManager.ShowResultMessage($"{playerName} drew: {card.title}", 1.2f);
+                turnManager.ShowResultMessage($"{playerName} drew: {card.title}", 1.2f, drawIcon);
             else if (uiManager != null)
-                uiManager.ShowResultNotification($"{playerName} drew: {card.title}", 1.2f);
+                uiManager.ShowResultNotification($"{playerName} drew: {card.title}", 1.2f, drawIcon);
             IsAwaitingChoice = false;
             yield return new WaitForSeconds(0.8f);
         }
@@ -2924,7 +3108,7 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    IEnumerator MoveToTile(int targetIndex, bool moveBackward = false, bool allowPassGoSalary = true)
+IEnumerator MoveToTile(int targetIndex, bool moveBackward = false, bool allowPassGoSalary = true)
     {
         if (boardPoints == null || targetIndex < 0 || targetIndex >= boardPoints.Length)
         {
@@ -2932,34 +3116,34 @@ public class Player : MonoBehaviour
             yield break;
         }
 
-        int L = boardPoints.Length;
+        int length = boardPoints.Length;
         int steps = moveBackward
-            ? (currentIndex - targetIndex + L) % L
-            : (targetIndex - currentIndex + L) % L;
+            ? (currentIndex - targetIndex + length) % length
+            : (targetIndex - currentIndex + length) % length;
 
         for (int i = 0; i < steps; i++)
         {
+            int nextIndex;
             if (moveBackward)
             {
-                currentIndex = (currentIndex - 1 + L) % L;
+                nextIndex = (currentIndex - 1 + length) % length;
             }
             else
             {
-                if (allowPassGoSalary && currentIndex == boardPoints.Length - 1)
+                if (allowPassGoSalary && currentIndex == length - 1)
                 {
-                    int goSalary = turnManager != null ? turnManager.goSalary : 200000;
-                    AddMoney(goSalary);
+                    int goSalary = turnManager != null ? turnManager.goSalary : 300000;
+                    AddMoney(goSalary, "Salary");
                     Debug.Log($"Passed GO! Collected ₦{goSalary:N0}");
                     yield return HandleGoBonusPerk(goSalary);
                 }
-                currentIndex = (currentIndex + 1) % L;
+                nextIndex = (currentIndex + 1) % length;
             }
-            transform.position = boardPoints[currentIndex].position;
-            if (GameSoundManager.Instance != null)
-                GameSoundManager.Instance.PlayStep();
-            yield return new WaitForSeconds(0.15f);
+
+            yield return AnimateStepToIndex(nextIndex, tokenStepDuration, tokenStepHopHeight, true);
         }
 
+        yield return PlayLandingSettle();
         Debug.Log($"Arrived at tile {targetIndex}");
     }
     
@@ -3170,23 +3354,25 @@ public class Player : MonoBehaviour
         }
     }
 
-    private IEnumerator MoveToJailAlongBoard(int jailIndex)
+private IEnumerator MoveToJailAlongBoard(int jailIndex)
     {
         if (boardPoints == null || boardPoints.Length == 0 || jailIndex < 0 || jailIndex >= boardPoints.Length)
             yield break;
 
-        int L = boardPoints.Length;
-        int stepsBackward = (currentIndex - jailIndex + L) % L;
+        int length = boardPoints.Length;
+        int stepsBackward = (currentIndex - jailIndex + length) % length;
+
         for (int i = 0; i < stepsBackward; i++)
         {
-            currentIndex = (currentIndex - 1 + L) % L;
-            transform.position = boardPoints[currentIndex].position;
-            if (GameSoundManager.Instance != null)
-                GameSoundManager.Instance.PlayStep();
-            yield return new WaitForSeconds(0.12f);
+            int nextIndex = (currentIndex - 1 + length) % length;
+            float jailStepDuration = Mathf.Max(0.09f, tokenStepDuration * 0.85f);
+            float jailHop = Mathf.Max(0f, tokenStepHopHeight * 0.75f);
+            yield return AnimateStepToIndex(nextIndex, jailStepDuration, jailHop, true);
         }
+
         currentIndex = jailIndex;
         transform.position = boardPoints[jailIndex].position;
+        yield return PlayLandingSettle();
     }
     
     /// <summary>
@@ -3326,5 +3512,84 @@ public class Player : MonoBehaviour
     {
         dice1 = lastDice1;
         dice2 = lastDice2;
+    }
+
+
+private IEnumerator PlayLandingSettle()
+    {
+        if (tokenLandingSettleDuration <= 0f || tokenLandingSettleScale <= 1.001f)
+            yield break;
+
+        Vector3 baseScale = transform.localScale;
+        Vector3 peakScale = baseScale * tokenLandingSettleScale;
+        float half = tokenLandingSettleDuration * 0.5f;
+
+        float t = 0f;
+        while (t < half)
+        {
+            t += Time.deltaTime;
+            float n = Mathf.Clamp01(t / Mathf.Max(0.001f, half));
+            transform.localScale = Vector3.LerpUnclamped(baseScale, peakScale, n);
+            yield return null;
+        }
+
+        t = 0f;
+        while (t < half)
+        {
+            t += Time.deltaTime;
+            float n = Mathf.Clamp01(t / Mathf.Max(0.001f, half));
+            transform.localScale = Vector3.LerpUnclamped(peakScale, baseScale, n);
+            yield return null;
+        }
+
+        transform.localScale = baseScale;
+    }
+
+
+private IEnumerator AnimateStepToIndex(int nextIndex, float duration, float hopHeight, bool playStepSfx)
+    {
+        if (boardPoints == null || nextIndex < 0 || nextIndex >= boardPoints.Length)
+            yield break;
+
+        Vector3 start = transform.position;
+        Vector3 end = boardPoints[nextIndex].position;
+        Vector3 baseScale = transform.localScale;
+
+        float safeDuration = Mathf.Max(0.01f, duration);
+        float safeHop = Mathf.Max(0f, hopHeight);
+        float safeScalePulse = Mathf.Max(0f, tokenStepScalePulse);
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / safeDuration;
+            float normalized = Mathf.Clamp01(t);
+            float eased = tokenStepCurve != null ? tokenStepCurve.Evaluate(normalized) : Mathf.SmoothStep(0f, 1f, normalized);
+
+            Vector3 pos = Vector3.LerpUnclamped(start, end, eased);
+            if (safeHop > 0f)
+                pos.y += Mathf.Sin(eased * Mathf.PI) * safeHop;
+
+            transform.position = pos;
+
+            // 2D-safe pin bounce: zoom up at mid-step, return to normal at landing.
+            if (safeScalePulse > 0f)
+            {
+                float pulse = Mathf.Sin(eased * Mathf.PI) * safeScalePulse;
+                transform.localScale = baseScale * (1f + pulse);
+            }
+
+            yield return null;
+        }
+
+        transform.position = end;
+        transform.localScale = baseScale;
+        currentIndex = nextIndex;
+
+        if (playStepSfx && GameSoundManager.Instance != null)
+            GameSoundManager.Instance.PlayStep();
+
+        if (tokenStepPause > 0f)
+            yield return new WaitForSeconds(tokenStepPause);
     }
 }

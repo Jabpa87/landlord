@@ -123,17 +123,17 @@ public class Property
             }
             else if (propertyType == PropertyType.Transportation)
             {
-                // Transportation: rent based on number of transportation properties owned
+                // Transportation: rent doubles with each additional transport owned (Monopoly style).
+                // 1 owned = base, 2 owned = 2x base, 3 owned = 4x base, 4 owned = 8x base.
                 int transportOwned = CountTransportationOwned();
-                if (transportationRent == null || transportationRent.Length == 0)
-                {
-                    // Default values if not set
-                    int[] defaultRent = new int[] { 25000, 50000, 100000, 200000 };
-                    int index = Mathf.Clamp(transportOwned - 1, 0, defaultRent.Length - 1);
-                    return defaultRent[index];
-                }
-                int index2 = Mathf.Clamp(transportOwned - 1, 0, transportationRent.Length - 1);
-                return transportationRent[index2];
+                int ownedClamped = Mathf.Clamp(transportOwned, 1, 4);
+
+                int baseRent = 25000;
+                if (transportationRent != null && transportationRent.Length > 0 && transportationRent[0] > 0)
+                    baseRent = transportationRent[0];
+
+                int multiplier = 1 << (ownedClamped - 1); // 1,2,4,8
+                return baseRent * multiplier;
             }
             
             return 0;

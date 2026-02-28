@@ -12,7 +12,7 @@ public class GameSettings
     
     [Header("Game Economy")]
     public int startingMoney = 2000000; // ₦2,000,000 standard starting money
-    public int goSalary = 200000; // ₦200,000 per turn (passing GO)
+    public int goSalary = 300000; // ₦300,000 per turn (passing GO)
     
     public GameSettings()
     {

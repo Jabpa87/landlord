@@ -68,9 +68,11 @@ public class MainMenuController : MonoBehaviour
 
     [Header("Scene")]
     public string gameSceneName = "GameScene";
+    [Tooltip("Optional onboarding scene. If profile is first-run and scene exists, MainMenu redirects to it.")]
+    public string onboardingSceneName = "Onboarding";
 
     [Header("Game economy defaults")]
-    public int defaultGoSalary = 200000;
+    public int defaultGoSalary = 300000;
 
     private int currentPlayerIndex = 0;
     private List<PlayerConfig> playerConfigsBuilt = new List<PlayerConfig>();
@@ -78,6 +80,12 @@ public class MainMenuController : MonoBehaviour
 
     void Start()
     {
+        if (OnboardingGate.TryRedirectToOnboarding(gameObject.scene.name, onboardingSceneName))
+            return;
+
+        var profile = LocalSaveManager.EnsureProfile();
+        LocalSaveManager.ApplyProfileToRuntime(profile);
+
         playerCount = Mathf.Clamp(playerCount, 2, 4);
         currentPlayerIndex = 0;
         playerConfigsBuilt.Clear();
@@ -241,6 +249,8 @@ public class MainMenuController : MonoBehaviour
 
     void OnStartGameClicked()
     {
+        LocalSaveManager.SaveProfileFromRuntime();
+        LocalSaveManager.BeginFreshGameSession();
         if (playerConfigsBuilt.Count != playerCount) return;
 
         // Always load the actual game scene — never StartPage, Start, or StartGame (fixes wrong Inspector value)
@@ -254,10 +264,11 @@ public class MainMenuController : MonoBehaviour
         var gameSettings = new GameSettings();
         gameSettings.playerConfigs = new List<PlayerConfig>(playerConfigsBuilt);
         gameSettings.startingMoney = 2000000; // ₦2M standard
-        gameSettings.goSalary = defaultGoSalary; // ₦200k per turn
+        gameSettings.goSalary = defaultGoSalary; // ₦300k per turn
 
         MainMenuManager.SettingsToLoad = gameSettings;
-        SceneManager.LoadScene(sceneToLoad);
+        GameLoadingFlow.ConfigureForNewGame(sceneToLoad);
+        GameLoadingFlow.LoadLoadingSceneOrTarget();
     }
 
     void OnGameSettingsClicked()
