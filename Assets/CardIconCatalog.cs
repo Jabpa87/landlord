@@ -35,30 +35,38 @@ public class CardIconCatalog : ScriptableObject
     [Header("Fallback when no sprite assigned")]
     [SerializeField] Sprite defaultCard;
 
+    Sprite ResolveFallback()
+    {
+        if (defaultCard != null) return defaultCard;
+        return PlayerVisualManager.GetOrCreateFallbackTokenSprite();
+    }
+
     public Sprite GetSprite(CardPanelMode mode)
     {
+        Sprite fallback = ResolveFallback();
         switch (mode)
         {
-            case CardPanelMode.Chance: return chanceCard != null ? chanceCard : defaultCard;
-            case CardPanelMode.CommunityChest: return communityChestCard != null ? communityChestCard : defaultCard;
-            case CardPanelMode.GetOutOfJailFree: return getOutOfJailCard != null ? getOutOfJailCard : defaultCard;
-            case CardPanelMode.Perk: return defaultCard;
-            default: return defaultCard;
+            case CardPanelMode.Chance: return chanceCard != null ? chanceCard : fallback;
+            case CardPanelMode.CommunityChest: return communityChestCard != null ? communityChestCard : fallback;
+            case CardPanelMode.GetOutOfJailFree: return getOutOfJailCard != null ? getOutOfJailCard : fallback;
+            case CardPanelMode.Perk: return fallback;
+            default: return fallback;
         }
     }
 
     public Sprite GetSprite(PerkCardType type)
     {
+        Sprite fallback = ResolveFallback();
         switch (type)
         {
-            case PerkCardType.SkipRent: return skipRent != null ? skipRent : defaultCard;
-            case PerkCardType.GoBonus: return goBonus != null ? goBonus : defaultCard;
-            case PerkCardType.MortgageBoost: return mortgageBoost != null ? mortgageBoost : defaultCard;
-            case PerkCardType.BuildDiscount: return buildDiscount != null ? buildDiscount : defaultCard;
-            case PerkCardType.RentShield: return rentShield != null ? rentShield : defaultCard;
-            case PerkCardType.BailDiscount: return bailDiscount != null ? bailDiscount : defaultCard;
-            case PerkCardType.AuctionEdge: return auctionEdge != null ? auctionEdge : defaultCard;
-            default: return defaultCard;
+            case PerkCardType.SkipRent: return skipRent != null ? skipRent : fallback;
+            case PerkCardType.GoBonus: return goBonus != null ? goBonus : fallback;
+            case PerkCardType.MortgageBoost: return mortgageBoost != null ? mortgageBoost : fallback;
+            case PerkCardType.BuildDiscount: return buildDiscount != null ? buildDiscount : fallback;
+            case PerkCardType.RentShield: return rentShield != null ? rentShield : fallback;
+            case PerkCardType.BailDiscount: return bailDiscount != null ? bailDiscount : fallback;
+            case PerkCardType.AuctionEdge: return auctionEdge != null ? auctionEdge : fallback;
+            default: return fallback;
         }
     }
 }

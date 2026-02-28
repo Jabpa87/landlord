@@ -7,6 +7,12 @@ using System;
 using System.Linq;
 using TMPro;
 
+public enum TradeResultOutcome
+{
+    Accepted,
+    Rejected
+}
+
 /// <summary>
 /// Manages all UI Toolkit documents and provides easy access to UI elements.
 /// This script should be attached to a GameObject with UIDocument components.
@@ -35,6 +41,11 @@ public class UIDocumentManager : MonoBehaviour
     
     [Tooltip("Card panel document (shown when drawing cards)")]
     public UIDocument cardPanelDocument;
+    [Tooltip("Optional uGUI Card Panel controller. When set (or instance found) and enabled below, UI Toolkit card panel is disabled.")]
+    public CardPanelUGUI cardPanelUGUI;
+    [Tooltip("When enabled and CardPanelUGUI exists in scene, card popups use uGUI and UI Toolkit card panel stays disabled.")]
+    public bool useUGUICardPanel = true;
+
 
     [Tooltip("Optional. For money-change toast (income/expense). When using Hybrid HUD, assign a UIDocument here so the toast can display.")]
     public UIDocument moneyToastOverlayDocument;
@@ -42,6 +53,18 @@ public class UIDocumentManager : MonoBehaviour
     [Header("Card panel - icon catalog")]
     [Tooltip("Assign CardIconCatalog asset (create via Assets > Create > Card Icon Catalog). Used for dynamic card panel icons.")]
     public CardIconCatalog cardIconCatalog;
+    [Tooltip("Optional icon used when a trade is accepted.")]
+    public Sprite tradeAcceptedResultIcon;
+    [Tooltip("Optional icon used when a trade is rejected.")]
+    public Sprite tradeRejectedResultIcon;
+    [Tooltip("Generic fallback icon used when any card/result icon is missing.")]
+    public Sprite genericCardFallbackIcon;
+    [Tooltip("Fallback icon used when a Chance card icon is missing.")]
+    public Sprite chanceFallbackIcon;
+    [Tooltip("Fallback icon used when a Community Chest icon is missing.")]
+    public Sprite communityChestFallbackIcon;
+    [Tooltip("Fallback icon used when auction/result notification icon is missing.")]
+    public Sprite auctionResultFallbackIcon;
 
     [Header("Scene References")]
     [Tooltip("TurnManager reference (auto-found if not assigned)")]
@@ -122,6 +145,11 @@ public class UIDocumentManager : MonoBehaviour
     private System.Action cardOkHandler;
     private System.Action cardAltHandler;
     private Coroutine resultNotificationRoutine;
+    private Sprite _tradeAcceptedIconCache;
+    private Sprite _tradeRejectedIconCache;
+    private Sprite _generalFallbackIconCache;
+    private Sprite _chanceCardIconCache;
+    private Sprite _communityCardIconCache;
     private VisualElement jailSirenLightBar;
     private Coroutine jailSirenRoutine;
     
@@ -327,6 +355,25 @@ public class UIDocumentManager : MonoBehaviour
     public BoughtPropertyPanelUGUI boughtPropertyPanelUGUI;
     [Tooltip("When enabled and BoughtPropertyPanelUGUI exists in scene, property purchase notifications use uGUI panel.")]
     public bool useUGUIBoughtPropertyPanel = true;
+
+    [Header("Popup Animation")]
+    [Tooltip("Animate popup panel entry/exit for UI Toolkit documents.")]
+    public bool enablePopupAnimations = true;
+    [Tooltip("When showing a popup, close the currently visible popup first.")]
+    public bool popupOneAtATime = true;
+    [Tooltip("Popup enter animation duration in seconds.")]
+    public float popupEnterDuration = 0.34f;
+    [Tooltip("Popup exit animation duration in seconds.")]
+    public float popupExitDuration = 0.26f;
+    [Tooltip("Scale at animation start when popup enters.")]
+    public float popupEnterStartScale = 0.90f;
+    [Tooltip("Scale at animation end when popup exits.")]
+    public float popupExitEndScale = 0.92f;
+    [Tooltip("Also fade popup during zoom transitions.")]
+    public bool popupAnimateOpacity = true;
+
+    private readonly Dictionary<UIDocument, Coroutine> popupAnimationCoroutines = new Dictionary<UIDocument, Coroutine>();
+    private UIDocument currentPopupDocument;
     
     void Awake()
     {
@@ -438,6 +485,17 @@ public class UIDocumentManager : MonoBehaviour
                 $"{{\"id\":\"log_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}\",\"timestamp\":{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()},\"location\":\"UIDocumentManager.Start:end\",\"message\":\"After initialization\",\"data\":{{\"mainHUDDoc\":{(mainHUDDocument != null ? $"\"{mainHUDDocument.gameObject.name}\"" : "null")},\"active\":{(mainHUDDocument != null ? mainHUDDocument.gameObject.activeInHierarchy.ToString().ToLower() : "null")},\"enabled\":{(mainHUDDocument != null ? mainHUDDocument.enabled.ToString().ToLower() : "null")},\"root\":{(root != null ? "\"exists\"" : "null")},\"rootDisplay\":{(root != null ? $"\"{root.style.display.value}\"" : "null")}}},\"sessionId\":\"debug-session\",\"runId\":\"run1\",\"hypothesisId\":\"H1,H2,H3,H6\"}}\n");
         } catch {}
         // #endregion
+    }
+
+    void OnDisable()
+    {
+        foreach (var kv in popupAnimationCoroutines)
+        {
+            if (kv.Value != null)
+                StopCoroutine(kv.Value);
+        }
+        popupAnimationCoroutines.Clear();
+        currentPopupDocument = null;
     }
     
     void Update()
@@ -1416,31 +1474,40 @@ public class UIDocumentManager : MonoBehaviour
             Debug.LogWarning("JailPanel root not found!");
     }
     
-    void InitializeCardPanel()
+void InitializeCardPanel()
     {
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            if (cardPanelDocument != null && cardPanelDocument.rootVisualElement != null)
+                cardPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+
+            CardPanel = null;
+            CardIcon = null;
+            CardTitleText = null;
+            CardTopicText = null;
+            CardDescriptionText = null;
+            CardOkButton = null;
+            CardAltButton = null;
+
+            ugui.Hide();
+            return;
+        }
+
         if (cardPanelDocument == null)
         {
             Debug.LogWarning("UIDocumentManager: Card Panel Document not assigned!");
             return;
         }
-        
-        // Ensure GameObject is active
+
         if (!cardPanelDocument.gameObject.activeInHierarchy)
-        {
             cardPanelDocument.gameObject.SetActive(true);
-        }
         if (!cardPanelDocument.enabled)
-        {
             cardPanelDocument.enabled = true;
-        }
-        
-        // Ensure card panel renders on top of Main HUD when shown (HUD uses 100)
+
         if (cardPanelDocument.panelSettings != null && cardPanelDocument.panelSettings.sortingOrder < 150)
-        {
             cardPanelDocument.panelSettings.sortingOrder = 150;
-        }
+
         var root = cardPanelDocument.rootVisualElement;
-        // Card panel position/layout: UXML only; do not set position/left/top in code.
         CardPanel = root.Q<VisualElement>("CardPanel");
         CardIcon = root.Q<VisualElement>("CardIcon");
         CardTitleText = root.Q<Label>("CardTitleText");
@@ -1448,8 +1515,7 @@ public class UIDocumentManager : MonoBehaviour
         CardDescriptionText = root.Q<Label>("CardDescriptionText");
         CardOkButton = root.Q<Button>("CardOkButton");
         CardAltButton = root.Q<Button>("CardAltButton");
-        
-        // Ensure button is visible and enabled
+
         if (CardOkButton != null)
         {
             CardOkButton.style.display = DisplayStyle.Flex;
@@ -1464,16 +1530,19 @@ public class UIDocumentManager : MonoBehaviour
         {
             Debug.LogError("UIDocumentManager: CardOkButton not found in CardPanel!");
         }
-        
+
         ApplyHeaderGloss(root, "CardHeader");
-        
+
         if (root != null)
         {
             root.style.display = DisplayStyle.None;
             root.pickingMode = PickingMode.Position;
         }
         else
+        {
             Debug.LogWarning("CardPanel root not found!");
+        }
+
         if (CardOkButton != null) CardOkButton.pickingMode = PickingMode.Position;
         if (CardAltButton != null) CardAltButton.pickingMode = PickingMode.Position;
     }
@@ -1493,6 +1562,155 @@ public class UIDocumentManager : MonoBehaviour
         // Source of truth is UXML/USS. Runtime code intentionally avoids popup layout edits.
     }
 
+    string ResolvePopupPanelName(UIDocument doc)
+    {
+        if (doc == null) return null;
+        if (doc == propertyPanelDocument) return "PropertyPanel";
+        if (doc == jailPanelDocument) return "JailPanel";
+        if (doc == cardPanelDocument) return "CardPanel";
+        if (doc == gameOverPanelDocument) return "GameOverPanel";
+        if (doc == ResolveTradePanelDocument()) return "TradePanel";
+        if (doc == bankruptcyPanelDocument) return "BankruptcyPanel";
+        if (doc == rentPaymentPanelDocument) return "RentPaymentPanel";
+        if (doc == tileDetailsPanelDocument) return "TileDetailsPanel";
+        if (doc == playerStatisticsPanelDocument) return "PlayerStatisticsPanel";
+        if (doc == characterSetupPanelDocument) return "CharacterSetupPanel";
+        if (doc == settingsPanelDocument) return "SettingsPanel";
+        if (doc == ResolvePropertyManagerDocument()) return "PropertyManagerPanel";
+        return null;
+    }
+
+    VisualElement GetPopupAnimationTarget(UIDocument doc, string panelName)
+    {
+        if (doc == null || doc.rootVisualElement == null) return null;
+        if (!string.IsNullOrEmpty(panelName))
+        {
+            VisualElement panel = doc.rootVisualElement.Q<VisualElement>(panelName);
+            if (panel != null) return panel;
+        }
+        return doc.rootVisualElement;
+    }
+
+    void StopPopupAnimation(UIDocument doc)
+    {
+        if (doc == null) return;
+        if (popupAnimationCoroutines.TryGetValue(doc, out Coroutine running) && running != null)
+            StopCoroutine(running);
+        popupAnimationCoroutines.Remove(doc);
+    }
+
+    void ShowPopupDocumentAnimated(UIDocument doc, string panelName, bool closeCurrentPopupFirst = true, int sortingOrder = 0)
+    {
+        if (doc == null) return;
+        EnsureDocumentActive(doc);
+        if (doc.rootVisualElement == null) return;
+
+        if (popupOneAtATime && closeCurrentPopupFirst &&
+            currentPopupDocument != null &&
+            currentPopupDocument != doc &&
+            currentPopupDocument.rootVisualElement != null &&
+            currentPopupDocument.rootVisualElement.style.display.value != DisplayStyle.None)
+        {
+            HidePopupDocumentAnimated(currentPopupDocument, ResolvePopupPanelName(currentPopupDocument));
+        }
+
+        if (sortingOrder != 0 && doc.panelSettings != null)
+            doc.panelSettings.sortingOrder = sortingOrder;
+
+        if (doc.transform != null)
+            doc.transform.SetAsLastSibling();
+
+        if (!enablePopupAnimations)
+        {
+            doc.rootVisualElement.style.display = DisplayStyle.Flex;
+            doc.rootVisualElement.style.visibility = Visibility.Visible;
+            VisualElement targetImmediate = GetPopupAnimationTarget(doc, panelName);
+            if (targetImmediate != null)
+            {
+                targetImmediate.style.scale = new Scale(Vector3.one);
+                targetImmediate.style.opacity = 1f;
+            }
+            currentPopupDocument = doc;
+            return;
+        }
+
+        StopPopupAnimation(doc);
+        popupAnimationCoroutines[doc] = StartCoroutine(AnimatePopupDocument(doc, panelName, true));
+        currentPopupDocument = doc;
+    }
+
+    void HidePopupDocumentAnimated(UIDocument doc, string panelName)
+    {
+        if (doc == null || doc.rootVisualElement == null) return;
+
+        if (!enablePopupAnimations)
+        {
+            doc.rootVisualElement.style.display = DisplayStyle.None;
+            VisualElement targetImmediate = GetPopupAnimationTarget(doc, panelName);
+            if (targetImmediate != null)
+            {
+                targetImmediate.style.scale = new Scale(Vector3.one);
+                targetImmediate.style.opacity = 1f;
+            }
+            if (currentPopupDocument == doc)
+                currentPopupDocument = null;
+            return;
+        }
+
+        StopPopupAnimation(doc);
+        popupAnimationCoroutines[doc] = StartCoroutine(AnimatePopupDocument(doc, panelName, false));
+        if (currentPopupDocument == doc)
+            currentPopupDocument = null;
+    }
+
+    IEnumerator AnimatePopupDocument(UIDocument doc, string panelName, bool isShowing)
+    {
+        if (doc == null || doc.rootVisualElement == null) yield break;
+
+        VisualElement root = doc.rootVisualElement;
+        VisualElement target = GetPopupAnimationTarget(doc, panelName);
+        if (target == null) yield break;
+
+        float duration = Mathf.Max(0.01f, isShowing ? popupEnterDuration : popupExitDuration);
+        float startScale = isShowing ? popupEnterStartScale : 1f;
+        float endScale = isShowing ? 1f : popupExitEndScale;
+        float startOpacity = 0f;
+        float endOpacity = 1f;
+
+        if (isShowing)
+        {
+            root.style.display = DisplayStyle.Flex;
+            root.style.visibility = Visibility.Visible;
+        }
+
+        target.style.transformOrigin = new TransformOrigin(Length.Percent(50), Length.Percent(50), 0f);
+
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            float eased = 1f - Mathf.Pow(1f - t, isShowing ? 3f : 2f);
+
+            float scale = Mathf.Lerp(startScale, endScale, eased);
+            target.style.scale = new Scale(new Vector3(scale, scale, 1f));
+
+            if (popupAnimateOpacity && isShowing)
+                target.style.opacity = Mathf.Lerp(startOpacity, endOpacity, eased);
+
+            yield return null;
+        }
+
+        target.style.scale = new Scale(Vector3.one);
+        if (popupAnimateOpacity)
+            target.style.opacity = 1f;
+
+        if (!isShowing)
+            root.style.display = DisplayStyle.None;
+
+        popupAnimationCoroutines.Remove(doc);
+    }
+
     public void ShowPropertyPanel() 
     { 
         HidePlayerStatisticsPanel();
@@ -1505,9 +1723,7 @@ public class UIDocumentManager : MonoBehaviour
         if (propertyPanelDocument != null && propertyPanelDocument.rootVisualElement != null)
         {
             ApplyStandardPopupLayout(propertyPanelDocument, "PropertyPanel");
-            propertyPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
-            if (propertyPanelDocument.transform != null)
-                propertyPanelDocument.transform.SetAsLastSibling();
+            ShowPopupDocumentAnimated(propertyPanelDocument, "PropertyPanel");
         }
     }
     
@@ -1519,7 +1735,7 @@ public class UIDocumentManager : MonoBehaviour
             return;
         }
         if (propertyPanelDocument != null && propertyPanelDocument.rootVisualElement != null)
-            propertyPanelDocument.rootVisualElement.style.display = DisplayStyle.None; 
+            HidePopupDocumentAnimated(propertyPanelDocument, "PropertyPanel");
     }
 
     public void ConfigurePropertyPanel(TileInfo tile, bool canAfford, string message)
@@ -1617,7 +1833,7 @@ public class UIDocumentManager : MonoBehaviour
         if (jailPanelDocument != null && jailPanelDocument.rootVisualElement != null)
         {
             ApplyStandardPopupLayout(jailPanelDocument, "JailPanel");
-            jailPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex; 
+            ShowPopupDocumentAnimated(jailPanelDocument, "JailPanel");
         }
     }
     
@@ -1629,41 +1845,35 @@ public class UIDocumentManager : MonoBehaviour
             return;
         }
         if (jailPanelDocument != null && jailPanelDocument.rootVisualElement != null)
-            jailPanelDocument.rootVisualElement.style.display = DisplayStyle.None; 
+            HidePopupDocumentAnimated(jailPanelDocument, "JailPanel");
     }
     
-    public void ShowCardPanel() 
-    { 
+public void ShowCardPanel()
+    {
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            HidePlayerStatisticsPanel();
+            HideTileDetailsPanel();
+            return;
+        }
+
         if (cardPanelDocument == null)
         {
             Debug.LogError("UIDocumentManager: CardPanelDocument is null! Cannot show card panel.");
             return;
         }
-        
+
         HidePlayerStatisticsPanel();
         HideTileDetailsPanel();
-        
-        // Ensure GameObject is active
+
         if (!cardPanelDocument.gameObject.activeInHierarchy)
-        {
             cardPanelDocument.gameObject.SetActive(true);
-        }
         if (!cardPanelDocument.enabled)
-        {
             cardPanelDocument.enabled = true;
-        }
-        
+
         if (cardPanelDocument.rootVisualElement != null)
         {
-            var root = cardPanelDocument.rootVisualElement;
-            // Card panel position/layout is from UXML only; no script applies position.
-            root.style.display = DisplayStyle.Flex;
-            root.style.visibility = Visibility.Visible;
-            root.style.opacity = 1f;
-            if (cardPanelDocument.panelSettings != null)
-                cardPanelDocument.panelSettings.sortingOrder = 200;
-            if (cardPanelDocument.transform != null)
-                cardPanelDocument.transform.SetAsLastSibling();
+            ShowPopupDocumentAnimated(cardPanelDocument, "CardPanel", true, 200);
             if (CardOkButton != null)
             {
                 if (cardOkHandler != null)
@@ -1691,20 +1901,35 @@ public class UIDocumentManager : MonoBehaviour
         }
     }
     
-    public void HideCardPanel() 
-    { 
+public void HideCardPanel()
+    {
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            ugui.Hide();
+            return;
+        }
+
         if (cardPanelDocument != null && cardPanelDocument.rootVisualElement != null)
-            cardPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            HidePopupDocumentAnimated(cardPanelDocument, "CardPanel");
     }
 
     /// <summary>
     /// Informational-only panel used for AI and human result messages.
     /// This panel is never interactive and auto-closes after delay.
     /// </summary>
-    public void ShowResultNotification(string message, float autoCloseSeconds = 1.2f)
+public void ShowResultNotification(string message, float autoCloseSeconds = 1.2f, Sprite icon = null)
     {
+        icon = ResolveResultNotificationIcon(icon);
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            HidePlayerStatisticsPanel();
+            HideTileDetailsPanel();
+            ugui.ShowResult(message ?? string.Empty, autoCloseSeconds, icon, ResultCardTone.Neutral);
+            return;
+        }
+
         ShowCardPanel();
-        SetCardContent(CardPanelMode.Perk, "RESULT", "", message ?? "", null, false);
+        SetCardContent(CardPanelMode.Perk, "RESULT", "", message ?? "", icon, false);
         if (CardOkButton != null && cardOkHandler != null)
         {
             CardOkButton.clicked -= cardOkHandler;
@@ -1720,14 +1945,77 @@ public class UIDocumentManager : MonoBehaviour
         resultNotificationRoutine = StartCoroutine(AutoHideResultNotification(autoCloseSeconds));
     }
 
+    public void ShowTradeResultNotification(string message, TradeResultOutcome outcome, float autoCloseSeconds = 1.4f)
+    {
+        Sprite icon = ResolveResultNotificationIcon(ResolveTradeOutcomeIcon(outcome));
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            HidePlayerStatisticsPanel();
+            HideTileDetailsPanel();
+            ResultCardTone tone = outcome == TradeResultOutcome.Accepted ? ResultCardTone.Positive : ResultCardTone.Negative;
+            ugui.ShowResult(message ?? string.Empty, autoCloseSeconds, icon, tone);
+            return;
+        }
+
+        ShowCardPanel();
+        string topic = outcome == TradeResultOutcome.Accepted ? "TRADE ACCEPTED" : "TRADE REJECTED";
+        SetCardContent(CardPanelMode.Perk, "RESULT", topic, message ?? "", icon, false);
+        if (CardOkButton != null && cardOkHandler != null)
+        {
+            CardOkButton.clicked -= cardOkHandler;
+            cardOkHandler = null;
+        }
+        if (CardAltButton != null && cardAltHandler != null)
+        {
+            CardAltButton.clicked -= cardAltHandler;
+            cardAltHandler = null;
+        }
+        if (resultNotificationRoutine != null)
+            StopCoroutine(resultNotificationRoutine);
+        resultNotificationRoutine = StartCoroutine(AutoHideResultNotification(autoCloseSeconds));
+    }
+
+    public void ShowPerkActivationNotification(string message, PerkCardType perkType, int maxUses, int usesRemaining, float autoCloseSeconds = 1.4f)
+    {
+        Sprite perkIcon = cardIconCatalog != null ? cardIconCatalog.GetSprite(perkType) : null;
+        PerkResultAggression aggression = ResolvePerkAggression(maxUses, usesRemaining);
+
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            HidePlayerStatisticsPanel();
+            HideTileDetailsPanel();
+            ugui.ShowPerkResult(message ?? string.Empty, autoCloseSeconds, perkIcon, aggression);
+            return;
+        }
+
+        // UI Toolkit fallback: keep behavior simple, but still show perk icon when available.
+        ShowResultNotification(message, autoCloseSeconds, perkIcon);
+    }
+
+    static PerkResultAggression ResolvePerkAggression(int maxUses, int usesRemaining)
+    {
+        int uses = Mathf.Max(0, maxUses);
+        if (uses <= 1) return PerkResultAggression.High;
+        if (uses <= 3) return PerkResultAggression.Medium;
+        if (uses > 6) return PerkResultAggression.Low;
+        // For 4-6 uses, give medium on first trigger then lower intensity afterwards.
+        return usesRemaining <= 1 ? PerkResultAggression.Low : PerkResultAggression.Medium;
+    }
+
     IEnumerator AutoHideResultNotification(float delay)
     {
         yield return new WaitForSeconds(Mathf.Max(0.1f, delay));
         HideResultNotification();
     }
 
-    public void HideResultNotification()
+public void HideResultNotification()
     {
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            ugui.Hide();
+            return;
+        }
+
         if (resultNotificationRoutine != null)
         {
             StopCoroutine(resultNotificationRoutine);
@@ -1760,6 +2048,12 @@ public class UIDocumentManager : MonoBehaviour
 
     public void ShowJailSirenLight(float durationSeconds = 2.2f)
     {
+        if (mainHUDController != null)
+        {
+            mainHUDController.ShowJailSirenLight(durationSeconds);
+            return;
+        }
+
         EnsureJailSirenLight();
         if (jailSirenLightBar == null) return;
 
@@ -1790,8 +2084,26 @@ public class UIDocumentManager : MonoBehaviour
         jailSirenRoutine = null;
     }
 
-    public void ShowChoiceCard(string title, string description, string okText, string altText, System.Action onOk, System.Action onAlt)
+public void ShowChoiceCard(string title, string description, string okText, string altText, System.Action onOk, System.Action onAlt)
     {
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            HidePlayerStatisticsPanel();
+            HideTileDetailsPanel();
+            Sprite icon = ResolveChoiceCardIcon(title, description);
+            ugui.ShowChoice(
+                title ?? string.Empty,
+                description ?? string.Empty,
+                string.IsNullOrEmpty(okText) ? "OK" : okText,
+                string.IsNullOrEmpty(altText) ? "USE" : altText,
+                onOk,
+                onAlt,
+                icon,
+                string.Empty
+            );
+            return;
+        }
+
         ShowCardPanel();
         if (CardTitleText != null) CardTitleText.text = title ?? "";
         if (CardTopicText != null) CardTopicText.text = "";
@@ -1822,6 +2134,144 @@ public class UIDocumentManager : MonoBehaviour
         }
     }
 
+    Sprite ResolveChoiceCardIcon(string title, string description)
+    {
+        if (cardIconCatalog == null)
+            return null;
+
+        if (TryParsePerkTypeFromText(title, description, out PerkCardType perkType))
+            return cardIconCatalog.GetSprite(perkType);
+
+        return cardIconCatalog.GetSprite(CardPanelMode.Perk);
+    }
+
+    Sprite ResolveTradeOutcomeIcon(TradeResultOutcome outcome)
+    {
+        if (outcome == TradeResultOutcome.Accepted)
+        {
+            if (tradeAcceptedResultIcon != null) return tradeAcceptedResultIcon;
+            if (_tradeAcceptedIconCache != null) return _tradeAcceptedIconCache;
+#if UNITY_EDITOR
+            _tradeAcceptedIconCache = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Icons/accepts trade.png");
+#endif
+            if (_tradeAcceptedIconCache != null) return _tradeAcceptedIconCache;
+            return ResolveResultNotificationIcon(null);
+        }
+
+        if (tradeRejectedResultIcon != null) return tradeRejectedResultIcon;
+        if (_tradeRejectedIconCache != null) return _tradeRejectedIconCache;
+#if UNITY_EDITOR
+        _tradeRejectedIconCache = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Icons/rejects trade.png");
+#endif
+        if (_tradeRejectedIconCache != null) return _tradeRejectedIconCache;
+        return ResolveResultNotificationIcon(null);
+    }
+
+    Sprite ResolveResultNotificationIcon(Sprite preferred)
+    {
+        if (preferred != null) return preferred;
+        if (auctionResultFallbackIcon != null) return auctionResultFallbackIcon;
+        if (genericCardFallbackIcon != null) return genericCardFallbackIcon;
+        if (cardPanelUGUI != null && cardPanelUGUI.resultFallbackIcon != null) return cardPanelUGUI.resultFallbackIcon;
+        return ResolveGeneralFallbackIcon();
+    }
+
+    Sprite ResolveCardModeIcon(CardPanelMode mode, Sprite preferred)
+    {
+        if (preferred != null) return preferred;
+
+        if (cardIconCatalog != null)
+        {
+            Sprite fromCatalog = cardIconCatalog.GetSprite(mode);
+            if (fromCatalog != null) return fromCatalog;
+        }
+
+        switch (mode)
+        {
+            case CardPanelMode.Chance:
+                if (_chanceCardIconCache != null) return _chanceCardIconCache;
+#if UNITY_EDITOR
+                _chanceCardIconCache = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Cards/Chance_Card.png");
+#endif
+                if (_chanceCardIconCache != null) return _chanceCardIconCache;
+                if (chanceFallbackIcon != null) return chanceFallbackIcon;
+                break;
+            case CardPanelMode.CommunityChest:
+                if (_communityCardIconCache != null) return _communityCardIconCache;
+#if UNITY_EDITOR
+                _communityCardIconCache = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Cards/Community_Card.png");
+#endif
+                if (_communityCardIconCache != null) return _communityCardIconCache;
+                if (communityChestFallbackIcon != null) return communityChestFallbackIcon;
+                break;
+        }
+
+        return ResolveGeneralFallbackIcon();
+    }
+
+    Sprite ResolveGeneralFallbackIcon()
+    {
+        if (_generalFallbackIconCache != null) return _generalFallbackIconCache;
+        if (genericCardFallbackIcon != null) return genericCardFallbackIcon;
+        if (auctionResultFallbackIcon != null) return auctionResultFallbackIcon;
+        if (chanceFallbackIcon != null) return chanceFallbackIcon;
+        if (communityChestFallbackIcon != null) return communityChestFallbackIcon;
+        if (tradeAcceptedResultIcon != null) return tradeAcceptedResultIcon;
+        if (tradeRejectedResultIcon != null) return tradeRejectedResultIcon;
+        _generalFallbackIconCache = PlayerVisualManager.GetOrCreateFallbackTokenSprite();
+        return _generalFallbackIconCache;
+    }
+
+    static bool TryParsePerkTypeFromText(string title, string description, out PerkCardType perkType)
+    {
+        perkType = default;
+        string combined = ((title ?? string.Empty) + " " + (description ?? string.Empty)).ToLowerInvariant();
+
+        if (combined.Contains("skip rent") || combined.Contains("skip_rent"))
+        {
+            perkType = PerkCardType.SkipRent;
+            return true;
+        }
+
+        if (combined.Contains("rent shield") || combined.Contains("rent_shield"))
+        {
+            perkType = PerkCardType.RentShield;
+            return true;
+        }
+
+        if (combined.Contains("go bonus") || combined.Contains("go_bonus"))
+        {
+            perkType = PerkCardType.GoBonus;
+            return true;
+        }
+
+        if (combined.Contains("mortgage boost") || combined.Contains("mortage boost") || combined.Contains("mortgage_boost") || combined.Contains("mortage_boost"))
+        {
+            perkType = PerkCardType.MortgageBoost;
+            return true;
+        }
+
+        if (combined.Contains("auction edge") || combined.Contains("auction_edge"))
+        {
+            perkType = PerkCardType.AuctionEdge;
+            return true;
+        }
+
+        if (combined.Contains("bail discount") || combined.Contains("bail_discount"))
+        {
+            perkType = PerkCardType.BailDiscount;
+            return true;
+        }
+
+        if (combined.Contains("build discount") || combined.Contains("build_discount"))
+        {
+            perkType = PerkCardType.BuildDiscount;
+            return true;
+        }
+
+        return false;
+    }
+
     public void SetCardIcon(Sprite icon)
     {
         if (CardIcon == null) return;
@@ -1836,9 +2286,18 @@ public class UIDocumentManager : MonoBehaviour
         {
             CardIcon.style.backgroundImage = new StyleBackground(texture);
             CardIcon.style.backgroundSize = new StyleBackgroundSize(new BackgroundSize(BackgroundSizeType.Contain));
+            CardIcon.style.backgroundRepeat = new StyleBackgroundRepeat(new BackgroundRepeat(Repeat.NoRepeat, Repeat.NoRepeat));
+            CardIcon.style.backgroundPositionX = new StyleBackgroundPosition(new BackgroundPosition(BackgroundPositionKeyword.Center));
+            CardIcon.style.backgroundPositionY = new StyleBackgroundPosition(new BackgroundPosition(BackgroundPositionKeyword.Center));
         }
         else
+        {
             CardIcon.style.backgroundImage = new StyleBackground(icon);
+            CardIcon.style.backgroundSize = new StyleBackgroundSize(new BackgroundSize(BackgroundSizeType.Contain));
+            CardIcon.style.backgroundRepeat = new StyleBackgroundRepeat(new BackgroundRepeat(Repeat.NoRepeat, Repeat.NoRepeat));
+            CardIcon.style.backgroundPositionX = new StyleBackgroundPosition(new BackgroundPosition(BackgroundPositionKeyword.Center));
+            CardIcon.style.backgroundPositionY = new StyleBackgroundPosition(new BackgroundPosition(BackgroundPositionKeyword.Center));
+        }
     }
 
     /// <summary>Show the card panel in non-interactive mode (no OK/alt buttons). Used for perk reveal animation.</summary>
@@ -1864,9 +2323,7 @@ public class UIDocumentManager : MonoBehaviour
         if (CardTitleText != null) CardTitleText.text = typeTitle ?? "";
         if (CardTopicText != null) CardTopicText.text = topic ?? "";
         if (CardDescriptionText != null) CardDescriptionText.text = description ?? "";
-        Sprite useIcon = icon;
-        if (useIcon == null && cardIconCatalog != null)
-            useIcon = cardIconCatalog.GetSprite(mode);
+        Sprite useIcon = ResolveCardModeIcon(mode, icon);
         SetCardIcon(useIcon);
         SetCardPanelInteractive(interactive);
         ApplyCardTextOverflow();
@@ -1882,6 +2339,38 @@ public class UIDocumentManager : MonoBehaviour
     /// <summary>Unified API: show card with type title (CHANCE/COMMUNITY CHEST/PERK CARD), topic, description, and optional icon.</summary>
     public void ShowCard(CardPanelMode mode, string typeTitle, string topic, string description, Sprite icon = null, bool interactive = true)
     {
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            HidePlayerStatisticsPanel();
+            HideTileDetailsPanel();
+
+            Sprite useIcon = ResolveCardModeIcon(mode, icon);
+
+            if (interactive)
+            {
+                ugui.ShowInfo(
+                    typeTitle ?? string.Empty,
+                    topic ?? string.Empty,
+                    description ?? string.Empty,
+                    "Continue",
+                    () => HideCardPanel(),
+                    useIcon
+                );
+            }
+            else
+            {
+                ugui.ShowInfo(
+                    typeTitle ?? string.Empty,
+                    topic ?? string.Empty,
+                    description ?? string.Empty,
+                    string.Empty,
+                    null,
+                    useIcon
+                );
+            }
+            return;
+        }
+
         ShowCardPanel();
         SetCardContent(mode, typeTitle ?? "", topic ?? "", description ?? "", icon, interactive);
         if (interactive && CardOkButton != null)
@@ -1904,14 +2393,41 @@ public class UIDocumentManager : MonoBehaviour
     public void ShowCard(Card card, CardDeckType deckType, System.Action onOkClicked = null)
     {
         if (card == null) return;
+
         string deckLabel = deckType == CardDeckType.Chance ? "CHANCE" : "COMMUNITY CHEST";
         Debug.Log($"[Card Visuals] Card display requested: \"{card.title}\" ({deckLabel}) — action will be applied when player continues.");
+
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+        {
+            HidePlayerStatisticsPanel();
+            HideTileDetailsPanel();
+
+            CardPanelMode mode = card.isGetOutOfJailFree
+                ? CardPanelMode.GetOutOfJailFree
+                : (deckType == CardDeckType.Chance ? CardPanelMode.Chance : CardPanelMode.CommunityChest);
+
+            Sprite icon = ResolveCardModeIcon(mode, null);
+
+            ugui.ShowInfo(
+                deckLabel,
+                card.title,
+                card.description,
+                "Continue",
+                () =>
+                {
+                    onOkClicked?.Invoke();
+                    HideCardPanel();
+                },
+                icon
+            );
+            return;
+        }
+
         ShowCardPanel();
-        CardPanelMode mode = card.isGetOutOfJailFree ? CardPanelMode.GetOutOfJailFree : (deckType == CardDeckType.Chance ? CardPanelMode.Chance : CardPanelMode.CommunityChest);
+        CardPanelMode legacyMode = card.isGetOutOfJailFree ? CardPanelMode.GetOutOfJailFree : (deckType == CardDeckType.Chance ? CardPanelMode.Chance : CardPanelMode.CommunityChest);
         string typeTitle = deckType == CardDeckType.Chance ? "CHANCE" : "COMMUNITY CHEST";
-        if (card.isGetOutOfJailFree) typeTitle = deckType == CardDeckType.Chance ? "CHANCE" : "COMMUNITY CHEST";
-        Sprite icon = (cardIconCatalog != null) ? cardIconCatalog.GetSprite(mode) : null;
-        SetCardContent(mode, typeTitle, card.title, card.description, icon, true);
+        Sprite legacyIcon = ResolveCardModeIcon(legacyMode, null);
+        SetCardContent(legacyMode, typeTitle, card.title, card.description, legacyIcon, true);
         if (CardOkButton != null)
         {
             CardOkButton.text = "Continue";
@@ -1931,6 +2447,7 @@ public class UIDocumentManager : MonoBehaviour
         StartCoroutine(VerifyCardDisplayAfterShow(card.title, deckLabel));
     }
 
+
     /// <summary>Verifies that the card panel actually became visible after a show request. Logs a clear message if visuals did not display.</summary>
     IEnumerator VerifyCardDisplayAfterShow(string cardTitle, string deckLabel)
     {
@@ -1946,12 +2463,16 @@ public class UIDocumentManager : MonoBehaviour
     /// <summary>Returns true if the card panel document exists and its root is currently visible (display != None, object active).</summary>
     public bool IsCardPanelActuallyVisible()
     {
+        if (TryGetCardPanelUGUI(out CardPanelUGUI ugui))
+            return ugui.IsVisible();
+
         if (cardPanelDocument == null) return false;
         if (!cardPanelDocument.gameObject.activeInHierarchy || !cardPanelDocument.enabled) return false;
         var root = cardPanelDocument.rootVisualElement;
         if (root == null) return false;
         return root.style.display != DisplayStyle.None;
     }
+
     
     void InitializeGameOverPanel()
     {
@@ -1982,7 +2503,7 @@ public class UIDocumentManager : MonoBehaviour
         if (gameOverPanelDocument.rootVisualElement != null)
         {
             ApplyStandardPopupLayout(gameOverPanelDocument, "GameOverPanel");
-            gameOverPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+            ShowPopupDocumentAnimated(gameOverPanelDocument, "GameOverPanel");
         }
         
         if (WinnerNameText != null && winner != null)
@@ -2009,7 +2530,7 @@ public class UIDocumentManager : MonoBehaviour
     public void HideGameOverPanel()
     {
         if (gameOverPanelDocument != null && gameOverPanelDocument.rootVisualElement != null)
-            gameOverPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            HidePopupDocumentAnimated(gameOverPanelDocument, "GameOverPanel");
     }
     
     void InitializeTradePanel()
@@ -2096,7 +2617,7 @@ public class UIDocumentManager : MonoBehaviour
         var tradePanel = TradePanel != null ? TradePanel : doc.rootVisualElement.Q<VisualElement>("TradePanel");
         if (tradePanel != null)
             ApplyPropertyPanelPositioning(doc, tradePanel, TradePopupTopPadding);
-        doc.rootVisualElement.style.display = DisplayStyle.Flex;
+        ShowPopupDocumentAnimated(doc, "TradePanel");
         var overlay = doc.rootVisualElement.Q<VisualElement>("TradeOverlay");
         if (overlay != null)
             overlay.style.display = DisplayStyle.Flex;
@@ -2104,10 +2625,11 @@ public class UIDocumentManager : MonoBehaviour
     
     public void HideTradePanel()
     {
-        if (tradePanelDocument != null && tradePanelDocument.rootVisualElement != null)
+        var doc = ResolveTradePanelDocument();
+        if (doc != null && doc.rootVisualElement != null)
         {
-            tradePanelDocument.rootVisualElement.style.display = DisplayStyle.None;
-            var overlay = tradePanelDocument.rootVisualElement.Q<VisualElement>("TradeOverlay");
+            HidePopupDocumentAnimated(doc, "TradePanel");
+            var overlay = doc.rootVisualElement.Q<VisualElement>("TradeOverlay");
             if (overlay != null)
                 overlay.style.display = DisplayStyle.None;
         }
@@ -2125,7 +2647,7 @@ public class UIDocumentManager : MonoBehaviour
         if (bankruptcyPanelDocument.rootVisualElement != null)
         {
             ApplyStandardPopupLayout(bankruptcyPanelDocument, "BankruptcyPanel");
-            bankruptcyPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+            ShowPopupDocumentAnimated(bankruptcyPanelDocument, "BankruptcyPanel");
         }
         
         if (BankruptcyMessageText != null)
@@ -2160,7 +2682,7 @@ public class UIDocumentManager : MonoBehaviour
     public void HideBankruptcyPanel()
     {
         if (bankruptcyPanelDocument != null && bankruptcyPanelDocument.rootVisualElement != null)
-            bankruptcyPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            HidePopupDocumentAnimated(bankruptcyPanelDocument, "BankruptcyPanel");
     }
     
     void InitializeRentPaymentPanel()
@@ -2248,6 +2770,17 @@ public class UIDocumentManager : MonoBehaviour
         ugui = rentPaymentPanelUGUI != null ? rentPaymentPanelUGUI : RentPaymentPanelUGUI.Instance;
         return useUGUIRentPaymentPanel && ugui != null;
     }
+
+private bool TryGetCardPanelUGUI(out CardPanelUGUI ugui)
+    {
+        ugui = cardPanelUGUI != null ? cardPanelUGUI : (CardPanelUGUI.Instance != null ? CardPanelUGUI.Instance : FindFirstObjectByType<CardPanelUGUI>());
+        if (!useUGUICardPanel || ugui == null)
+            return false;
+        if (cardPanelUGUI == null)
+            cardPanelUGUI = ugui;
+        return true;
+    }
+
 
     public bool TryGetJailPanelUGUI(out JailPanelUGUI ugui)
     {
@@ -2358,7 +2891,7 @@ public class UIDocumentManager : MonoBehaviour
         
         Debug.Log("UIDocumentManager: Setting panel display to Flex...");
         ApplyStandardPopupLayout(tileDetailsPanelDocument, "TileDetailsPanel");
-        tileDetailsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        ShowPopupDocumentAnimated(tileDetailsPanelDocument, "TileDetailsPanel");
         Debug.Log("UIDocumentManager: Panel display set to Flex. Panel should be visible now.");
         
         // Update title
@@ -2508,7 +3041,7 @@ public class UIDocumentManager : MonoBehaviour
     public void HideTileDetailsPanel()
     {
         if (tileDetailsPanelDocument != null && tileDetailsPanelDocument.rootVisualElement != null)
-            tileDetailsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            HidePopupDocumentAnimated(tileDetailsPanelDocument, "TileDetailsPanel");
         TileDetailsCardUI.GetOrFindInstance()?.Hide();
 
         CurrentTileDetails = null;
@@ -3279,7 +3812,7 @@ public class UIDocumentManager : MonoBehaviour
 
         _characterSetupOkHandler = onOk;
         VisualElement root = characterSetupPanelDocument.rootVisualElement;
-        root.style.display = DisplayStyle.Flex;
+        ShowPopupDocumentAnimated(characterSetupPanelDocument, "CharacterSetupPanel");
         ApplyCharacterSetupPanelLayout();
 
         if (CharacterSetupList != null)
@@ -3299,7 +3832,7 @@ public class UIDocumentManager : MonoBehaviour
     void OnCharacterSetupOkClicked()
     {
         if (characterSetupPanelDocument != null && characterSetupPanelDocument.rootVisualElement != null)
-            characterSetupPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            HidePopupDocumentAnimated(characterSetupPanelDocument, "CharacterSetupPanel");
         Action callback = _characterSetupOkHandler;
         _characterSetupOkHandler = null;
         callback?.Invoke();
@@ -3402,14 +3935,13 @@ public class UIDocumentManager : MonoBehaviour
     {
         if (settingsPanelDocument == null || settingsPanelDocument.rootVisualElement == null) return;
         RefreshSettingsPanelAppearance();
-        settingsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
-        if (settingsPanelDocument.transform != null) settingsPanelDocument.transform.SetAsLastSibling();
+        ShowPopupDocumentAnimated(settingsPanelDocument, "SettingsPanel");
     }
 
     public void HideSettingsPanel()
     {
         if (settingsPanelDocument != null && settingsPanelDocument.rootVisualElement != null)
-            settingsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            HidePopupDocumentAnimated(settingsPanelDocument, "SettingsPanel");
     }
 
     VisualElement CreateCharacterSetupRow(Player player)
@@ -3467,9 +3999,7 @@ public class UIDocumentManager : MonoBehaviour
 
         if (playerStatisticsPanelDocument.rootVisualElement != null)
         {
-            playerStatisticsPanelDocument.rootVisualElement.style.display = DisplayStyle.Flex;
-            if (playerStatisticsPanelDocument.transform != null)
-                playerStatisticsPanelDocument.transform.SetAsLastSibling();
+            ShowPopupDocumentAnimated(playerStatisticsPanelDocument, "PlayerStatisticsPanel");
         }
         _lastStatisticsAnchorPlayerIndex = anchorPlayerIndex;
         PositionStatisticsPanelNearProfile(anchorPlayerIndex);
@@ -3577,7 +4107,7 @@ public class UIDocumentManager : MonoBehaviour
     public void HidePlayerStatisticsPanel()
     {
         if (playerStatisticsPanelDocument != null && playerStatisticsPanelDocument.rootVisualElement != null)
-            playerStatisticsPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            HidePopupDocumentAnimated(playerStatisticsPanelDocument, "PlayerStatisticsPanel");
     }
 
     void PopulateCharacterBehaviorCards(Player player, bool perks)
