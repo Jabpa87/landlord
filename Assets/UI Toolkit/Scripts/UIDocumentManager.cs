@@ -150,6 +150,10 @@ public class UIDocumentManager : MonoBehaviour
     private Sprite _generalFallbackIconCache;
     private Sprite _chanceCardIconCache;
     private Sprite _communityCardIconCache;
+    private bool _triedResolvePropertyPanelUGUI;
+    private bool _triedResolveBoughtPropertyPanelUGUI;
+    private bool _triedResolveCardPanelUGUI;
+    private bool _triedResolveJailPanelUGUI;
     private VisualElement jailSirenLightBar;
     private Coroutine jailSirenRoutine;
     
@@ -1793,22 +1797,28 @@ void InitializeCardPanel()
 
     public bool TryGetPropertyPanelUGUI(out BuyPropertyPanelUGUI ugui)
     {
-        ugui = propertyPanelUGUI != null ? propertyPanelUGUI : (BuyPropertyPanelUGUI.Instance != null ? BuyPropertyPanelUGUI.Instance : FindFirstObjectByType<BuyPropertyPanelUGUI>());
+        if (propertyPanelUGUI == null && !_triedResolvePropertyPanelUGUI)
+        {
+            _triedResolvePropertyPanelUGUI = true;
+            propertyPanelUGUI = BuyPropertyPanelUGUI.Instance != null ? BuyPropertyPanelUGUI.Instance : FindFirstObjectByType<BuyPropertyPanelUGUI>();
+        }
+        ugui = propertyPanelUGUI;
         if (!useUGUIPropertyPanel || ugui == null)
             return false;
-        if (propertyPanelUGUI == null)
-            propertyPanelUGUI = ugui;
         ForceHideUITKPropertyPanel();
         return true;
     }
 
     public bool TryGetBoughtPropertyPanelUGUI(out BoughtPropertyPanelUGUI ugui)
     {
-        ugui = boughtPropertyPanelUGUI != null ? boughtPropertyPanelUGUI : (BoughtPropertyPanelUGUI.Instance != null ? BoughtPropertyPanelUGUI.Instance : FindFirstObjectByType<BoughtPropertyPanelUGUI>());
+        if (boughtPropertyPanelUGUI == null && !_triedResolveBoughtPropertyPanelUGUI)
+        {
+            _triedResolveBoughtPropertyPanelUGUI = true;
+            boughtPropertyPanelUGUI = BoughtPropertyPanelUGUI.Instance != null ? BoughtPropertyPanelUGUI.Instance : FindFirstObjectByType<BoughtPropertyPanelUGUI>();
+        }
+        ugui = boughtPropertyPanelUGUI;
         if (!useUGUIBoughtPropertyPanel || ugui == null)
             return false;
-        if (boughtPropertyPanelUGUI == null)
-            boughtPropertyPanelUGUI = ugui;
         return true;
     }
 
@@ -2774,11 +2784,14 @@ public void ShowChoiceCard(string title, string description, string okText, stri
 
 private bool TryGetCardPanelUGUI(out CardPanelUGUI ugui)
     {
-        ugui = cardPanelUGUI != null ? cardPanelUGUI : (CardPanelUGUI.Instance != null ? CardPanelUGUI.Instance : FindFirstObjectByType<CardPanelUGUI>());
+        if (cardPanelUGUI == null && !_triedResolveCardPanelUGUI)
+        {
+            _triedResolveCardPanelUGUI = true;
+            cardPanelUGUI = CardPanelUGUI.Instance != null ? CardPanelUGUI.Instance : FindFirstObjectByType<CardPanelUGUI>();
+        }
+        ugui = cardPanelUGUI;
         if (!useUGUICardPanel || ugui == null)
             return false;
-        if (cardPanelUGUI == null)
-            cardPanelUGUI = ugui;
         ForceHideUITKCardPanel();
         return true;
     }
@@ -2786,11 +2799,14 @@ private bool TryGetCardPanelUGUI(out CardPanelUGUI ugui)
 
     public bool TryGetJailPanelUGUI(out JailPanelUGUI ugui)
     {
-        ugui = jailPanelUGUI != null ? jailPanelUGUI : (JailPanelUGUI.Instance != null ? JailPanelUGUI.Instance : FindFirstObjectByType<JailPanelUGUI>());
+        if (jailPanelUGUI == null && !_triedResolveJailPanelUGUI)
+        {
+            _triedResolveJailPanelUGUI = true;
+            jailPanelUGUI = JailPanelUGUI.Instance != null ? JailPanelUGUI.Instance : FindFirstObjectByType<JailPanelUGUI>();
+        }
+        ugui = jailPanelUGUI;
         if (!useUGUIJailPanel || ugui == null)
             return false;
-        if (jailPanelUGUI == null)
-            jailPanelUGUI = ugui;
         ForceHideUITKJailPanel();
         return true;
     }
