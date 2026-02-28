@@ -276,6 +276,10 @@ public class UIDocumentManager : MonoBehaviour
     [Header("Property Manager Panel")]
     [Tooltip("Property Manager panel document (Manage Properties - build/sell/mortgage/redeem). Assign PropertyManagerPanel.uxml.")]
     public UIDocument propertyManagerPanelDocument;
+    [Tooltip("When enabled, Manage button uses ManagePropertyController bridge (UGUI/UITK adapter) instead of legacy PropertyManagerPanel UXML.")]
+    public bool useManagePropertyBridge = false;
+    [Tooltip("Optional explicit reference to ManagePropertyController. Auto-found when empty.")]
+    public ManagePropertyController managePropertyController;
     public bool IsPropertyManagerPanelOpen { get; private set; }
     private TileInfo _propertyManagerFocusTile;
     enum PropertyManagerFilter
@@ -465,11 +469,13 @@ public class UIDocumentManager : MonoBehaviour
         InitializeBankruptcyPanel();
         InitializeRentPaymentPanel();
         InitializeTileDetailsPanel();
-        InitializePropertyManagerPanel();
+        if (!useManagePropertyBridge)
+            InitializePropertyManagerPanel();
         InitializePlayerStatisticsPanel();
         InitializeCharacterSetupPanel();
         InitializeSettingsPanel();
-        StartCoroutine(EnsurePropertyManagerPanelHiddenAfterFrame());
+        if (!useManagePropertyBridge)
+            StartCoroutine(EnsurePropertyManagerPanelHiddenAfterFrame());
         
         // Deactivate duplicate HUD documents - DISABLED per user request
         // DeactivateDuplicateHUDs();
@@ -3240,6 +3246,23 @@ private bool TryGetCardPanelUGUI(out CardPanelUGUI ugui)
     /// <summary>Open the Property Manager panel. Optionally focus the row for the given tile. Disables Roll and End Turn while open.</summary>
     public void OpenPropertyManagerPanel(TileInfo focusTile = null)
     {
+        if (useManagePropertyBridge)
+        {
+            if (managePropertyController == null)
+                managePropertyController = FindFirstObjectByType<ManagePropertyController>();
+            if (managePropertyController == null)
+            {
+                Debug.LogWarning("OpenPropertyManagerPanel: ManagePropertyController not found for bridge mode.");
+                return;
+            }
+            _propertyManagerFocusTile = focusTile;
+            IsPropertyManagerPanelOpen = true;
+            if (RollButton != null) RollButton.Enabled = false;
+            if (EndTurnButton != null) EndTurnButton.Enabled = false;
+            managePropertyController.Show();
+            return;
+        }
+
         // Resolve the correct document: must have PropertyManagerList (Manage Properties panel), not Buy/Skip panel
         UIDocument doc = ResolvePropertyManagerDocument();
         if (doc == null)
@@ -3273,6 +3296,22 @@ private bool TryGetCardPanelUGUI(out CardPanelUGUI ugui)
     public void ExitManageMode()
     {
         Debug.Log("ManageMode: ExitManageMode called");
+        if (useManagePropertyBridge)
+        {
+            if (managePropertyController == null)
+                managePropertyController = FindFirstObjectByType<ManagePropertyController>();
+            if (managePropertyController != null)
+                managePropertyController.Hide();
+
+            IsPropertyManagerPanelOpen = false;
+            _propertyManagerFocusTile = null;
+            if (turnManager != null)
+                turnManager.RefreshHUDButtonsForCurrentPhase();
+            if (turnManager != null)
+                turnManager.TryResolvePendingDebt();
+            return;
+        }
+
         if (propertyManagerPanelDocument != null)
         {
             if (propertyManagerPanelDocument.rootVisualElement != null)
@@ -3305,6 +3344,14 @@ private bool TryGetCardPanelUGUI(out CardPanelUGUI ugui)
     /// <summary>Rebuild the property list and focus in the panel. Call after open or after an action (build/sell/mortgage/redeem).</summary>
     public void RefreshPropertyManagerPanel()
     {
+        if (useManagePropertyBridge)
+        {
+            if (managePropertyController == null)
+                managePropertyController = FindFirstObjectByType<ManagePropertyController>();
+            managePropertyController?.Refresh();
+            return;
+        }
+
         if (propertyManagerPanelDocument == null || !IsPropertyManagerPanelOpen) return;
         if (turnManager == null) return;
         Player p = turnManager.GetCurrentPlayer();
