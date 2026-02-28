@@ -15,6 +15,15 @@ public class AuctionSystem : MonoBehaviour
     
     [Header("Auction UI Document")]
     [Tooltip("Auction panel document (shown during auctions). Leave null to use MainHUD.")]
+    
+    [Header("UGUI Auction Panel")]
+    public bool useUGUIAuctionPanel = true;
+    [Tooltip("Enable new UGUI auction module under Assets/Scripts/UI/Auction.")]
+    public bool useNewUGUIAuctionModule = true;
+    [Tooltip("New UGUI auction panel controller (Landlord.UI.Auction). Assign via inspector.")]
+    public Landlord.UI.Auction.AuctionPanelController auctionPanelUGUIV2;
+    [Tooltip("Optional: assign AuctionPanelUGUI GameObject here if controller field is hard to assign.")]
+    public GameObject auctionPanelUGUIV2Root;
     public UIDocument auctionPanelDocument;
     
     [Header("Styling")]
@@ -30,12 +39,18 @@ public class AuctionSystem : MonoBehaviour
     
     [Tooltip("Auction timeout in seconds (if no bids)")]
     public float auctionTimeout = 30f;
+    [Tooltip("If true, auction is strictly turn-based and never auto-ends on timer.")]
+    public bool disableAuctionTimeoutForTurnBased = true;
     
     [Tooltip("Max auction duration in seconds (force end if exceeded)")]
     public float auctionMaxDuration = 60f;
     
     [Tooltip("Delay before AI places bid or pass (seconds)")]
     public float aiBidDelay = 0.8f;
+    [Tooltip("Minimum think time before AI responds in UGUI v2 auction (seconds).")]
+    public float aiV2ThinkMin = 1.0f;
+    [Tooltip("Maximum think time before AI responds in UGUI v2 auction (seconds).")]
+    public float aiV2ThinkMax = 2.0f;
     
     [Header("AI Bidding Strategy")]
     [Tooltip("How willing AI is to bid (0 = conservative, 1 = aggressive).")]
@@ -50,6 +65,8 @@ public class AuctionSystem : MonoBehaviour
     [Tooltip("Max bid as multiple of property price when completing a monopoly (e.g. 2 = 200%).")]
     [Range(1.2f, 2.5f)]
     public float aiMonopolyMaxBidOverPrice = 2f;
+    [Tooltip("Enable detailed AI auction logs to Console + gameplay.log.")]
+    public bool enableAIAuctionDebugLogs = true;
     
     // Current auction state
     private float auctionStartTime;
@@ -64,6 +81,9 @@ public class AuctionSystem : MonoBehaviour
     private bool auctionInProgress = false;
     private Coroutine auctionTimeoutCoroutine;
     private Coroutine aiAuctionCoroutine;
+    private Coroutine aiAuctionCoroutineV2;
+    private MonoBehaviour aiAuctionCoroutineV2Host;
+    private bool usingNewUGUIAuctionSession = false;
     
     // Auction turn system (independent from main game turns)
     private int auctionCurrentPlayerIndex = 0;
@@ -95,8 +115,108 @@ public class AuctionSystem : MonoBehaviour
         {
             uiManager = FindAnyObjectByType<UIDocumentManager>();
         }
+
+        if (auctionPanelUGUIV2 == null && auctionPanelUGUIV2Root != null)
+        {
+            auctionPanelUGUIV2 = auctionPanelUGUIV2Root.GetComponent<Landlord.UI.Auction.AuctionPanelController>();
+            if (auctionPanelUGUIV2 == null)
+            {
+                Debug.LogError("AuctionSystem: auctionPanelUGUIV2Root is assigned but has no AuctionPanelController component.");
+            }
+        }
+        if (auctionPanelUGUIV2 == null)
+        {
+            EnsureUGUIV2ControllerAuto();
+        }
+        
+        RegisterUGUIV2Callbacks();
         
         InitializeAuctionUI();
+    }
+
+    void EnsureUGUIV2ControllerAuto()
+    {
+        if (auctionPanelUGUIV2 == null)
+        {
+            auctionPanelUGUIV2 = FindAnyObjectByType<Landlord.UI.Auction.AuctionPanelController>();
+            if (auctionPanelUGUIV2 != null)
+            {
+                var foundView = FindAnyObjectByType<Landlord.UI.Auction.AuctionPanelView>();
+                if (foundView != null) auctionPanelUGUIV2.SetView(foundView);
+                auctionPanelUGUIV2Root = auctionPanelUGUIV2.gameObject;
+                RegisterUGUIV2Callbacks();
+                Debug.Log("AuctionSystem: Found existing AuctionPanelController in scene.");
+                return;
+            }
+        }
+
+        GameObject host = auctionPanelUGUIV2Root;
+        if (host == null)
+        {
+            host = GameObject.Find("AuctionPanelUGUI");
+        }
+
+        if (host == null)
+        {
+            Canvas targetCanvas = FindAnyObjectByType<Canvas>();
+            host = new GameObject("AuctionPanelUGUI", typeof(RectTransform), typeof(CanvasGroup), typeof(Landlord.UI.Auction.AuctionPanelView), typeof(Landlord.UI.Auction.AuctionPanelController), typeof(Landlord.UI.Auction.AuctionPanelMockupBuilder));
+            if (targetCanvas != null)
+            {
+                host.transform.SetParent(targetCanvas.transform, false);
+                RectTransform rt = host.GetComponent<RectTransform>();
+                rt.anchorMin = Vector2.zero;
+                rt.anchorMax = Vector2.one;
+                rt.offsetMin = Vector2.zero;
+                rt.offsetMax = Vector2.zero;
+            }
+            else
+            {
+                host.AddComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+                host.AddComponent<UnityEngine.UI.GraphicRaycaster>();
+            }
+            var builder = host.GetComponent<Landlord.UI.Auction.AuctionPanelMockupBuilder>();
+            if (builder != null) builder.BuildMockupLayout();
+        }
+
+        var view = host.GetComponent<Landlord.UI.Auction.AuctionPanelView>();
+        if (view == null) view = host.AddComponent<Landlord.UI.Auction.AuctionPanelView>();
+        var controller = host.GetComponent<Landlord.UI.Auction.AuctionPanelController>();
+        if (controller == null) controller = host.AddComponent<Landlord.UI.Auction.AuctionPanelController>();
+        controller.SetView(view);
+
+        auctionPanelUGUIV2Root = host;
+        auctionPanelUGUIV2 = controller;
+        RegisterUGUIV2Callbacks();
+        Debug.Log("AuctionSystem: Auto-resolved AuctionPanelUGUI v2 controller.");
+    }
+
+    void RegisterUGUIV2Callbacks()
+    {
+        if (auctionPanelUGUIV2 == null) return;
+        auctionPanelUGUIV2.OnAuctionCompleted -= OnAuctionCompletedFromUGUIV2;
+        auctionPanelUGUIV2.OnAuctionCompleted += OnAuctionCompletedFromUGUIV2;
+    }
+
+    void EnsureLegacyAuctionUIHiddenForUGUIV2()
+    {
+        if (auctionPanelDocument != null && auctionPanelDocument.rootVisualElement != null)
+        {
+            auctionPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+            auctionPanelDocument.rootVisualElement.pickingMode = PickingMode.Ignore;
+        }
+        if (auctionPanel != null)
+        {
+            auctionPanel.style.display = DisplayStyle.None;
+            auctionPanel.pickingMode = PickingMode.Ignore;
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (auctionPanelUGUIV2 != null)
+        {
+            auctionPanelUGUIV2.OnAuctionCompleted -= OnAuctionCompletedFromUGUIV2;
+        }
     }
     
     void InitializeAuctionUI()
@@ -235,13 +355,16 @@ public class AuctionSystem : MonoBehaviour
     /// <summary>
     /// Start an auction for a property when a player declines to buy it.
     /// </summary>
-    public void StartAuction(Property property, TileInfo tile)
-    {
-        StartAuction(property, tile, null);
-    }
 
-    public void StartAuction(Property property, TileInfo tile, Player initiator)
+
+public void StartAuction(Property property, TileInfo tile, Player initiator)
     {
+        if (useUGUIAuctionPanel && useNewUGUIAuctionModule && auctionPanelUGUIV2 == null)
+        {
+            EnsureUGUIV2ControllerAuto();
+        }
+
+        usingNewUGUIAuctionSession = false;
         if (auctionInProgress)
         {
             Debug.LogWarning("AuctionSystem: Cannot start new auction - one is already in progress!");
@@ -261,6 +384,72 @@ public class AuctionSystem : MonoBehaviour
         if (property.owner != null)
         {
             Debug.LogWarning("AuctionSystem: Cannot auction property that is already owned!");
+            return;
+        }
+
+        if (useUGUIAuctionPanel && useNewUGUIAuctionModule && auctionPanelUGUIV2 != null)
+        {
+            EnsureLegacyAuctionUIHiddenForUGUIV2();
+            currentAuctionProperty = property;
+            currentAuctionTile = tile;
+            auctionInitiator = initiator;
+            playerBids.Clear();
+            highestBidder = null;
+            highestBid = 0;
+            auctionCurrentPlayerIndex = 0;
+            usingNewUGUIAuctionSession = true;
+
+            auctionActivePlayers.Clear();
+            if (turnManager != null && turnManager.players != null)
+            {
+                foreach (Player p in turnManager.players)
+                {
+                    if (p != null && !p.IsEliminated)
+                    {
+                        auctionActivePlayers.Add(p);
+                    }
+                }
+            }
+
+            int v2MinBidPercent = minBidPercentage;
+            if (auctionInitiator != null && auctionInitiator.HasCharacterEffect(CharacterEffectKeys.FreshGradMinBidIncrease))
+            {
+                v2MinBidPercent = Mathf.Max(v2MinBidPercent, 15);
+            }
+            int v2MinBid = Mathf.Max(property.price * v2MinBidPercent / 100, 10000);
+            currentBid = v2MinBid;
+
+            auctionInProgress = true;
+            if (turnManager != null)
+                turnManager.TransitionState(GameStateMachine.State.InAuction);
+            auctionStartTime = Time.time;
+            lastAIAuctionPlayer = null;
+
+            NotifyAllPlayersAuctionStarted();
+            OpenUGUIV2AuctionSession(property, tile, initiator, v2MinBid);
+
+            if (aiAuctionCoroutineV2 != null && aiAuctionCoroutineV2Host != null)
+            {
+                aiAuctionCoroutineV2Host.StopCoroutine(aiAuctionCoroutineV2);
+                aiAuctionCoroutineV2 = null;
+                aiAuctionCoroutineV2Host = null;
+            }
+
+            MonoBehaviour v2Host = ResolveActiveCoroutineHost();
+            if (v2Host != null)
+            {
+                aiAuctionCoroutineV2Host = v2Host;
+                aiAuctionCoroutineV2 = v2Host.StartCoroutine(DriveUGUIV2AIBids());
+            }
+            else
+            {
+                Debug.LogError("AuctionSystem: Could not start v2 AI auction coroutine - no active host MonoBehaviour.");
+            }
+            return;
+        }
+        if (useUGUIAuctionPanel && useNewUGUIAuctionModule)
+        {
+            Debug.LogError("AuctionSystem: New UGUI auction module is enabled but no AuctionPanelController (v2) is assigned. Auction start aborted to avoid legacy UI fallback.");
             return;
         }
         
@@ -441,25 +630,52 @@ public class AuctionSystem : MonoBehaviour
     float GetAIBidScore(Player ai, int nextBid)
     {
         if (ai == null || currentAuctionProperty == null) return 0f;
+        AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(ai);
+        AIProfilePhase phase = AICharacterBehaviorProfiles.GetPhase(profile, ai.turnsTaken);
+        float auction01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.auction) : 0.5f;
+        float risk01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.risk) : 0.5f;
+        float liquidity01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.liquidity) : 0.5f;
+        float monopoly01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.monopoly) : 0.5f;
         
         int price = currentAuctionProperty.price;
         float monopolyScore = GetMonopolyScore(ai, currentAuctionProperty);
         bool wouldCompleteMonopoly = monopolyScore >= 0.99f;
         float maxOverPrice = wouldCompleteMonopoly ? aiMonopolyMaxBidOverPrice : aiMaxBidOverPrice;
+        maxOverPrice += Mathf.Lerp(-0.15f, 0.28f, auction01);
+        if (wouldCompleteMonopoly)
+            maxOverPrice += Mathf.Lerp(0f, 0.35f, monopoly01);
+        maxOverPrice = Mathf.Clamp(maxOverPrice, 1f, 2.8f);
         if (nextBid > price * maxOverPrice)
             return 0f;
         
         // Value: prefer not to overpay (1 at price, lower above)
-        float valueScore = nextBid <= price ? 1f : Mathf.Clamp01(1f - (float)(nextBid - price) / (price * (maxOverPrice - 1f)));
+        float valueDivisor = Mathf.Max(price * (maxOverPrice - 1f), 1f);
+        float valueScore = nextBid <= price ? 1f : Mathf.Clamp01(1f - (float)(nextBid - price) / valueDivisor);
         
         // Cash reserve: penalize if bid would leave us with less than reserve
-        int reserve = Mathf.Max(50000, (int)(ai.GetNetWorth() * aiReserveFraction));
+        float reserveFraction = aiReserveFraction * Mathf.Lerp(0.75f, 1.35f, liquidity01);
+        int reserve = Mathf.Max(50000, (int)(ai.GetNetWorth() * reserveFraction));
         int cashAfter = ai.Money - nextBid;
         float cashScore = cashAfter >= reserve ? 1f : Mathf.Clamp01((float)cashAfter / reserve);
         
-        // Game stage: early = more aggressive for monopolies, mid/late = still value monopolies highly
-        float gameStage = GetGameStage();
-        float stageBonus = (1f - gameStage) * 0.15f; // early game slight boost
+        // Phase behavior: early acquisition, mid consolidation, late survival bias.
+        float phaseBonus = 0f;
+        float phaseRiskMultiplier = 1f;
+        switch (phase)
+        {
+            case AIProfilePhase.Early:
+                phaseBonus = 0.12f;
+                phaseRiskMultiplier = 1.08f;
+                break;
+            case AIProfilePhase.Mid:
+                phaseBonus = 0.04f;
+                phaseRiskMultiplier = 1f;
+                break;
+            case AIProfilePhase.Late:
+                phaseBonus = -0.04f;
+                phaseRiskMultiplier = Mathf.Lerp(0.9f, 1.02f, risk01);
+                break;
+        }
         
         // Opponent pressure: if highest bidder has less cash, we can push; if they have more, we're more cautious
         int opponentCash = highestBidder != null ? highestBidder.Money : GetRichestOpponentMoney(ai);
@@ -473,8 +689,13 @@ public class AuctionSystem : MonoBehaviour
         }
         
         // Weighted combination: monopoly and value matter most
-        float score = (valueScore * 0.25f + monopolyScore * 0.45f + cashScore * 0.2f + stageBonus) * opponentFactor;
-        return Mathf.Clamp01(score * (0.7f + 0.3f * aiRiskTolerance));
+        float groupBias = AICharacterBehaviorProfiles.GetGroupBiasWeight(profile, currentAuctionProperty);
+        float profileRiskBlend = Mathf.Lerp(0.65f, 1.3f, (risk01 + auction01) * 0.5f);
+        float score = (valueScore * 0.24f + monopolyScore * Mathf.Lerp(0.35f, 0.55f, monopoly01) + cashScore * 0.22f + phaseBonus) * opponentFactor;
+        score *= Mathf.Clamp(groupBias, 0.65f, 1.65f);
+        score *= profileRiskBlend;
+        score *= phaseRiskMultiplier;
+        return Mathf.Clamp01(score * (0.65f + 0.35f * aiRiskTolerance));
     }
     
     /// <summary>
@@ -539,15 +760,26 @@ public class AuctionSystem : MonoBehaviour
         bool canAfford = ai.CanAfford(nextBid);
         bool mustBid = ai.HasCharacterEffect(CharacterEffectKeys.AuctionEdge) && canAfford && nextBid <= currentAuctionProperty.price;
         float bidScore = GetAIBidScore(ai, nextBid);
+        AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(ai);
+        AIProfilePhase phase = AICharacterBehaviorProfiles.GetPhase(profile, ai.turnsTaken);
+        float risk01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.risk) : 0.5f;
+        float auction01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.auction) : 0.5f;
+        float monopoly01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.monopoly) : 0.5f;
         // Threshold with slight randomness so AI isn't perfectly predictable
-        float threshold = 0.42f - (aiRiskTolerance * 0.12f) + (Random.value * 0.15f);
+        float threshold = Mathf.Lerp(0.58f, 0.28f, (risk01 + auction01) * 0.5f);
+        threshold += Mathf.Lerp(0.08f, -0.06f, monopoly01);
+        if (phase == AIProfilePhase.Early) threshold -= 0.04f;
+        else if (phase == AIProfilePhase.Late) threshold += 0.05f;
+        threshold -= aiRiskTolerance * 0.08f;
+        threshold += Random.value * 0.14f;
         bool willBid = canAfford && (mustBid || (bidScore >= threshold));
+        LogAIAuctionDecision($"AI_AUCTION_DECISION | player={ai.playerName} property={(currentAuctionProperty != null ? currentAuctionProperty.propertyName : "null")} nextBid={nextBid} canAfford={canAfford} mustBid={mustBid} score={bidScore:0.00} threshold={threshold:0.00} decision={(willBid ? "BID" : "PASS")} phase={phase}");
         
         if (willBid)
         {
             PlaceBid(ai, nextBid);
-            if (uiManager != null)
-                uiManager.ShowResultNotification($"{ai.playerName} bid ₦{nextBid:N0} in auction.", 1.0f);
+            if (NarrativeManager.Instance != null && currentAuctionProperty != null && nextBid >= Mathf.RoundToInt(currentAuctionProperty.price * 1.2f))
+                NarrativeManager.Instance.AddSystemMessage("AI Auction", $"{ai.playerName} made an aggressive bid of ₦{nextBid:N0} for {currentAuctionProperty.propertyName}.");
             AdvanceAuctionTurn();
             CheckAuctionCompletion();
         }
@@ -556,8 +788,8 @@ public class AuctionSystem : MonoBehaviour
             if (playerBids.ContainsKey(ai) && playerBids[ai] == -1) { aiAuctionCoroutine = null; yield break; }
             playerBids[ai] = -1;
             if (auctionStatusText != null) auctionStatusText.text = $"{ai.playerName} passed";
-            if (uiManager != null)
-                uiManager.ShowResultNotification($"{ai.playerName} passed the auction.", 1.0f);
+            if (NarrativeManager.Instance != null)
+                NarrativeManager.Instance.AddSystemMessage("AI Auction", $"{ai.playerName} passed on {currentAuctionProperty.propertyName}.");
             AdvanceAuctionTurn();
             UpdateAuctionUI();
             CheckAuctionCompletion();
@@ -567,6 +799,13 @@ public class AuctionSystem : MonoBehaviour
         aiAuctionCoroutine = null;
         if (auctionInProgress)
             TryStartAIAuctionTurn();
+    }
+
+    void LogAIAuctionDecision(string message)
+    {
+        if (!enableAIAuctionDebugLogs) return;
+        Debug.Log($"[AI][Auction] {message}");
+        GameLogger.Log(message);
     }
     
     void UpdateAuctionUI()
@@ -1055,23 +1294,28 @@ public class AuctionSystem : MonoBehaviour
     
     void EndAuction()
     {
+        bool wasUsingNewUGUIAuctionSession = usingNewUGUIAuctionSession;
         if (!auctionInProgress || currentAuctionProperty == null) return;
+        Property wonProperty = currentAuctionProperty;
+        TileInfo wonTile = currentAuctionTile;
+        Player winner = highestBidder;
+        int finalBid = highestBid;
         
-        if (highestBidder != null && highestBid > 0)
+        if (winner != null && finalBid > 0)
         {
             // Winner pays the bid amount
-            if (highestBidder.TrySpend(highestBid))
+            if (winner.TrySpend(finalBid))
             {
-                currentAuctionProperty.owner = highestBidder;
+                wonProperty.owner = winner;
                 Debug.Log($"=== AUCTION ENDED ===");
-                Debug.Log($"Winner: {highestBidder.playerName}");
-                Debug.Log($"Property: {currentAuctionProperty.propertyName}");
-                Debug.Log($"Final Bid: ₦{highestBid:N0}");
+                Debug.Log($"Winner: {winner.playerName}");
+                Debug.Log($"Property: {wonProperty.propertyName}");
+                Debug.Log($"Final Bid: ₦{finalBid:N0}");
                 
                 // Update ownership tag if present
-                if (currentAuctionTile != null)
+                if (wonTile != null)
                 {
-                    PropertyOwnershipTag ownershipTag = currentAuctionTile.GetComponent<PropertyOwnershipTag>();
+                    PropertyOwnershipTag ownershipTag = wonTile.GetComponent<PropertyOwnershipTag>();
                     if (ownershipTag != null)
                     {
                         ownershipTag.UpdateOwnershipDisplay();
@@ -1079,11 +1323,27 @@ public class AuctionSystem : MonoBehaviour
                 }
                 
                 if (auctionStatusText != null)
-                    auctionStatusText.text = $"Winner: {highestBidder.playerName} (₦{highestBid:N0})";
+                    auctionStatusText.text = $"Winner: {winner.playerName} (₦{finalBid:N0})";
+
+                // Winner notification card: use the same tile-details purchase panel style as normal buy.
+                if (uiManager != null && wonTile != null)
+                    uiManager.ShowBoughtPropertyPanel(winner, wonTile, finalBid, winner.isAI ? 1.1f : 1.8f);
+
+                // Auction completion SFX (purchase/cash vibe).
+                if (GameSoundManager.Instance != null)
+                {
+                    GameSoundManager.Instance.PlayBuyProperty();
+                    GameSoundManager.Instance.PlayMoneyIn();
+                    GameSoundManager.Instance.NotifyActivity();
+                }
+
+                // Small feed event on auction completion.
+                if (NarrativeManager.Instance != null)
+                    NarrativeManager.Instance.AddSystemMessage("Auction Update", $"{winner.playerName} won {wonProperty.propertyName} at auction for ₦{finalBid:N0}.");
             }
             else
             {
-                Debug.LogError($"Auction winner {highestBidder.playerName} cannot afford their bid!");
+                Debug.LogError($"Auction winner {winner.playerName} cannot afford their bid!");
                 // Property goes unsold
                 EndAuctionNoWinner();
                 return;
@@ -1110,6 +1370,7 @@ public class AuctionSystem : MonoBehaviour
         currentAuctionTile = null;
         auctionInitiator = null;
         lastAIAuctionPlayer = null;
+        usingNewUGUIAuctionSession = false;
         playerBids.Clear();
         highestBidder = null;
         highestBid = 0;
@@ -1125,15 +1386,32 @@ public class AuctionSystem : MonoBehaviour
             StopCoroutine(aiAuctionCoroutine);
             aiAuctionCoroutine = null;
         }
+        if (aiAuctionCoroutineV2 != null)
+        {
+            if (aiAuctionCoroutineV2Host != null)
+                aiAuctionCoroutineV2Host.StopCoroutine(aiAuctionCoroutineV2);
+            aiAuctionCoroutineV2 = null;
+            aiAuctionCoroutineV2Host = null;
+        }
         
         if (turnManager != null)
             turnManager.OnAuctionEnded();
+
+        if (wasUsingNewUGUIAuctionSession && auctionPanelUGUIV2 != null)
+        {
+            auctionPanelUGUIV2.CloseAuction();
+            return;
+        }
         
-        StartCoroutine(HidePanelAfterDelay(2f));
+        if (isActiveAndEnabled)
+            StartCoroutine(HidePanelAfterDelay(2f));
+        else
+            HideAuctionPanel();
     }
     
     void EndAuctionNoWinner()
     {
+        bool wasUsingNewUGUIAuctionSession = usingNewUGUIAuctionSession;
         Debug.Log($"=== AUCTION ENDED - NO WINNER ===");
         Debug.Log($"Property {currentAuctionProperty.propertyName} goes unsold");
         
@@ -1155,6 +1433,7 @@ public class AuctionSystem : MonoBehaviour
         currentAuctionTile = null;
         auctionInitiator = null;
         lastAIAuctionPlayer = null;
+        usingNewUGUIAuctionSession = false;
         playerBids.Clear();
         highestBidder = null;
         highestBid = 0;
@@ -1170,11 +1449,27 @@ public class AuctionSystem : MonoBehaviour
             StopCoroutine(aiAuctionCoroutine);
             aiAuctionCoroutine = null;
         }
+        if (aiAuctionCoroutineV2 != null)
+        {
+            if (aiAuctionCoroutineV2Host != null)
+                aiAuctionCoroutineV2Host.StopCoroutine(aiAuctionCoroutineV2);
+            aiAuctionCoroutineV2 = null;
+            aiAuctionCoroutineV2Host = null;
+        }
         
         if (turnManager != null)
             turnManager.OnAuctionEnded();
+
+        if (wasUsingNewUGUIAuctionSession && auctionPanelUGUIV2 != null)
+        {
+            auctionPanelUGUIV2.CloseAuction();
+            return;
+        }
         
-        StartCoroutine(HidePanelAfterDelay(2f));
+        if (isActiveAndEnabled)
+            StartCoroutine(HidePanelAfterDelay(2f));
+        else
+            HideAuctionPanel();
     }
     
     IEnumerator HidePanelAfterDelay(float delay)
@@ -1217,7 +1512,229 @@ public class AuctionSystem : MonoBehaviour
         return currentBid + bidIncrement;
     }
 
-    void ApplyBidPenaltyForLosers()
+    
+    public void ResolveAuctionResult(Player winner, int amount)
+    {
+        if (!auctionInProgress) return;
+        highestBidder = winner;
+        highestBid = amount;
+        currentBid = amount;
+        EndAuction();
+    }
+
+    public void ResolveAuctionNoWinner()
+    {
+        if (!auctionInProgress) return;
+        EndAuctionNoWinner();
+    }
+
+    void OpenUGUIV2AuctionSession(Property property, TileInfo tile, Player initiator, int minBid)
+    {
+        if (auctionPanelUGUIV2 == null) return;
+        if (!auctionPanelUGUIV2.gameObject.activeInHierarchy)
+            auctionPanelUGUIV2.gameObject.SetActive(true);
+
+        var cfg = new Landlord.UI.Auction.AuctionSessionConfig
+        {
+            auctionId = $"auc_{Time.frameCount}",
+            propertyId = $"{tile.name}_{property.propertyName}",
+            propertyName = property.propertyName,
+            tileInfo = tile,
+            propertyPrice = property.price,
+            propertyGroupColor = Color.white,
+            propertyIcon = null,
+            startBid = minBid,
+            minIncrement = Mathf.Max(1, bidIncrement),
+            historyBufferMax = 30,
+            auctionTimeoutSeconds = disableAuctionTimeoutForTurnBased ? 0f : Mathf.Max(0f, auctionTimeout),
+            localPlayerId = initiator != null ? initiator.playerIndex.ToString() : string.Empty
+        };
+
+        for (int i = 0; i < auctionActivePlayers.Count; i++)
+        {
+            Player p = auctionActivePlayers[i];
+            if (p == null) continue;
+
+            cfg.bidders.Add(new Landlord.UI.Auction.AuctionBidderConfig
+            {
+                playerId = p.playerIndex.ToString(),
+                playerName = p.playerName,
+                playerColor = p.playerColor,
+                wallet = p.Money,
+                isAI = p.isAI,
+                avatar = null
+            });
+        }
+
+        auctionPanelUGUIV2.OpenAuction(cfg);
+    }
+
+    IEnumerator DriveUGUIV2AIBids()
+    {
+        while (auctionInProgress && usingNewUGUIAuctionSession && auctionPanelUGUIV2 != null)
+        {
+            Landlord.UI.Auction.AuctionState state = auctionPanelUGUIV2.CurrentState;
+            if (state == null || state.phase != Landlord.UI.Auction.AuctionPhase.Bidding)
+                yield break;
+
+            int minNextBid = state.MinNextBid;
+            bool actedThisTick = false;
+            if (!string.IsNullOrEmpty(state.currentTurnPlayerId))
+            {
+                Landlord.UI.Auction.AuctionParticipantState p = null;
+                for (int i = 0; i < state.participants.Count; i++)
+                {
+                    if (state.participants[i] != null && state.participants[i].playerId == state.currentTurnPlayerId)
+                    {
+                        p = state.participants[i];
+                        break;
+                    }
+                }
+
+                if (p != null && p.isAI && !p.isOut && !p.hasPassed)
+                {
+                    float thinkMin = Mathf.Max(0f, aiV2ThinkMin);
+                    float thinkMax = Mathf.Max(thinkMin, aiV2ThinkMax);
+                    float thinkDelay = Random.Range(thinkMin, thinkMax);
+                    if (thinkDelay > 0f)
+                        yield return new WaitForSeconds(thinkDelay);
+
+                    state = auctionPanelUGUIV2 != null ? auctionPanelUGUIV2.CurrentState : null;
+                    if (state == null || state.phase != Landlord.UI.Auction.AuctionPhase.Bidding)
+                        yield break;
+                    if (state.currentTurnPlayerId != p.playerId)
+                        continue;
+                    minNextBid = state.MinNextBid;
+                    int latestWallet = p.wallet;
+                    for (int j = 0; j < state.participants.Count; j++)
+                    {
+                        var sPart = state.participants[j];
+                        if (sPart != null && sPart.playerId == p.playerId)
+                        {
+                            latestWallet = sPart.wallet;
+                            break;
+                        }
+                    }
+
+                    Player aiPlayer = FindAuctionPlayerById(p.playerId);
+                    bool canAfford = latestWallet >= minNextBid;
+                    if (!canAfford)
+                    {
+                        auctionPanelUGUIV2.TrySubmitPass(p.playerId, out _);
+                        actedThisTick = true;
+                    }
+                    else
+                    {
+                        float bidScore;
+                        float threshold;
+                        bool willBid = ShouldAIBidV2(aiPlayer, minNextBid, out bidScore, out threshold);
+
+                        if (willBid)
+                        {
+                            int bid = minNextBid;
+                            auctionPanelUGUIV2.TrySubmitBid(p.playerId, bid, out _);
+                            LogAIAuctionDecision($"V2_DECISION | player={p.playerName} nextBid={bid} canAfford={canAfford} score={bidScore:0.00} threshold={threshold:0.00} decision=BID");
+                            actedThisTick = true;
+                        }
+                        else
+                        {
+                            auctionPanelUGUIV2.TrySubmitPass(p.playerId, out _);
+                            LogAIAuctionDecision($"V2_DECISION | player={p.playerName} nextBid={minNextBid} canAfford={canAfford} score={bidScore:0.00} threshold={threshold:0.00} decision=PASS");
+                            actedThisTick = true;
+                        }
+                    }
+                }
+            }
+
+            float delay = (turnManager != null && turnManager.aiDecisionDelay > 0f) ? turnManager.aiDecisionDelay : aiBidDelay;
+            if (!actedThisTick)
+                delay = Mathf.Min(delay, 0.35f);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    bool ShouldAIBidV2(Player aiPlayer, int nextBid, out float bidScore, out float threshold)
+    {
+        bidScore = 0f;
+        threshold = 0.62f;
+
+        if (aiPlayer == null)
+        {
+            threshold = 0.72f;
+            return false;
+        }
+
+        bidScore = GetAIBidScore(aiPlayer, nextBid);
+        AICharacterProfileData profile = AICharacterBehaviorProfiles.Resolve(aiPlayer);
+        AIProfilePhase phase = AICharacterBehaviorProfiles.GetPhase(profile, aiPlayer.turnsTaken);
+        float risk01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.risk) : 0.5f;
+        float auction01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.auction) : 0.5f;
+        float monopoly01 = profile != null ? AICharacterBehaviorProfiles.Stat01(profile.monopoly) : 0.5f;
+
+        threshold = Mathf.Lerp(0.58f, 0.28f, (risk01 + auction01) * 0.5f);
+        threshold += Mathf.Lerp(0.08f, -0.06f, monopoly01);
+        if (phase == AIProfilePhase.Early) threshold -= 0.04f;
+        else if (phase == AIProfilePhase.Late) threshold += 0.05f;
+        threshold -= aiRiskTolerance * 0.08f;
+        threshold += Random.value * 0.14f;
+
+        return bidScore >= threshold;
+    }
+
+    void OnAuctionCompletedFromUGUIV2(Landlord.UI.Auction.AuctionResult result)
+    {
+        Debug.Log($"AuctionSystem: OnAuctionCompletedFromUGUIV2 called. hasWinner={(result != null && result.hasWinner)} winner={(result != null ? result.winnerName : "null")} price={(result != null ? result.finalPrice : 0)} inProgress={auctionInProgress}");
+        if (!usingNewUGUIAuctionSession) return;
+        if (!auctionInProgress) return;
+
+        if (result != null && result.hasWinner)
+        {
+            Player winner = FindAuctionPlayerById(result.winnerPlayerId);
+            if (winner == null)
+                winner = FindAuctionPlayerByName(result.winnerName);
+
+            if (winner != null)
+            {
+                ResolveAuctionResult(winner, result.finalPrice);
+                return;
+            }
+        }
+
+        ResolveAuctionNoWinner();
+    }
+
+    Player FindAuctionPlayerById(string playerId)
+    {
+        if (string.IsNullOrEmpty(playerId) || auctionActivePlayers == null) return null;
+        for (int i = 0; i < auctionActivePlayers.Count; i++)
+        {
+            Player p = auctionActivePlayers[i];
+            if (p != null && p.playerIndex.ToString() == playerId)
+                return p;
+        }
+        return null;
+    }
+
+    Player FindAuctionPlayerByName(string playerName)
+    {
+        if (string.IsNullOrEmpty(playerName) || auctionActivePlayers == null) return null;
+        for (int i = 0; i < auctionActivePlayers.Count; i++)
+        {
+            Player p = auctionActivePlayers[i];
+            if (p != null && p.playerName == playerName)
+                return p;
+        }
+        return null;
+    }
+
+    MonoBehaviour ResolveActiveCoroutineHost()
+    {
+        if (isActiveAndEnabled) return this;
+        if (turnManager != null && turnManager.isActiveAndEnabled) return turnManager;
+        return null;
+    }
+
+void ApplyBidPenaltyForLosers()
     {
         if (turnManager == null) return;
 

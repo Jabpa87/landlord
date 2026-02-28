@@ -1798,6 +1798,7 @@ void InitializeCardPanel()
             return false;
         if (propertyPanelUGUI == null)
             propertyPanelUGUI = ugui;
+        ForceHideUITKPropertyPanel();
         return true;
     }
 
@@ -2778,6 +2779,7 @@ private bool TryGetCardPanelUGUI(out CardPanelUGUI ugui)
             return false;
         if (cardPanelUGUI == null)
             cardPanelUGUI = ugui;
+        ForceHideUITKCardPanel();
         return true;
     }
 
@@ -2789,7 +2791,29 @@ private bool TryGetCardPanelUGUI(out CardPanelUGUI ugui)
             return false;
         if (jailPanelUGUI == null)
             jailPanelUGUI = ugui;
+        ForceHideUITKJailPanel();
         return true;
+    }
+
+    void ForceHideUITKPropertyPanel()
+    {
+        if (propertyPanelDocument == null || propertyPanelDocument.rootVisualElement == null) return;
+        propertyPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+        propertyPanelDocument.rootVisualElement.pickingMode = PickingMode.Ignore;
+    }
+
+    void ForceHideUITKCardPanel()
+    {
+        if (cardPanelDocument == null || cardPanelDocument.rootVisualElement == null) return;
+        cardPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+        cardPanelDocument.rootVisualElement.pickingMode = PickingMode.Ignore;
+    }
+
+    void ForceHideUITKJailPanel()
+    {
+        if (jailPanelDocument == null || jailPanelDocument.rootVisualElement == null) return;
+        jailPanelDocument.rootVisualElement.style.display = DisplayStyle.None;
+        jailPanelDocument.rootVisualElement.pickingMode = PickingMode.Ignore;
     }
     
     void InitializeTileDetailsPanel()

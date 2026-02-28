@@ -20,8 +20,8 @@ Owner: Gameplay/UI
 - [ ] Animation timing tuning for AI responses and money flow
 
 ## Work Log
-- [ ] Day 1 baseline captured
-- [ ] Day 2 UI ownership pass
+- [x] Day 1 baseline captured
+- [x] Day 2 UI ownership pass
 - [ ] Day 3 auction/turn state hardening
 - [ ] Day 4 deterministic refs pass
 - [ ] Day 5 icon/asset integrity pass
