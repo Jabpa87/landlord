@@ -2813,11 +2813,15 @@ public IEnumerator MoveSteps(int steps, int goSalary, int dice1 = 0, int dice2 =
     void ApplyMoneyCard(Card card, CardDeckType deckType)
     {
         int amount = card.moneyAmount;
+        int walletBefore = Money;
 
         if (deckType == CardDeckType.CommunityChest && HasFaultEffect(CharacterEffectKeys.NoSafetyNet) && turnsTaken < 10 && amount > 0)
         {
-            Debug.Log("No Safety Net: Community Chest rewards blocked until Turn 10.");
-            GameLogger.Log($"PERK_NO_SAFETY_NET | player={playerName} turn={turnsTaken} blocked_amount={amount}");
+            string blockedMsg = $"{playerName}: Community Chest reward blocked until Turn 10 (No Safety Net).";
+            Debug.Log(blockedMsg);
+            GameLogger.Log($"PERK_NO_SAFETY_NET | player={playerName} turn={turnsTaken} blocked_amount={amount} wallet={Money}");
+            if (uiManager != null)
+                uiManager.ShowResultNotification(blockedMsg, isAI ? 1.2f : 2.0f);
             return;
         }
         
@@ -2871,6 +2875,10 @@ public IEnumerator MoveSteps(int steps, int goSalary, int dice1 = 0, int dice2 =
                 Debug.Log($"Paid ₦{Mathf.Abs(amount):N0}.");
             }
         }
+
+        int walletAfter = Money;
+        Debug.Log($"[Card Money] player={playerName} card=\"{card.title}\" amount={amount} walletBefore={walletBefore} walletAfter={walletAfter}");
+        GameLogger.Log($"CARD_MONEY | player={playerName} card=\"{card.title}\" amount={amount} before={walletBefore} after={walletAfter}");
     }
     
     IEnumerator ApplyMovementCard(Card card)
